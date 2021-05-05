@@ -30,7 +30,7 @@ const Field = ({
         id={inputId}
         type={type}
         className="field-input"
-        placeholder={placeholder}
+        placeholder='placeholder'//{placeholder}
         name={name}
       />
 
