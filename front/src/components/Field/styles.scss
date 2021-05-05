@@ -1,0 +1,7 @@
+@use 'src/styles/vars';
+
+.field {
+  padding: 1rem;
+  border: 1px solid vars.$mediumGrey;
+  border-radius: vars.$borderRadius;
+}
