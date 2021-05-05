@@ -16,6 +16,22 @@ class User {
             throw new Error(`no user with id ${id}`);
         }
     }
+
+    async save() {
+
+        if (this.id) {
+            // Update route
+            // For an MVP we don't need this route
+        } else {
+            try {
+                
+            } catch (err) {
+                
+                throw new Error(err.detail);
+            }
+        }
+    }
+
     
 }
 
