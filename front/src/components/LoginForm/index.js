@@ -1,14 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Field from './Field';
-import SubmitButton from './SubmitButton';
+import Field from 'src/components/Field';
+import SubmitButton from 'src/components/SubmitButton';
 
-import './styles.css';
+import './styles.scss';
 
 const LoginForm = () => (
-    <div className="login-form">
-
+    <div >
+      <form className="loginForm" action="">
+        <Field 
+        name="email"
+        placeholder="adresse e-mail"
+        label=""
+        />
+        <Field 
+        name="password"
+        placeholder="mot de passe"
+        label=""
+        />
+        <SubmitButton 
+        buttonName="Ok !"/>
+      </form>
     </div>
         
 );

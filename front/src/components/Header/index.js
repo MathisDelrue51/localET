@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 // import
 import './styles.scss';
 import logo from './localETlogo.png'
+import LoginForm from 'src/containers/LoginForm';
 
 // Component
 const Header = ()=> (
@@ -15,9 +16,7 @@ const Header = ()=> (
       <img src={logo} alt="localET logo" className='headerLogoImage'/>
       <h2 className='headerLogoBaseline'>Ici, la baseline de localET</h2>
     </div>
-    <div>
-      Ici bientot, la nav ! le monde ! l'infini !
-    </div>
+    <LoginForm />
 
   </div>
 

@@ -8,15 +8,13 @@ import Header from 'src/components/Header';
 import './styles.scss';
 
 // == Import Components/Containers
-import SubmitButton from "../submitButton";
+import SubmitButton from "../SubmitButton";
 
 
 // == Component
 const App = () => (
   <div className="app">
     <Header />
-    <Field />
-    <SubmitButton buttonName="Valider"/>
     <div>Ici, le main</div>
     <div>Ici, le footer</div>
   </div>
