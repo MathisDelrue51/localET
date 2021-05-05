@@ -6,7 +6,9 @@ class Curioset {
            this[prop] = data[prop];
        }
    }
-   
+
+   //Find curioset by id
+
    static async findOne(id) {
        const {rows} = await db.query('SELECT * FROM curioset WHERE id = $1', [id]);
 
@@ -17,6 +19,7 @@ class Curioset {
        }
    }
 
+   //Find all curiosets
    static async findAll() {
        const { rows } = await db.query('SELECT * FROM curioset;');
 
