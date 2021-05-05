@@ -2,19 +2,13 @@
 import React from 'react';
 
 // == Import
-import Field from 'src/components/Field'
-
 import './styles.scss';
-
-// == Import Components/Containers
-import SubmitButton from "../submitButton";
-
+import Map from "src/components/Map";
 
 // == Component
 const App = () => (
   <div className="app">
-    <Field />
-    <SubmitButton buttonName="Valider"/>
+    <Map />
     <div>Ici, le header</div>
     <div>Ici, le main</div>
     <div>Ici, le footer</div>
