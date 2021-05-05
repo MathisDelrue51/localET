@@ -8,7 +8,7 @@ class Curioset {
    }
    
    static async findOne(id) {
-       const {rows} = await db.query('SELECT * FROM DATABASE WHERE id = $1', [id]);
+       const {rows} = await db.query('SELECT * FROM curioset WHERE id = $1', [id]);
 
        if (rows[0]) {
            return new Curioset(rows[0]);
@@ -18,7 +18,7 @@ class Curioset {
    }
 
    static async findAll() {
-       const { rows } = await db.quert('SELECT * FROM DATABASE;');
+       const { rows } = await db.quert('SELECT * FROM curioset;');
 
        return rows.map(row => new Curioset(row));
    }
