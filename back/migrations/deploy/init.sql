@@ -2,7 +2,7 @@
 
 BEGIN;
 
-CREATE TABLE client (
+CREATE TABLE "user" (
     id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     email text NOT NULL UNIQUE,
     password text NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE curioset (
     website text,
     agenda text NOT NULL,
     price float,
-    client_id int NOT NULL REFERENCES client(id),
+    user_id int NOT NULL REFERENCES "user"(id),
     category_id int NOT NULL REFERENCES category(id)
 );
 

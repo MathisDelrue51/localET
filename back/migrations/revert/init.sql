@@ -6,7 +6,7 @@ DROP TABLE curioset;
 
 DROP TABLE category;
 
-DROP TABLE client;
+DROP TABLE "user";
 
 
 COMMIT;
