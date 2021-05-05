@@ -18,7 +18,7 @@ class Curioset {
    }
 
    static async findAll() {
-       const { rows } = await db.quert('SELECT * FROM curioset;');
+       const { rows } = await db.query('SELECT * FROM curioset;');
 
        return rows.map(row => new Curioset(row));
    }

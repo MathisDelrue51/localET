@@ -1,4 +1,4 @@
-const Curioset = require('../models/cuioset');
+const Curioset = require('../models/curioset');
 
 const curiosetController = {
 

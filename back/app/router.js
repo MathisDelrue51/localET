@@ -10,4 +10,6 @@ router.get('/hello', (req,res) => {
     res.json('hello world');
 });
 
+router.get('/', curiosetController.allCuriosets);
+
 module.exports = router;

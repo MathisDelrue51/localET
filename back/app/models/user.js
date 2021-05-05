@@ -8,7 +8,7 @@ class User {
     }
     
     static async findOne(id) {
-        const {rows} = await db.query('SELECT * FROM client WHERE id = $1', [id]);
+        const {rows} = await db.query('SELECT * FROM user WHERE id = $1', [id]);
  
         if (rows[0]) {
             return new User(rows[0]);
@@ -17,11 +17,6 @@ class User {
         }
     }
     
-    static async findAll() {
-        const { rows } = await db.quert('SELECT * FROM client;');
- 
-        return rows.map(row => new User(row));
-    }
 }
 
 module.exports = User;

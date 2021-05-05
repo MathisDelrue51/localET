@@ -6,7 +6,6 @@ const app = express();
 
 const router = require('./app/router');
 
-//
 const cors = require ('cors');
 
 const port = process.env.PORT || 1234;
