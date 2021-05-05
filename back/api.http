@@ -1,0 +1,7 @@
+### Test Route
+
+GET http://localhost:1234/hello
+
+### GET all curiosets
+GET http://localhost:1234/
+
