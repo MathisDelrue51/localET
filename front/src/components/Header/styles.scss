@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+
+  &Logo {
+    text-align: left;
+
+    &Image {
+      padding: 1rem 0;
+    }
+
+    &Baseline {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+  }
+}
