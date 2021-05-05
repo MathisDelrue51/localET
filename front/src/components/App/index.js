@@ -6,10 +6,15 @@ import Field from 'src/components/Field'
 
 import './styles.scss';
 
-// == Composant
+// == Import Components/Containers
+import SubmitButton from "../submitButton";
+
+
+// == Component
 const App = () => (
   <div className="app">
     <Field />
+    <SubmitButton buttonName="Valider"/>
     <div>Ici, le header</div>
     <div>Ici, le main</div>
     <div>Ici, le footer</div>
