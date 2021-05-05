@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.field {
+  padding: 1rem;
+
+  .field-input {
+    box-sizing: border-box;
+    padding: 0.4rem;
+    border: 1px solid vars.$mediumGrey;
+    border-radius: vars.$borderRadius;
+
+  }
+
+  .field-input::placeholder {
+    color: vars.$mediumGrey;
+  }
+
+  .field-input:focus {
+    border: 2px solid vars.$highlightColor;
+  }
+}
