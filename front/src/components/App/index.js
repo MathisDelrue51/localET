@@ -8,9 +8,8 @@ import Map from "src/components/Map";
 // == Component
 const App = () => (
   <div className="app">
-    <Map />
     <div>Ici, le header</div>
-    <div>Ici, le main</div>
+    <Map />
     <div>Ici, le footer</div>
   </div>
 );
