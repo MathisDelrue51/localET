@@ -7,10 +7,11 @@ import './styles.scss';
 // == Import Components/Containers
 import SubmitButton from "../submitButton";
 
+
 // == Component
 const App = () => (
   <div className="app">
-    <SubmitButton />
+    <SubmitButton buttonName="Valider"/>
     <div>Ici, le header</div>
     <div>Ici, le main</div>
     <div>Ici, le footer</div>

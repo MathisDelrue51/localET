@@ -5,9 +5,9 @@ import React from 'react';
 import './styles.scss';
 
 // == Component
-const SubmitButton = () => (
+const SubmitButton = ({buttonName}) => (
   <div className="submit">
-    <button className="submit__button">Valider</button>
+    <button className="submit__button">{buttonName}</button>
   </div>
 );
 
