@@ -22,7 +22,6 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
 
-          console.log('ici la response');
           console.log(response);
 
           const actionSaveUser = saveUser(

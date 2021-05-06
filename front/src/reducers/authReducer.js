@@ -37,6 +37,8 @@ function authReducer(state = initialState, action) {
     return {
       ...state,
       logged: action.isLogged,
+      email: '',
+      password: '',
     }
 
     default:

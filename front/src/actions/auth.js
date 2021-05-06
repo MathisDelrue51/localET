@@ -19,5 +19,5 @@ export const logIn = () => ({
 // action to be connected to isLogged prop
 export const saveUser = (isLogged) => ({
   type: SAVE_USER,
-  isLogged : true,
+  isLogged,
 });
