@@ -5,3 +5,32 @@ GET http://localhost:1234/hello
 ### GET all curiosets
 GET http://localhost:1234/
 
+### GET login (affiche le formulaire de connexion dans la modale?)
+GET http://localhost:1234/login
+
+### POST login test de connexion d'un utilisateur
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "mathis.local@et.fr" ,
+    "password": "1234" 
+}
+
+### POST login test de connexion d'un utilisateur non inscrit
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "pas.inscrit@et.fr" ,
+    "password": "1234" 
+}
+
+### POST login test de connexion d'un utilisateur avec le mauvais mdp
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "mathis.local@et.fr" ,
+    "password": "fefeggrgr" 
+}
