@@ -7,6 +7,7 @@ GET http://localhost:1234/
 
 ### GET login (affiche le formulaire de connexion dans la modale?)
 GET http://localhost:1234/login
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlJheiIsImlhdCI6MTYyMDI5ODY2NywiZXhwIjoxNjIwMzAwNDY3fQ.QNVao3uQ2JgXu56wP5Z8Yj7Yu5XCegvYEJ6KpPoClzk
 
 ### POST login test de connexion d'un utilisateur
 POST http://localhost:1234/login

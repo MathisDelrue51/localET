@@ -1,5 +1,7 @@
 const User = require("../models/user");
 
+const generateAccessToken = require('../middlewares/generateAccessToken');
+
 const authController = {
 
     getLogin: (req, res, next) => {
@@ -24,10 +26,16 @@ const authController = {
             return;
         }
 
-        req.session.user = user;
+        const token = generateAccessToken({
+            username: user.pseudo
+        });
+
+        req.session.user = token;
         console.log('Vous etes connecté')
 
-        res.redirect('/');       
+        res.json(token);
+
+        //res.redirect('/');       
 
     },
 

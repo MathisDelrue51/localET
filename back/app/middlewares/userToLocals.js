@@ -4,7 +4,7 @@ const User = require('../models/user');
 //All information of the connected user will be available in all views
 function userToLocals (req, res, next) {   
 
-    console.log("dans le middleware", req.session.user);
+    console.log("dans la session", req.session.user);
 
     if (req.session.user) {
         res.locals.user = new User(req.session.user);
