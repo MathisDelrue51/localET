@@ -27,7 +27,10 @@ const authController = {
         }
 
         const token = generateAccessToken({
-            username: user.pseudo
+            username: {
+                email: req.body.email,
+                password: req.body.password
+            }
         });
 
         req.session.user = token;

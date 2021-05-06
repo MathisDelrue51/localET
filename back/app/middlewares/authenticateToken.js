@@ -1,23 +1,24 @@
 const jwt = require('jsonwebtoken');
 
 function authenticateToken(req, res, next) {
+    console.log(req.session.user);
 
-    if (!req.headers.authorization) {
+    if (!req.session.user) {
         return res.status(401).send('Unauthorized request');
     }
-    let token = req.headers.authorization.split(' ')[1];
+    let token = req.session.user
     console.log(token)
     if (token === 'null') {
-        return res.status(401).send('Unauthorized request');
+        return res.status(401).send('Unauthorized request2');
     }
 
-    let payload = jwt.verify(token, process.env.TOKEN_SECRET);
-    console.log(payload)
-    if (!payload) {
-        return res.status(401).send('Unauthorized request');
-    }
-    console.log('token validé')
-    next();
+    // let payload = jwt.verify(token, 'jkjekhdeh');
+    // console.log(payload)
+    // if (!payload) {
+    //     return res.status(401).send('Unauthorized request3');
+    // }
+    // console.log('token validé')
+    // next();
 
 
 
@@ -35,17 +36,14 @@ function authenticateToken(req, res, next) {
 
     // console.log(process.env.TOKEN_SECRET)
 
-    // jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    //     console.log(err)
+    jwt.verify(token, 'jkjekhdeh', (err, user) => {
+        console.log('coucou')
 
-    //     if (err) {
-    //         return res.sendStatus(403)
-    //     }
-
-    //     req.user = user
-
-    //     next()
-    // })
+        if (err) {
+            return res.status(403).json(err.message);
+        }
+        next()
+    })
 };
 
 module.exports = authenticateToken;
