@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-// import Map from 'src/components/Map';
+import Map from 'src/components/Map';
 
 
 const mapStateToProps = (state) => ({
-  list
+  list: state.list
 });
 
 const mapDispatchToProps = {};
