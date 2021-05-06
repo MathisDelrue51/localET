@@ -23,7 +23,7 @@ class User {
         if (rows[0]) { // If the email doesn't exist there is no row[0]
             return new User(rows[0]);
         } else {
-            return null;
+            throw new Error(`no user with email ${email}`);
         }
     }
     
