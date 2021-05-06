@@ -3,13 +3,13 @@ const validateBody = (schema) =>
 
         const {error} = schema.validate(req.body);
 
-        if (!error) {
-            next ();
-        } else {
+        if (error) {
 
             const {message, path} = error.details[0];
-
             res.status(400).json({message, path});
+            
+        } else {
+            next ();
         }
 };
 

@@ -17,22 +17,15 @@ class User {
         }
     }
 
-    async save() {
+    static async findByEmail(email) {
+        const { rows } = await db.query('SELECT * FROM "user" WHERE email = $1;', [email]);
 
-        if (this.id) {
-            // Update route
-            // For an MVP we don't need this route
+        if (rows[0]) { // If the email doesn't exist there is no row[0]
+            return new User(rows[0]);
         } else {
-            try {
-                
-            } catch (err) {
-                
-                throw new Error(err.detail);
-            }
+            return null;
         }
-    }
-
-    
+    }    
 }
 
 module.exports = User;
