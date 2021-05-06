@@ -9,10 +9,17 @@ import './styles.scss';
 const LoginForm = ({
   email, 
   password, 
-  changeField
-}) => (
+  changeField,
+  handleLogin,
+  isLogged
+}) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    handleLogin();
+  };
+    return (
     <div >
-      <form className="loginForm" action="">
+      <form className="loginForm" onSubmit={handleSubmit}>
         <Field 
         name="email"
         placeholder="adresse e-mail"
@@ -29,10 +36,12 @@ const LoginForm = ({
         />
         <SubmitButton 
         buttonName="Ok !"/>
+        {isLogged && (<div>Connecté !</div>)}
+        {!isLogged && (<div>Pas connecté...</div>)}
       </form>
-    </div>
+    </div>)
         
-);
+  };
 
 LoginForm.propTypes = {
   /** value for the email */
@@ -44,6 +53,15 @@ LoginForm.propTypes = {
    * - name
    */
   changeField: PropTypes.func.isRequired,
+  /** called when the form is submitted */
+  handleLogin: PropTypes.func.isRequired,
+  /** toggle between "connected" or "not connected" */
+  isLogged: PropTypes.bool,
+
 };
+
+// LoginForm.defaultProps = {
+//   isLogged: false,
+// };
 
 export default LoginForm;
