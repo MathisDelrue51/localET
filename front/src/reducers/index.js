@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-// On est d'accord qu'on fait un seul reducer ? Histoire de s'economiser au moins une complication...
-import data from "src/data.js";
-
-export const initialState = {
-  list : data
-};
-=======
 import { combineReducers } from 'redux';
 
 // on importe tous les reducers
@@ -21,4 +13,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
->>>>>>> 05b172fb5799eda5b95507e4ef6e72584bce9a3a
