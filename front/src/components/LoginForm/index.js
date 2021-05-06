@@ -6,18 +6,26 @@ import SubmitButton from 'src/components/SubmitButton';
 
 import './styles.scss';
 
-const LoginForm = () => (
+const LoginForm = ({
+  email, 
+  password, 
+  changeField
+}) => (
     <div >
       <form className="loginForm" action="">
         <Field 
         name="email"
         placeholder="adresse e-mail"
         label=""
+        manageChange={changeField}
+        value={email}
         />
         <Field 
         name="password"
         placeholder="mot de passe"
         label=""
+        manageChange={changeField}
+        value={password}
         />
         <SubmitButton 
         buttonName="Ok !"/>
@@ -26,6 +34,16 @@ const LoginForm = () => (
         
 );
 
-
+LoginForm.propTypes = {
+  /** value for the email */
+  email: PropTypes.string.isRequired,
+  /** value for the password */
+  password: PropTypes.string.isRequired,
+  /** called when onChange event is received by an input, two parameters :
+   * - new value
+   * - name
+   */
+  changeField: PropTypes.func.isRequired,
+};
 
 export default LoginForm;
