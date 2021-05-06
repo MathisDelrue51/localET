@@ -8,9 +8,9 @@ export const fetchCuriosetsSuccess = (list) => ({
 });
 
 export const fetchCuriosetsError = () => ({
-  type: FETCH_CURIOSETS_SUCCESS,
+  type: FETCH_CURIOSETS_ERROR
 });
 
 export const fetchCuriosets = () => ({
-  type: FETCH_CURIOSETS_ERROR,
+  type: FETCH_CURIOSETS,
 });
