@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
@@ -10,5 +11,9 @@ const SubmitButton = ({buttonName}) => (
     <button className="submit__button" type="submit">{buttonName}</button>
   </div>
 );
+
+SubmitButton.propTypes = {
+  buttonName: PropTypes.string
+}
 
 export default SubmitButton;

@@ -2,20 +2,18 @@
 import React from 'react';
 
 // == Import
-import Field from 'src/components/Field';
+import './styles.scss';
+import Map from "src/components/Map";
 import Header from 'src/components/Header';
 
 import './styles.scss';
-
-// == Import Components/Containers
-import SubmitButton from "../SubmitButton";
 
 
 // == Component
 const App = () => (
   <div className="app">
     <Header />
-    <div>Ici, le main</div>
+    <Map />
     <div>Ici, le footer</div>
   </div>
 );
