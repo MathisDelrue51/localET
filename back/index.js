@@ -22,7 +22,7 @@ app.use( session({
     secret: 'It is a secret',
     cookie: {
         secure: false, // false allow us not to be in https
-        maxAge: 1000*60*60*2 // 2 hours !
+        maxAge: 1000*60*60*2 // in milliseconds  --> 2h
     }
 }));
 

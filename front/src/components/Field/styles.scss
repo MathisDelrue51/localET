@@ -3,7 +3,7 @@
 .field {
   padding: 1rem;
 
-  .field-input {
+  .fieldInput {
     box-sizing: border-box;
     padding: 0.4rem;
     border: 1px solid vars.$mediumGrey;
@@ -11,11 +11,11 @@
 
   }
 
-  .field-input::placeholder {
+  .fieldInput::placeholder {
     color: vars.$mediumGrey;
   }
 
-  .field-input:focus {
+  .fieldInput:focus {
     border: 2px solid vars.$highlightColor;
   }
 }
