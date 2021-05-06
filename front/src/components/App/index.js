@@ -5,6 +5,7 @@ import React from 'react';
 import './styles.scss';
 import Map from "src/components/Map";
 import Header from 'src/components/Header';
+import Footer from 'src/components/Footer'
 
 import './styles.scss';
 
@@ -14,7 +15,7 @@ const App = () => (
   <div className="app">
     <Header />
     <Map />
-    <div>Ici, le footer</div>
+    <Footer />
   </div>
 );
 
