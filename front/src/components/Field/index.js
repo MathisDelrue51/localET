@@ -11,6 +11,7 @@ const Field = ({
   type,
   name,
   placeholder,
+  label,
   manageChange,
 }) => {
   // manageChange will eventually be connected to actions
@@ -21,7 +22,7 @@ const Field = ({
   const inputId = `field-${name}`;
 
   return (
-    <div className={value.length > 0 ? 'field field--has-content' : 'field'}>
+    <div className={value.length > 0 ? 'field fieldHasContent' : 'field'}>
       <input
         // React - state
         value={value}
@@ -29,16 +30,16 @@ const Field = ({
         // infos de base
         id={inputId}
         type={type}
-        className="field-input"
-        placeholder='placeholder'//{placeholder}
+        className="fieldInput"
+        placeholder={placeholder}
         name={name}
       />
 
       <label
         htmlFor={inputId}
-        className="field-label"
+        className="fieldLabel"
       >
-        {placeholder}
+        {label}
       </label>
     </div>
   );
@@ -51,8 +52,10 @@ Field.propTypes = {
   type: PropTypes.string,
   /** text used as name for the input (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
-  /** text used as placeholder and label */
+  /** text used as placeholder */
   placeholder: PropTypes.string.isRequired,
+    /** text used as label */
+    label: PropTypes.string.isRequired,
   /** called when onChange event is received by the input, two parameters :
    * - new value
    * - name
