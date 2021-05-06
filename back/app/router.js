@@ -20,7 +20,9 @@ router.post('/login', authController.postLogin );
 
 router.get('/logout', authController.logout );
 
+//router.get('/signup', (req, res) => res.redirect('/signup'))
 router.post('/signup', validateBody(userSchema), userController.newUser);
+
 
 router.use((req, res) => res.status(404).json('endpoint not found')); // We can create a cutomized 404 err page later
 

@@ -21,6 +21,7 @@ const userController = {
         const theNewUser = new User(req.body);
 
         try{
+            
             await theNewUser.save();
             res.status(201).json(theNewUser);
         } catch(err) {

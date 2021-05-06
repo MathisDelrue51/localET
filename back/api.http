@@ -34,3 +34,14 @@ Content-Type: application/json
     "email": "mathis.local@et.fr" ,
     "password": "fefeggrgr" 
 }
+
+### POST sign up with correct data
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test2@et.fr",
+    "pseudo": "hello3",
+    "password": "Password99@"
+
+}
