@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { FETCH_CURIOSETS, fetchCuriosetsSuccess, fetchCuriosetsError } from 'src/actions/map';
 
+const SERVER_URL = 'http://localhost:1234';
+
 export default (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURIOSETS:
@@ -9,7 +11,7 @@ export default (store) => (next) => (action) => {
       //Lancer une requête pour récupérer les curiosETs
       axios({
         method:"get",
-        url: "",
+        url: `${SERVER_URL}/`,
       })
       .then((res) => {
         console.log(res.data);

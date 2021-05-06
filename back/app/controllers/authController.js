@@ -20,7 +20,8 @@ const authController = {
             console.log('Vous etes connecté')
 
             res.status(200).json({
-                pseudo: user.pseudo
+                pseudo: user.pseudo,
+                logged : true,
             });
 
         } catch (err) {

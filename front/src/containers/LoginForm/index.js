@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateField } from 'src/actions/auth'
+import { updateField, logIn } from 'src/actions/auth'
 
 // Import component
 import LoginForm from 'src/components/LoginForm';
@@ -11,16 +11,25 @@ const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
   password: state.auth.password,
+  isLogged: state.auth.logged,
 });
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
-  // function dispatching the action
+  // function dispatching the action related to changes typed in the field
   changeField : (newValue, name)=>{
     const action = updateField(newValue, name);
     dispatch(action);
-  }
+  },
+
+  // function dispatching the action related to login
+  handleLogin : () => {
+    dispatch(logIn());
+
+  },
+
+
 });
 
 // export
