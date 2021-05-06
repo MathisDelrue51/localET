@@ -6,9 +6,10 @@ const SERVER_URL = 'http://localhost:1234';
 export default (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURIOSETS:
+      
+      console.log("Recherche curiosETs");
+      //Fetch request to get curiosETs
       next(action);
-      console.log("Recherche recettes");
-      //Lancer une requête pour récupérer les curiosETs
       axios({
         method:"get",
         url: `${SERVER_URL}/`,

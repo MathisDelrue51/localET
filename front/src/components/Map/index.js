@@ -9,8 +9,6 @@ import {
   MapContainer, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 
-import data from "../../data.js";
-
 // == Component
 const Map = (list) => (
   
@@ -20,8 +18,8 @@ const Map = (list) => (
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {console.log(list)}
-       { list.map(elmt => (
+      {console.log('ceci est une',list)}
+       {/* { list.map(elmt => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
         <Popup>
         <div className="popup"> 
@@ -30,10 +28,14 @@ const Map = (list) => (
         </Popup>
       </Marker>
       ))
-      }
+      } */}
 
     </MapContainer> 
   </div>
 );
+
+Map.propTypes = {
+  list: PropTypes.array.isRequired
+}
 
 export default Map;

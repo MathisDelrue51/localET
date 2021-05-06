@@ -13,6 +13,7 @@ import './styles.scss';
 
 // == Component
 const App = (fetchCuriosets) => {
+  console.log(fetchCuriosets);
   useEffect(fetchCuriosets, []);
 
   return(
@@ -22,6 +23,10 @@ const App = (fetchCuriosets) => {
     <Footer />
   </div>
   )
+};
+
+App.propTypes = {
+  fetchCuriosets: PropTypes.func.isRequired
 };
 
 // == Export
