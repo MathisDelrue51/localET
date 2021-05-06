@@ -7,27 +7,27 @@ const authController = {
     },
 
     postLogin: async (req, res, next) => {
-        console.log(req.body);
 
-        const user = await User.findByEmail(req.body.email);
-        console.log(user);
+        try {
+            const user = await User.findByEmail(req.body.email);
 
-        if (!user) {
-            console.log('user non inscrit')
-            res.redirect('/login');
-            return;
+            if (user.password !== req.body.password) {
+                console.log('Mauvais mot de passe')
+                throw new Error(`Wrong password`);                
+            }
+
+            req.session.user = user;
+            console.log('Vous etes connecté')
+
+            res.status(200).json({
+                pseudo: user.pseudo
+            });
+
+        } catch (err) {
+            res.status(401).json(err.message);
         }
 
-        if (user.password !== req.body.password) {
-            console.log('Mauvais mot de passe')
-            res.redirect('/login');
-            return;
-        }
 
-        req.session.user = user;
-        console.log('Vous etes connecté')
-
-        res.redirect('/');       
 
     },
 
