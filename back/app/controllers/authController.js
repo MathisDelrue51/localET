@@ -25,6 +25,7 @@ const authController = {
         }
 
         req.session.user = user;
+        console.log('Vous etes connecté')
 
         res.redirect('/');       
 
