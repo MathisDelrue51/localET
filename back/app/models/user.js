@@ -25,7 +25,29 @@ class User {
         } else {
             return null;
         }
-    }    
+    }
+    
+    async save() {
+
+        if (this.id) {
+            //Here We can update a user data
+        } else { // Here we create a new user in databse
+            try {
+                const { rows } = await db.query('INSERT INTO "user" (email, password, pseudo) VALUES ($1, $2, $3) RETURNING id;', [
+
+                    this.email,
+                    this.password,
+                    this.pseudo
+                ]);
+
+                this.id = rows[0].id;
+
+            } catch (err) {
+
+                throw new Eroor(err.detail);
+            }
+        }
+    }
 }
 
 module.exports = User;
