@@ -60,8 +60,8 @@ LoginForm.propTypes = {
 
 };
 
-// LoginForm.defaultProps = {
-//   isLogged: false,
-// };
+LoginForm.defaultProps = {
+  isLogged: false,
+};
 
 export default LoginForm;
