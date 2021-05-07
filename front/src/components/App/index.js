@@ -12,9 +12,9 @@ import './styles.scss';
 
 
 // == Component
-const App = (fetchCuriosets) => {
+const App = ({fetchCuriosets}) => {
   console.log(fetchCuriosets);
-  useEffect(fetchCuriosets, []);
+  useEffect(()=>{fetchCuriosets;},[]);
 
   return(
   <div className="app">
