@@ -18,9 +18,13 @@ const userController = {
 
     newUser: async (req, res) => {
      
+        // We call the the function findByEmail as req.body.email to check if this email exists in db
+
             const newEmail = await User.findByEmail(req.body.email);
 
-            if (newEmail === null) {
+            if (newEmail === null) { 
+
+        // if result is null , thus the email doesn't exist in db and we can new user after checking pseudo
 
                 const newPseudo = await User.findByPseudo(req.body.pseudo);
 
@@ -28,7 +32,9 @@ const userController = {
 
                     const theNewUser = new User(req.body);
                     await theNewUser.save();
-                    res.status(201).json(theNewUser) 
+                    console.log('Vous êtes inscrits');
+
+                    res.status(201).json(theNewUser); 
 
                 } else {
 
@@ -44,9 +50,7 @@ const userController = {
 
             }
         
-        }
-        
-    
+        }   
 }
 
 module.exports = userController;
