@@ -18,7 +18,6 @@ const Map = ({list}) => (
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {console.log('ceci est une',list)}
        { list.map(elmt => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
         <Popup>
