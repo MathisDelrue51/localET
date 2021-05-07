@@ -5,9 +5,9 @@ const curiosetController = {
     // Route GET /
     allCuriosets: async (req, res) => {
 
-        const Curiosets = await Curioset.findAll();
+        const curiosets = await Curioset.findAll();
 
-        res.json(Curiosets);
+        res.json(curiosets);
     }
     
 }
