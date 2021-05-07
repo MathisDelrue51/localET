@@ -11,15 +11,16 @@ const LoginForm = ({
   password, 
   changeField,
   handleLogin,
-  isLogged
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleLogin();
   };
+
     return (
     <div >
       <form className="loginForm" onSubmit={handleSubmit}>
+        
         <Field 
         name="email"
         placeholder="adresse e-mail"
@@ -27,6 +28,7 @@ const LoginForm = ({
         manageChange={changeField}
         value={email}
         />
+
         <Field 
         name="password"
         placeholder="mot de passe"
@@ -34,10 +36,10 @@ const LoginForm = ({
         manageChange={changeField}
         value={password}
         />
+
         <SubmitButton 
         buttonName="Ok !"/>
-        {isLogged && (<div>Connecté !</div>)}
-        {!isLogged && (<div>Pas connecté...</div>)}
+
       </form>
     </div>)
         
@@ -55,13 +57,6 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   /** called when the form is submitted */
   handleLogin: PropTypes.func.isRequired,
-  /** toggle between "connected" or "not connected" */
-  isLogged: PropTypes.bool,
-
-};
-
-LoginForm.defaultProps = {
-  isLogged: false,
 };
 
 export default LoginForm;
