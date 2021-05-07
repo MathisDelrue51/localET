@@ -13,16 +13,18 @@ const authController = {
         try {
             const user = await User.findByEmail(req.body.email);
 
+            if (user === null){
+                console.log("pas d'email correspondant");
+                throw new Error(`no user with email ${req.body.email}`);
+            }
+
             if (user.password !== req.body.password) {
                 console.log('Mauvais mot de passe')
                 throw new Error(`Wrong password`);                
             }
 
             const token = generateAccessToken({
-                username: {
-                    email: req.body.email,
-                    password: req.body.password
-                }
+                email: req.body.email
             });
 
             req.session.user = token;

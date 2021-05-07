@@ -19,10 +19,10 @@ app.use(express.urlencoded({extended: true}));
 app.use( session({
     saveUninitialized: true,
     resave: true,
-    secret: 'It is a secret',
+    secret: process.env.SESSION_SECRET,
     cookie: {
         secure: false, // false allow us not to be in https
-        maxAge: 1000*60*60*2 // in milliseconds  --> 2h
+        maxAge: 7200000 // in milliseconds --> 2h
     }
 }));
 
