@@ -10,9 +10,9 @@ import Footer from 'src/components/Footer'
 
 
 // == Component
-const App = (fetchCuriosets) => {
+const App = ({fetchCuriosets}) => {
   console.log(fetchCuriosets);
-  useEffect(fetchCuriosets, []);
+  useEffect(()=>{fetchCuriosets();},[]);
 
   return(
   <div className="app">
