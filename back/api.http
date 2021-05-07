@@ -40,3 +40,39 @@ GET http://localhost:1234/connected
 
 ### GET logout from session
 GET http://localhost:1234/logout
+
+### GET curioset, show new curiosET form (route non nécessaire)
+GET http://localhost:1234/curioset
+
+### POST curioset, send a POST request to create a new curioset in db
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795",   
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": 4,
+    "category_id": 1
+}
+
+### POST curioset, send a POST request to create a new curioset in db but with an error
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795", 
+    "website": null,  
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": "4",
+    "category_id": "text"
+}

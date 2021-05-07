@@ -16,11 +16,12 @@ router.get('/hello', (req,res) => {
 
 router.get('/', curiosetController.allCuriosets);
 
-router.get('/login', authController.getLogin );
+router.get('/login', authController.getLogin ); //Not necessary, since we don't send data on this page, the front will call it
 router.post('/login', authController.postLogin );
-
-router.get('/connected', authenticateToken , authController.connected )
-
+router.get('/connected', authenticateToken, authController.connected ); // Just to test if a user is connected or not
 router.get('/logout', authController.logout );
+
+router.get('/curioset', authenticateToken, curiosetController.showCuriosetForm );
+router.post('/curioset', authenticateToken, curiosetController.newCurioset);
 
 module.exports = router;
