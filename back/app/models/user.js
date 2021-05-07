@@ -23,9 +23,22 @@ class User {
         if (rows[0]) { // If the email doesn't exist there is no row[0]
             return new User(rows[0]);
         } else {
-            throw new Error(`no user with email ${email}`);
+            return null;
         }
     }
+
+    static async findByPseudo(pseudo) {
+        const { rows } = await db.query('SELECT * FROM "user" WHERE pseudo = $1;', [pseudo]);
+
+        if (rows[0]) { // If the email doesn't exist there is no row[0]
+            return new User(rows[0]);
+        } else {
+            return null;
+        }
+    }
+    
+    
+
     
     async save() {
 

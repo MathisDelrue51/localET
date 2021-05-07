@@ -15,12 +15,10 @@ router.get('/hello', (req,res) => {
 
 router.get('/', curiosetController.allCuriosets);
 
-router.get('/login', authController.getLogin );
 router.post('/login', authController.postLogin );
 
 router.get('/logout', authController.logout );
 
-//router.get('/signup', (req, res) => res.redirect('/signup'))
 router.post('/signup', validateBody(userSchema), userController.newUser);
 
 

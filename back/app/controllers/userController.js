@@ -17,17 +17,35 @@ const userController = {
     },
 
     newUser: async (req, res) => {
+     
+            const newEmail = await User.findByEmail(req.body.email);
 
-        const theNewUser = new User(req.body);
+            if (newEmail === null) {
 
-        try{
-            
-            await theNewUser.save();
-            res.status(201).json(theNewUser);
-        } catch(err) {
-            res.status(500).json(err.message);
+                const newPseudo = await User.findByPseudo(req.body.pseudo);
+
+                if (newPseudo === null) {
+
+                    const theNewUser = new User(req.body);
+                    await theNewUser.save();
+                    res.status(201).json(theNewUser) 
+
+                } else {
+
+                    console.log('pseudo déjà existant');
+                    res.status(403).json('Pseudo already exists');
+
+                }  
+                
+            } else {
+
+                console.log('email déjà existant');
+                res.status(403).json('Email already exists');
+
+            }
+        
         }
-    }
+        
     
 }
 

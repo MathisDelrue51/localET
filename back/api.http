@@ -35,13 +35,13 @@ Content-Type: application/json
     "password": "fefeggrgr" 
 }
 
-### POST sign up with correct data
+### POST sign up with new data
 POST http://localhost:1234/signup
 Content-Type: application/json
 
 {
-    "email": "test2@et.fr",
-    "pseudo": "hello3",
+    "email": "hello3@example.fr",
+    "pseudo": "hello",   
     "password": "Password99@"
 
 }
