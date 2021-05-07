@@ -1,11 +1,14 @@
 import { connect } from 'react-redux';
 import Map from 'src/components/Map';
+import { fetchCuriosets } from '../../actions/map';
 
 
 const mapStateToProps = (state) => ({
   list: state.map.list
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => {
+    dispatch(fetchCuriosets())
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
