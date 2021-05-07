@@ -8,8 +8,6 @@ const router = require('./app/router');
 
 const cors = require ('cors');
 
-const userToLocals = require('./app/middlewares/userToLocals');
-
 const app = express();
 
 //Allow us to process the information from POST
@@ -32,8 +30,6 @@ const port = process.env.PORT || 1234;
 app.use(express.json());
 
 app.use(cors());
-
-app.use( userToLocals );
 
 app.use('/', router);
 
