@@ -5,7 +5,7 @@ GET http://localhost:1234/hello
 ### GET all curiosets
 GET http://localhost:1234/
 
-### GET login (affiche le formulaire de connexion dans la modale?)
+### GET login (route non nécessaire)
 GET http://localhost:1234/login
 
 ### POST login test de connexion d'un utilisateur
@@ -35,13 +35,8 @@ Content-Type: application/json
     "password": "fefeggrgr" 
 }
 
-### POST sign up with new data
-POST http://localhost:1234/signup
-Content-Type: application/json
+### GET test if a user is connected
+GET http://localhost:1234/connected
 
-{
-    "email": "hello3@example.fr",
-    "pseudo": "hello",   
-    "password": "Password99@"
-
-}
+### GET logout from session
+GET http://localhost:1234/logout
