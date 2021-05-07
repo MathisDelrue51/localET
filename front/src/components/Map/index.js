@@ -10,7 +10,7 @@ import {
 } from 'react-leaflet';
 
 // == Component
-const Map = (list) => (
+const Map = ({list}) => (
   
   <div className="map">
    <MapContainer center={[47.23737335205078, -1.5248912572860718]} zoom={13} scrollWheelZoom={false} id="mapid">
@@ -19,7 +19,7 @@ const Map = (list) => (
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {console.log('ceci est une',list)}
-       {/* { list.map(elmt => (
+       { list.map(elmt => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
         <Popup>
         <div className="popup"> 
@@ -28,7 +28,7 @@ const Map = (list) => (
         </Popup>
       </Marker>
       ))
-      } */}
+      }
 
     </MapContainer> 
   </div>

@@ -15,7 +15,7 @@ export default (store) => (next) => (action) => {
         url: `${SERVER_URL}/`,
       })
       .then((res) => {
-        console.log(res.data);
+        console.log("je reçois ça du back", res);
         const actionToDispatch = fetchCuriosetsSuccess(res.data);
         store.dispatch(actionToDispatch)
       })

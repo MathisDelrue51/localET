@@ -7,8 +7,6 @@ const mapStateToProps = (state) => ({
   list: state.map.list
 });
 
-const mapDispatchToProps = (dispatch) => {
-    dispatch(fetchCuriosets())
-};
+const mapDispatchToProps = {} ;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Map);
