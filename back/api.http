@@ -40,3 +40,39 @@ GET http://localhost:1234/connected
 
 ### GET logout from session
 GET http://localhost:1234/logout
+
+
+///////////////////////////////////////////////
+
+### POST signup with correct data
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing email
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet2",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing pseudo
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example3@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
