@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import {LOG_IN, saveUser} from 'src/actions/auth'
 
+import history from "src/utils/history";
+
 // here, write the backend's url :
 const SERVER_URL = 'http://localhost:1234';
 
@@ -22,16 +24,26 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
 
-          console.log(response);
+          console.log('Je vais changer le state');
 
           const actionSaveUser = saveUser(
             response.data.logged,
             //response.data.token,
             //response.data.pseudo,
           );
+          
+          console.log('Je viens de changer le state et je push la redirection');
+
           store.dispatch(actionSaveUser);
 
         })
+
+        .then(() => {
+
+          history.push("/"); 
+          console.log('history');
+        })
+
         .catch((error) => {
           console.log(error);
         });

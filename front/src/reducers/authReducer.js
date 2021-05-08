@@ -9,6 +9,7 @@ const initialState = {
 
   // is user loggedin ? 
   logged: false,
+
 };
 
 function authReducer(state = initialState, action) {
@@ -44,6 +45,8 @@ function authReducer(state = initialState, action) {
     default:
       return state;
   }
+
+  
 }
 
 export default authReducer;
