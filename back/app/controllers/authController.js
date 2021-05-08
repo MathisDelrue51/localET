@@ -1,5 +1,7 @@
 const User = require("../models/user");
 
+const generateAccessToken = require('../middlewares/generateAccessToken');
+
 const authController = {
 
     getLogin: (req, res, next) => {
@@ -11,38 +13,43 @@ const authController = {
         try {
             const user = await User.findByEmail(req.body.email);
 
+            if (user === null){
+                console.log("pas d'email correspondant");
+                throw new Error(`no user with email ${req.body.email}`);
+            }
+
             if (user.password !== req.body.password) {
                 console.log('Mauvais mot de passe')
                 throw new Error(`Wrong password`);                
             }
 
-            req.session.user = user;
-            console.log('Vous etes connecté')
+            const token = generateAccessToken({
+                email: req.body.email
+            });
+
+            req.session.user = token;
+            console.log('Vous êtes connecté')
 
             res.status(200).json({
                 pseudo: user.pseudo,
                 logged : true,
+                token: token
             });
 
         } catch (err) {
             res.status(401).json(err.message);
-        }
-
-
+        }      
 
     },
 
-
-    logout: (req, res, next) => {
-        // pour déconnecter l'utilisateur, il "suffit" de l'enlever de la session !
-        // pour ce faire, on utilise le mot clef delete
-        // delete sert à supprimer une propriété dans un objet
+    logout: (req, res, next) => {        
         delete req.session.user;
-
         res.redirect('/');
+    },
 
+    connected: (req, res, next) => {
+        res.json('Un utilisateur est connecté');
     }
-
 
 };
 

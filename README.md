@@ -25,16 +25,15 @@ Install the NPM dependencies for the front and the back. In each folder:
 npm i
 ```
 
+You will need to configure PostgreSQL (or provide the environment variables) for the following commands to be executed correctly (`createdb` and `sqitch`)
+
 Create a local database with PostGreSQL
 
 ```bash
-sudo -i -u postgres
-psql
-CREATE USER username WITH PASSWORD 'password';
-CREATE DATABASE databaseName OWNER username;
+createdb databaseName
 ```
 
-Logout from postgres and deploy Sqitch on the database (You have to be in the back folder)
+Deploy Sqitch on the database (You have to be in the back folder)
 
 ```bash
 sqitch deploy db:pg:databaseName
@@ -44,4 +43,15 @@ Then import the fake data to your database if you want to
 
 ```bash
 psql -d databaseName -f ./data/import.sql
+```
+
+In the back folder, create a .env file following the information in the .env.example
+
+
+## Starting
+
+Run the command
+
+```bash
+npm start
 ```
