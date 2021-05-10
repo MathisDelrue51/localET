@@ -2,18 +2,15 @@ const Curioset = require('../models/curioset');
 
 const curiosetController = {
 
-    // Route GET /
+    //GET /
     allCuriosets: async (req, res) => {
 
         const curiosets = await Curioset.findAll();
 
-        res.json(curiosets);
+        res.status(200).json(curiosets);
     },
 
-    showCuriosetForm: (req, res) => {
-        res.json("CuriosET form")
-    },
-
+    //POST /curioset
     newCurioset: async (req, res) => {
         console.log(req.body);
 
