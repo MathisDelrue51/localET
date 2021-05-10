@@ -13,6 +13,8 @@ import NavLoggedOut from 'src/components/Header/navLoggedOut';
 
 // Component
 const Header = ({isLogged})=> {
+  console.log('Header');
+  console.log(isLogged);
   return(
   <div className='header'>
     <a href="/" className="headerLogo">
@@ -22,15 +24,13 @@ const Header = ({isLogged})=> {
 
     <Switch>
 
-      <Route path="/login">
+      <Route path="/login" exact>
         {!isLogged && (<LoginForm />)}
       </Route> 
 
-      <Route path="/">
+      <Route path="/" >
       {isLogged ? <NavLoggedIn /> : <NavLoggedOut />}
       </Route> 
-
-
 
     </Switch>
 
@@ -43,9 +43,9 @@ Header.propTypes = {
   isLogged: PropTypes.bool,
 };
 
-// Header.defaultProps = {
-//   isLogged: true,
-// };
+Header.defaultProps = {
+   isLogged: false,
+};
 
 // == Export
 export default Header;

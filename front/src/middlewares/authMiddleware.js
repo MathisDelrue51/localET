@@ -21,15 +21,17 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.post(`${SERVER_URL}/login`, {
         email: auth.email,
         password: auth.password,
-      })
+      },
+      )
         .then((response) => {
 
           console.log('Je vais changer le state');
+          console.log(response);
 
           const actionSaveUser = saveUser(
             response.data.logged,
-            //response.data.token,
-            //response.data.pseudo,
+            response.data.token,
+            response.data.pseudo,
           );
           
           console.log('Je viens de changer le state et je push la redirection');
