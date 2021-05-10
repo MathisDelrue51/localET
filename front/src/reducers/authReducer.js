@@ -1,4 +1,4 @@
-import { UPDATE_FIELD, SAVE_USER } from "../actions/auth";
+import { UPDATE_FIELD, SAVE_USER} from "../actions/auth";
 
 const initialState = {
   // email input content : 
@@ -7,6 +7,8 @@ const initialState = {
   // password input content : 
   password : '',
 
+  //alias input content :
+  pseudo : '',
   // is user loggedin ? 
   logged: false,
 
@@ -28,12 +30,19 @@ function authReducer(state = initialState, action) {
           ...state,
           email: action.newValue,
         }
-      }
+      };
 
       if(action.fieldName ==='password'){
         return {
           ...state,
           password: action.newValue,
+        }
+      };
+
+      if(action.fieldName ==='pseudo'){
+        return {
+          ...state,
+          pseudo: action.newValue,
         }
       };
     

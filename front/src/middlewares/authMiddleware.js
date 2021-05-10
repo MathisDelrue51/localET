@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import {LOG_IN, saveUser} from 'src/actions/auth'
+import {LOG_IN, REGISTER, saveUser} from 'src/actions/auth'
 
 import history from "src/utils/history";
 
@@ -11,6 +11,29 @@ const authMiddleware = (store) => (next) => (action) => {
   console.log('on a intercepté une action dans le middleware: ', action);
 
   switch (action.type) {
+    case REGISTER : {
+      console.log('authMiddleware is handling REGISTER action');
+       // getting the auth part of the state
+       const { auth } = store.getState();
+       console.log(auth.email);
+       // connect to the backend's register route, providing email, password and alias collected from the state (and so, typed by the user)
+      axios({
+        method : "POST",
+        url: `${SERVER_URL}/signup`,
+        data: {
+          email: auth.email,
+          password : auth.password,
+          pseudo: auth.pseudo
+        }
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.error("ceci est mon erreur", err);
+      })
+      break;
+    }
     case LOG_IN: {
       console.log('authMiddleware is handling LOG_IN action');
 
