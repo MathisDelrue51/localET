@@ -13,7 +13,7 @@ import {
 const Map = ({list}) => (
   
   <div className="map">
-   <MapContainer center={[47.23737335205078, -1.5248912572860718]} zoom={13} scrollWheelZoom={false} id="mapid">
+   <MapContainer center={[47.23737335205078, -1.5248912572860718]} zoom={12} scrollWheelZoom={false} id="mapid">
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
