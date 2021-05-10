@@ -11,20 +11,42 @@ const curiosetSchema = require('./schemas/curioset');
 const userSchema = require('./schemas/user');
 const {validateBody} = require('./services/validator');
 
-router.get('/hello', (req,res) => {
-    res.json('hello world');
-});
-
+/**
+ * Returns all curiosET from the database
+ * @route GET /
+ * @returns {Array<Curioset>} 200 - An array of curiosets
+ */
 router.get('/', curiosetController.allCuriosets);
 
-router.get('/login', authController.getLogin ); //Not necessary, since we don't send data on this page, the front will call it
+/**
+ * Create a new user in the db
+ * @route POST /signup
+ * @returns {User.model>} 200 - The User
+ */
+router.post('/signup', validateBody(userSchema), userController.newUser);
+
+/**
+ * Returns JSON with the pseudo, islogged true and the JsonWebToken
+ * @route POST /login
+ * @returns {Object}
+ */
 router.post('/login', authController.postLogin );
-router.get('/connected', authenticateToken, authController.connected ); // Just to test if a user is connected or not
+
+// Just to test if a user is connected or not
+router.get('/connected', authenticateToken, authController.connected );
+
+/**
+ * Logout the user from the session
+ * @route GET /logout
+ */
 router.get('/logout', authController.logout );
 
-router.get('/curioset', authenticateToken, curiosetController.showCuriosetForm );
+/**
+ * Verify token and returns JSON with newly created curioset
+ * @route POST /curioset
+ * @returns {Curioset.model>} 200 - The curioset
+ */
 router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
-router.post('/signup', validateBody(userSchema), userController.newUser);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 

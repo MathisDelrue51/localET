@@ -1,12 +1,36 @@
 const db = require('../database');
 
+/**
+ * An entity representing a user
+ * @typedef User
+ * @property {number} id
+ * @property {string} email
+ * @property {string} pseudo
+ * @property {string} password
+ */
+
+ /**
+  * A model reprensenting a User
+  * @class
+  */
 class User {
+    /**
+     * The User constructor
+     * @param {Object} data - a litteral object with properties that will be copied into the instance
+     */
     constructor(data = {}) {
         for(const prop in data) {
             this[prop] = data[prop];
         }
     }
     
+    /**
+     * Fetches a single user from the database with an id
+     * @param {Number} id 
+     * @returns {User|null} null if no user in the database has this id
+     * @async
+     * @static
+     */
     static async findOne(id) {
         const {rows} = await db.query('SELECT * FROM user WHERE id = $1', [id]);
  
@@ -17,6 +41,13 @@ class User {
         }
     }
 
+    /**
+     * Fetches a single user from the database with an email
+     * @param {string} email 
+     * @returns {User|null} null if no user in the database has this email
+     * @async
+     * @static
+     */
     static async findByEmail(email) {
         const { rows } = await db.query('SELECT * FROM "user" WHERE email = $1;', [email]);
 
@@ -27,6 +58,13 @@ class User {
         }
     }
 
+    /**
+     * Fetches a single user from the database with a pseudo
+     * @param {string} pseudo 
+     * @returns {User|null} null if no user in the database has this pseudo
+     * @async
+     * @static
+     */
     static async findByPseudo(pseudo) {
         const { rows } = await db.query('SELECT * FROM "user" WHERE pseudo = $1;', [pseudo]);
 
@@ -35,11 +73,13 @@ class User {
         } else {
             return null;
         }
-    }
-    
-    
+    }    
 
-    
+    /**
+     * Create a new user in the db or update an existing one
+     * @async
+     * @throws {Error} a potential SQL error
+     */
     async save() {
 
         if (this.id) {
