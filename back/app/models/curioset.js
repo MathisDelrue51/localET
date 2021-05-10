@@ -26,6 +26,33 @@ class Curioset {
        return rows.map(row => new Curioset(row));
    }
 
+   async save() {
+    // if id, UPDATE, else, INSERT
+    if (this.id) {
+        // TODO : UPDATE 
+    } else {
+        try {
+            const { rows } = await db.query('INSERT INTO curioset (title, description, address, latitude, longitude, website, agenda, price, user_id, category_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;', [
+                this.title,
+                this.description,
+                this.address,
+                this.latitude,
+                this.longitude,
+                this.website,
+                this.agenda,
+                this.price,
+                this.user_id,
+                this.category_id
+            ]);
+
+            this.id = rows[0].id;
+        } catch (err) {            
+            throw new Error(err.detail);
+        }
+
+    }
+}
+
 
 }
 
