@@ -11,10 +11,6 @@ const userSchema = require('./schemas/user');
 const {validateBody} = require('./services/validator');
 const Curioset = require('./models/curioset');
 
-router.get('/hello', (req,res) => {
-    res.json('hello world');
-});
-
 /**
  * Returns all curiosET from the database
  * @route GET /
