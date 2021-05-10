@@ -5,6 +5,7 @@ import React from 'react';
 import './styles.scss';
 import Map from "src/components/Map";
 import Header from 'src/components/Header';
+import RegisterForm from 'src/containers/RegisterForm'
 
 import './styles.scss';
 

@@ -6,6 +6,9 @@ const initialState = {
 
   // password input content : 
   password : '',
+
+  //alias input content :
+  pseudo : ''
 };
 
 function authReducer(state = initialState, action) {
