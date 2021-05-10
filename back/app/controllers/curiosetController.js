@@ -23,8 +23,7 @@ const curiosetController = {
             await newCurioset.save();
 
             res.status(201).json(newCurioset);
-        } catch (err) {
-            console.log('coucou')
+        } catch (err) {            
             console.log(err)
             res.status(500).json(err.message);
         }

@@ -7,6 +7,7 @@ const userController = require('./controllers/userController');
 const authController = require('./controllers/authController');
 const authenticateToken = require('./middlewares/authenticateToken');
 
+const curiosetSchema = require('./schemas/curioset');
 const userSchema = require('./schemas/user');
 const {validateBody} = require('./services/validator');
 
@@ -22,6 +23,10 @@ router.get('/connected', authenticateToken, authController.connected ); // Just 
 router.get('/logout', authController.logout );
 
 router.get('/curioset', authenticateToken, curiosetController.showCuriosetForm );
-router.post('/curioset', authenticateToken, curiosetController.newCurioset);
+router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
+router.post('/signup', validateBody(userSchema), userController.newUser);
+
+// We can create a cutomized 404 err page later
+router.use((req, res) => res.status(404).json('endpoint not found')); 
 
 module.exports = router;

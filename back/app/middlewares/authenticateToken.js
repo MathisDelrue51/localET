@@ -8,7 +8,7 @@ function authenticateToken(req, res, next) {
 
     const token = req.session.user    
 
-    jwt.verify(token, 'Bibou', (err, user) => {        
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {        
         if (err) {
             return res.status(403).json(err.message);
         }
