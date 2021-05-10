@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router-dom';
 import './styles.scss';
 import logo from './localETlogo.png'
 import LoginForm from 'src/containers/LoginForm';
-import NavLoggedIn from 'src/components/Header/navLoggedIn';
+import NavLoggedIn from 'src/containers/NavLoggedIn';
 import NavLoggedOut from 'src/components/Header/navLoggedOut';
 
 

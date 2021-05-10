@@ -21,6 +21,13 @@
     }
   }
 
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
   .navLink {
     color: vars.$highlightColor;
     padding-left: 1rem;
