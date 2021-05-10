@@ -28,6 +28,7 @@ const authMiddleware = (store) => (next) => (action) => {
       })
       .then((response) => {
         console.log(response.data);
+        history.push("/login");
       })
       .catch((err) => {
         console.error("ceci est mon erreur", err);
