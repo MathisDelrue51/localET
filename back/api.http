@@ -152,16 +152,16 @@ POST http://localhost:1234/curioset
 Content-Type: application/json
 
 {
-    "title": "Soir" ,
-    "description": "Venez",
-    "address": "Hangar",
-    "latitude": null,
+   "title": "Soir",
+   "description": "Venez",
+   "address": "Hangar",
+    "latitude": -12.5,
     "longitude": "text", 
-    "website": "2",  
+    "website": "2",
     "agenda": "Le 22",
-    "price": -1.5,
-    "user_id": "4",
-    "category_id": "text"
+    "price": -10,
+    "user_id": "text",
+    "category_id": 1.5
 }
 
 ### GET curioset with id 1 (should exist)
@@ -172,4 +172,3 @@ GET http://localhost:1234/curioset/1000
 
 ### GET curioset with bad url (id not a number)
 GET http://localhost:1234/curioset/test
-
