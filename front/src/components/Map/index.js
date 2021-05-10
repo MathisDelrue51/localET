@@ -14,6 +14,7 @@ import {
 const Map = ({list, longitude, latitude}) => (
   
   <div className="map">
+  
   <SearchBar />
   <MapContainer center={[latitude, longitude]} zoom={13} scrollWheelZoom={false} id="mapid">
     <TileLayer
@@ -35,7 +36,9 @@ const Map = ({list, longitude, latitude}) => (
 );
 
 Map.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  longitude: PropTypes.number.isRequired,
+  latitude: PropTypes.number.isRequired
 }
 
 export default Map;

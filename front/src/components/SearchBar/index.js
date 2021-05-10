@@ -26,4 +26,10 @@ const SearchBar = ({address, changeField, handleSearch}) => {
   )
 };
 
+SearchBar.propTypes = {
+  address: PropTypes.string.isRequired,
+  changeField: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired
+}
+
 export default SearchBar;
