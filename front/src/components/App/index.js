@@ -7,8 +7,9 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import Map from "src/containers/mapContainer";
 import Header from 'src/containers/Header';
-import RegisterForm from 'src/containers/RegisterForm'
-import Footer from 'src/components/Footer'
+import RegisterForm from 'src/containers/RegisterForm';
+import ProfilePage from 'src/containers/ProfilePage';
+import Footer from 'src/components/Footer';
 
 
 // == Component
@@ -24,6 +25,9 @@ const App = ({fetchCuriosets}) => {
       <Route path="/subscribe" >
         <RegisterForm />
       </Route> 
+      <Route path="/profile" >
+        <ProfilePage />
+      </Route>
       <Route path="/">
         <Map />
       </Route>

@@ -65,6 +65,7 @@ RegisterForm.propTypes = {
    * - name
    */
   changeField: PropTypes.func.isRequired,
+  handleRegister: PropTypes.func.isRequired
 };
 
 export default RegisterForm;
