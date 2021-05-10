@@ -4,6 +4,7 @@ export const LOG_IN = 'LOG_IN';
 
 export const SAVE_USER = 'SAVE_USER';
 
+
 // action to be connected to changeField prop
 export const updateField = (newValue, fieldName) => ({
   type: UPDATE_FIELD,

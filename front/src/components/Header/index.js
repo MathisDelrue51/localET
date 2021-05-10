@@ -11,6 +11,7 @@ import LoginForm from 'src/containers/LoginForm';
 import NavLoggedIn from 'src/components/Header/navLoggedIn';
 import NavLoggedOut from 'src/components/Header/navLoggedOut';
 
+
 // Component
 const Header = ({isLogged})=> {
   console.log('Header');
@@ -24,7 +25,7 @@ const Header = ({isLogged})=> {
 
     <Switch>
 
-      <Route path="/login" exact>
+      <Route path="/login">
         {!isLogged && (<LoginForm />)}
       </Route> 
 
