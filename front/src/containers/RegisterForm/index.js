@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateField } from 'src/actions/auth'
+import { updateField, register } from 'src/actions/auth'
 
 // Import component
 import RegisterForm from 'src/components/RegisterForm';
@@ -21,6 +21,10 @@ const mapDispatchToProps = (dispatch) => ({
   changeField : (newValue, name)=>{
     const action = updateField(newValue, name);
     dispatch(action);
+  },
+  handleRegister: () => {
+    console.log("submit du formulaire");
+    dispatch(register());
   }
 });
 
