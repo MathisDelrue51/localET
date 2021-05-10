@@ -2,7 +2,8 @@ export const UPDATE_FIELD = 'UPDATE_FIELD';
 
 export const LOG_IN = 'LOG_IN';
 
-export const SAVE_USER = 'SAVE_USER'
+export const SAVE_USER = 'SAVE_USER';
+
 
 // action to be connected to changeField prop
 export const updateField = (newValue, fieldName) => ({
@@ -17,7 +18,9 @@ export const logIn = () => ({
 })
 
 // action to be connected to isLogged prop
-export const saveUser = (isLogged) => ({
+export const saveUser = (isLogged, token, pseudo) => ({
   type: SAVE_USER,
   isLogged,
+  token,
+  pseudo,
 });

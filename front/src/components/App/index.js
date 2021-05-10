@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // == Import
 import './styles.scss';
 import Map from "src/containers/mapContainer";
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
 import Footer from 'src/components/Footer'
 
 

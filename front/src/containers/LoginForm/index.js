@@ -26,11 +26,11 @@ const mapDispatchToProps = (dispatch) => ({
   // function dispatching the action related to login
   handleLogin : () => {
     dispatch(logIn());
-
   },
 
 
 });
+
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
