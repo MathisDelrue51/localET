@@ -7,7 +7,7 @@ import './styles.scss';
 
 const Footer = () => (
   <div className="footer">
-    Contact<span>Nous - 2021</span>
+    <a href="/contact">Contact</a><span>Nous - 2021</span>
   </div>
 );
 

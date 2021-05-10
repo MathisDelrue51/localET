@@ -2,10 +2,15 @@
 
 .submit {
   &__button {
-    padding: 0.5em;
+    padding: 0.7em;
     color: vars.$white;
-
+    border: 1px solid transparent;
     border-radius: vars.$borderRadius;
-    background-color: vars.$highlightColorDarker;
+    background-color: vars.$highlightColor;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: vars.$highlightColorDarker;
+    }
   }
 }

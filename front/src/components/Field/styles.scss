@@ -1,11 +1,11 @@
 @use 'src/styles/vars';
 
 .field {
-  padding: 1rem;
+  padding: 0 1rem 0 0;
 
   .fieldInput {
     box-sizing: border-box;
-    padding: 0.4rem;
+    padding: 0.7rem;
     border: 1px solid vars.$mediumGrey;
     border-radius: vars.$borderRadius;
 
@@ -13,6 +13,7 @@
 
   .fieldInput::placeholder {
     color: vars.$mediumGrey;
+    font-size: 0.9rem;
   }
 
   .fieldInput:focus {
