@@ -26,7 +26,7 @@ const Header = ({isLogged})=> {
     <Switch>
 
       <Route path="/login">
-        {!isLogged && (<LoginForm />)}
+        {!isLogged ? <LoginForm /> : <NavLoggedIn />}
       </Route> 
 
       <Route path="/" >

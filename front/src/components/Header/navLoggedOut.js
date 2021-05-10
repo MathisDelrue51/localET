@@ -8,23 +8,23 @@ import './styles.scss';
 
 // Component
 const NavLoggedOut = ()=> (
-<nav>
-          <NavLink
-          to="/login"
-          className="navLink"
-          activeClassName="navLinkActive"
-          exact>
-            Connexion
-          </NavLink>
+  <nav className="nav">
+    <NavLink
+    to="/subscribe"
+    className="navLink"
+    activeClassName="navLinkActive"
+    exact>
+      S'inscrire
+    </NavLink>
 
-          <NavLink
-          to="/subscribe"
-          className="navLink"
-          activeClassName="navLinkActive"
-          exact>
-            S'inscrire
-          </NavLink>
-        </nav>
+    <NavLink
+    to="/login"
+    className="navLink"
+    activeClassName="navLinkActive"
+    exact>
+      Connexion
+    </NavLink>
+  </nav>
 );
 
 // == Export

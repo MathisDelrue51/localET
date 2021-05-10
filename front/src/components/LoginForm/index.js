@@ -18,7 +18,7 @@ const LoginForm = ({
   };
 
     return (
-    <div >
+    <div className="login">
       <form className="loginForm" onSubmit={handleSubmit}>
         
         <Field 
@@ -32,6 +32,7 @@ const LoginForm = ({
         <Field 
         name="password"
         placeholder="mot de passe"
+        type="password"
         label=""
         manageChange={changeField}
         value={password}
@@ -41,6 +42,7 @@ const LoginForm = ({
         buttonName="Ok !"/>
 
       </form>
+      <div className="formSwitch">Pas encore inscrit ?<a href="/subscribe" className="navLink">S'inscrire</a></div>
     </div>)
         
   };
