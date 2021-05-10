@@ -16,6 +16,7 @@ const userController = {
         }
     },
 
+    // POST /signup
     newUser: async (req, res) => {
      
         // We call the the function findByEmail as req.body.email to check if this email exists in db
