@@ -1,48 +1,12 @@
 ### Test Route
 
-GET http://localhost:1234/hello
+# Page d'accueil
 
 ### GET all curiosets
 GET http://localhost:1234/
 
-### GET login (route non nécessaire)
-GET http://localhost:1234/login
 
-### POST login test de connexion d'un utilisateur
-POST http://localhost:1234/login
-Content-Type: application/json
-
-{
-    "email": "mathis.local@et.fr" ,
-    "password": "1234" 
-}
-
-### POST login test de connexion d'un utilisateur non inscrit
-POST http://localhost:1234/login
-Content-Type: application/json
-
-{
-    "email": "pas.inscrit@et.fr" ,
-    "password": "1234" 
-}
-
-### POST login test de connexion d'un utilisateur avec le mauvais mdp
-POST http://localhost:1234/login
-Content-Type: application/json
-
-{
-    "email": "mathis.local@et.fr" ,
-    "password": "fefeggrgr" 
-}
-
-### GET test if a user is connected
-GET http://localhost:1234/connected
-
-### GET logout from session
-GET http://localhost:1234/logout
-
-
-///////////////////////////////////////////////
+# Inscription
 
 ### POST signup with correct data
 POST http://localhost:1234/signup
@@ -76,3 +40,97 @@ Content-Type: application/json
     "password": "Password99@"
 
 }
+
+
+# Connexion
+
+### GET test if a user is connected
+GET http://localhost:1234/connected
+
+### POST login test de connexion d'un utilisateur
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "mathis.local@et.fr" ,
+    "password": "1234" 
+}
+
+### POST login test de connexion d'un utilisateur non inscrit
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "pas.inscrit@et.fr" ,
+    "password": "1234" 
+}
+
+### POST login test de connexion d'un utilisateur avec le mauvais mdp
+POST http://localhost:1234/login
+Content-Type: application/json
+
+{
+    "email": "mathis.local@et.fr" ,
+    "password": "fefeggrgr" 
+}
+
+### GET logout from session
+GET http://localhost:1234/logout
+
+
+# Curioset
+
+### GET curioset, show new curiosET form (route non nécessaire)
+GET http://localhost:1234/curioset
+
+### POST curioset, send a POST request to create a new curioset in db
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795",   
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": 4,
+    "category_id": 1
+}
+
+### POST curioset, send a POST request to create a new curioset in db but with an error
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795", 
+    "website": null,  
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": "4",
+    "category_id": "text"
+}
+
+### POST curioset, send a POST request to create a new curioset in db but contente doesn't respect schema
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soir" ,
+    "description": "Venez",
+    "address": "Hangar",
+    "latitude": null,
+    "longitude": "text", 
+    "website": "2",  
+    "agenda": "Le 22",
+    "price": -1.5,
+    "user_id": "4",
+    "category_id": "text"
+}
+
+
