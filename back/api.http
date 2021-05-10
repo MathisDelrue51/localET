@@ -1,12 +1,51 @@
 ### Test Route
 
-GET http://localhost:1234/hello
+# Page d'accueil
 
 ### GET all curiosets
 GET http://localhost:1234/
 
-### GET login (route non nécessaire)
-GET http://localhost:1234/login
+
+# Inscription
+
+### POST signup with correct data
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing email
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet2",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing pseudo
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example3@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
+
+
+# Connexion
+
+### GET test if a user is connected
+GET http://localhost:1234/connected
 
 ### POST login test de connexion d'un utilisateur
 POST http://localhost:1234/login
@@ -35,11 +74,11 @@ Content-Type: application/json
     "password": "fefeggrgr" 
 }
 
-### GET test if a user is connected
-GET http://localhost:1234/connected
-
 ### GET logout from session
 GET http://localhost:1234/logout
+
+
+# Curioset
 
 ### GET curioset, show new curiosET form (route non nécessaire)
 GET http://localhost:1234/curioset
@@ -76,3 +115,22 @@ Content-Type: application/json
     "user_id": "4",
     "category_id": "text"
 }
+
+### POST curioset, send a POST request to create a new curioset in db but contente doesn't respect schema
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soir" ,
+    "description": "Venez",
+    "address": "Hangar",
+    "latitude": null,
+    "longitude": "text", 
+    "website": "2",  
+    "agenda": "Le 22",
+    "price": -1.5,
+    "user_id": "4",
+    "category_id": "text"
+}
+
+

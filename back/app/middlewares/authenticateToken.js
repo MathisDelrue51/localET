@@ -11,7 +11,7 @@ function authenticateToken(req, res, next) {
     const token = req.session.user    
 
     //And verify if token didn't expire
-    jwt.verify(token, 'Bibou', (err, user) => {        
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {        
         if (err) {
             return res.status(403).json(err.message);
         }
