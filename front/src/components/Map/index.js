@@ -9,19 +9,16 @@ import {
   MapContainer, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 
-import data from "../../data.js";
-
 // == Component
-const Map = () => (
+const Map = ({list}) => (
+  
   <div className="map">
-
-  {console.log(data)}
    <MapContainer center={[47.23737335205078, -1.5248912572860718]} zoom={13} scrollWheelZoom={false} id="mapid">
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-       { data.map(elmt => (
+       { list.map(elmt => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
         <Popup>
         <div className="popup"> 
@@ -35,5 +32,9 @@ const Map = () => (
     </MapContainer> 
   </div>
 );
+
+Map.propTypes = {
+  list: PropTypes.array.isRequired
+}
 
 export default Map;
