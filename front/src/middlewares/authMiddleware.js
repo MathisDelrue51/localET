@@ -28,7 +28,7 @@ const authMiddleware = (store) => (next) => (action) => {
         console.log(response.data);
       })
       .catch((err) => {
-        console.error(err);
+        console.error("ceci est mon erreur", err);
       })
       break;
     }
