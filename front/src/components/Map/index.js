@@ -10,31 +10,30 @@ import {
 } from 'react-leaflet';
 
 // == Component
-const Map = ({list}) => (
-  
+const Map = ({ list }) => (
+
   <div className="map">
-   <MapContainer center={[46.9896, 3.159]} zoom={6} scrollWheelZoom={false} id="mapid">
+    <MapContainer center={[46.9896, 3.159]} zoom={6} scrollWheelZoom={false} id="mapid">
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-       { list.map(elmt => (
+      { list.map((elmt) => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
-        <Popup>
-        <div className="popup"> 
-          <div className="title">{elmt.title}</div> <br/> {elmt.address} <br /> {elmt.description}
-        </div>
-        </Popup>
-      </Marker>
-      ))
-      }
+          <Popup>
+            <div className="popup">
+              <div className="title">{elmt.title}</div> <br /> {elmt.address} <br /> {elmt.description}
+            </div>
+          </Popup>
+        </Marker>
+      ))}
 
-    </MapContainer> 
+    </MapContainer>
   </div>
 );
 
 Map.propTypes = {
-  list: PropTypes.array.isRequired
-}
+  list: PropTypes.array.isRequired,
+};
 
 export default Map;

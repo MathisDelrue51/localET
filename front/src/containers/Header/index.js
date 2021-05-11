@@ -14,9 +14,7 @@ const mapStateToProps = (state) => ({
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
 
-
 });
-
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

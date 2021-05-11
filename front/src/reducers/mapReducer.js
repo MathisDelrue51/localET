@@ -1,15 +1,15 @@
-import { FETCH_CURIOSETS_SUCCESS} from 'src/actions/map';
+import { FETCH_CURIOSETS_SUCCESS } from 'src/actions/map';
 
 export const initialState = {
-  list: []
+  list: [],
 };
 
 const reducer = (currentState = initialState, action = {}) => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_CURIOSETS_SUCCESS:
       return {
         ...currentState,
-        list: action.list
+        list: action.list,
       };
     default:
       return currentState;

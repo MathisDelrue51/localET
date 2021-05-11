@@ -6,25 +6,26 @@ const SERVER_URL = 'http://localhost:1234';
 export default (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURIOSETS:
-      
-      console.log("Recherche curiosETs");
-      //Fetch request to get curiosETs
+
+      console.log('Recherche curiosETs');
+      // Fetch request to get curiosETs
       next(action);
       axios({
-        method:"get",
+        method: 'get',
         url: `${SERVER_URL}/`,
       })
-      .then((res) => {
-        console.log("je reçois ça du back", res);
-        const actionToDispatch = fetchCuriosetsSuccess(res.data);
-        store.dispatch(actionToDispatch)
-      })
-      .catch((err) => {
-        console.error(err);
-        const actionToError = fetchCuriosetsError();
-        store.dispatch(actionToError);
-      })
+        .then((res) => {
+          console.log('je reçois ça du back', res);
+          const actionToDispatch = fetchCuriosetsSuccess(res.data);
+          store.dispatch(actionToDispatch);
+        })
+        .catch((err) => {
+          console.error(err);
+          const actionToError = fetchCuriosetsError();
+          store.dispatch(actionToError);
+        });
       break;
     default:
       next(action);
-  }};
+  }
+};
