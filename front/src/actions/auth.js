@@ -6,6 +6,8 @@ export const SAVE_USER = 'SAVE_USER';
 
 export const REGISTER = 'REGISTER';
 
+export const LOG_OUT = 'LOG_OUT';
+
 // action when register form submit button is clicked
 export const register = () => ({
   type: REGISTER,
@@ -29,4 +31,9 @@ export const saveUser = (isLogged, token, pseudo) => ({
   isLogged,
   token,
   pseudo,
+});
+
+// action to be connected to handleLogout prop
+export const logOut = () => ({
+  type: LOG_OUT,
 });

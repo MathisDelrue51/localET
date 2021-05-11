@@ -1,6 +1,12 @@
 import axios from 'axios';
 
-import { LOG_IN, REGISTER, saveUser } from 'src/actions/auth';
+import {
+  LOG_IN,
+  REGISTER,
+  saveUser,
+  LOG_OUT,
+  logOut,
+} from 'src/actions/auth';
 
 import history from 'src/utils/history';
 
@@ -66,6 +72,22 @@ const authMiddleware = (store) => (next) => (action) => {
         .then(() => {
           history.push('/');
           console.log('history');
+        })
+
+        .catch((error) => {
+          console.log(error);
+        });
+
+      break;
+    }
+
+    case LOG_OUT: {
+      console.log('authMiddleware is handling LOG_OUT action');
+
+      axios.get(`${SERVER_URL}/logout`)
+
+        .then(() => {
+          history.push('/');
         })
 
         .catch((error) => {

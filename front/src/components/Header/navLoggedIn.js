@@ -7,12 +7,12 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // Component
-const NavLoggedIn = (pseudo) => {
-  console.log(pseudo);
+const NavLoggedIn = ({ pseudo, handleLogout }) => {
+  console.log(typeof pseudo);
   return (
     <nav className="nav">
       <p>
-        Bonjour {pseudo.pseudo} !
+        Bonjour {pseudo} !
       </p>
       <NavLink
         to="/profile"
@@ -28,6 +28,7 @@ const NavLoggedIn = (pseudo) => {
         className="navLink"
         activeClassName="navLinkActive"
         exact
+        onClick={handleLogout}
       >
         Déconnexion
       </NavLink>
@@ -37,7 +38,9 @@ const NavLoggedIn = (pseudo) => {
 
 NavLoggedIn.propTypes = {
   /** greets the user using his nickname */
-  pseudo: PropTypes.shape({ pseudo: PropTypes.string.isRequired }).isRequired,
+  pseudo: PropTypes.string.isRequired,
+  /** function that handles the logout of user */
+  handleLogout: PropTypes.func.isRequired,
 };
 
 // == Export
