@@ -39,7 +39,7 @@ const App = ({fetchCuriosets}) => {
 };
 
 App.propTypes = {
-  fetchCuriosets: PropTypes.func.isRequired
+  fetchCuriosets: PropTypes.func.isRequired,
 };
 
 // == Export

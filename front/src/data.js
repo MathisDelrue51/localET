@@ -6,7 +6,7 @@ export default [
     address: '12 Rue du Croissant, Nantes, France',
     latitude: 47.23737335205078,
     longitude: -1.5248912572860718,
-    category: "Expos",
+    category: 'Expos',
   },
   {
     id: 2,
@@ -15,6 +15,6 @@ export default [
     address: 'Place Viarme, Nantes, France',
     latitude: 47.2209341,
     longitude: -1.5625805,
-    category: "Art de Rue", 
-  }   
+    category: 'Art de Rue',
+  },
 ];

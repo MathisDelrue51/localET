@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 
+import { logOut } from 'src/actions/auth';
+
 // Import component
 import NavLoggedIn from 'src/components/Header/navLoggedIn';
 
@@ -13,10 +15,10 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
-
-
+  handleLogout: () => {
+    dispatch(logOut());
+  },
 });
-
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(NavLoggedIn);

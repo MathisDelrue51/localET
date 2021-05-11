@@ -1,51 +1,62 @@
-import { UPDATE_FIELD, SAVE_USER} from "../actions/auth";
+import { UPDATE_FIELD, SAVE_USER, LOG_OUT } from '../actions/auth';
 
 const initialState = {
-  // email input content : 
-  email : '',
+  // email input content :
+  email: '',
 
-  // password input content : 
-  password : '',
+  // password input content :
+  password: '',
 
-  //alias input content :
-  pseudo : '',
-  // is user loggedin ? 
+  // alias input content :
+  pseudo: '',
+  // is user loggedin ?
   logged: false,
 
-  token : null,
+  token: null,
 
-  pseudo : '',
+  id: null
 
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
-
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
-
-      // It means : if fieldName is email, update the email property of the state with the new value typed into the field
-      if(action.fieldName ==='email'){
+      // It means : if fieldName is email, update the email property of the state with
+      // the new value typed into the field
+      if (action.fieldName === 'email') {
         return {
           ...state,
           email: action.newValue,
-        }
-      };
+        };
+      }
 
-      if(action.fieldName ==='password'){
+      if (action.fieldName === 'password') {
         return {
           ...state,
           password: action.newValue,
-        }
-      };
+        };
+      }
 
-      if(action.fieldName ==='pseudo'){
+      if (action.fieldName === 'pseudo') {
         return {
           ...state,
           pseudo: action.newValue,
-        }
+        };
+      }
+      break;
+
+    // This is what happens when the action SAVE_USER is fired :
+    case SAVE_USER:
+      return {
+        ...state,
+        logged: action.isLogged,
+        email: '',
+        password: '',
+        token: action.token,
+        pseudo: action.pseudo,
       };
-    
+
     // This is what happens when the action SAVE_USER is fired :
     case SAVE_USER :
     return {
@@ -56,12 +67,19 @@ function authReducer(state = initialState, action) {
       token : action.token,
       pseudo : action.pseudo,
     }
+    case LOG_OUT:
+      return {
+        ...state,
+        logged: false,
+        email: '',
+        password: '',
+        token: '',
+        pseudo: '',
+      };
 
     default:
       return state;
   }
-
-  
 }
 
 export default authReducer;

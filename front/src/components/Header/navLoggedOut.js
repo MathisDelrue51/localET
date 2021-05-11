@@ -7,21 +7,23 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // Component
-const NavLoggedOut = ()=> (
+const NavLoggedOut = () => (
   <nav className="nav">
     <NavLink
-    to="/subscribe"
-    className="navLink"
-    activeClassName="navLinkActive"
-    exact>
+      to="/subscribe"
+      className="navLink"
+      activeClassName="navLinkActive"
+      exact
+    >
       S'inscrire
     </NavLink>
 
     <NavLink
-    to="/login"
-    className="navLink"
-    activeClassName="navLinkActive"
-    exact>
+      to="/login"
+      className="navLink"
+      activeClassName="navLinkActive"
+      exact
+    >
       Connexion
     </NavLink>
   </nav>

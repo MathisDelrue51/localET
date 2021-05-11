@@ -7,8 +7,8 @@ import SubmitButton from 'src/components/SubmitButton';
 import './styles.scss';
 
 const LoginForm = ({
-  email, 
-  password, 
+  email,
+  password,
   changeField,
   handleLogin,
 }) => {
@@ -17,35 +17,36 @@ const LoginForm = ({
     handleLogin();
   };
 
-    return (
+  return (
     <div className="login">
       <form className="loginForm" onSubmit={handleSubmit}>
-        
-        <Field 
-        name="email"
-        placeholder="adresse e-mail"
-        label=""
-        manageChange={changeField}
-        value={email}
+
+        <Field
+          name="email"
+          placeholder="adresse e-mail"
+          label=""
+          manageChange={changeField}
+          value={email}
         />
 
-        <Field 
-        name="password"
-        placeholder="mot de passe"
-        type="password"
-        label=""
-        manageChange={changeField}
-        value={password}
+        <Field
+          name="password"
+          placeholder="mot de passe"
+          type="password"
+          label=""
+          manageChange={changeField}
+          value={password}
         />
 
-        <SubmitButton 
-        buttonName="Ok !"/>
+        <SubmitButton
+          buttonName="Ok !"
+        />
 
       </form>
       <div className="formSwitch">Pas encore inscrit ?<a href="/subscribe" className="navLink">S'inscrire</a></div>
-    </div>)
-        
-  };
+    </div>
+  );
+};
 
 LoginForm.propTypes = {
   /** value for the email */

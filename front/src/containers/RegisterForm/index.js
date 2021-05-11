@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateField, register } from 'src/actions/auth'
+import { updateField, register } from 'src/actions/auth';
 
 // Import component
 import RegisterForm from 'src/components/RegisterForm';
@@ -11,21 +11,21 @@ const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
   password: state.auth.password,
-  pseudo: state.auth.pseudo
+  pseudo: state.auth.pseudo,
 });
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
   // function dispatching the action
-  changeField : (newValue, name)=>{
+  changeField: (newValue, name) => {
     const action = updateField(newValue, name);
     dispatch(action);
   },
   handleRegister: () => {
-    console.log("submit du formulaire");
+    console.log('submit du formulaire');
     dispatch(register());
-  }
+  },
 });
 
 // export

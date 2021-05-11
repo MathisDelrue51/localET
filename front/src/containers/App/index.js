@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
-import {fetchCuriosets} from 'src/actions/map';
+import { fetchCuriosets } from 'src/actions/map';
 
 const mapStateToProps = null;
 

@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Component
-const SubmitButton = ({buttonName}) => (
+const SubmitButton = ({ buttonName }) => (
   <div className="submit">
     <button className="submit__button" type="submit">{buttonName}</button>
   </div>
 );
 
 SubmitButton.propTypes = {
-  buttonName: PropTypes.string
-}
+  buttonName: PropTypes.string,
+};
 
 export default SubmitButton;
