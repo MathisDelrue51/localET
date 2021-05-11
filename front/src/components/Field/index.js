@@ -54,8 +54,8 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   /** text used as placeholder */
   placeholder: PropTypes.string.isRequired,
-    /** text used as label */
-    label: PropTypes.string.isRequired,
+  /** text used as label */
+  label: PropTypes.string.isRequired,
   /** called when onChange event is received by the input, two parameters :
    * - new value
    * - name

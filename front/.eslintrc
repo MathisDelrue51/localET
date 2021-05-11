@@ -1,8 +1,11 @@
 {
-  "extends": "airbnb",
+  "extends": "airbnb",	
   "parser": "@babel/eslint-parser",
-  "env": {
-    "browser": true
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "configFile": "./front/.babelrc" // Ici c'est le path du fichier .babelrc en partant de la racine du projet (même si .eslintrc est en fait au même niveau que .babelrc)
+    }
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],
@@ -40,8 +43,8 @@
       "alias": {
         "extensions": [".js"],
         "map": [
-          ["src", "./src"],
-          ["app", "./src"]
+          ["src", "./front/src"],
+          ["app", "./front/src"]
         ]
       }
     }

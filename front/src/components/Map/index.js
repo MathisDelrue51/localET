@@ -40,7 +40,8 @@ const Map = ({list, longitude, latitude, zoom}) => (
 Map.propTypes = {
   list: PropTypes.array.isRequired,
   longitude: PropTypes.number.isRequired,
-  latitude: PropTypes.number.isRequired
+  latitude: PropTypes.number.isRequired,
+  zoom: PropTypes.number.isRequired
 }
 
 export default Map;

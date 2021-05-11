@@ -9,7 +9,7 @@ import reducer from 'src/reducers';
 const enhancers = composeWithDevTools(
   applyMiddleware(
     authMiddleware,
-    mapMiddleware
+    mapMiddleware,
   ),
 );
 

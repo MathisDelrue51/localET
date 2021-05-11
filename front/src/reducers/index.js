@@ -4,13 +4,12 @@ import { combineReducers } from 'redux';
 import authReducer from 'src/reducers/authReducer';
 import mapReducer from 'src/reducers/mapReducer';
 
-
 // le reducer principal, qui regroupe les autres
 // combineReducers prend en argument un objet qui indique un nom pour
 // chaque reducer
 const rootReducer = combineReducers({
   auth: authReducer,
-  map: mapReducer
+  map: mapReducer,
 });
 
 export default rootReducer;

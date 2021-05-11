@@ -19,7 +19,7 @@ const reducer = (currentState = initialState, action = {}) => {
     case FETCH_CURIOSETS_SUCCESS:
       return {
         ...currentState,
-        list: action.list
+        list: action.list,
       };
     case SUBMIT_SEARCH_SUCCESS:
       return {
