@@ -8,6 +8,7 @@ import './styles.scss';
 import Map from '../../containers/mapContainer';
 import Header from '../../containers/Header';
 import RegisterForm from '../../containers/RegisterForm';
+import CreateEventForm from '../CreateEventForm';
 import Footer from '../Footer';
 
 // == Component
@@ -24,6 +25,9 @@ const App = ({ fetchCuriosets }) => {
 
         <Route path="/subscribe">
           <RegisterForm />
+        </Route>
+        <Route path="/createEvent">
+          <CreateEventForm />
         </Route>
         <Route path="/">
           <Map />
