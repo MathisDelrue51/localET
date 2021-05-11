@@ -32,7 +32,7 @@ class User {
      * @static
      */
     static async findOne(id) {
-        const {rows} = await db.query('SELECT * FROM user WHERE id = $1', [id]);
+        const {rows} = await db.query('SELECT * FROM "user" WHERE id = $1', [id]);
  
         if (rows[0]) {
             return new User(rows[0]);
@@ -97,7 +97,7 @@ class User {
 
             } catch (err) {
 
-                throw new Eroor(err.detail);
+                throw new Error(err.detail);
             }
         }
     }

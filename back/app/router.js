@@ -10,6 +10,7 @@ const authenticateToken = require('./middlewares/authenticateToken');
 const curiosetSchema = require('./schemas/curioset');
 const userSchema = require('./schemas/user');
 const {validateBody} = require('./services/validator');
+const Curioset = require('./models/curioset');
 
 /**
  * Returns all curiosET from the database
@@ -36,6 +37,12 @@ router.post('/login', authController.postLogin );
 router.get('/connected', authenticateToken, authController.connected );
 
 /**
+ * Access the profile page of the user with the corresponding id (if it exists)
+ * @route GET /profile/:id - id must be a number (defined by the regex)
+ */
+router.get('/profile/:id(\\d+)', authenticateToken, userController.oneUserById);
+
+/**
  * Logout the user from the session
  * @route GET /logout
  */
@@ -47,6 +54,12 @@ router.get('/logout', authController.logout );
  * @returns {Curioset.model>} 200 - The curioset
  */
 router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
+
+/**
+ * Access the page of the curioset with the corresponding id (if it exists)
+ * @route GET /curioset/:id - id must be a number (defined by the regex)
+ */
+router.get('/curioset/:id(\\d+)', curiosetController.oneCuriosetById);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 
