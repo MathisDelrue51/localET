@@ -1,11 +1,13 @@
 // == Import npm
 import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
 import Map from "src/containers/mapContainer";
-import Header from 'src/components/Header';
+import Header from 'src/containers/Header';
+import RegisterForm from 'src/containers/RegisterForm'
 import Footer from 'src/components/Footer'
 
 
@@ -17,7 +19,16 @@ const App = ({fetchCuriosets}) => {
   return(
   <div className="app">
     <Header />
-    <Map />
+    <Switch>
+
+      <Route path="/subscribe" >
+        <RegisterForm />
+      </Route> 
+      <Route path="/">
+        <Map />
+      </Route>
+
+    </Switch>
     <Footer />
   </div>
   )

@@ -3,6 +3,13 @@
 .loginForm {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
   justify-content: flex-end;
+}
+
+.formSwitch {
+  color: vars.$black;
+  text-align: right;
+  padding-top: 1rem;
+  font-size: 0.9rem;
 }

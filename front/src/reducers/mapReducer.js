@@ -4,8 +4,9 @@ import { SUBMIT_SEARCH_ERROR } from '../actions/map';
 export const initialState = {
   list: [],
   address: "",
-  longitude : 2.333333,
-  latitude: 48.866667
+  longitude : 3.159,
+  latitude: 46.9896,
+  zoom: 6
 };
 
 const reducer = (currentState = initialState, action = {}) => {
@@ -24,7 +25,8 @@ const reducer = (currentState = initialState, action = {}) => {
       return {
         ...currentState,
         longitude: action.longitude,
-        latitude: action.latitude
+        latitude: action.latitude,
+        zoom: 13
       }
     default:
       return currentState;

@@ -16,8 +16,28 @@
     }
 
     &Baseline {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-style: italic;
     }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .navLink {
+    color: vars.$highlightColor;
+    padding-left: 1rem;
+
+    &:hover {
+      text-decoration: underline solid vars.$highlightColor 1px;
+    }
+  }
+
+  .navLinkActive {
+    text-decoration: underline solid vars.$highlightColor 1px;
   }
 }

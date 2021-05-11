@@ -4,19 +4,21 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
-import SearchBar from "src/containers/SearchBar"
+import SearchBar from "src/containers/SearchBar";
+import SetView from "src/components/SetView";
 
 import {
-  MapContainer, TileLayer, Marker, Popup,
+  MapContainer, TileLayer, Marker, Popup
 } from 'react-leaflet';
 
 // == Component
-const Map = ({list, longitude, latitude}) => (
+const Map = ({list, longitude, latitude, zoom}) => (
   
   <div className="map">
   
   <SearchBar />
-  <MapContainer center={[latitude, longitude]} zoom={13} scrollWheelZoom={false} id="mapid">
+  <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
+    <SetView center={[latitude, longitude]} zoom={zoom}/>
     <TileLayer
       attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

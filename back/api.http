@@ -1,12 +1,73 @@
 ### Test Route
 
-GET http://localhost:1234/hello
+# Page d'accueil
 
 ### GET all curiosets
 GET http://localhost:1234/
 
-### GET login (route non nécessaire)
-GET http://localhost:1234/login
+
+# Inscription
+
+### POST signup with correct data
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing email
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example@test.fr",
+    "pseudo": "localet2",
+    "password": "Password99@"
+
+}
+
+### POST signup with existing pseudo
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example3@test.fr",
+    "pseudo": "localet",
+    "password": "Password99@"
+
+}
+
+### POST signup with non working password
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.examplePassword@test.fr",
+    "pseudo": "localetPass",
+    "password": "test"
+
+}
+
+### POST signup with non working email
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example",
+    "pseudo": "localetEmail",
+    "password": "test"
+
+}
+
+
+# Connexion
+
+### GET test if a user is connected
+GET http://localhost:1234/connected
 
 ### POST login test de connexion d'un utilisateur
 POST http://localhost:1234/login
@@ -35,8 +96,79 @@ Content-Type: application/json
     "password": "fefeggrgr" 
 }
 
-### GET test if a user is connected
-GET http://localhost:1234/connected
-
 ### GET logout from session
 GET http://localhost:1234/logout
+
+
+# User
+
+### GET user with id 1 (should exist)
+GET http://localhost:1234/profile/1
+
+### GET user with id 2 (should exist but current user shouldn't have access)
+GET http://localhost:1234/profile/2
+
+### GET user with id 1000 (shouldn't exist)
+GET http://localhost:1234/profile/1000
+
+
+# Curioset
+
+### POST curioset, send a POST request to create a new curioset in db
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795",   
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": 4,
+    "category_id": 1
+}
+
+### POST curioset, send a POST request to create a new curioset in db but with an error
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+    "title": "Soirée dansante" ,
+    "description": "Venez découvrir des danses de salon",
+    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
+    "latitude": "47.2007699",
+    "longitude": "-1.5732795", 
+    "website": null,  
+    "agenda": "Le 25/06/2021",
+    "price": 1.5,
+    "user_id": "4",
+    "category_id": "text"
+}
+
+### POST curioset, send a POST request to create a new curioset in db but contente doesn't respect schema
+POST http://localhost:1234/curioset
+Content-Type: application/json
+
+{
+   "title": "Soir",
+   "description": "Venez",
+   "address": "Hangar",
+    "latitude": -12.5,
+    "longitude": "text", 
+    "website": "2",
+    "agenda": "Le 22",
+    "price": -10,
+    "user_id": "text",
+    "category_id": 1.5
+}
+
+### GET curioset with id 1 (should exist)
+GET http://localhost:1234/curioset/1
+
+### GET curioset with id 1000 (shouldn't exist)
+GET http://localhost:1234/curioset/1000
+
+### GET curioset with bad url (id not a number)
+GET http://localhost:1234/curioset/test

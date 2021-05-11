@@ -15,7 +15,7 @@ export const submitSearchError = () => ({
 export const submitSearchSuccess = (longitude, latitude) => ({
   type : SUBMIT_SEARCH_SUCCESS,
   longitude,
-  latitude
+  latitude,
 })
 
 //action to submit address in the search bar
