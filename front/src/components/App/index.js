@@ -5,37 +5,38 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
-import Map from "src/containers/mapContainer";
-import Header from 'src/containers/Header';
-import RegisterForm from 'src/containers/RegisterForm'
-import Footer from 'src/components/Footer'
-
+import Map from '../../containers/mapContainer';
+import Header from '../../containers/Header';
+import RegisterForm from '../../containers/RegisterForm';
+import Footer from '../Footer';
 
 // == Component
-const App = ({fetchCuriosets}) => {
-  console.log(fetchCuriosets);
-  useEffect(()=>{fetchCuriosets();},[]);
+const App = ({ fetchCuriosets }) => {
+  // console.log(fetchCuriosets);
+  useEffect(() => {
+    fetchCuriosets();
+  }, []);
 
-  return(
-  <div className="app">
-    <Header />
-    <Switch>
+  return (
+    <div className="app">
+      <Header />
+      <Switch>
 
-      <Route path="/subscribe" >
-        <RegisterForm />
-      </Route> 
-      <Route path="/">
-        <Map />
-      </Route>
+        <Route path="/subscribe">
+          <RegisterForm />
+        </Route>
+        <Route path="/">
+          <Map />
+        </Route>
 
-    </Switch>
-    <Footer />
-  </div>
-  )
+      </Switch>
+      <Footer />
+    </div>
+  );
 };
 
 App.propTypes = {
-  fetchCuriosets: PropTypes.func.isRequired
+  fetchCuriosets: PropTypes.func.isRequired,
 };
 
 // == Export
