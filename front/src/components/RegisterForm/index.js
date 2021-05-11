@@ -7,50 +7,50 @@ import SubmitButton from 'src/components/SubmitButton';
 import './styles.scss';
 
 const RegisterForm = ({
-  email, 
+  email,
   password,
-  pseudo, 
+  pseudo,
   changeField,
-  handleRegister
+  handleRegister,
 }) => {
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister();
   };
 
-  return(
-  <div className="register">
-    <h1 className="register__title">Inscription</h1>
-    <h2 className="register__subtitle">Binevenue chez localET !</h2>
-    <form className="register__form" onSubmit={handleSubmit}>
-      <Field 
-      name="email"
-      placeholder="adresse e-mail"
-      label=""
-      manageChange={changeField}
-      value={email}
-      />
-      <Field 
-      name="password"
-      placeholder="mot de passe"
-      label=""
-      manageChange={changeField}
-      value={password}
-      />
-      <Field 
-        name="pseudo"
-        placeholder="pseudo"
-        label=""
-        manageChange={changeField}
-        value={pseudo}
-      />
-      <SubmitButton 
-      buttonName="S'inscrire"/>
-    </form>
-    <p>Déjà inscrit ? <span><a href="/login">Connexion</a></span></p>
-  </div>
-  )
+  return (
+    <div className="register">
+      <h1 className="register__title">Inscription</h1>
+      <h2 className="register__subtitle">Binevenue chez localET !</h2>
+      <form className="register__form" onSubmit={handleSubmit}>
+        <Field
+          name="email"
+          placeholder="adresse e-mail"
+          label=""
+          manageChange={changeField}
+          value={email}
+        />
+        <Field
+          name="password"
+          placeholder="mot de passe"
+          label=""
+          manageChange={changeField}
+          value={password}
+        />
+        <Field
+          name="pseudo"
+          placeholder="pseudo"
+          label=""
+          manageChange={changeField}
+          value={pseudo}
+        />
+        <SubmitButton
+          buttonName="S'inscrire"
+        />
+      </form>
+      <p>Déjà inscrit ? <span><a href="/login">Connexion</a></span></p>
+    </div>
+  );
 };
 
 RegisterForm.propTypes = {
