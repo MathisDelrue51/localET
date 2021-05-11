@@ -51,7 +51,7 @@ function authReducer(state = initialState, action) {
     return {
       ...state,
       logged: action.isLogged,
-      email: '',
+      email: "",
       password: '',
       token : action.token,
       pseudo : action.pseudo,

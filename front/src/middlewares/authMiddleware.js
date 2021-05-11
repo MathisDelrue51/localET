@@ -50,7 +50,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
 
           console.log('Je vais changer le state');
-          console.log(response);
+          console.log("save user data",response.data);
 
           const actionSaveUser = saveUser(
             response.data.logged,

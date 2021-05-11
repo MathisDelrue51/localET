@@ -24,7 +24,7 @@ export const logIn = () => ({
 })
 
 // action to be connected to isLogged prop
-export const saveUser = (isLogged, token, pseudo) => ({
+export const saveUser = (isLogged, token, pseudo, email) => ({
   type: SAVE_USER,
   isLogged,
   token,
