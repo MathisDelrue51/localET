@@ -34,7 +34,7 @@ class Curioset {
 
     /**
      * Find a single curioset from the database
-     * @param {*} id 
+     * @param {number} id 
      * @returns {Curioset|null} null if no curioset in the db with this id
      * @async
      * @static
@@ -93,7 +93,7 @@ class Curioset {
 
                 this.id = rows[0].id;
             } catch (err) {
-                throw new Error(err.detail);
+                throw new Error(err);
             }
 
         }

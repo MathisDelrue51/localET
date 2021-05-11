@@ -8,7 +8,7 @@ function authenticateToken(req, res, next) {
     }
 
     //Else, store session user in token
-    const token = req.session.user    
+    const token = req.session.user;    
 
     //And verify if token didn't expire
     jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {        

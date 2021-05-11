@@ -41,6 +41,28 @@ Content-Type: application/json
 
 }
 
+### POST signup with non working password
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.examplePassword@test.fr",
+    "pseudo": "localetPass",
+    "password": "test"
+
+}
+
+### POST signup with non working email
+POST http://localhost:1234/signup
+Content-Type: application/json
+
+{
+    "email": "test.example",
+    "pseudo": "localetEmail",
+    "password": "test"
+
+}
+
 
 # Connexion
 
@@ -78,10 +100,19 @@ Content-Type: application/json
 GET http://localhost:1234/logout
 
 
-# Curioset
+# User
 
-### GET curioset, show new curiosET form (route non nécessaire)
-GET http://localhost:1234/curioset
+### GET user with id 1 (should exist)
+GET http://localhost:1234/profile/1
+
+### GET user with id 2 (should exist but current user shouldn't have access)
+GET http://localhost:1234/profile/2
+
+### GET user with id 1000 (shouldn't exist)
+GET http://localhost:1234/profile/1000
+
+
+# Curioset
 
 ### POST curioset, send a POST request to create a new curioset in db
 POST http://localhost:1234/curioset
@@ -121,16 +152,23 @@ POST http://localhost:1234/curioset
 Content-Type: application/json
 
 {
-    "title": "Soir" ,
-    "description": "Venez",
-    "address": "Hangar",
-    "latitude": null,
+   "title": "Soir",
+   "description": "Venez",
+   "address": "Hangar",
+    "latitude": -12.5,
     "longitude": "text", 
-    "website": "2",  
+    "website": "2",
     "agenda": "Le 22",
-    "price": -1.5,
-    "user_id": "4",
-    "category_id": "text"
+    "price": -10,
+    "user_id": "text",
+    "category_id": 1.5
 }
 
+### GET curioset with id 1 (should exist)
+GET http://localhost:1234/curioset/1
 
+### GET curioset with id 1000 (shouldn't exist)
+GET http://localhost:1234/curioset/1000
+
+### GET curioset with bad url (id not a number)
+GET http://localhost:1234/curioset/test

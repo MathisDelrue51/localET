@@ -1,57 +1,73 @@
 const User = require('../models/user');
 
-const userSchema = require('../schemas/user');
+const jwt = require('jsonwebtoken');
 
 const userController = {
 
-    oneUser: async (req,res) => {
-        const {id} = req.params;
+    // GET /profile/:id
+    oneUserById: async (req, res) => {
+        const token = req.session.user;
+        const decoded = jwt.decode(token)
 
-        const theUser = await User.findOne(id);
+        try {
+            //Verify if the email found in the token correspond to one in the db. 
+            //If yes, compare the id to the id in the request
+            const user = await User.findByEmail(decoded.email);
+            if (user) {
+                const userId = req.params.id;
 
-        if (theUser) {
-            res.json(theUser);
-        } else {
-            res.status(404).json('No user with this id');
+                if (userId == user.id) {
+
+                    res.status(200).json(user);
+
+                } else {
+                    throw new Error('Your token doesn\'t correspond to the page you want to look at')
+                }
+            } else {
+                throw new Error('You don\'t have access');
+            }
+
+        } catch (err) {
+            res.status(404).json(err.message);
         }
     },
 
     // POST /signup
     newUser: async (req, res) => {
-     
-        // We call the the function findByEmail as req.body.email to check if this email exists in db
-
+        try {
+            // We call the the function findByEmail as req.body.email to check if this email exists in db
             const newEmail = await User.findByEmail(req.body.email);
 
-            if (newEmail === null) { 
+            if (newEmail === null) {
 
-        // if result is null , thus the email doesn't exist in db and we can new user after checking pseudo
-
+                // if result is null , thus the email doesn't exist in db and we can new user after checking pseudo
                 const newPseudo = await User.findByPseudo(req.body.pseudo);
-
                 if (newPseudo === null) {
 
                     const theNewUser = new User(req.body);
                     await theNewUser.save();
                     console.log('Vous êtes inscrits');
 
-                    res.status(201).json(theNewUser); 
+                    res.status(201).json(theNewUser);
 
                 } else {
 
                     console.log('pseudo déjà existant');
-                    res.status(403).json('Pseudo already exists');
+                    throw new Error(`Pseudo already exists`);
 
-                }  
-                
+                }
+
             } else {
 
                 console.log('email déjà existant');
-                res.status(403).json('Email already exists');
-
+                throw new Error(`Email already exists`);
             }
-        
-        }   
+
+        } catch (err) {
+            res.status(403).json(err.toString());
+        }
+    }
+
 }
 
 module.exports = userController;
