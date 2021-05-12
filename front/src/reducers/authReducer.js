@@ -14,6 +14,8 @@ const initialState = {
 
   token: null,
 
+  id: null
+
 };
 
 function authReducer(state = initialState, action) {
@@ -45,17 +47,16 @@ function authReducer(state = initialState, action) {
       break;
 
     // This is what happens when the action SAVE_USER is fired :
-    case SAVE_USER:
-      return {
-        ...state,
-        logged: action.isLogged,
-        email: '',
-        password: '',
-        token: action.token,
-        pseudo: action.pseudo,
-      };
-
-    // This is what happens when the action SAVE_USER is fired :
+    case SAVE_USER :
+    return {
+      ...state,
+      logged: action.isLogged,
+      email: "",
+      password: '',
+      token : action.token,
+      pseudo : action.pseudo,
+      id: action.id
+    }
     case LOG_OUT:
       return {
         ...state,
