@@ -7,14 +7,20 @@ const initialState = {
   // password input content :
   address: '',
 
-  // placeName input content :
-  placeName: '',
-
   // website input content
   website: '',
 
   // dateTime of event
   dateTime: '',
+
+  // price of event
+  price: '',
+
+  // description
+  description: '',
+
+  // artDeRue category type
+  artDeRue: '',
 
 };
 
@@ -38,13 +44,6 @@ function curiosetReducer(state = initialState, action) {
         };
       }
 
-      if (action.fieldName === 'placeName') {
-        return {
-          ...state,
-          placeName: action.newValue,
-        };
-      }
-
       if (action.fieldName === 'website') {
         return {
           ...state,
@@ -56,6 +55,27 @@ function curiosetReducer(state = initialState, action) {
         return {
           ...state,
           dateTime: action.newValue,
+        };
+      }
+
+      if (action.fieldName === 'price') {
+        return {
+          ...state,
+          price: action.newValue,
+        };
+      }
+
+      if (action.fieldName === 'description') {
+        return {
+          ...state,
+          description: action.newValue,
+        };
+      }
+
+      if (action.fieldName === 'artDeRue') {
+        return {
+          ...state,
+          artDeRue: action.newValue,
         };
       }
       break;

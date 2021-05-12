@@ -11,9 +11,11 @@ const mapStateToProps = (state) => ({
   // element to get from the state
   name: state.curioset.name,
   address: state.curioset.address,
-  placeName: state.curioset.placeName,
   website: state.curioset.website,
   dateTime: state.curioset.dateTime,
+  price: state.curioset.price,
+  description: state.curioset.description,
+  artDeRue: state.curioset.artDeRue,
 });
 
 // === mapDispatchToProps

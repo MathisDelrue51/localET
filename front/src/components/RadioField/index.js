@@ -6,9 +6,8 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 // == Component
-const Field = ({
+const RadioField = ({
   value,
-  type,
   name,
   placeholder,
   label,
@@ -29,7 +28,7 @@ const Field = ({
         onChange={handleChange}
         // infos de base
         id={inputId}
-        type={type}
+        type="radio"
         className="fieldInput"
         placeholder={placeholder}
         name={name}
@@ -45,14 +44,9 @@ const Field = ({
   );
 };
 
-Field.propTypes = {
+RadioField.propTypes = {
   /** text used as value for the input */
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  /** type of the input */
-  type: PropTypes.string,
+  value: PropTypes.bool,
   /** text used as name for the input (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
   /** text used as placeholder */
@@ -66,11 +60,9 @@ Field.propTypes = {
   manageChange: PropTypes.func.isRequired,
 };
 
-// Valeurs par défaut pour les props
-Field.defaultProps = {
-  value: '',
-  type: 'text',
+RadioField.defaultProps = {
+  value: false,
 };
 
 // == Export
-export default Field;
+export default RadioField;

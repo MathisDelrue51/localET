@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Route, Switch } from 'react-router-dom';
+import { NavLink, Route, Switch } from 'react-router-dom';
 
 // import
 import './styles.scss';
@@ -16,10 +16,11 @@ const Header = ({ isLogged }) => (
   // console.log('Header');
   // console.log(isLogged);
   <div className="header">
-    <a href="/" className="headerLogo">
+
+    <NavLink to="/" className="headerLogo">
       <img src={logo} alt="localET logo" className="headerLogoImage" />
       <h2 className="headerLogoBaseline">Ici, la baseline de localET</h2>
-    </a>
+    </NavLink>
 
     <Switch>
 
