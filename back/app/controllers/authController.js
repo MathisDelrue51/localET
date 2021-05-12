@@ -31,7 +31,7 @@ const authController = {
 
             //And store it in the session
             req.session.user = token;
-            console.log('Vous êtes connecté')
+            console.log('Vous êtes connecté');
 
             //Everything went right, we send needed information to the front
             res.status(200).json({
