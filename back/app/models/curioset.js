@@ -99,7 +99,21 @@ class Curioset {
         }
     }
 
+    /**
+     * Find all curiosets from the database where user_id correspond
+     * @param {number} uId 
+     * @returns {Array<Curioset>} can be null
+     * @async
+     * @static
+     */
+    static async findAllByUserId(uId) {
+        const {
+            rows
+        } = await db.query('SELECT * FROM curioset WHERE user_id = $1', [uId]);
 
+        return rows.map(row => new Curioset(row));
+
+    }
 }
 
 module.exports = Curioset;

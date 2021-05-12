@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Curioset = require('../models/curioset');
 
 const jwt = require('jsonwebtoken');
 
@@ -18,7 +19,12 @@ const userController = {
 
                 if (userId == user.id) {
 
-                    res.status(200).json(user);
+                    const createdCuriosets = await Curioset.findAllByUserId(user.id);
+                    res.status(200).json({
+                        email: user.email,
+                        pseudo: user.pseudo,
+                        curiosets : createdCuriosets
+                    });
 
                 } else {
                     throw new Error('Your token doesn\'t correspond to the page you want to look at')
