@@ -94,6 +94,7 @@ RegisterForm.propTypes = {
   password2Error: PropTypes.string,
   pseudoError: PropTypes.string,
   changeField: PropTypes.func.isRequired,
+  handleRegister: PropTypes.func.isRequired
 };
 
 export default RegisterForm;

@@ -7,6 +7,7 @@ const initialState = {
   // password input content :
   password: '',
 
+  password2:"",
   // alias input content :
   pseudo: '',
   // is user loggedin ?
@@ -19,12 +20,13 @@ const initialState = {
     password:"",
     password2:"",
     pseudo: ""
-  }
-
+  },
+  id: null
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    // This is what happens when the action REGISTER is fired :
     case REGISTER:
       if(!state.email) {
         return {
@@ -116,19 +118,16 @@ function authReducer(state = initialState, action) {
       break;
 
     // This is what happens when the action SAVE_USER is fired :
-    case SAVE_USER:
-      return {
-        ...state,
-        logged: action.isLogged,
-        email: '',
-        password: '',
-        password2: '',
-        token: action.token,
-        pseudo: action.pseudo,
-        error: ''
-      };
-
-    // This is what happens when the action SAVE_USER is fired :
+    case SAVE_USER :
+    return {
+      ...state,
+      logged: action.isLogged,
+      email: "",
+      password: '',
+      token : action.token,
+      pseudo : action.pseudo,
+      id: action.id
+    }
     case LOG_OUT:
       return {
         ...state,
