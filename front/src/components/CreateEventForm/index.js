@@ -15,15 +15,16 @@ const CreateEventForm = ({
   dateTime,
   price,
   description,
-  artDeRue,
-  expo,
   changeField,
+  changeChecking,
   handleCreateEvent,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleCreateEvent();
   };
+
+  const radioGroup = 'categorie';
 
   return (
     <div className="createEvent">
@@ -74,15 +75,19 @@ const CreateEventForm = ({
             />
 
             <RadioField
-              name="artDeRue"
-              onChange={changeField}
-              value={artDeRue}
+              id="artDeRue"
+              name={radioGroup}
+              onChange={changeChecking}
+              label="Art de rue"
+              value={1}
             />
 
             <RadioField
-              name="expo"
-              onChange={changeField}
-              value={expo}
+              id="expo"
+              name={radioGroup}
+              onChange={changeChecking}
+              label="Expo"
+              value={2}
             />
 
             {/* <h3>Catégorie : </h3>
@@ -152,17 +157,15 @@ CreateEventForm.propTypes = {
   price: PropTypes.string.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,
-  /** value for the artDeRue */
-  artDeRue: PropTypes.bool.isRequired,
-  /** value for the artDeRue */
-  expo: PropTypes.bool.isRequired,
-  /** value for the description */
-  // description: PropTypes.string.isRequired,
   /** called when onChange event is received by an input, two parameters :
    * - new value
    * - name
    */
   changeField: PropTypes.func.isRequired,
+  /** called when onChange event is received by a radio input, one parameter :
+   * - new value
+   */
+  changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
   // handleCreateEvent: PropTypes.func.isRequired,
 };

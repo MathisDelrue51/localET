@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
- import { updateEventField } from 'src/actions/curioset';
+import { updateEventField, updateRadioOption } from 'src/actions/curioset';
 
 // Import component
 import CreateEventForm from 'src/components/CreateEventForm';
@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
   dateTime: state.curioset.dateTime,
   price: state.curioset.price,
   description: state.curioset.description,
-  artDeRue: state.curioset.artDeRue,
+  category: state.curioset.category,
 });
 
 // === mapDispatchToProps
@@ -26,6 +26,11 @@ const mapDispatchToProps = (dispatch) => ({
     // console.log(`newValue: ${newValue}, name: ${name}`);
     const action = updateEventField(newValue, name);
     dispatch(action);
+  },
+
+  changeChecking: (newValue) => {
+    console.log(`newValue: ${newValue}`);
+    dispatch(updateRadioOption(newValue));
   },
 });
 

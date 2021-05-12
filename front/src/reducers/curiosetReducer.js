@@ -1,4 +1,4 @@
- import { UPDATE_EVENT_FIELD } from '../actions/curioset';
+import { UPDATE_EVENT_FIELD, UPDATE_RADIO_OPTION } from '../actions/curioset';
 
 const initialState = {
   // event name input content :
@@ -19,8 +19,8 @@ const initialState = {
   // description
   description: '',
 
-  // artDeRue category type
-  artDeRue: '',
+  // category type
+  category: 0,
 
 };
 
@@ -28,8 +28,7 @@ function curiosetReducer(state = initialState, action) {
   switch (action.type) {
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_EVENT_FIELD:
-      // It means : if fieldName is email, update the email property of the state with
-      // the new value typed into the field
+
       if (action.fieldName === 'name') {
         return {
           ...state,
@@ -71,14 +70,15 @@ function curiosetReducer(state = initialState, action) {
           description: action.newValue,
         };
       }
+      break;
 
-      if (action.fieldName === 'artDeRue') {
+    case UPDATE_RADIO_OPTION:
+      if (action.catName === 'categorie') {
         return {
           ...state,
-          artDeRue: action.newValue,
+          category: action.newValue,
         };
       }
-      break;
 
     default:
       return state;
