@@ -11,7 +11,12 @@ const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
   password: state.auth.password,
+  password2: state.auth.password2,
   pseudo: state.auth.pseudo,
+  password2Error: state.auth.errors.password2,
+  passwordError: state.auth.errors.password,
+  emailError: state.auth.errors.email,
+  pseudoError: state.auth.errors.pseudo,
 });
 
 // === mapDispatchToProps
