@@ -14,13 +14,14 @@ export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS';
 
 export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
 
-//action when data is sent from DB
+// action when data is sent from DB
 
-export const fetchProfileSuccess = () => ({
+export const fetchProfileSuccess = (email) => ({
   type: FETCH_PROFILE_SUCCESS,
+  email,
 });
 
-//action when user goes on their profile page
+// action when user goes on their profile page
 
 export const fetchProfile = () => ({
   type: FETCH_PROFILE,
@@ -49,7 +50,7 @@ export const saveUser = (isLogged, token, pseudo, id) => ({
   isLogged,
   token,
   pseudo,
-  id
+  id,
 });
 
 // action to be connected to handleLogout prop

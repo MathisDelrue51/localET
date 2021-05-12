@@ -6,6 +6,7 @@ import {
   saveUser,
   LOG_OUT,
   FETCH_PROFILE,
+  fetchProfileSuccess,
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -21,13 +22,17 @@ const authMiddleware = (store) => (next) => (action) => {
       console.log('authMiddleware is handling FETCH_PROFILE action');
       const { auth } = store.getState();
       console.log(auth.token);
-      axios.defaults.headers.common.Authorization = `Bearer ${auth.token}`;
       axios({
         method: 'GET',
         url: `${SERVER_URL}/profile/${auth.id}`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
       })
         .then((response) => {
           console.log(response.data);
+          const actionToDispatch = fetchProfileSuccess(response.data.email);
+          store.dispatch(actionToDispatch);
         })
         .catch((err) => {
           console.error(err);
