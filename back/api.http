@@ -119,15 +119,15 @@ POST http://localhost:1234/curioset
 Content-Type: application/json
 
 {
-    "title": "Soirée dansante" ,
-    "description": "Venez découvrir des danses de salon",
-    "address": "Hangar à Bananes, 21 Quai des Antilles, 44200 Nantes, France",
-    "latitude": "47.2007699",
-    "longitude": "-1.5732795",   
-    "agenda": "Le 25/06/2021",
-    "price": 1.5,
-    "user_id": 4,
-    "category_id": 1
+    "title": "Vente de bon produit de la ferme" ,
+    "description": "De bons produits locaux",
+    "address": "Rue Talensac, Nantes, France",
+    "latitude": "47.22147750854492",
+    "longitude": "-1.557645559310913",   
+    "agenda": "Tous les samedi matin",
+    "price": 0,
+    "user_id": 1,
+    "category_id": 3
 }
 
 ### POST curioset, send a POST request to create a new curioset in db but with an error

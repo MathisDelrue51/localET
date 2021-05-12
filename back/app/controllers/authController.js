@@ -36,6 +36,7 @@ const authController = {
             //Everything went right, we send needed information to the front
             res.status(200).json({
                 pseudo: user.pseudo,
+                id: user.id,
                 logged : true,
                 token: token
             });
