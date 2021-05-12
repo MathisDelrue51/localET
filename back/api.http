@@ -104,7 +104,7 @@ GET http://localhost:1234/logout
 
 ### GET user with id 1 (should exist) - Replace token by the newly created one
 GET http://localhost:1234/profile/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDgyMDgxMSwiZXhwIjoxNjIwODIwODgzfQ.XGu-CNDs9q7lihXz3KATf3UkUpuyrheAaJ8GS00HkV0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDgyMzEyOCwiZXhwIjoxNjIwODIzMjAwfQ.xooPqKUtJX1aa0wjS-66xK2lkMQFKiXMn96x7ecJ7gQ
 
 ### GET user with id 2 (should exist but current user shouldn't have access)
 GET http://localhost:1234/profile/2
