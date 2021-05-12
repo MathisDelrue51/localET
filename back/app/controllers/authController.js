@@ -29,8 +29,6 @@ const authController = {
                 email: req.body.email
             });
 
-            //And store it in the session
-            req.session.user = token;
             console.log('Vous êtes connecté');
 
             //Everything went right, we send needed information to the front
@@ -49,9 +47,8 @@ const authController = {
     },
 
     //We remove user from session
-    //TODO should we set current token time to 0?
+    //TODO should we set current token time to 0? And remove token from state
     logout: (req, res, next) => {        
-        delete req.session.user;
         res.redirect('/');
     },
 

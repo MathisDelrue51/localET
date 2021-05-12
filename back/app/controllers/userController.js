@@ -7,7 +7,9 @@ const userController = {
 
     // GET /profile/:id
     oneUserById: async (req, res) => {
-        const token = req.session.user;
+        const authHeader = req.headers['authorization']
+        const token = authHeader && authHeader.split(' ')[1]
+        
         const decoded = jwt.decode(token)
 
         try {
@@ -23,7 +25,7 @@ const userController = {
                     res.status(200).json({
                         email: user.email,
                         pseudo: user.pseudo,
-                        curiosets : createdCuriosets
+                        curiosets: createdCuriosets
                     });
 
                 } else {

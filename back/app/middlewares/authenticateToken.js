@@ -1,14 +1,13 @@
 const jwt = require('jsonwebtoken');
 
 function authenticateToken(req, res, next) {    
-
-    //If no user in the session, no need to verify the token 
-    if (!req.session.user) {
+    
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split(' ')[1]
+  
+    if (token == null){
         return res.status(401).send('No user connected');
-    }
-
-    //Else, store session user in token
-    const token = req.session.user;    
+    } 
 
     //And verify if token didn't expire
     jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {        
