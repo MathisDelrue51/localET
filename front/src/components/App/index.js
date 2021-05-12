@@ -13,9 +13,11 @@ import Footer from 'src/components/Footer';
 
 
 // == Component
-const App = ({fetchCuriosets}) => {
+const App = ({fetchCuriosets, pseudo, id}) => {
   console.log(fetchCuriosets);
   useEffect(()=>{fetchCuriosets();},[]);
+
+  const path = `profile/${id}`
 
   return(
   <div className="app">
@@ -25,7 +27,7 @@ const App = ({fetchCuriosets}) => {
       <Route path="/subscribe" >
         <RegisterForm />
       </Route> 
-      <Route path="/profile" >
+      <Route path={path} >
         <ProfilePage />
       </Route>
       <Route path="/">

@@ -7,18 +7,20 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // Component
-const NavLoggedIn = ({ pseudo, handleLogout }) => {
+const NavLoggedIn = ({ pseudo, handleLogout, handleClick, id }) => {
   console.log(typeof pseudo);
+  const path = `profile/${id}`
   return (
     <nav className="nav">
       <p>
         Bonjour {pseudo} !
       </p>
       <NavLink
-        to="/profile"
+        to={path}
         className="navLink"
         activeClassName="navLinkActive"
         exact
+        onClick={handleClick}
       >
         Profil
       </NavLink>

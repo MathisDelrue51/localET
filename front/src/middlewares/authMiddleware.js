@@ -6,6 +6,7 @@ import {
   saveUser,
   LOG_OUT,
   logOut,
+  FETCH_PROFILE
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -17,6 +18,21 @@ const authMiddleware = (store) => (next) => (action) => {
   console.log('on a intercepté une action dans le middleware: ', action);
 
   switch (action.type) {
+    case FETCH_PROFILE: {
+      console.log('authMiddleware is handling FETCH_PROFILE action');
+      const { auth } = store.getState();
+      axios({
+        method:'GET',
+        url:`${SERVER_URL}/profile/${auth.id}`,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+    }
+    break;
     case REGISTER: {
       console.log('authMiddleware is handling REGISTER action');
       // getting the auth part of the state
