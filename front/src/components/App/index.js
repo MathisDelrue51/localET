@@ -8,7 +8,7 @@ import './styles.scss';
 import Map from '../../containers/mapContainer';
 import Header from '../../containers/Header';
 import RegisterForm from '../../containers/RegisterForm';
-import CreateEventForm from '../CreateEventForm';
+import CreateEventForm from '../../containers/CreateEventForm';
 import Footer from '../Footer';
 
 // == Component

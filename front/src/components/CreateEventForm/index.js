@@ -6,7 +6,7 @@ import SubmitButton from 'src/components/SubmitButton';
 
 import './styles.scss';
 
-const LoginForm = ({
+const CreateEventForm = ({
   name,
   address,
   placeName,
@@ -66,23 +66,69 @@ const LoginForm = ({
           />
         </div>
 
-        <div className="formColumn">
-          <Field
+        {/* <div className="formColumn">
+          <textarea
             name="description"
             placeholder=""
+            rows="5"
             label="Description :"
             manageChange={changeField}
-            value={description}
-          />
+          >{description}
+          </textarea>
+
+          <h3>Catégorie : </h3>
           <Field
-            name="description"
+            name="categorie"
             placeholder=""
             type="radio"
-            label="Description :"
+            label="Art de rue"
             manageChange={changeField}
-            value={description}
+            value="art de rue"
           />
-        </div>
+          <Field
+            name="categorie"
+            placeholder=""
+            type="radio"
+            label="Musique"
+            manageChange={changeField}
+            value="musique"
+          />
+          <Field
+            name="categorie"
+            placeholder=""
+            type="radio"
+            label="Expo"
+            manageChange={changeField}
+            value="expo"
+          />
+          <Field
+            name="categorie"
+            placeholder=""
+            type="radio"
+            label="Théâtre"
+            manageChange={changeField}
+            value="theatre"
+          />
+
+          <h3>Caractéristiques : </h3>
+          <Field
+            name="caracteristique"
+            placeholder=""
+            type="radio"
+            label="Gratuit"
+            manageChange={changeField}
+            value="gratuit"
+          />
+          <Field
+            name="caracteristique"
+            placeholder=""
+            type="radio"
+            label="Payant"
+            manageChange={changeField}
+            value="payant"
+          />
+
+        </div> */}
         <SubmitButton
           buttonName="Ajouter"
           className="submitbutton"
@@ -94,7 +140,7 @@ const LoginForm = ({
   );
 };
 
-LoginForm.propTypes = {
+CreateEventForm.propTypes = {
   /** value for the name */
   name: PropTypes.string.isRequired,
   /** value for the address */
@@ -106,14 +152,14 @@ LoginForm.propTypes = {
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
   /** value for the description */
-  description: PropTypes.string.isRequired,
+  // description: PropTypes.string.isRequired,
   /** called when onChange event is received by an input, two parameters :
    * - new value
    * - name
    */
   changeField: PropTypes.func.isRequired,
   /** called when the form is submitted */
-  handleCreateEvent: PropTypes.func.isRequired,
+  // handleCreateEvent: PropTypes.func.isRequired,
 };
 
-export default LoginForm;
+export default CreateEventForm;
