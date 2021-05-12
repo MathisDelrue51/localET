@@ -1,4 +1,4 @@
-import { UPDATE_FIELD, SAVE_USER, LOG_OUT } from '../actions/auth';
+import { UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER} from '../actions/auth';
 
 const initialState = {
   // email input content :
@@ -14,10 +14,74 @@ const initialState = {
 
   token: null,
 
+  errors: {
+    email:"",
+    password:"",
+    password2:"",
+    pseudo: ""
+  }
+
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    case REGISTER:
+      if(!state.email) {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            email: "Veuillez renseigner un email"
+          }
+        }
+      }
+      if(state.email && !state.password) {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            email: "",
+            password: "Veuillez renseigner un mot de passe"
+          }
+        }
+      }
+      if(state.email && !state.password2) {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password: "",
+            password2: "Veuillez effectuer la vérification de mot de passe"
+          }
+        }
+      }
+      if(state.password && state.password2 && state.password2 !== state.password){
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password2:'Vos mots de passe ne correspondent pas'
+        }
+      }}
+      if(state.password && state.password2 && state.password2 === state.password && !state.pseudo) {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password2: "",
+            pseudo: "Veuillez renseigner un pseudo"
+          }
+        }
+      }
+      if(state.pseudo){
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            pseudo: ""
+          }
+        }
+      }
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with
@@ -36,6 +100,13 @@ function authReducer(state = initialState, action) {
         };
       }
 
+      if (action.fieldName === 'password2') {
+        return {
+          ...state,
+          password2: action.newValue,
+        };
+      }
+
       if (action.fieldName === 'pseudo') {
         return {
           ...state,
@@ -51,8 +122,10 @@ function authReducer(state = initialState, action) {
         logged: action.isLogged,
         email: '',
         password: '',
+        password2: '',
         token: action.token,
         pseudo: action.pseudo,
+        error: ''
       };
 
     // This is what happens when the action SAVE_USER is fired :
