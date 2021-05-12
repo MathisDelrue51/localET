@@ -8,6 +8,24 @@ export const REGISTER = 'REGISTER';
 
 export const LOG_OUT = 'LOG_OUT';
 
+export const FETCH_PROFILE = 'FETCH_PROFILE';
+
+export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS';
+
+export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
+
+//action when data is sent from DB
+
+export const fetchProfileSuccess = () => ({
+  type: FETCH_PROFILE_SUCCESS,
+});
+
+//action when user goes on their profile page
+
+export const fetchProfile = () => ({
+  type: FETCH_PROFILE,
+});
+
 // action when register form submit button is clicked
 export const register = () => ({
   type: REGISTER,
@@ -26,11 +44,12 @@ export const logIn = () => ({
 });
 
 // action to be connected to isLogged prop
-export const saveUser = (isLogged, token, pseudo) => ({
+export const saveUser = (isLogged, token, pseudo, id) => ({
   type: SAVE_USER,
   isLogged,
   token,
   pseudo,
+  id
 });
 
 // action to be connected to handleLogout prop

@@ -5,34 +5,39 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
-import Map from '../../containers/mapContainer';
-import Header from '../../containers/Header';
-import RegisterForm from '../../containers/RegisterForm';
-import Footer from '../Footer';
+import Map from "src/containers/mapContainer";
+import Header from 'src/containers/Header';
+import RegisterForm from 'src/containers/RegisterForm';
+import ProfilePage from 'src/containers/ProfilePage';
+import Footer from 'src/components/Footer';
+
 
 // == Component
-const App = ({ fetchCuriosets }) => {
-  // console.log(fetchCuriosets);
-  useEffect(() => {
-    fetchCuriosets();
-  }, []);
+const App = ({fetchCuriosets, pseudo, id}) => {
+  console.log(fetchCuriosets);
+  useEffect(()=>{fetchCuriosets();},[]);
 
-  return (
-    <div className="app">
-      <Header />
-      <Switch>
+  const path = `/profile/${id}`
 
-        <Route path="/subscribe">
-          <RegisterForm />
-        </Route>
-        <Route path="/">
-          <Map />
-        </Route>
+  return(
+  <div className="app">
+    <Header />
+    <Switch>
 
-      </Switch>
-      <Footer />
-    </div>
-  );
+      <Route path="/subscribe" >
+        <RegisterForm />
+      </Route> 
+      <Route path={path} >
+        <ProfilePage />
+      </Route>
+      <Route path="/">
+        <Map />
+      </Route>
+
+    </Switch>
+    <Footer />
+  </div>
+  )
 };
 
 App.propTypes = {
