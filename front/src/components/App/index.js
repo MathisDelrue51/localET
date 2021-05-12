@@ -5,18 +5,21 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
-import Map from '../../containers/mapContainer';
-import Header from '../../containers/Header';
-import RegisterForm from '../../containers/RegisterForm';
-import CreateEventForm from '../../containers/CreateEventForm';
-import Footer from '../Footer';
+import Map from 'src/containers/mapContainer';
+import Header from 'src/containers/Header';
+import RegisterForm from 'src/containers/RegisterForm';
+import ProfilePage from 'src/containers/ProfilePage';
+import Footer from 'src/components/Footer';
+import CreateEventForm from 'src/components/CreateEventForm';
 
 // == Component
-const App = ({ fetchCuriosets }) => {
-  // console.log(fetchCuriosets);
+const App = ({ fetchCuriosets, pseudo, id }) => {
+  console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
+
+  const path = `/profile/${id}`;
 
   return (
     <div className="app">
@@ -25,6 +28,9 @@ const App = ({ fetchCuriosets }) => {
 
         <Route path="/subscribe">
           <RegisterForm />
+        </Route>
+        <Route path={path}>
+          <ProfilePage />
         </Route>
         <Route path="/createEvent">
           <CreateEventForm />

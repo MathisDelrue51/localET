@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import App from 'src/components/App';
 import { fetchCuriosets } from 'src/actions/map';
 
-const mapStateToProps = null;
+const mapStateToProps = (state) => ({
+  // element to get from the state
+  pseudo: state.auth.pseudo,
+  id: state.auth.id
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCuriosets: () => {

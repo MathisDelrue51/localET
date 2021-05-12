@@ -9,35 +9,26 @@ import './styles.scss';
 const RadioField = ({
   value,
   name,
-  placeholder,
+  manageChecked,
+  radioFormFor,
   label,
-  manageChange,
 }) => {
   // manageChange will eventually be connected to actions
-  const handleChange = (evt) => {
-    manageChange(evt.target.value, name);
+  const handleChecked = (evt) => {
+    manageChecked(evt.target.value, name);
   };
 
-  const inputId = `field-${name}`;
-
   return (
-    <div className={value.length > 0 ? 'field fieldHasContent' : 'field'}>
-      <input
+    <div className="radioField">
+      <label htmlFor={radioFormFor}>
+        <input
         // React - state
-        value={value}
-        onChange={handleChange}
-        // infos de base
-        id={inputId}
-        type="radio"
-        className="fieldInput"
-        placeholder={placeholder}
-        name={name}
-      />
-
-      <label
-        htmlFor={inputId}
-        className="fieldLabel"
-      >
+          value={value}
+          onChange={handleChecked}
+          type="radio"
+          className="fieldInput"
+          name={name}
+        />
         {label}
       </label>
     </div>
@@ -49,15 +40,17 @@ RadioField.propTypes = {
   value: PropTypes.bool,
   /** text used as name for the input (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
-  /** text used as placeholder */
-  placeholder: PropTypes.string.isRequired,
   /** text used as label */
   label: PropTypes.string.isRequired,
+  /** text used as common identifier for all radio buttons belongin to the
+   * same group
+   */
+  radioFormFor: PropTypes.string.isRequired,
   /** called when onChange event is received by the input, two parameters :
    * - new value
    * - name
    */
-  manageChange: PropTypes.func.isRequired,
+  manageChecked: PropTypes.func.isRequired,
 };
 
 RadioField.defaultProps = {

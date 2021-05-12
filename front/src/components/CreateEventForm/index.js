@@ -16,6 +16,7 @@ const CreateEventForm = ({
   price,
   description,
   artDeRue,
+  expo,
   changeField,
   handleCreateEvent,
 }) => {
@@ -74,20 +75,14 @@ const CreateEventForm = ({
 
             <RadioField
               name="artDeRue"
-              id="categorie"
-              placeholder=""
-              label="Art de rue"
-              manageChange={changeField}
+              onChange={changeField}
               value={artDeRue}
             />
 
             <RadioField
               name="expo"
-              id="categorie"
-              placeholder=""
-              label="Expo"
-              manageChange={changeField}
-              value={artDeRue}
+              onChange={changeField}
+              value={expo}
             />
 
             {/* <h3>Catégorie : </h3>
@@ -159,6 +154,8 @@ CreateEventForm.propTypes = {
   description: PropTypes.string.isRequired,
   /** value for the artDeRue */
   artDeRue: PropTypes.bool.isRequired,
+  /** value for the artDeRue */
+  expo: PropTypes.bool.isRequired,
   /** value for the description */
   // description: PropTypes.string.isRequired,
   /** called when onChange event is received by an input, two parameters :
