@@ -9,7 +9,7 @@ import './styles.scss';
 // Component
 const NavLoggedIn = ({ pseudo, handleLogout, handleClick, id }) => {
   console.log(typeof pseudo);
-  const path = `profile/${id}`
+  const path = `/profile/${id}`
   return (
     <nav className="nav">
       <p>

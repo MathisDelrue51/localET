@@ -21,9 +21,13 @@ const authMiddleware = (store) => (next) => (action) => {
     case FETCH_PROFILE: {
       console.log('authMiddleware is handling FETCH_PROFILE action');
       const { auth } = store.getState();
+      console.log(auth.token);
       axios({
         method:'GET',
         url:`${SERVER_URL}/profile/${auth.id}`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`
+        }
       })
       .then((response) => {
         console.log(response.data);
