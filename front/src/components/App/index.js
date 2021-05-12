@@ -5,39 +5,44 @@ import PropTypes from 'prop-types';
 
 // == Import
 import './styles.scss';
-import Map from "src/containers/mapContainer";
+import Map from 'src/containers/mapContainer';
 import Header from 'src/containers/Header';
 import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
-
+import CreateEventForm from 'src/components/CreateEventForm';
 
 // == Component
-const App = ({fetchCuriosets, pseudo, id}) => {
+const App = ({ fetchCuriosets, pseudo, id }) => {
   console.log(fetchCuriosets);
-  useEffect(()=>{fetchCuriosets();},[]);
+  useEffect(() => {
+    fetchCuriosets();
+  }, []);
 
-  const path = `/profile/${id}`
+  const path = `/profile/${id}`;
 
-  return(
-  <div className="app">
-    <Header />
-    <Switch>
+  return (
+    <div className="app">
+      <Header />
+      <Switch>
 
-      <Route path="/subscribe" >
-        <RegisterForm />
-      </Route> 
-      <Route path={path} >
-        <ProfilePage />
-      </Route>
-      <Route path="/">
-        <Map />
-      </Route>
+        <Route path="/subscribe">
+          <RegisterForm />
+        </Route>
+        <Route path={path}>
+          <ProfilePage />
+        </Route>
+        <Route path="/createEvent">
+          <CreateEventForm />
+        </Route>
+        <Route path="/">
+          <Map />
+        </Route>
 
-    </Switch>
-    <Footer />
-  </div>
-  )
+      </Switch>
+      <Footer />
+    </div>
+  );
 };
 
 App.propTypes = {

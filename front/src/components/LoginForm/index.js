@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { NavLink } from 'react-router-dom';
+
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
 
@@ -43,7 +45,15 @@ const LoginForm = ({
         />
 
       </form>
-      <div className="formSwitch">Pas encore inscrit ?<a href="/subscribe" className="navLink">S'inscrire</a></div>
+      <div className="formSwitch">Pas encore inscrit ?
+        <NavLink
+          to="/subscribe"
+          className="navLink"
+          activeClassName="navLinkActive"
+          exact
+        >S'inscrire
+        </NavLink>
+      </div>
     </div>
   );
 };
