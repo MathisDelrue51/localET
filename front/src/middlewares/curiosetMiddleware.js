@@ -1,7 +1,12 @@
 import axios from 'axios';
 import {
-  SUBMIT_ADDRESS_SEARCH, SUBMIT_CREATE_EVENT, submitAddressSearch, submitCreateEvent, saveAddressData,
+  SUBMIT_ADDRESS_SEARCH,
+  SUBMIT_CREATE_EVENT,
+  submitCreateEvent,
+  saveAddressData,
 } from 'src/actions/curioset';
+
+import history from 'src/utils/history';
 
 const SERVER_URL = 'http://localhost:1234';
 
@@ -10,7 +15,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case SUBMIT_ADDRESS_SEARCH:
-      console.log('Recherche adresse');
+      console.log('Middleware Recherche adresse');
       const { address } = store.getState().curioset;
 
       axios({
@@ -27,9 +32,48 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           );
           store.dispatch(actionToDispatch);
         })
+        .then(() => {
+          store.dispatch(submitCreateEvent());
+        })
+
         .catch((error) => {
           console.error(error);
         });
+      break;
+
+    case SUBMIT_CREATE_EVENT:
+      console.log('Middleware Create Event');
+
+      const { curioset } = store.getState();
+      const priceFloat = parseFloat(curioset.price);
+      const { auth } = store.getState();
+
+      axios({
+        method: 'post',
+        url: `${SERVER_URL}/curioset`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+        data: {
+          title: curioset.name,
+          description: curioset.description,
+          address: curioset.address,
+          latitude: curioset.latitude,
+          longitude: curioset.longitude,
+          agenda: curioset.dateTime,
+          price: priceFloat,
+          user_id: auth.id,
+          category_id: curioset.category,
+        },
+      })
+        .then((response) => {
+          console.log(response.data);
+          history.push('/');
+        })
+        .catch((err) => {
+          console.error('ceci est mon erreur', err);
+        });
+      break;
 
     default:
   }

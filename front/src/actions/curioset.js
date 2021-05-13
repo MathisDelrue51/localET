@@ -22,14 +22,17 @@ export const updateRadioOption = (newValue, radioGroupName) => ({
   radioGroupName,
 });
 
+// action to be fired after coordinates of address are received and stored in the state
 export const submitCreateEvent = () => ({
   type: SUBMIT_CREATE_EVENT,
 });
 
+// action to be connected to handleCreateEvent
 export const submitAddressSearch = () => ({
   type: SUBMIT_ADDRESS_SEARCH,
 });
 
+// action to be connected to response of submitAddressSearch
 export const saveAddressData = (longitude, latitude) => ({
   type: SAVE_ADDRESS_DATA,
   longitude,
