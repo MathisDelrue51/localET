@@ -34,8 +34,8 @@ const RegisterForm = ({
           label=""
           manageChange={changeField}
           value={email}
-          required={true}
-      />
+          required
+        />
         <p>{emailError}</p>
         <Field
           name="password"
@@ -44,7 +44,7 @@ const RegisterForm = ({
           label=""
           manageChange={changeField}
           value={password}
-          required={true}
+          required
         />
         <p>{passwordError}</p>
         <Field
@@ -54,7 +54,7 @@ const RegisterForm = ({
           label=""
           manageChange={changeField}
           value={password2}
-          required={true}
+          required
         />
         <p>{password2Error}</p>
         <Field
@@ -63,7 +63,7 @@ const RegisterForm = ({
           label=""
           manageChange={changeField}
           value={pseudo}
-          required={true}
+          required
         />
         <p>{pseudoError}</p>
         <SubmitButton
@@ -94,7 +94,14 @@ RegisterForm.propTypes = {
   password2Error: PropTypes.string,
   pseudoError: PropTypes.string,
   changeField: PropTypes.func.isRequired,
-  handleRegister: PropTypes.func.isRequired
+  handleRegister: PropTypes.func.isRequired,
+};
+
+RegisterForm.defaultProps = {
+  emailError: '',
+  passwordError: '',
+  password2Error: '',
+  pseudoError: '',
 };
 
 export default RegisterForm;

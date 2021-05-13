@@ -5,8 +5,8 @@ import {
   REGISTER,
   saveUser,
   LOG_OUT,
-  logOut,
-  FETCH_PROFILE
+  FETCH_PROFILE,
+  fetchProfileSuccess,
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -23,20 +23,22 @@ const authMiddleware = (store) => (next) => (action) => {
       const { auth } = store.getState();
       console.log(auth.token);
       axios({
-        method:'GET',
-        url:`${SERVER_URL}/profile/${auth.id}`,
+        method: 'GET',
+        url: `${SERVER_URL}/profile/${auth.id}`,
         headers: {
-          Authorization: `Bearer ${auth.token}`
-        }
+          Authorization: `Bearer ${auth.token}`,
+        },
       })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
+        .then((response) => {
+          console.log(response.data);
+          const actionToDispatch = fetchProfileSuccess(response.data.email);
+          store.dispatch(actionToDispatch);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
-    break;
+      break;
     case REGISTER: {
       console.log('authMiddleware is handling REGISTER action');
       // getting the auth part of the state
@@ -76,13 +78,13 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('Je vais changer le state');
-          console.log("save user data",response);
+          console.log('save user data', response);
 
           const actionSaveUser = saveUser(
             response.data.logged,
             response.data.token,
             response.data.pseudo,
-            response.data.id
+            response.data.id,
           );
 
           console.log('Je viens de changer le state et je push la redirection');
