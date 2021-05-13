@@ -22,7 +22,6 @@ export const fetchProfileSuccess = (email) => ({
 });
 
 // action when user goes on their profile page
-
 export const fetchProfile = () => ({
   type: FETCH_PROFILE,
 });

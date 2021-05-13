@@ -10,7 +10,7 @@ import Header from 'src/containers/Header';
 import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
-import CreateEventForm from 'src/components/CreateEventForm';
+import CreateEventForm from 'src/containers/CreateEventForm';
 
 // == Component
 const App = ({ fetchCuriosets, pseudo, id }) => {
