@@ -18,7 +18,7 @@ const Map = ({
 
   <div className="map">
 
-    <SearchBar />
+    <SearchBar placeholder="Cherchez une ville..." />
     <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
       <SetView center={[latitude, longitude]} zoom={zoom} />
       <TileLayer

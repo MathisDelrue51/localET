@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateEventField, updateRadioOption } from 'src/actions/curioset';
+import { updateEventField, updateRadioOption, submitCreateEvent, submitAddressSearch, saveAddressData } from 'src/actions/curioset';
 
 // Import component
 import CreateEventForm from 'src/components/CreateEventForm';
@@ -31,6 +31,10 @@ const mapDispatchToProps = (dispatch) => ({
   changeChecking: (newValue, radioGroupName) => {
     console.log(`newValue: ${newValue}`);
     dispatch(updateRadioOption(newValue, radioGroupName));
+  },
+
+  handleCreateEvent: () => {
+    dispatch(submitAddressSearch());
   },
 });
 

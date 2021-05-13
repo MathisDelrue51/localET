@@ -1,4 +1,4 @@
-import { UPDATE_EVENT_FIELD, UPDATE_RADIO_OPTION } from '../actions/curioset';
+import { UPDATE_EVENT_FIELD, UPDATE_RADIO_OPTION, SAVE_ADDRESS_DATA } from '../actions/curioset';
 
 const initialState = {
   // event name input content :
@@ -21,6 +21,10 @@ const initialState = {
 
   // category type
   category: 0,
+
+  // infos fetched from API
+  longitude: null,
+  latitude: null,
 
 };
 
@@ -81,6 +85,12 @@ function curiosetReducer(state = initialState, action) {
       }
       break;
 
+    case SAVE_ADDRESS_DATA:
+      return {
+        ...state,
+        longitude: action.longitude,
+        latitude: action.latitude,
+      };
     default:
       return state;
   }
