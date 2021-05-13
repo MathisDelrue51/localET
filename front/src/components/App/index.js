@@ -11,15 +11,21 @@ import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
+import EventPage from 'src/containers/EventPage';
 
 // == Component
-const App = ({ fetchCuriosets, pseudo, id }) => {
+const App = ({
+  fetchCuriosets,
+  idProfile,
+  idEvent,
+}) => {
   console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
 
-  const path = `/profile/${id}`;
+  const pathProfile = `/profile/${idProfile}`;
+  const pathCurioset = `/curiosET/${idEvent}`;
 
   return (
     <div className="app">
@@ -29,11 +35,14 @@ const App = ({ fetchCuriosets, pseudo, id }) => {
         <Route path="/subscribe">
           <RegisterForm />
         </Route>
-        <Route path={path}>
+        <Route path={pathProfile}>
           <ProfilePage />
         </Route>
         <Route path="/createEvent">
           <CreateEventForm />
+        </Route>
+        <Route path={pathCurioset}>
+          <EventPage />
         </Route>
         <Route path="/">
           <Map />
@@ -47,6 +56,7 @@ const App = ({ fetchCuriosets, pseudo, id }) => {
 
 App.propTypes = {
   fetchCuriosets: PropTypes.func.isRequired,
+
 };
 
 // == Export
