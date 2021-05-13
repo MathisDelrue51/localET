@@ -28,9 +28,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
 
-  changeChecking: (newValue) => {
+  changeChecking: (newValue, radioGroupName) => {
     console.log(`newValue: ${newValue}`);
-    dispatch(updateRadioOption(newValue));
+    dispatch(updateRadioOption(newValue, radioGroupName));
   },
 });
 

@@ -24,7 +24,7 @@ const CreateEventForm = ({
     handleCreateEvent();
   };
 
-  const radioGroup = 'categorie';
+  const radioGroup = 'category';
 
   return (
     <div className="createEvent">
@@ -73,56 +73,38 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={description}
             />
-
+            <h3>Catégories :</h3>
             <RadioField
               id="artDeRue"
               name={radioGroup}
-              onChange={changeChecking}
+              manageChecked={changeChecking}
               label="Art de rue"
               value={1}
             />
 
             <RadioField
-              id="expo"
+              id="musique"
               name={radioGroup}
-              onChange={changeChecking}
-              label="Expo"
+              manageChecked={changeChecking}
+              label="Musique"
               value={2}
             />
 
-            {/* <h3>Catégorie : </h3>
-          <Field
-            name="categorie"
-            placeholder=""
-            type="radio"
-            label="Art de rue"
-            manageChange={changeField}
-            value="art de rue"
-          />
-          <Field
-            name="categorie"
-            placeholder=""
-            type="radio"
-            label="Musique"
-            manageChange={changeField}
-            value="musique"
-          />
-          <Field
-            name="categorie"
-            placeholder=""
-            type="radio"
-            label="Expo"
-            manageChange={changeField}
-            value="expo"
-          />
-          <Field
-            name="categorie"
-            placeholder=""
-            type="radio"
-            label="Théâtre"
-            manageChange={changeField}
-            value="theatre"
-          /> */}
+            <RadioField
+              id="expo"
+              name={radioGroup}
+              manageChecked={changeChecking}
+              label="Expo"
+              value={3}
+            />
+
+            <RadioField
+              id="theatre"
+              name={radioGroup}
+              manageChecked={changeChecking}
+              label="Théâtre"
+              value={4}
+            />
 
             <Field
               name="price"

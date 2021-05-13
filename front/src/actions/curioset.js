@@ -10,8 +10,8 @@ export const updateEventField = (newValue, fieldName) => ({
 });
 
 // action to be connected to changeChecking prop
-export const updateRadioOption = (newValue, catName) => ({
+export const updateRadioOption = (newValue, radioGroupName) => ({
   type: UPDATE_RADIO_OPTION,
   newValue,
-  catName,
+  radioGroupName,
 });

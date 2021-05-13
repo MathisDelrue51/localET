@@ -73,12 +73,13 @@ function curiosetReducer(state = initialState, action) {
       break;
 
     case UPDATE_RADIO_OPTION:
-      if (action.catName === 'categorie') {
+      if (action.radioGroupName === 'category') {
         return {
           ...state,
           category: action.newValue,
         };
       }
+      break;
 
     default:
       return state;

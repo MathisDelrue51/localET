@@ -1,4 +1,6 @@
-import { UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER} from '../actions/auth';
+import {
+  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER,
+} from '../actions/auth';
 
 const initialState = {
   // email input content :
@@ -7,7 +9,7 @@ const initialState = {
   // password input content :
   password: '',
 
-  password2:"",
+  password2: '',
   // alias input content :
   pseudo: '',
   // is user loggedin ?
@@ -16,74 +18,77 @@ const initialState = {
   token: null,
 
   errors: {
-    email:"",
-    password:"",
-    password2:"",
-    pseudo: ""
+    email: '',
+    password: '',
+    password2: '',
+    pseudo: '',
   },
-  id: null
+  id: null,
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
     // This is what happens when the action REGISTER is fired :
     case REGISTER:
-      if(!state.email) {
+      if (!state.email) {
         return {
           ...state,
           errors: {
             ...state.errors,
-            email: "Veuillez renseigner un email"
-          }
-        }
+            email: 'Veuillez renseigner un email',
+          },
+        };
       }
-      if(state.email && !state.password) {
+      if (state.email && !state.password) {
         return {
           ...state,
           errors: {
             ...state.errors,
-            email: "",
-            password: "Veuillez renseigner un mot de passe"
-          }
-        }
+            email: '',
+            password: 'Veuillez renseigner un mot de passe',
+          },
+        };
       }
-      if(state.email && !state.password2) {
+      if (state.email && !state.password2) {
         return {
           ...state,
           errors: {
             ...state.errors,
-            password: "",
-            password2: "Veuillez effectuer la vérification de mot de passe"
-          }
-        }
+            password: '',
+            password2: 'Veuillez effectuer la vérification de mot de passe',
+          },
+        };
       }
-      if(state.password && state.password2 && state.password2 !== state.password){
+      if (state.password && state.password2 && state.password2 !== state.password) {
         return {
           ...state,
           errors: {
             ...state.errors,
-            password2:'Vos mots de passe ne correspondent pas'
-        }
-      }}
-      if(state.password && state.password2 && state.password2 === state.password && !state.pseudo) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            password2: "",
-            pseudo: "Veuillez renseigner un pseudo"
-          }
-        }
+            password2: 'Vos mots de passe ne correspondent pas',
+          },
+        };
       }
-      if(state.pseudo){
+      if (state.password && state.password2 && state.password2
+        === state.password && !state.pseudo) {
         return {
           ...state,
           errors: {
             ...state.errors,
-            pseudo: ""
-          }
-        }
+            password2: '',
+            pseudo: 'Veuillez renseigner un pseudo',
+          },
+        };
       }
+      if (state.pseudo) {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            pseudo: '',
+          },
+        };
+      }
+      break;
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with
@@ -118,16 +123,16 @@ function authReducer(state = initialState, action) {
       break;
 
     // This is what happens when the action SAVE_USER is fired :
-    case SAVE_USER :
-    return {
-      ...state,
-      logged: action.isLogged,
-      email: "",
-      password: '',
-      token : action.token,
-      pseudo : action.pseudo,
-      id: action.id
-    }
+    case SAVE_USER:
+      return {
+        ...state,
+        logged: action.isLogged,
+        email: '',
+        password: '',
+        token: action.token,
+        pseudo: action.pseudo,
+        id: action.id,
+      };
     case LOG_OUT:
       return {
         ...state,

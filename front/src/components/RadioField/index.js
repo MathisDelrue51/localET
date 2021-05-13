@@ -13,7 +13,7 @@ const RadioField = ({
   id,
   label,
 }) => {
-  // manageChange will eventually be connected to actions
+  // manageChecked will eventually be connected to actions
   const handleChecked = (evt) => {
     manageChecked(evt.target.value, name);
     console.log(`Dans handleChecked ${evt}`);

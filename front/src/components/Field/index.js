@@ -17,6 +17,8 @@ const Field = ({
   // manageChange will eventually be connected to actions
   const handleChange = (evt) => {
     manageChange(evt.target.value, name);
+    console.log(`Dans handleChange ${evt}`);
+    console.log(evt);
   };
 
   const inputId = `field-${name}`;
