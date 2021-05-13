@@ -1,5 +1,5 @@
 import {
-  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER,
+  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER, FETCH_PROFILE_SUCCESS,
 } from '../actions/auth';
 
 const initialState = {
@@ -28,6 +28,11 @@ const initialState = {
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    case FETCH_PROFILE_SUCCESS:
+      return {
+        ...state,
+        email: action.email,
+      };
     // This is what happens when the action REGISTER is fired :
     case REGISTER:
       if (!state.email) {
@@ -68,8 +73,9 @@ function authReducer(state = initialState, action) {
           },
         };
       }
-      if (state.password && state.password2 && state.password2
-        === state.password && !state.pseudo) {
+      if (state.password && state.password2
+      && state.password2 === state.password
+      && !state.pseudo) {
         return {
           ...state,
           errors: {

@@ -7,9 +7,11 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // Component
-const NavLoggedIn = ({ pseudo, handleLogout, handleClick, id }) => {
+const NavLoggedIn = ({
+  pseudo, handleLogout, handleClick, id,
+}) => {
   console.log(typeof pseudo);
-  const path = `/profile/${id}`
+  const path = `/profile/${id}`;
   return (
     <nav className="nav">
       <p>
@@ -43,6 +45,10 @@ NavLoggedIn.propTypes = {
   pseudo: PropTypes.string.isRequired,
   /** function that handles the logout of user */
   handleLogout: PropTypes.func.isRequired,
+  /** id for profile path */
+  id: PropTypes.number.isRequired,
+  /** handle click on nav links */
+  handleClick: PropTypes.func.isRequired,
 };
 
 // == Export

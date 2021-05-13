@@ -5,8 +5,13 @@ import {
   REGISTER,
   saveUser,
   LOG_OUT,
+<<<<<<< HEAD
   logOut,
   FETCH_PROFILE,
+=======
+  FETCH_PROFILE,
+  fetchProfileSuccess,
+>>>>>>> 788b1e31e5f8ad05eaa3caf924ea1406e0205a30
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -31,6 +36,11 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
+<<<<<<< HEAD
+=======
+          const actionToDispatch = fetchProfileSuccess(response.data.email);
+          store.dispatch(actionToDispatch);
+>>>>>>> 788b1e31e5f8ad05eaa3caf924ea1406e0205a30
         })
         .catch((err) => {
           console.error(err);
