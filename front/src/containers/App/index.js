@@ -5,7 +5,8 @@ import { fetchCuriosets } from 'src/actions/map';
 const mapStateToProps = (state) => ({
   // element to get from the state
   pseudo: state.auth.pseudo,
-  id: state.auth.id
+  id: state.auth.id,
+  idEvent: state.curioset.idEvent,
 });
 
 const mapDispatchToProps = (dispatch) => ({
