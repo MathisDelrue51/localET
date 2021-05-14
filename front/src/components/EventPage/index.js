@@ -47,8 +47,9 @@ const EventPage = ({
       </div>
     </div>
 
-    <SubmitButton>Modifier</SubmitButton>
-    <SubmitButton>Supprimer</SubmitButton>
+    <SubmitButton buttonName="Modifier" />
+    <SubmitButton buttonName="Supprimer" />
+
   </div>
 );
 

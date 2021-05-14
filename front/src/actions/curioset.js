@@ -14,6 +14,8 @@ export const FETCH_EVENT_SUCCESS = 'FETCH_EVENT_SUCCESS';
 
 export const FETCH_EVENT_ERROR = 'FETCH_EVENT_ERROR';
 
+export const SAVE_ID = 'SAVE_ID';
+
 // action to be connected to changeField prop
 export const updateEventField = (newValue, fieldName) => ({
   type: UPDATE_EVENT_FIELD,
@@ -52,7 +54,12 @@ export const fetchEventSuccess = (data) => ({
 });
 
 // action when user goes to event page
-export const fetchEvent = (id) => ({
+export const fetchEvent = (idEvent) => ({
   type: FETCH_EVENT,
-  id,
+  idEvent,
+});
+
+export const saveID = (idEvent) => ({
+  type: SAVE_ID,
+  idEvent,
 });

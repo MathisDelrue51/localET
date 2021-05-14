@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import { fetchEvent } from 'src/actions/curioset';
-
 import EventPage from 'src/components/EventPage';
 
 // === mapStateToProps
@@ -17,15 +15,12 @@ const mapStateToProps = (state) => ({
   price: state.curioset.price,
   longitude: state.curioset.longitude,
   latitude: state.curioset.latitude,
+  idEvent: state.curioset.id,
 });
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
-const mapDispatchToProps = (dispatch) => ({
-  showEvent: () => {
-    dispatch(fetchEvent());
-  },
-});
+const mapDispatchToProps = {};
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(EventPage);

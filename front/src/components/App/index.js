@@ -16,7 +16,8 @@ import EventPage from 'src/containers/EventPage';
 // == Component
 const App = ({
   fetchCuriosets,
-  idProfile,
+  pseudo,
+  id,
   idEvent,
 }) => {
   console.log(fetchCuriosets);
@@ -24,7 +25,7 @@ const App = ({
     fetchCuriosets();
   }, []);
 
-  const pathProfile = `/profile/${idProfile}`;
+  const pathProfile = `/profile/${id}`;
   const pathCurioset = `/curiosET/${idEvent}`;
 
   return (

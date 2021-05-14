@@ -7,6 +7,7 @@ import {
   FETCH_EVENT,
   fetchEventSuccess,
   fetchEvent,
+  saveID,
 } from 'src/actions/curioset';
 
 import history from 'src/utils/history';
@@ -21,15 +22,18 @@ const curiosetMiddleware = (store) => (next) => (action) => {
       console.log('authMiddleware is handling FETCH_EVENT action');
       const { curioset } = store.getState();
 
-      // ID N’EXISTE PAS - S’EN OCCUPER
       axios({
-        method: 'GET',
-        url: `${SERVER_URL}/curioset/${curioset.id}`,
+        method: 'get',
+        url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
       })
         .then((response) => {
+          console.log('data du fetch event :');
           console.log(response.data);
           const actionToDispatch = fetchEventSuccess(response.data);
           store.dispatch(actionToDispatch);
+        })
+        .then(() => {
+          history.push(`/curiosET/${curioset.idEvent}`);
         })
         .catch((err) => {
           console.error(err);
@@ -37,13 +41,13 @@ const curiosetMiddleware = (store) => (next) => (action) => {
     }
       break;
 
-    case SUBMIT_ADDRESS_SEARCH:
+    case SUBMIT_ADDRESS_SEARCH: {
       console.log('Middleware Recherche adresse');
-      const { address } = store.getState().curioset;
+      const { curioset } = store.getState();
 
       axios({
         method: 'get',
-        url: `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=5`,
+        url: `https://api-adresse.data.gouv.fr/search/?q=${curioset.address}&limit=5`,
       })
 
         .then((response) => {
@@ -61,10 +65,10 @@ const curiosetMiddleware = (store) => (next) => (action) => {
 
         .catch((error) => {
           console.error(error);
-        });
+        }); }
       break;
 
-    case SUBMIT_CREATE_EVENT:
+    case SUBMIT_CREATE_EVENT: {
       console.log('Middleware Create Event');
 
       const { curioset } = store.getState();
@@ -89,17 +93,19 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           category_id: curioset.category,
         },
       })
-
         .then((response) => {
-          console.log(response.data);
-          store.dispatch(fetchEvent(10));
+          store.dispatch(saveID(response.data.id));
         })
-        .then((response) => {
-          history.push(`/curiosET/${10}`);
+        .then(() => {
+          store.dispatch(fetchEvent());
+        })
+        .then(() => {
+          history.push(`/`);
         })
         .catch((err) => {
           console.error('ceci est mon erreur', err);
-        });
+          console.log(err.response.data);
+        }); }
       break;
 
     default:

@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 
-import { updateEventField, updateRadioOption, submitCreateEvent, submitAddressSearch, saveAddressData } from 'src/actions/curioset';
+import {
+  updateEventField, updateRadioOption, submitAddressSearch,
+} from 'src/actions/curioset';
 
 // Import component
 import CreateEventForm from 'src/components/CreateEventForm';
@@ -16,6 +18,7 @@ const mapStateToProps = (state) => ({
   price: state.curioset.price,
   description: state.curioset.description,
   category: state.curioset.category,
+  idEvent: state.curioset.idEvent,
 });
 
 // === mapDispatchToProps
@@ -36,6 +39,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleCreateEvent: () => {
     dispatch(submitAddressSearch());
   },
+
 });
 
 // export

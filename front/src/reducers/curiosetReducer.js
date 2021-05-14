@@ -3,6 +3,7 @@ import {
   UPDATE_RADIO_OPTION,
   SAVE_ADDRESS_DATA,
   FETCH_EVENT_SUCCESS,
+  SAVE_ID,
 } from '../actions/curioset';
 
 const initialState = {
@@ -31,6 +32,9 @@ const initialState = {
   longitude: null,
   latitude: null,
 
+  // id received from DB
+  idEvent: null,
+
 };
 
 function curiosetReducer(state = initialState, action) {
@@ -46,6 +50,7 @@ function curiosetReducer(state = initialState, action) {
         category: action.data.category_id,
         longitude: action.data.longitude,
         latitude: action.data.latitude,
+        idEvent: action.data.id,
       };
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_EVENT_FIELD:
@@ -108,6 +113,14 @@ function curiosetReducer(state = initialState, action) {
         longitude: action.longitude,
         latitude: action.latitude,
       };
+
+    // This is what happens when the action SAVE_ID is fired :
+    case SAVE_ID:
+      return {
+        ...state,
+        idEvent: action.idEvent,
+      };
+
     default:
       return state;
   }
