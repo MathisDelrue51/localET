@@ -8,7 +8,7 @@ import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
 
 import {
-  MapContainer, TileLayer, Marker, Popup,
+  MapContainer, TileLayer, Marker, Popup, Pane,
 } from 'react-leaflet';
 
 // == Component
@@ -18,13 +18,15 @@ const Map = ({
 
   <div className="map">
 
-    <SearchBar placeholder="Cherchez une ville..." />
     <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
       <SetView center={[latitude, longitude]} zoom={zoom} />
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <Pane name="cyan-rectangle" style={{ zIndex: 500 }}>
+        <SearchBar placeholder="Cherchez une ville..." />
+      </Pane>
       { list.map((elmt) => (
         <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
           <Popup>

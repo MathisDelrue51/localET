@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  useMap
+  useMap,
 } from 'react-leaflet';
 
 const SetView = ({ center, zoom }) => {
@@ -13,5 +13,3 @@ const SetView = ({ center, zoom }) => {
 };
 
 export default SetView;
-
-
