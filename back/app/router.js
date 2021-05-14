@@ -55,7 +55,7 @@ router.get('/logout', authController.logout );
  * @route POST /curioset
  * @returns {Curioset.model>} 200 - The curioset
  */
-router.post('/curioset', authenticateToken, validateBody(curiosetSchema), flush, curiosetController.newCurioset);
+router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
 
 /**
  * Access the page of the curioset with the corresponding id (if it exists)
