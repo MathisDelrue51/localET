@@ -6,29 +6,28 @@ export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
 export const SUBMIT_SEARCH_SUCCESS = 'SUBMIT_SEARCH_SUCCESS';
 export const SUBMIT_SEARCH_ERROR = 'SUBMIT_SEARCH_ERROR';
 
-//action in case search fails
+// action in case search fails
 export const submitSearchError = () => ({
-  type : SUBMIT_SEARCH_ERROR
-})
-
-//action in case search is a success
-export const submitSearchSuccess = (longitude, latitude) => ({
-  type : SUBMIT_SEARCH_SUCCESS,
-  longitude,
-  latitude,
-})
-
-//action to submit address in the search bar
-export const submitSearch = () => ({
-  type : SUBMIT_SEARCH
-})
-
-//action to put address field value in state
-export const updateAddressField = (newValue) => ({
-  type: UPDATE_ADDRESS_FIELD,
-  newValue
+  type: SUBMIT_SEARCH_ERROR,
 });
 
+// action in case search is a success
+export const submitSearchSuccess = (longitude, latitude) => ({
+  type: SUBMIT_SEARCH_SUCCESS,
+  longitude,
+  latitude,
+});
+
+// action to submit address in the search bar
+export const submitSearch = () => ({
+  type: SUBMIT_SEARCH,
+});
+
+// action to put address field value in state
+export const updateAddressField = (newValue) => ({
+  type: UPDATE_ADDRESS_FIELD,
+  newValue,
+});
 
 // action to fetch curiosETs
 export const fetchCuriosets = () => ({
