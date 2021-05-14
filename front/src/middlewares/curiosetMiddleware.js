@@ -37,6 +37,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
 
         .catch((error) => {
+          console.log('It must be an existing adress');
           console.error(error);
         });
       break;
@@ -71,6 +72,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           history.push('/');
         })
         .catch((err) => {
+          console.log(err.response.data);
           console.error('ceci est mon erreur', err);
         });
       break;
