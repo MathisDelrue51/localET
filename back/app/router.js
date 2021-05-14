@@ -12,12 +12,14 @@ const userSchema = require('./schemas/user');
 const {validateBody} = require('./services/validator');
 const Curioset = require('./models/curioset');
 
+const { cache, flush } = require('./services/cache');
+
 /**
  * Returns all curiosET from the database
  * @route GET /
  * @returns {Array<Curioset>} 200 - An array of curiosets
  */
-router.get('/', curiosetController.allCuriosets);
+router.get('/', cache(600), curiosetController.allCuriosets);
 
 /**
  * Create a new user in the db
@@ -40,7 +42,7 @@ router.get('/connected', authenticateToken, authController.connected );
  * Access the profile page of the user with the corresponding id (if it exists)
  * @route GET /profile/:id - id must be a number (defined by the regex)
  */
-router.get('/profile/:id(\\d+)', authenticateToken, userController.oneUserById);
+router.get('/profile/:id(\\d+)', authenticateToken, cache(), userController.oneUserById);
 
 /**
  * Logout the user from the session
@@ -59,7 +61,7 @@ router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curios
  * Access the page of the curioset with the corresponding id (if it exists)
  * @route GET /curioset/:id - id must be a number (defined by the regex)
  */
-router.get('/curioset/:id(\\d+)', curiosetController.oneCuriosetById);
+router.get('/curioset/:id(\\d+)', cache(),  curiosetController.oneCuriosetById);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 

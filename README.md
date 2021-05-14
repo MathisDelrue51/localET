@@ -8,6 +8,7 @@ Vous vous êtes déjà senti comme un extraterrestre en arrivant dans une nouvel
 - NPM
 - PostgreSQL 12.5
 - [Sqitch 0.9999](http://sqitch.org/download/)
+- [redis](https://redis.io/download)
 
 Ces outils sont nécessaires au bon fonctionnement de l'app. Installez-les avant de continuer.
 
