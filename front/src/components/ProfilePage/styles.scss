@@ -1,5 +1,45 @@
 .profile {
-  height: 30vh;
-  margin: 5em auto;
   font-size: 2rem;
+}
+
+.curioset {
+  display: flex;  
+  flex-direction: row;
+  margin: 1em;
+  border: solid 2px black;
+  align-items: center;
+}
+
+.information {
+  flex: 5;
+}
+
+.accessButton {
+  flex: 1;  
+}
+
+.row-1 {
+  background-color: #f106fd;
+}
+
+.row-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.place {
+  background-color: beige;
+  flex: 1;
+}
+.agenda {
+  background-color: rgb(26, 247, 26);
+  flex: 1;
+}
+
+.row-3 {
+  background-color: gold;
+}
+
+.row-1, .place, .agenda, .row-3 {
+  padding: 0.5em;
 }
