@@ -106,7 +106,6 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         .catch((err) => {
           console.log(err.response.data);
           console.error('ceci est mon erreur', err);
-          console.log(err.response.data);
         }); }
       break;
 
