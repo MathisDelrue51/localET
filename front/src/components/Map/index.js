@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import
 import './styles.scss';
@@ -28,15 +29,31 @@ const Map = ({
       <Pane name="cyan-rectangle" style={{ zIndex: 500 }}>
         <SearchBar placeholder="Cherchez une ville..." />
       </Pane>
-      { list.map((elmt) => (
-        <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
-          <Popup>
-            <div className="popup">
-              <div className="title">{elmt.title}</div> <br /> {elmt.address} <br /> {elmt.description}
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      { list.map((elmt) => {
+        const path = `/curiosETs/${elmt.id}`;
+        return (
+          <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
+            <Popup>
+              <div className="popup">
+                <div className="title">{elmt.title}</div>
+                <br />
+                {elmt.address}
+                <br />
+                {elmt.description}
+                <br />
+                <NavLink
+                  to={path}
+                  className="navLinkMap"
+                  activeClassName="navLinkActive"
+                  exact
+                >
+                  Page complète de l'event...
+                </NavLink>
+              </div>
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
     <CreateEventButton />
   </div>

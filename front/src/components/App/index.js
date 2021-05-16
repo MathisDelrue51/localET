@@ -12,6 +12,7 @@ import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
 import EventPage from 'src/containers/EventPage';
+import EventPageFromMap from 'src/containers/EventPageFromMap';
 
 // == Component
 const App = ({
@@ -44,6 +45,9 @@ const App = ({
         </Route>
         <Route path={pathCurioset}>
           <EventPage />
+        </Route>
+        <Route path="/curiosETs/:id">
+          <EventPageFromMap />
         </Route>
         <Route path="/">
           <Map />

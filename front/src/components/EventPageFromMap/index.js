@@ -3,23 +3,22 @@ import PropTypes from 'prop-types';
 import './styles.scss';
  
 import { NavLink, useParams } from 'react-router-dom';
-import SubmitButton from 'src/components/SubmitButton';
  
 const EventPageFromMap = ({
  list,
 }) => {
- const { id } = useParams();
- console.log(list);
- console.log('je suis un', id);
- const event = list.find((elmt) => elmt.id == id);
- console.log(event);
- return (
+  const { id } = useParams();
+  console.log(list);
+  console.log('je suis un', id);
+  const event = list.find((elmt) => elmt.id == id);
+  console.log(event);
+  return (
    <div className="event">
      <NavLink to="/" className="link">
        Retourner à l'accueil
      </NavLink>
      <div className="eventPart">
-       <h1>{event.name}</h1>
+       <h1>{event.title}</h1>
        <h3>{event.category}</h3>
      </div>
  
