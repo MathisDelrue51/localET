@@ -7,8 +7,8 @@ const userController = {
 
     // GET /profile/:id
     oneUserById: async (req, res) => {
-        const authHeader = req.headers['authorization']
-        const token = authHeader && authHeader.split(' ')[1]
+        const authHeader = req.headers['authorization'];
+        const token = authHeader && authHeader.split(' ')[1];
         
         const decoded = jwt.decode(token)
 

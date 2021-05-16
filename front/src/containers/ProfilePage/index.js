@@ -7,7 +7,7 @@ import ProfilePage from 'src/components/ProfilePage';
 const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
-  pseudo: state.auth.pseudo
+  pseudo: state.auth.pseudo,
 });
 
 // === mapDispatchToProps
