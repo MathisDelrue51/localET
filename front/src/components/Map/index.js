@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
+import CreateEventButton from 'src/components/CreateEventButton';
 
 import {
   MapContainer, TileLayer, Marker, Popup,
@@ -35,6 +36,7 @@ const Map = ({
         </Marker>
       ))}
     </MapContainer>
+    <CreateEventButton />
   </div>
 );
 

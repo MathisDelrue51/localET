@@ -1,0 +1,16 @@
+@use 'src/styles/vars';
+ 
+.addCuriosLink {
+ width: 100px;
+ margin: 10em;
+ padding: 10px;
+ background-color: vars.$darkGrey;
+ opacity: 0.5;
+ color: vars.$white;
+ font-weight: bold;
+ 
+ &__span {
+   margin-right: 10%;
+   font-size: 1.4rem;
+ }
+}
