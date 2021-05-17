@@ -47,7 +47,7 @@ class Curioset {
         if (rows[0]) {
             return new Curioset(rows[0]);
         } else {
-            null;
+            throw new Error(`no curioset with id ${id}`);
         }
     }
 

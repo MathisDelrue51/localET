@@ -77,8 +77,7 @@ const curiosetController = {
                     console.log("curioset mise à jour")
                 }else {
 
-                throw new Error('L\'id de l\'utilisateur ne correspond pas');
-                res.status(403)
+                throw new Error('L\'id de l\'utilisateur ne correspond pas');               
                 }
             }   
 
