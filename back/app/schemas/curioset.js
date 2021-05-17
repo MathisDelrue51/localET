@@ -3,60 +3,60 @@ const Joi = require('joi');
 const schema = Joi.object({
 
     id: Joi.number().integer().required().positive().messages({
-      'number.base': `"id" should be a type of 'number'`,
-      'number.positive': `"id" should be a positive number`,
-      'number.integer': `"id" should be an integer`,
-      'any.required': `"id" is a required field`
+      'number.base': `le champ id doit être de type nombre`,
+      'number.positive': `le champ id doit être un nombre positif`,
+      'number.integer': `le champ id doit être un nombre entier`,
+      'any.required': `Le champ id est requis`
     }),
 
     title: Joi.string().min(5).required().messages({
-        'string.base': `"title" should be a type of 'text'`,
-        'string.min': `"title" cannot be less than 5 characters`,
-        'any.required': `"title" is a required field`
+        'string.base': `le champ titre doit être de type texte`,
+        'string.min': `Le titre doit contenir minimum 5 caractères`,
+        'any.required': `Le champ titre est requis`
       }),
     description: Joi.string().min(20).required().messages({
-        'string.base': `"description" should be a type of 'text'`,
-        'string.min': `"description" cannot be less than 20 characters`,
-        'any.required': `"description" is a required field`
+        'string.base': `le champ description doit être de type texte`,
+        'string.min': `Le description doit contenir minimum 20 caractères`,
+        'any.required': `Le champ description est requis`
       }),
-    address: Joi.string().min(20).required().messages({
-        'string.base': `"address" should be a type of 'text'`,
-        'string.min': `"address" cannot be less than 20 characters`,
-        'any.required': `"address" is a required field`
+    address: Joi.string().min(3).required().messages({
+        'string.base': `le champ addresse doit être de type texte`,
+        'string.min': `L'addresse doit contenir minimum 3 caractères`,
+        'any.required': `Le champ addresse est requis`
       }),
     latitude: Joi.number().required().messages({
-        'number.base': `"latitude" should be a type of 'number'`,
-        'any.required': `"latitude" is a required field`
+        'number.base': `le champ latitude doit être de type nombre`,
+        'any.required': `Le champ latitude est requis`
       }),
     longitude: Joi.number().required().messages({
-        'number.base': `"longitude" should be a type of 'number'`,
-        'any.required': `"longitude" is a required field`
+        'number.base': `le champ longitude doit être de type nombre`,
+        'any.required': `Le champ longitude est requis`
       }),
-    website: Joi.string().min(20).allow(null).messages({
-        'string.base': `"website" should be a type of 'text'`,        
-        'string.min': `"website" cannot be less than 20 characters`        
+    website: Joi.string().min(5).allow(null).messages({
+        'string.base': `le champ siteweb doit être de type texte`,        
+        'string.min': `Le siteweb doit contenir minimum 5 caractères`        
       }),
-    agenda: Joi.string().min(6).required().messages({
-        'string.base': `"agenda" should be a type of 'text'`,
-        'string.min': `"agenda" cannot be less than 6 characters`,
-        'any.required': `"agenda" is a required field`
+    agenda: Joi.string().min(3).required().messages({
+        'string.base': `le champ agenda doit être de type texte`,
+        'string.min': `L'agenda doit contenir minimum 3 caractères`,
+        'any.required': `Le champ agenda est requis`
       }),
     price: Joi.number().min(0).required().messages({
-        'number.base': `"price" should be a type of 'number'`,
-        'number.min': `"price" should be a positive number or 0 (free)`,
-        'any.required': `"price" is a required field`
+        'number.base': `le champ prix doit être de type nombre`,
+        'number.min': `Le prix doit être un nombre supérieur ou égale à 0 (gratuit)`,
+        'any.required': `Le champ prix est requis`
       }),
     user_id: Joi.number().integer().positive().required().messages({
-        'number.base': `"user_id" should be a type of 'number'`,
-        'number.positive': `"user_id" should be a positive number`,
-        'number.integer': `"user_id" should be an integer`,
-        'any.required': `"user_id" is a required field`
+        'number.base': `le champ user_id doit être de type nombre`,
+        'number.positive': `user_id doit être un nombre positif`,
+        'number.integer': `user_id doit être un nombre entier`,
+        'any.required': `Le champ user_id est requis`
       }),
     category_id: Joi.number().integer().positive().required().messages({
-        'number.base': `"category_id" should be a type of 'number'`,
-        'number.positive': `"category_id" should be a positive number`,
-        'number.integer': `"category_id" should be an integer`,
-        'any.required': `"category_id" is a required field`
+        'number.base': `le champ category_id doit être de type nombre`,
+        'number.positive': `Choisir une catégorie parmis celles proposées`,
+        'number.integer': `category_id doit être un nombre entier`,
+        'any.required': `Le champ category_id est requis`
       })
 });
 

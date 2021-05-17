@@ -35,6 +35,7 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
+          console.log(err.response.data);
           console.error(err);
         });
     }
@@ -60,6 +61,7 @@ const authMiddleware = (store) => (next) => (action) => {
           history.push('/login');
         })
         .catch((err) => {
+          console.log(err.response.data);
           console.error('ceci est mon erreur', err);
         });
       break;
@@ -98,6 +100,7 @@ const authMiddleware = (store) => (next) => (action) => {
         })
 
         .catch((error) => {
+          console.log(error.response.data);
           console.log(error);
         });
 

@@ -66,8 +66,9 @@ Content-Type: application/json
 
 # Connexion
 
-### GET test if a user is connected
+### GET test if a user is connected - Replace token by the newly created one
 GET http://localhost:1234/connected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 
 ### POST login test de connexion d'un utilisateur
 POST http://localhost:1234/login
@@ -104,19 +105,22 @@ GET http://localhost:1234/logout
 
 ### GET user with id 1 (should exist) - Replace token by the newly created one
 GET http://localhost:1234/profile/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI0NDgzOSwiZXhwIjoxNjIxMjUyMDM5fQ.vpp_TXmC7icok9y5b5F3ohhZ1ebl2nBShIEHCVkkQZg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 
-### GET user with id 2 (should exist but current user shouldn't have access)
+### GET user with id 2 (should exist but current user shouldn't have access) - Replace token by the newly created one
 GET http://localhost:1234/profile/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 
-### GET user with id 1000 (shouldn't exist)
+### GET user with id 1000 (shouldn't exist) - Replace token by the newly created one
 GET http://localhost:1234/profile/1000
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 
 
 # Curioset
 
-### POST curioset, send a POST request to create a new curioset in db
+### POST curioset, send a POST request to create a new curioset in db - Replace token by the newly created one
 POST http://localhost:1234/curioset
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4Njc4NywiZXhwIjoxNjIwOTg2ODU5fQ.Eqy8yX_eLWP-eqXA24TKp2Bokqo1282HvA0VR6vUOU0
 Content-Type: application/json
 
 {
@@ -131,8 +135,9 @@ Content-Type: application/json
     "category_id": 3
 }
 
-### POST curioset, send a POST request to create a new curioset in db but with an error
+### POST curioset, send a POST request to create a new curioset in db but with an error - Replace token by the newly created one
 POST http://localhost:1234/curioset
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 Content-Type: application/json
 
 {
@@ -148,8 +153,9 @@ Content-Type: application/json
     "category_id": "text"
 }
 
-### POST curioset, send a POST request to create a new curioset in db but contente doesn't respect schema
+### POST curioset, send a POST request to create a new curioset in db but contente doesn't respect schema - Replace token by the newly created one
 POST http://localhost:1234/curioset
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4NjcxNywiZXhwIjoxNjIwOTg2Nzg5fQ.1_YjF0GFIzTBPAfgnXIbYiyg8j6XkfJA-X838dyz4AE
 Content-Type: application/json
 
 {

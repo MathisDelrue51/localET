@@ -77,12 +77,10 @@ const curiosetController = {
                     console.log("curioset mise à jour")
                 }else {
 
-                throw new Error('');
+                throw new Error('L\'id de l\'utilisateur ne correspond pas');
+                res.status(403)
                 }
-            }
-
-            //const userId = await User.findOne(req.body.user_id)
-            //console.log(userId);    
+            }   
 
         } catch (err) {
             console.log(err)
