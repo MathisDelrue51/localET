@@ -1,4 +1,8 @@
 const Curioset = require('../models/curioset');
+const User = require('../models/user');
+const userController = require('./userController');
+
+const jwt = require('jsonwebtoken');
 
 const curiosetController = {
 
@@ -44,6 +48,39 @@ const curiosetController = {
             await newCurioset.save();
 
             res.status(201).json(newCurioset);
+        } catch (err) {
+            console.log(err)
+            res.status(500).json(err.message);
+        }
+    },
+
+    //PUT /curioset/id
+    updateCurioset: async (req, res) => {
+        const authHeader = req.headers['authorization']
+        const token = authHeader && authHeader.split(' ')[1]
+        
+        const decoded = jwt.decode(token)
+ 
+        try {
+
+            const user = await User.findByEmail(decoded.email);             
+
+            if (user) {
+                const updatedCurioset = new Curioset(req.body);
+                console.log(updatedCurioset);
+
+                if (updatedCurioset.user_id == user.id) {
+                    await updatedCurioset.save();
+
+                     res.status(200).json(updatedCurioset);
+
+                    console.log("curioset mise à jour")
+                }else {
+
+                throw new Error('L\'id de l\'utilisateur ne correspond pas');               
+                }
+            }   
+
         } catch (err) {
             console.log(err)
             res.status(500).json(err.message);

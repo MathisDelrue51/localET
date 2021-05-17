@@ -63,6 +63,8 @@ router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curios
  */
 router.get('/curioset/:id(\\d+)', cache(),  curiosetController.oneCuriosetById);
 
+router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema), curiosetController.updateCurioset);
+
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 
 
