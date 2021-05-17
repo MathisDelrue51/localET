@@ -20,7 +20,9 @@ const curiosetMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_EVENT: {
       console.log('authMiddleware is handling FETCH_EVENT action');
-      const { curioset } = store.getState();
+      const {
+        curioset,
+      } = store.getState();
 
       axios({
         method: 'get',
@@ -43,7 +45,9 @@ const curiosetMiddleware = (store) => (next) => (action) => {
 
     case SUBMIT_ADDRESS_SEARCH: {
       console.log('Middleware Recherche adresse');
-      const { curioset } = store.getState();
+      const {
+        curioset,
+      } = store.getState();
 
       axios({
         method: 'get',
@@ -66,15 +70,20 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log('It must be an existing adress');
           console.error(error);
-        }); }
+        });
+    }
       break;
 
     case SUBMIT_CREATE_EVENT: {
       console.log('Middleware Create Event');
 
-      const { curioset } = store.getState();
+      const {
+        curioset,
+      } = store.getState();
       const priceFloat = parseFloat(curioset.price);
-      const { auth } = store.getState();
+      const {
+        auth,
+      } = store.getState();
 
       axios({
         method: 'post',
@@ -106,7 +115,8 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         .catch((err) => {
           console.log(err.response.data);
           console.error('ceci est mon erreur', err);
-        }); }
+        });
+    }
       break;
 
     default:

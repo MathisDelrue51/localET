@@ -1,6 +1,11 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, {
+  useEffect,
+} from 'react';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -16,7 +21,6 @@ import EventPage from 'src/containers/EventPage';
 // == Component
 const App = ({
   fetchCuriosets,
-  pseudo,
   id,
   idEvent,
 }) => {
@@ -32,7 +36,6 @@ const App = ({
     <div className="app">
       <Header />
       <Switch>
-
         <Route path="/subscribe">
           <RegisterForm />
         </Route>
@@ -48,7 +51,6 @@ const App = ({
         <Route path="/">
           <Map />
         </Route>
-
       </Switch>
       <Footer />
     </div>
