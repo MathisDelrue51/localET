@@ -6,6 +6,7 @@ import ProfilePage from 'src/components/ProfilePage';
 // for information to be read
 const mapStateToProps = (state) => ({
   // element to get from the state
+  list: state.map.list,
   email: state.auth.email,
   pseudo: state.auth.pseudo,
 });
