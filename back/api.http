@@ -104,7 +104,7 @@ GET http://localhost:1234/logout
 
 ### GET user with id 1 (should exist) - Replace token by the newly created one
 GET http://localhost:1234/profile/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDgyMzEyOCwiZXhwIjoxNjIwODIzMjAwfQ.xooPqKUtJX1aa0wjS-66xK2lkMQFKiXMn96x7ecJ7gQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI0NDgzOSwiZXhwIjoxNjIxMjUyMDM5fQ.vpp_TXmC7icok9y5b5F3ohhZ1ebl2nBShIEHCVkkQZg
 
 ### GET user with id 2 (should exist but current user shouldn't have access)
 GET http://localhost:1234/profile/2
@@ -173,3 +173,43 @@ GET http://localhost:1234/curioset/1000
 
 ### GET curioset with bad url (id not a number)
 GET http://localhost:1234/curioset/test
+
+
+
+
+### Update Curioset with corresponding id
+PUT http://localhost:1234/curioset/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI0NTYzNywiZXhwIjoxNjIxMjUyODM3fQ.ZKPrEDx6my_ajqqS0bOXby5TksVfkwfIVrpvbWEgERA
+Content-Type: application/json
+
+{
+   "id": 9,
+   "title": "testvalid",
+   "description": "test descrtiption 12",
+   "address": "testteststetsteststestte",
+    "latitude": 44.5613927,
+    "longitude": 4.7520228, 
+    "website": "www.test-valid-curioset.com",
+    "agenda": "Le 22/05/2020",
+    "price": 50,
+    "user_id": 1,
+    "category_id": 2
+}
+
+### Update Curioset with corresponding id but invalid body
+PUT http://localhost:1234/curioset/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI0NDgzOSwiZXhwIjoxNjIxMjUyMDM5fQ.vpp_TXmC7icok9y5b5F3ohhZ1ebl2nBShIEHCVkkQZg
+Content-Type: application/json
+
+{
+   "id": 9,
+   "title": "testinvalid",
+   "description": "test invalid",
+   "address": "testteststetsteststestte",
+    "latitude": 44.5613927,
+    "longitude": 4.7520228,
+    "agenda": "Le 22/05/2021",
+    "price": 50,
+    "user_id": 1,
+    "category_id": 2
+}

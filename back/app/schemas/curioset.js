@@ -1,6 +1,14 @@
 const Joi = require('joi');
 
 const schema = Joi.object({
+
+    id: Joi.number().integer().required().positive().messages({
+      'number.base': `"id" should be a type of 'number'`,
+      'number.positive': `"id" should be a positive number`,
+      'number.integer': `"id" should be an integer`,
+      'any.required': `"id" is a required field`
+    }),
+
     title: Joi.string().min(5).required().messages({
         'string.base': `"title" should be a type of 'text'`,
         'string.min': `"title" cannot be less than 5 characters`,
