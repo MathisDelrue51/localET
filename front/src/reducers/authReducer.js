@@ -17,6 +17,8 @@ const initialState = {
 
   token: null,
 
+  profileList: [],
+
   errors: {
     email: '',
     password: '',
@@ -32,6 +34,7 @@ function authReducer(state = initialState, action) {
       return {
         ...state,
         email: action.email,
+        profileList: action.profileList,
       };
     // This is what happens when the action REGISTER is fired :
     case REGISTER:

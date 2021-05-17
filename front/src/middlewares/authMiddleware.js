@@ -31,7 +31,9 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response.data);
-          const actionToDispatch = fetchProfileSuccess(response.data.email);
+          const actionToDispatch = fetchProfileSuccess(
+            response.data.email, response.data.curiosets,
+          );
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {

@@ -2,30 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-const ProfilePage = ({ email, pseudo, list }) => (
-  <div>
-    <div className="profile">
-      <h1>Votre profil</h1>
-      <h2>Pseudo</h2>
-      <p>{pseudo}</p>
-      <h2>E-mail</h2>
-      <p>{email}</p>
-      <h2>Mot de Passe</h2>
-      <p>&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</p>
+const ProfilePage = ({ email, pseudo, profileList }) => (
+  <div className="container">
+    <div>
+      Mon Profil LocalET
+    </div>
+    <div className="profileInformation">
+      <div className="pseudo">
+        Pseudo: {pseudo}
+      </div>
+      <div className="identifiants">
+        <div>
+          E-mail: {email}
+        </div>
+        <div>
+          Mot de Passe: &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
+        </div>
+      </div>
     </div>
     {
-      list.map((myCuriosets) => (
+      profileList.map((element) => (
         <div className="curioset">
           <div className="information">
             <div className="row-1">
-              <h2>{myCuriosets.title}</h2>
+              {element.title}
             </div>
             <div className="row-2">
-              <h2 className="place">Lieu</h2>
-              <h2 className="agenda">Agenda</h2>
+              <div className="place">{element.address}</div>
+              <div className="agenda">{element.agenda}</div>
             </div>
             <div className="row-3">
-              <h2>Description</h2>
+              {element.description}
             </div>
           </div>
           <div className="accessButton">
@@ -40,7 +47,7 @@ const ProfilePage = ({ email, pseudo, list }) => (
 ProfilePage.propTypes = {
   email: PropTypes.string.isRequired,
   pseudo: PropTypes.string.isRequired,
-  list: PropTypes.array.isRequired,
+  profileList: PropTypes.array.isRequired,
 };
 
 export default ProfilePage;

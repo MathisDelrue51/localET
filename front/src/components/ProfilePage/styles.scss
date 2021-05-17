@@ -1,6 +1,20 @@
-.profile {
-  font-size: 2rem;
-  margin: 0;
+.container{  
+  width: 100%;   
+  font-size: 3em;
+} 
+
+.profileInformation {
+  font-size: 0.5em; 
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2%;
+}
+
+.identifiants{
+  display: flex;  
+  flex-direction: column;
 }
 
 .curioset {
@@ -9,10 +23,13 @@
   margin: 1em;
   border: solid 2px black;
   align-items: center;
+  font-size: 0.5em;  
+  background-color: #DCE9E6;  
 }
 
-.information {
+.information {  
   flex: 5;
+  border-right: solid 1px black;
 }
 
 .accessButton {
@@ -20,7 +37,7 @@
 }
 
 .row-1 {
-  background-color: #f106fd;
+  background-color: #F36E5B;
 }
 
 .row-2 {
@@ -28,17 +45,14 @@
   flex-direction: row;
 }
 
-.place {
-  background-color: beige;
-  flex: 1;
-}
-.agenda {
-  background-color: rgb(26, 247, 26);
-  flex: 1;
+.place, .agenda {  
+  flex: 1;  
+  text-align: center;
+  
 }
 
 .row-3 {
-  background-color: gold;
+  text-align: left;
 }
 
 .row-1, .place, .agenda, .row-3 {
