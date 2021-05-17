@@ -1,6 +1,11 @@
 // == Import npm
-import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, {
+  useEffect,
+} from 'react';
+import {
+  Route,
+  Switch,
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // == Import
@@ -12,12 +17,10 @@ import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
 import EventPage from 'src/containers/EventPage';
-import EventPageFromMap from 'src/containers/EventPageFromMap';
 
 // == Component
 const App = ({
   fetchCuriosets,
-  pseudo,
   id,
   idEvent,
 }) => {
@@ -33,7 +36,6 @@ const App = ({
     <div className="app">
       <Header />
       <Switch>
-
         <Route path="/subscribe">
           <RegisterForm />
         </Route>
@@ -46,13 +48,9 @@ const App = ({
         <Route path={pathCurioset}>
           <EventPage />
         </Route>
-        <Route path="/curiosETs/:id">
-          <EventPageFromMap />
-        </Route>
         <Route path="/">
           <Map />
         </Route>
-
       </Switch>
       <Footer />
     </div>

@@ -15,7 +15,7 @@ import {
 
 // == Component
 const Map = ({
-  list, longitude, latitude, zoom,
+  list, longitude, latitude, zoom, saveId, handleClick,
 }) => (
 
   <div className="map">
@@ -30,9 +30,16 @@ const Map = ({
         <SearchBar placeholder="Cherchez une ville..." />
       </Pane>
       { list.map((elmt) => {
-        const path = `/curiosETs/${elmt.id}`;
+        const path = `/curiosET/${elmt.id}`;
         return (
-          <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
+          <Marker
+            key={elmt.id}
+            position={[elmt.latitude, elmt.longitude]}
+            eventHandlers={{
+                click: () => {
+                  saveId(elmt.id);
+                },
+              }}>
             <Popup>
               <div className="popup">
                 <div className="title">{elmt.title}</div>
@@ -47,7 +54,7 @@ const Map = ({
                   activeClassName="navLinkActive"
                   exact
                 >
-                  Page complète de l'event...
+                  <button type="button" onClick={handleClick}>Page complète de l'event...</button>
                 </NavLink>
               </div>
             </Popup>
