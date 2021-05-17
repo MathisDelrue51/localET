@@ -42,12 +42,13 @@ class Curioset {
     static async findOne(id) {
         const {
             rows
-        } = await db.query('SELECT curioset.id, curioset.title, curioset.description, curioset.address, curioset.latitude, curioset.longitude, curioset.website, curioset.agenda, curioset.price, category.type, "user".pseudo FROM curioset JOIN category ON curioset.category_id = category.id JOIN "user" ON curioset.user_id = "user".id WHERE curioset.id = $1', [id]);
+        } = await db.query('SELECT curioset.id, curioset.title, curioset.description, curioset.address, curioset.latitude, curioset.longitude, curioset.website, curioset.agenda, curioset.price, curioset.user_id, category.type, "user".pseudo FROM curioset JOIN category ON curioset.category_id = category.id JOIN "user" ON curioset.user_id = "user".id WHERE curioset.id = $1', [id]);
 
         if (rows[0]) {
             return new Curioset(rows[0]);
         } else {
             throw new Error(`no curioset with id ${id}`);
+            //null
         }
     }
 
@@ -113,6 +114,13 @@ class Curioset {
             }
 
         }
+    }
+
+    async delete(id) {
+        
+            await db.query('DELETE FROM curioset WHERE id = $1', [
+                id
+            ]);    
     }
 
     /**

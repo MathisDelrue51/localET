@@ -63,7 +63,19 @@ router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curios
  */
 router.get('/curioset/:id(\\d+)', cache(),  curiosetController.oneCuriosetById);
 
+/**
+ * Access the page of the curioset to update the different fields
+ * @route PUT /curioset/:id - must be a positive number
+ * @returns {Curioset} 204 - updated
+ */
 router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema), curiosetController.updateCurioset);
+
+/**
+ * Access the page of the curioset to delete it
+ * @route DELETE /curioset/:id - must be a positive number
+ * @returns 204 - processed successfully and not returning any content
+ */
+router.delete('/curioset/:id(\\d+)', authenticateToken, curiosetController.deleteCurioset);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 
