@@ -16,6 +16,7 @@ import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
+import UpdateEventForm from 'src/containers/UpdateEventForm';
 import EventPage from 'src/containers/EventPage';
 
 // == Component
@@ -47,6 +48,9 @@ const App = ({
         </Route>
         <Route path={pathCurioset}>
           <EventPage />
+        </Route>
+        <Route path="/updateEvent">
+          <UpdateEventForm />
         </Route>
         <Route path="/">
           <Map />

@@ -7,6 +7,8 @@ import {
   FETCH_EVENT,
   fetchEventSuccess,
   fetchEvent,
+  UPDATE_EVENT,
+  updateEventsSuccess,
   saveID,
 } from 'src/actions/curioset';
 
@@ -18,11 +20,43 @@ const curiosetMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware CURIOSET: ', action);
 
   switch (action.type) {
+    case UPDATE_EVENT:
+      console.log('authMiddleware is handling UPDATE_EVENT action');
+      const {curioset, auth} = store.getState();
+      const priceFloat = parseFloat(curioset.price);
+      axios({
+        method: 'PUT',
+        url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+        data: {
+          title: curioset.name,
+          description: curioset.description,
+          address: curioset.address,
+          latitude: curioset.latitude,
+          longitude: curioset.longitude,
+          agenda: curioset.dateTime,
+          website: curioset.website,
+          price: priceFloat,
+          user_id: auth.id,
+          category_id: curioset.category,
+        },
+      })
+        .then((response) => {
+          store.dispatch(saveID(response.data.id));
+        })
+        .then(() => {
+          store.dispatch(fetchEvent());
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+          console.error('ceci est mon erreur', err);
+        });
+    break;
     case FETCH_EVENT: {
       console.log('authMiddleware is handling FETCH_EVENT action');
-      const {
-        curioset
-      } = store.getState();
+      const {curioset} = store.getState();
 
       axios({
           method: 'get',
@@ -46,7 +80,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
   case SUBMIT_ADDRESS_SEARCH: {
     console.log('Middleware Recherche adresse');
     const {
-      curioset
+      curioset,
     } = store.getState();
 
     axios({
@@ -98,6 +132,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           latitude: curioset.latitude,
           longitude: curioset.longitude,
           agenda: curioset.dateTime,
+          website: curioset.website,
           price: priceFloat,
           user_id: auth.id,
           category_id: curioset.category,

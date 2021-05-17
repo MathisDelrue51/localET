@@ -48,7 +48,7 @@ const EventPage = ({
       </div>
     </div>
     <NavLink
-      to=""
+      to="/updateEvent"
       className="navLink"
       activeClassName="navLinkActive"
       exact

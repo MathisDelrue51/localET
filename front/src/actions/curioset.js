@@ -16,6 +16,23 @@ export const FETCH_EVENT_ERROR = 'FETCH_EVENT_ERROR';
 
 export const SAVE_ID = 'SAVE_ID';
 
+export const UPDATE_EVENT = 'UPDATE_EVENT';
+
+export const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
+
+export const UPDATE_EVENT_ERROR = 'UPDATE_EVENT_ERROR';
+
+// action if updates got safely to the DB
+export const updateEventSuccess = (data) => ({
+  type: UPDATE_EVENT_SUCCESS,
+  data,
+});
+
+// action to post event updates
+export const updateEvent = () => ({
+  type: UPDATE_EVENT,
+});
+
 // action to be connected to changeField prop
 export const updateEventField = (newValue, fieldName) => ({
   type: UPDATE_EVENT_FIELD,
