@@ -1,11 +1,13 @@
 // == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import
 import './styles.scss';
 import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
+import CreateEventButton from 'src/components/CreateEventButton';
 
 import {
   MapContainer, TileLayer, Marker, Popup, Pane,
@@ -13,7 +15,7 @@ import {
 
 // == Component
 const Map = ({
-  list, longitude, latitude, zoom,
+  list, longitude, latitude, zoom, saveId, handleClick,
 }) => (
 
   <div className="map">
@@ -27,16 +29,40 @@ const Map = ({
       <Pane name="cyan-rectangle" style={{ zIndex: 500 }}>
         <SearchBar placeholder="Cherchez une ville..." />
       </Pane>
-      { list.map((elmt) => (
-        <Marker key={elmt.id} position={[elmt.latitude, elmt.longitude]}>
-          <Popup>
-            <div className="popup">
-              <div className="title">{elmt.title}</div> <br /> {elmt.address} <br /> {elmt.description}
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      { list.map((elmt) => {
+        const path = `/curiosET/${elmt.id}`;
+        return (
+          <Marker
+            key={elmt.id}
+            position={[elmt.latitude, elmt.longitude]}
+            eventHandlers={{
+                click: () => {
+                  saveId(elmt.id);
+                },
+              }}>
+            <Popup>
+              <div className="popup">
+                <div className="title">{elmt.title}</div>
+                <br />
+                {elmt.address}
+                <br />
+                {elmt.description}
+                <br />
+                <NavLink
+                  to={path}
+                  className="navLinkMap"
+                  activeClassName="navLinkActive"
+                  exact
+                >
+                  <button type="button" onClick={handleClick}>Page complète de l'event...</button>
+                </NavLink>
+              </div>
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
+    <CreateEventButton />
   </div>
 );
 

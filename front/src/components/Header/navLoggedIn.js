@@ -36,14 +36,6 @@ const NavLoggedIn = ({
       >
         Déconnexion
       </NavLink>
-      <NavLink
-        to="/createEvent"
-        className="navLink"
-        activeClassName="navLinkActive"
-        exact
-      >
-        Créer event
-      </NavLink>
     </nav>
   );
 };
