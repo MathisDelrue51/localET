@@ -15,6 +15,7 @@ const EventPage = ({
   price,
   longitude,
   latitude,
+  isLogged,
 }) => (
   <div className="event">
     <NavLink to="/" className="link">
@@ -46,10 +47,22 @@ const EventPage = ({
         <p>{price}</p>
       </div>
     </div>
-
-    <SubmitButton buttonName="Modifier" />
-    <SubmitButton buttonName="Supprimer" />
-
+    <NavLink
+      to=""
+      className="navLink"
+      activeClassName="navLinkActive"
+      exact
+    >
+      { isLogged && <SubmitButton buttonName="Modifier" />}
+    </NavLink>
+    <NavLink
+      to=""
+      className="navLink"
+      activeClassName="navLinkActive"
+      exact
+    >
+      { isLogged && <SubmitButton buttonName="Supprimer" />}
+    </NavLink>
   </div>
 );
 

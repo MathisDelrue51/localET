@@ -55,13 +55,15 @@ router.get('/logout', authController.logout );
  * @route POST /curioset
  * @returns {Curioset.model>} 200 - The curioset
  */
-router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
+router.post('/curioset', authenticateToken, validateBody(curiosetSchema), flush, curiosetController.newCurioset);
 
 /**
  * Access the page of the curioset with the corresponding id (if it exists)
  * @route GET /curioset/:id - id must be a number (defined by the regex)
  */
 router.get('/curioset/:id(\\d+)', cache(),  curiosetController.oneCuriosetById);
+
+router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema), flush, curiosetController.updateCurioset);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 

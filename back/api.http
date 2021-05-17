@@ -105,7 +105,7 @@ GET http://localhost:1234/logout
 
 ### GET user with id 1 (should exist) - Replace token by the newly created one
 GET http://localhost:1234/profile/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTIzNzQ0NSwiZXhwIjoxNjIxMjQ0NjQ1fQ.7fpYVZfJp9YWaAdsfIhTR_tQ0wuKvlyFquluYJsdM9Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI1NDc0MiwiZXhwIjoxNjIxMjYxOTQyfQ.l2tao5zJO9vPVPEP1R0wEYABaCHWrojJURXsg85pTDY
 
 ### GET user with id 2 (should exist but current user shouldn't have access) - Replace token by the newly created one
 GET http://localhost:1234/profile/2
@@ -120,7 +120,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpc
 
 ### POST curioset, send a POST request to create a new curioset in db - Replace token by the newly created one
 POST http://localhost:1234/curioset
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMDk4Njc4NywiZXhwIjoxNjIwOTg2ODU5fQ.Eqy8yX_eLWP-eqXA24TKp2Bokqo1282HvA0VR6vUOU0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI1NDc0MiwiZXhwIjoxNjIxMjYxOTQyfQ.l2tao5zJO9vPVPEP1R0wEYABaCHWrojJURXsg85pTDY
 Content-Type: application/json
 
 {
@@ -179,3 +179,43 @@ GET http://localhost:1234/curioset/1000
 
 ### GET curioset with bad url (id not a number)
 GET http://localhost:1234/curioset/test
+
+
+
+
+### Update Curioset with corresponding id
+PUT http://localhost:1234/curioset/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI1NDc0MiwiZXhwIjoxNjIxMjYxOTQyfQ.l2tao5zJO9vPVPEP1R0wEYABaCHWrojJURXsg85pTDY
+Content-Type: application/json
+
+{
+   "id": 20,
+   "title": "testvalid",
+   "description": "test descrtiption 12",
+   "address": "testteststetsteststestte",
+    "latitude": 44.5613927,
+    "longitude": 4.7520228, 
+    "website": "www.test-valid-curioset.com",
+    "agenda": "Le 22/05/2020",
+    "price": 50,
+    "user_id": 1,
+    "category_id": 2
+}
+
+### Update Curioset with corresponding id but invalid body
+PUT http://localhost:1234/curioset/9
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI0NDgzOSwiZXhwIjoxNjIxMjUyMDM5fQ.vpp_TXmC7icok9y5b5F3ohhZ1ebl2nBShIEHCVkkQZg
+Content-Type: application/json
+
+{
+   "id": 9,
+   "title": "testinvalid",
+   "description": "test invalid",
+   "address": "testteststetsteststestte",
+    "latitude": 44.5613927,
+    "longitude": 4.7520228,
+    "agenda": "Le 22/05/2021",
+    "price": 50,
+    "user_id": 1,
+    "category_id": 2
+}

@@ -22,7 +22,7 @@ const ProfilePage = ({ email, pseudo, profileList }) => (
     </div>
     {
       profileList.map((element) => (
-        <div className="curioset">
+        <div className="curioset" key={element.id}>
           <div className="information">
             <div className="row-1">
               {element.title}

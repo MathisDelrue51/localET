@@ -73,7 +73,23 @@ class Curioset {
     async save() {
         // if id, UPDATE, else, INSERT
         if (this.id) {
-            // TODO : UPDATE 
+            try {
+                    await db.query('UPDATE curioset SET title = $1, description = $2, address = $3, latitude = $4, longitude = $5, website = $6, agenda = $7, price = $8, user_id = $9, category_id =$10 WHERE id = $11 RETURNING id;', [
+                    this.title,
+                    this.description,
+                    this.address,
+                    this.latitude,
+                    this.longitude,
+                    this.website,
+                    this.agenda,
+                    this.price,
+                    this.user_id,
+                    this.category_id,
+                    this.id
+                ])
+            } catch (err) {
+                throw new Error(err);
+            }
         } else {
             try {
                 const {
