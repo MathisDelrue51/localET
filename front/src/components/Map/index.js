@@ -22,7 +22,13 @@ import shadow from 'src/assets/icons/icons-shadow-05.svg';
 
 // == Component
 const Map = ({
-  list, longitude, latitude, zoom, saveId, handleClick,
+  list,
+  longitude,
+  latitude,
+  zoom,
+  saveId,
+  handleClick,
+  isLogged,
 }) => {
   const iconSA = new Leaflet.Icon({
     iconUrl: streetArt,
@@ -48,12 +54,14 @@ const Map = ({
     shadowUrl: shadow,
     shadowSize: [40, 40],
   });
+  console.log('isLogged pour le bouton createEvent');
+  console.log(isLogged);
 
   return (
 
     <div className="map">
       <SearchBar placeholder="Cherchez une ville..." className="searchBar" />
-
+      {isLogged && <CreateEventButton />}
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
         <TileLayer
@@ -196,7 +204,7 @@ const Map = ({
           }
         })}
       </MapContainer>
-      <CreateEventButton />
+
     </div>
   );
 };
