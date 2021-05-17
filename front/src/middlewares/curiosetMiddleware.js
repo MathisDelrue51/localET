@@ -101,7 +101,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           store.dispatch(fetchEvent());
         })
         .then(() => {
-          history.push(`/`);
+          history.push('/');
         })
         .catch((err) => {
           console.log(err.response.data);

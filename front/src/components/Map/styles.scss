@@ -1,12 +1,21 @@
 .map {
-  margin : auto;
-  width: 100%;
+  margin: auto;
+  position: relative;
+
+  .searchBar {
+    width: 30%;
+    position: absolute;
+    top: 1%;
+    left: 35%;
+    z-index: 2000;
+
+
+  }
 }
 
 #mapid {
-  height: 70vh;
+  height: 800px;
+
 }
 
-.popup {
-  background-color: yellow;
-}
+.popup {}
