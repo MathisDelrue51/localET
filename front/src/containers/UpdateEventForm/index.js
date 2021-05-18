@@ -36,7 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(updateRadioOption(newValue, radioGroupName));
   },
 
-  handleCreateEvent: () => {
+  handleUpdateEvent: () => {
     dispatch(submitAddressSearch());
   },
 
