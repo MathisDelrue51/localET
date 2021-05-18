@@ -23,7 +23,7 @@ router.get('/*', (_,res) => {
  * @route GET /
  * @returns {Array<Curioset>} 200 - An array of curiosets
  */
-router.get('/home', cache(600), curiosetController.allCuriosets);
+router.get('/', cache(600), curiosetController.allCuriosets);
 
 /**
  * Create a new user in the db
