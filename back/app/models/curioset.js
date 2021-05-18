@@ -48,6 +48,7 @@ class Curioset {
             return new Curioset(rows[0]);
         } else {
             throw new Error(`no curioset with id ${id}`);
+            //null
         }
     }
 
@@ -113,6 +114,13 @@ class Curioset {
             }
 
         }
+    }
+
+    async delete(id) {
+        
+            await db.query('DELETE FROM curioset WHERE id = $1', [
+                id
+            ]);    
     }
 
     /**
