@@ -10,6 +10,8 @@ const cors = require ('cors');
 
 const app = express();
 
+const path = require('path')
+
 //Allow us to process the information from POST
 app.use(express.urlencoded({extended: true}));
 
