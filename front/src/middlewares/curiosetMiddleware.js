@@ -12,7 +12,7 @@ import {
 
 import history from 'src/utils/history';
 
-const SERVER_URL = 'http://localhost:1234';
+const SERVER_URL = 'https://apo-localet.herokuapp.com/';
 
 const curiosetMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware CURIOSET: ', action);

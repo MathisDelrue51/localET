@@ -3,7 +3,7 @@ import {
   FETCH_CURIOSETS, SUBMIT_SEARCH, fetchCuriosetsSuccess, fetchCuriosetsError, submitSearchSuccess,
 } from 'src/actions/map';
 
-const SERVER_URL = 'http://localhost:1234';
+const SERVER_URL = 'https://apo-localet.herokuapp.com/';
 
 export default (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware MAP: ', action);
