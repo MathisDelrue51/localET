@@ -24,6 +24,13 @@ export const UPDATE_EVENT_ERROR = 'UPDATE_EVENT_ERROR';
 
 export const SUBMIT_ADDRESS_SEARCH_UPDATE = 'SUBMIT_ADDRESS_SEARCH_UPDATE';
 
+export const DELETE_EVENT = 'DELETE_EVENT';
+
+// action to delete event
+export const deleteEvent = () => ({
+  type: DELETE_EVENT,
+})
+
 // action to submit address when updating event
 export const submitAddressSearchUpdate = () => ({
   type: SUBMIT_ADDRESS_SEARCH_UPDATE,

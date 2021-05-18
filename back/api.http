@@ -219,3 +219,7 @@ Content-Type: application/json
     "user_id": 1,
     "category_id": 2
 }
+
+### DELETE Curioset with corresponding id 
+DELETE  http://localhost:1234/curioset/54
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI2MjUzNSwiZXhwIjoxNjIxMjY5NzM1fQ.FpqZ7l4LfWw2fvat0E0y9Uz_uY7tSuoGM41WckpptYY

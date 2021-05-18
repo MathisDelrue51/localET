@@ -56,6 +56,7 @@ const curiosetController = {
 
     //PUT /curioset/id
     updateCurioset: async (req, res) => {
+
         const authHeader = req.headers['authorization']
         const token = authHeader && authHeader.split(' ')[1]
         
@@ -63,12 +64,18 @@ const curiosetController = {
  
         try {
 
-            const user = await User.findByEmail(decoded.email);             
+            //Verify if the email found in the token correspond to one in the db. 
+
+            const user = await User.findByEmail(decoded.email); 
+
+            //If yes, compare the id to the id in the request
 
             if (user) {
+
                 const updatedCurioset = new Curioset(req.body);
                 console.log(updatedCurioset);
 
+                //verify if it's the same user who created the curioset
                 if (updatedCurioset.user_id == user.id) {
                     await updatedCurioset.save();
 
@@ -77,13 +84,57 @@ const curiosetController = {
                     console.log("curioset mise à jour")
                 }else {
 
-                throw new Error('L\'id de l\'utilisateur ne correspond pas');               
+                      throw new Error('L\'id de l\'utilisateur ne correspond pas');               
                 }
             }   
 
         } catch (err) {
             console.log(err)
-            res.status(500).json(err.message);
+            res.status(404).json(err.message);
+        }
+    },
+
+    //DELETE /curioset/:id
+    deleteCurioset: async (req,res) => {
+
+            const authHeader = req.headers['authorization']
+            const token = authHeader && authHeader.split(' ')[1]
+
+            const decoded = jwt.decode(token)
+
+        try {
+
+            const user = await User.findByEmail(decoded.email); 
+            console.log(user);
+        
+            if (user) {
+
+                //verify if the curioset exists in db
+
+                 const curiosetToDelete = await Curioset.findOne(req.params.id)
+                 console.log(curiosetToDelete);
+                 console.log(curiosetToDelete.user_id);
+
+                 //verify if the same user who created the curioset 
+
+                 if (curiosetToDelete.user_id == user.id) {                    
+                   
+                     await curiosetToDelete.delete(req.params.id);
+
+                     res.status(204).json('curioset deleted');
+
+                     console.log("curioset supprimée")                   
+
+                 } else {
+                     
+                    throw new Error('L\'id de l\'utilisateur ne correspond pas');   
+                 }
+
+            }
+
+        } catch (err) {
+            console.log(err)
+            res.status(404).json(err.message);  
         }
     }
 

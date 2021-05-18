@@ -16,9 +16,10 @@ export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
 
 // action when data is sent from DB
 
-export const fetchProfileSuccess = (email) => ({
+export const fetchProfileSuccess = (email, profileList) => ({
   type: FETCH_PROFILE_SUCCESS,
   email,
+  profileList,
 });
 
 // action when user goes on their profile page

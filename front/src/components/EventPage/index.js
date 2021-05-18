@@ -16,6 +16,7 @@ const EventPage = ({
   longitude,
   latitude,
   isLogged,
+  handleDelete,
 }) => (
   <div className="event">
     <NavLink to="/" className="link">
@@ -56,10 +57,11 @@ const EventPage = ({
       { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
     </NavLink>
     <NavLink
-      to=""
+      to="/"
       className="navLink"
       activeClassName="navLinkActive"
       exact
+      onClick={handleDelete}
     >
       { isLogged && <SubmitButton buttonName="Supprimer" />}
     </NavLink>
