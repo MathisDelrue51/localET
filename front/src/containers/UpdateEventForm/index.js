@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import {
-  updateEventField, updateRadioOption, submitAddressSearch,
+  updateEventField, updateRadioOption, submitAddressSearchUpdate,
 } from 'src/actions/curioset';
 
 // Import component
@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
 
   handleUpdateEvent: () => {
-    dispatch(submitAddressSearch());
+    dispatch(submitAddressSearchUpdate());
   },
 
 });

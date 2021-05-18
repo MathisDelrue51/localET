@@ -7,6 +7,7 @@ const mapStateToProps = (state) => ({
   longitude: state.map.longitude,
   latitude: state.map.latitude,
   zoom: state.map.zoom,
+  isLogged: state.auth.logged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

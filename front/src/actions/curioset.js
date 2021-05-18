@@ -22,6 +22,13 @@ export const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
 
 export const UPDATE_EVENT_ERROR = 'UPDATE_EVENT_ERROR';
 
+export const SUBMIT_ADDRESS_SEARCH_UPDATE = 'SUBMIT_ADDRESS_SEARCH_UPDATE';
+
+// action to submit address when updating event
+export const submitAddressSearchUpdate = () => ({
+  type: SUBMIT_ADDRESS_SEARCH_UPDATE,
+});
+
 // action if updates got safely to the DB
 export const updateEventSuccess = (data) => ({
   type: UPDATE_EVENT_SUCCESS,
