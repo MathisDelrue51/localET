@@ -1,8 +1,8 @@
 {
     "scripts": {  
 
-       "install-front": "cd front && npm install",    
-        "heroku-postbuild": "npm run install-front && npm run build",    
+       "heroku-prebuild": "npm i -f",    
+        "heroku-postbuild": "npm run build",    
          "build": "cd front && npm run build",    
         "start": "cd back && npm install && node index.js"},
 
