@@ -53,7 +53,7 @@ const EventPage = ({
       activeClassName="navLinkActive"
       exact
     >
-      { isLogged && <SubmitButton buttonName="Modifier" />}
+      { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
     </NavLink>
     <NavLink
       to=""
