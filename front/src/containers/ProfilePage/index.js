@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
   pseudo: state.auth.pseudo,
+  profileList: state.auth.profileList,
 });
 
 // === mapDispatchToProps

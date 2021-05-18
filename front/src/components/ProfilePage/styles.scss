@@ -1,5 +1,60 @@
-.profile {
-  height: 30vh;
-  margin: 5em auto;
-  font-size: 2rem;
+.container{  
+  width: 100%;   
+  font-size: 3em;
+} 
+
+.profileInformation {
+  font-size: 0.5em; 
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2%;
+}
+
+.identifiants{
+  display: flex;  
+  flex-direction: column;
+}
+
+.curioset {
+  display: flex;  
+  flex-direction: row;
+  margin: 1em;
+  border: solid 2px black;
+  align-items: center;
+  font-size: 0.5em;  
+  background-color: #DCE9E6;  
+}
+
+.information {  
+  flex: 5;
+  border-right: solid 1px black;
+}
+
+.accessButton {
+  flex: 1;  
+}
+
+.row-1 {
+  background-color: #F36E5B;
+}
+
+.row-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.place {
+  border-right: solid 1px black;
+}
+
+.place, .agenda {  
+  flex: 1;  
+  text-align: center;
+  
+}
+
+.row-1, .place, .agenda{
+  padding: 0.5em;
 }

@@ -55,7 +55,7 @@ router.get('/logout', authController.logout );
  * @route POST /curioset
  * @returns {Curioset.model>} 200 - The curioset
  */
-router.post('/curioset', authenticateToken, validateBody(curiosetSchema), curiosetController.newCurioset);
+router.post('/curioset', authenticateToken, validateBody(curiosetSchema), flush, curiosetController.newCurioset);
 
 /**
  * Access the page of the curioset with the corresponding id (if it exists)
@@ -68,14 +68,14 @@ router.get('/curioset/:id(\\d+)', cache(),  curiosetController.oneCuriosetById);
  * @route PUT /curioset/:id - must be a positive number
  * @returns {Curioset} 204 - updated
  */
-router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema), curiosetController.updateCurioset);
+router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema), flush, curiosetController.updateCurioset);
 
 /**
  * Access the page of the curioset to delete it
  * @route DELETE /curioset/:id - must be a positive number
  * @returns 204 - processed successfully and not returning any content
  */
-router.delete('/curioset/:id(\\d+)', authenticateToken, curiosetController.deleteCurioset);
+router.delete('/curioset/:id(\\d+)', authenticateToken, flush, curiosetController.deleteCurioset);
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 
