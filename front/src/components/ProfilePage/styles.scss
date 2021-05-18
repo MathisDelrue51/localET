@@ -45,16 +45,16 @@
   flex-direction: row;
 }
 
+.place {
+  border-right: solid 1px black;
+}
+
 .place, .agenda {  
   flex: 1;  
   text-align: center;
   
 }
 
-.row-3 {
-  text-align: left;
-}
-
-.row-1, .place, .agenda, .row-3 {
+.row-1, .place, .agenda{
   padding: 0.5em;
 }

@@ -31,9 +31,6 @@ const ProfilePage = ({ email, pseudo, profileList }) => (
               <div className="place">{element.address}</div>
               <div className="agenda">{element.agenda}</div>
             </div>
-            <div className="row-3">
-              {element.description}
-            </div>
           </div>
           <div className="accessButton">
             <button className="access__button" type="button">Accéder à la page</button>
