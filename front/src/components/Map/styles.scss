@@ -1,12 +1,22 @@
 .map {
-  margin : 2em auto;
+  margin: 2em auto;
+  position: relative;
   width: 100%;
+
+  .interactionSpace {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    position: absolute;
+    top: 1%;
+    left: 25%;
+    z-index: 2000;
+  }
 }
 
 #mapid {
-  height: 70vh;
+  height: 800px;
+
 }
 
-.popup {
-  background-color: yellow;
-}
+.popup {}
