@@ -9,7 +9,8 @@ const CreateEventButton = () => (
     activeClassName="navLinkActive"
     exact
   >
-    <span className="addCuriosLink__span">+</span> Créer une CuriosETs
+    <div className="addCuriosLink__plus">+</div>
+    <div className="addCuriosLink__text">Créer une CuriosET</div>
   </NavLink>
 );
  

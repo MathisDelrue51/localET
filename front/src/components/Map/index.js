@@ -54,14 +54,14 @@ const Map = ({
     shadowUrl: shadow,
     shadowSize: [40, 40],
   });
-  console.log('isLogged pour le bouton createEvent');
-  console.log(isLogged);
 
   return (
 
     <div className="map">
-      <SearchBar placeholder="Cherchez une ville..." className="searchBar" />
-      {isLogged && <CreateEventButton />}
+      <div className="interactionSpace">
+        <SearchBar placeholder="Cherchez une ville..." />
+        {isLogged && <CreateEventButton />}
+      </div>
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
         <TileLayer
@@ -214,6 +214,7 @@ Map.propTypes = {
   longitude: PropTypes.number.isRequired,
   latitude: PropTypes.number.isRequired,
   zoom: PropTypes.number.isRequired,
+  isLogged: PropTypes.bool.isRequired,
 };
 
 export default Map;
