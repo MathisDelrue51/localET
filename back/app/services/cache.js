@@ -1,6 +1,10 @@
 const redis = require('redis');
 
-const client  = redis.createClient();
+const client  = redis.createClient(process.env.REDIS_URL, {
+    tls: {
+        rejectUnauthorized: false
+    }
+});
 
 const PREFIX = 'localet:';
 const PEREMPTION = 1800; // 60*30 = 30min
