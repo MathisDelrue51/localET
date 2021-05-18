@@ -7,7 +7,7 @@ import SubmitButton from 'src/components/SubmitButton';
 
 const EventPage = ({
   name,
-  category,
+  type,
   description,
   website,
   address,
@@ -24,7 +24,7 @@ const EventPage = ({
     </NavLink>
     <div className="eventPart">
       <h1>{name}</h1>
-      <h3>{category}</h3>
+      <h3>{type}</h3>
     </div>
 
     <div className="eventPart">

@@ -8,7 +8,7 @@ import EventPage from 'src/components/EventPage';
 const mapStateToProps = (state) => ({
   // element to get from the state
   name: state.curioset.name,
-  category: state.curioset.category,
+  type: state.curioset.type,
   description: state.curioset.description,
   website: state.curioset.website,
   address: state.curioset.address,

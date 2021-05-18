@@ -26,10 +26,13 @@ const initialState = {
   // description
   description: '',
 
-  // category type
+  // category number
   category: 0,
 
-  // infos fetched from API
+  // category type
+  type: '',
+
+  // infos fetched from address API
   longitude: null,
   latitude: null,
 
@@ -54,7 +57,6 @@ function curiosetReducer(state = initialState, action) {
         latitude: action.data.latitude,
         idEvent: action.data.id,
       };
-    break;
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
@@ -65,6 +67,7 @@ function curiosetReducer(state = initialState, action) {
         description: action.data.description,
         price: action.data.price,
         category: action.data.category_id,
+        type: action.data.type,
         longitude: action.data.longitude,
         latitude: action.data.latitude,
         idEvent: action.data.id,

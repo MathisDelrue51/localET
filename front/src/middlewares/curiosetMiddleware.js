@@ -23,7 +23,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware CURIOSET: ', action);
   switch (action.type) {
 
-    case DELETE_EVENT:
+    case DELETE_EVENT: {
       console.log('authMiddleware is handling DELETE_EVENT action');
       const {
         curioset, auth
@@ -46,8 +46,9 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           console.log(err.response.data);
           console.error('ceci est mon erreur', err);
         });
+      }
       break;
-    case UPDATE_EVENT:
+    case UPDATE_EVENT: {
       console.log('authMiddleware is handling UPDATE_EVENT action');
       const {
         curioset, auth
@@ -84,11 +85,12 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           console.log(err.response.data);
           console.error('ceci est mon erreur', err);
         });
+      }
       break;
     case FETCH_EVENT: {
       console.log('authMiddleware is handling FETCH_EVENT action');
       const {
-        curioset
+        curioset,
       } = store.getState();
       axios({
           method: 'get',
