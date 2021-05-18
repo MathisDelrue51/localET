@@ -28,10 +28,10 @@ app.use( session({
 
 const port = process.env.PORT || 1234;
 
+app.use(express.static(path.join(__dirname,'../front/dist')));
+
 // Server can receive data in JSON format
 app.use(express.json());
-
-app.use(express.static(path.join(__dirname,'../front/dist')));
 
 app.use(cors());
 

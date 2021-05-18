@@ -14,6 +14,10 @@ const Curioset = require('./models/curioset');
 
 const { cache, flush } = require('./services/cache');
 
+router.get('/*', (_,res) => {
+    res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
+});
+
 /**
  * Returns all curiosET from the database
  * @route GET /
@@ -77,9 +81,7 @@ router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema
  */
 router.delete('/curioset/:id(\\d+)', authenticateToken, flush, curiosetController.deleteCurioset);
 
-router.get('/*', (_,res) => {
-    res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
-});
+
 
 
 // We can create a cutomized 404 err page later
