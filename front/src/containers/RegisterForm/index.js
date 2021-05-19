@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateField, register } from 'src/actions/auth';
+import { updateField, register, toggleOpenMenu } from 'src/actions/auth';
 
 // Import component
 import RegisterForm from 'src/components/RegisterForm';
@@ -30,6 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
   handleRegister: () => {
     console.log('submit du formulaire');
     dispatch(register());
+  },
+
+  openMenu: () => {
+    dispatch(toggleOpenMenu());
   },
 });
 

@@ -140,6 +140,14 @@
     }
   }
 
+  .welcomeMessage {
+    @media screen and (max-width: 480px) {
+      font-size: 1.8rem;
+      padding: 2rem 0;
+    }
+  }
+
+
   .navLinkActive {
     text-decoration: underline solid vars.$highlightColor 1px;
   }

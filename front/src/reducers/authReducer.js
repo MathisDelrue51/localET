@@ -172,7 +172,7 @@ function authReducer(state = initialState, action) {
     case TOGGLE_OPEN_MENU:
       return {
         ...state,
-        open: !state.open,
+        open: true,
       };
 
     case TOGGLE_CLOSE_MENU:

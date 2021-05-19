@@ -12,7 +12,7 @@ import { X } from 'react-feather';
 import './styles.scss';
 import LoginForm from 'src/containers/LoginForm';
 import NavLoggedIn from 'src/containers/NavLoggedIn';
-import NavLoggedOut from 'src/components/Header/navLoggedOut';
+import NavLoggedOut from 'src/containers/NavLoggedOut';
 import logo from './localETlogo.png';
 
 // Component
