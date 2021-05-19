@@ -14,6 +14,8 @@ const Curioset = require('./models/curioset');
 
 const { cache, flush } = require('./services/cache');
 
+const path = require('path');
+
 /**
  * Returns all curiosET from the database
  * @route GET /
