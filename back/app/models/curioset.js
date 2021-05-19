@@ -133,7 +133,7 @@ class Curioset {
     static async findAllByUserId(uId) {
         const {
             rows
-        } = await db.query('SELECT * FROM curioset WHERE user_id = $1', [uId]);
+        } = await db.query('SELECT curioset.id, curioset.title, curioset.description, curioset.address, curioset.latitude, curioset.longitude, curioset.website, curioset.agenda, curioset.price, curioset.user_id, curioset.category_id, category.type, "user".pseudo FROM curioset JOIN category ON curioset.category_id = category.id JOIN "user" ON curioset.user_id = "user".id WHERE curioset.user_id = $1', [uId]);
 
         return rows.map(row => new Curioset(row));
 

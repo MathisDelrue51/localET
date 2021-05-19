@@ -42,7 +42,7 @@ router.get('/connected', authenticateToken, authController.connected );
  * Access the profile page of the user with the corresponding id (if it exists)
  * @route GET /profile/:id - id must be a number (defined by the regex)
  */
-router.get('/profile/:id(\\d+)', authenticateToken, cache(), userController.oneUserById);
+router.get('/profile/:id(\\d+)', authenticateToken, cache(600), userController.oneUserById);
 
 /**
  * Logout the user from the session
