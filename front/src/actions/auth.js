@@ -14,6 +14,18 @@ export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS';
 
 export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
 
+export const SAVE_USER_BROWSER = 'SAVE_USER_BROWSER';
+
+// action to save token in state when refresh happens
+
+export const saveUserBrowser = (token, pseudo, id, logged) => ({
+  type: SAVE_USER_BROWSER,
+  token,
+  pseudo,
+  id,
+  logged,
+});
+
 // action when data is sent from DB
 
 export const fetchProfileSuccess = (email, profileList) => ({

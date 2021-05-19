@@ -7,7 +7,7 @@ import SubmitButton from 'src/components/SubmitButton';
 
 const EventPage = ({
   name,
-  category,
+  type,
   description,
   website,
   address,
@@ -16,6 +16,7 @@ const EventPage = ({
   longitude,
   latitude,
   isLogged,
+  handleDelete,
 }) => (
   <div className="event">
     <NavLink to="/" className="link">
@@ -23,7 +24,7 @@ const EventPage = ({
     </NavLink>
     <div className="eventPart">
       <h1>{name}</h1>
-      <h3>{category}</h3>
+      <h3>{type}</h3>
     </div>
 
     <div className="eventPart">
@@ -48,7 +49,7 @@ const EventPage = ({
       </div>
     </div>
     <NavLink
-      to=""
+      to="/updateEvent"
       className="navLink"
       activeClassName="navLinkActive"
       exact
@@ -56,10 +57,11 @@ const EventPage = ({
       { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
     </NavLink>
     <NavLink
-      to=""
+      to="/"
       className="navLink"
       activeClassName="navLinkActive"
       exact
+      onClick={handleDelete}
     >
       { isLogged && <SubmitButton buttonName="Supprimer" />}
     </NavLink>
