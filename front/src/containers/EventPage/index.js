@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {deleteEvent} from 'src/actions/curioset';
+import { deleteEvent } from 'src/actions/curioset';
 
 import EventPage from 'src/components/EventPage';
 

@@ -88,7 +88,7 @@ RegisterForm.propTypes = {
    * - new value
    * - name
    */
-  /** value for the error */
+  /** value for the errors */
   emailError: PropTypes.string,
   passwordError: PropTypes.string,
   password2Error: PropTypes.string,

@@ -69,7 +69,22 @@ const EventPage = ({
 );
 
 EventPage.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  website: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  dateTime: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  longitude: PropTypes.number,
+  latitude: PropTypes.number,
+  isLogged: PropTypes.bool.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
 
+EventPage.defaultProps = {
+  longitude: 0,
+  latitude: 0,
 };
 
 export default EventPage;
