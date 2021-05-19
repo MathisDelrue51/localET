@@ -10,6 +10,8 @@
         
             "node": "^15.2.1"
           },
-    "homepage": "."
+    
+     "homepage": "https://apo-localet.herokuapp.com/"
+
 
     }
