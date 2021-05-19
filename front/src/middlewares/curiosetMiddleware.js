@@ -39,6 +39,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);
@@ -78,6 +79,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);
@@ -205,6 +207,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);

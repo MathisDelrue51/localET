@@ -7,13 +7,16 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 // Component
-const NavLoggedOut = () => (
+const NavLoggedOut = ({ closeMenu }) => (
   <nav className="nav">
     <NavLink
       to="/subscribe"
       className="navLink"
       activeClassName="navLinkActive"
       exact
+      onClick={() => {
+        closeMenu();
+      }}
     >
       S'inscrire
     </NavLink>

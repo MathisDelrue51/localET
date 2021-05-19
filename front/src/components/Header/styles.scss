@@ -10,22 +10,120 @@
 
   &Logo {
     text-align: left;
+    width: 33%;
+
+    // MEDIUM SIZE SCREEN
+    @media screen and (max-width: 768px) {
+      width: 50%;
+    }
+
+    // SMALL SIZE SCREEN
+    @media screen and (max-width: 480px) {
+      width: 70%;
+    }
 
     &Image {
       padding: 0.5rem 0;
+      width: 50%;
+
+      // MEDIUM SIZE SCREEN
+      @media screen and (max-width: 768px) {
+        width: 60%;
+      }
+
+      // SMALL SIZE SCREEN
+      @media screen and (max-width: 480px) {
+        width: 70%;
+      }
     }
 
     &Baseline {
       font-size: 1rem;
       font-style: italic;
+      line-height: 1.4;
+
+      // SMALL SIZE SCREEN
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;
+      }
     }
+  }
+
+  .burgerMenu {
+    display: none;
+
+    // SMALL SIZE SCREEN
+    @media screen and (max-width: 480px) {
+      display: block;
+      margin-left: auto;
+      margin-right: 0;
+      color: vars.$highlightColor;
+    }
+  }
+
+  .burgerMenuOff {
+    @media screen and (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  .menuOptions {
+
+    @media screen and (max-width: 480px) {
+      display: none;
+
+    }
+
+  }
+
+  .menu {
+    @media screen and (max-width: 480px) {
+      position: relative;
+    }
+  }
+
+  .menuOptionsMobile {
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: vars.$white;
+      position: fixed;
+      z-index: 3000;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 2rem 1rem;
+
+    }
+  }
+
+  .closeButtonOff {
+    display: none;
+  }
+
+  .closeButtonOn {
+    display: block;
+    color: vars.$highlightColor;
+    margin-left: auto;
+    margin-right: 1rem;
   }
 
   .nav {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: center;
+    }
   }
 
   .navLink {
@@ -33,9 +131,22 @@
     padding-left: 1rem;
 
     &:hover {
-      text-decoration: underline solid vars.$highlightColor 1px;
+      text-decoration: underline solid vars.$mainColor 2px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 1.8rem;
+      padding: 2rem 0;
     }
   }
+
+  .welcomeMessage {
+    @media screen and (max-width: 480px) {
+      font-size: 1.8rem;
+      padding: 2rem 0;
+    }
+  }
+
 
   .navLinkActive {
     text-decoration: underline solid vars.$highlightColor 1px;

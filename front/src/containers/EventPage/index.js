@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { deleteEvent } from 'src/actions/curioset';
+import { deleteEvent, fetchEvent } from 'src/actions/curioset';
 
 import EventPage from 'src/components/EventPage';
 
@@ -25,6 +25,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleDelete: () => {
     dispatch(deleteEvent());
+  },
+  fetchEvent: () => {
+    fetchEvent();
   },
 });
 

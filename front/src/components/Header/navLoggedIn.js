@@ -14,7 +14,7 @@ const NavLoggedIn = ({
   const path = `/profile/${id}`;
   return (
     <nav className="nav">
-      <p>
+      <p className="welcomeMessage">
         Bonjour {pseudo} !
       </p>
       <NavLink

@@ -57,10 +57,10 @@ const Map = ({
   return (
 
     <div className="map">
-      <div className="interactionSpace">
+      <div className="searchBar">
         <SearchBar placeholder="Cherchez une ville..." />
-        {isLogged && <CreateEventButton />}
       </div>
+      {isLogged && <CreateEventButton />}
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
         <TileLayer

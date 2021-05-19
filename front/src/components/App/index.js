@@ -35,7 +35,8 @@ const App = ({
       const browserToken = localStorage.getItem('token');
       const browserPseudo = localStorage.getItem('pseudo');
       const browserId = localStorage.getItem('id');
-      saveUser(browserToken, browserPseudo, browserId);
+      const browserLogged = localStorage.getItem('logged');
+      saveUser(browserToken, browserPseudo, browserId, browserLogged);
     }
   }, [token]);
 
