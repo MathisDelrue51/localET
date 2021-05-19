@@ -91,6 +91,11 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.id,
           );
 
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('pseudo', response.data.pseudo);
+          localStorage.setItem('logged', response.data.logged);
+          localStorage.setItem('id', response.data.id);
+
           console.log('Je viens de changer le state et je push la redirection');
 
           store.dispatch(actionSaveUser);
@@ -115,9 +120,11 @@ const authMiddleware = (store) => (next) => (action) => {
       axios.get(`${SERVER_URL}/logout`)
 
         .then(() => {
+          localStorage.clear();
+        })
+        .then(() => {
           history.push('/');
         })
-
         .catch((error) => {
           console.log(error);
         });

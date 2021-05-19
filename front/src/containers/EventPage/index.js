@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import {deleteEvent} from 'src/actions/curioset';
 
 import EventPage from 'src/components/EventPage';
 
@@ -7,7 +8,7 @@ import EventPage from 'src/components/EventPage';
 const mapStateToProps = (state) => ({
   // element to get from the state
   name: state.curioset.name,
-  category: state.curioset.category,
+  type: state.curioset.type,
   description: state.curioset.description,
   website: state.curioset.website,
   address: state.curioset.address,
@@ -21,7 +22,11 @@ const mapStateToProps = (state) => ({
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  handleDelete: () => {
+    dispatch(deleteEvent());
+  },
+});
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(EventPage);
