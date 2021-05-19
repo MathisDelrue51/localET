@@ -19,7 +19,7 @@ const { cache, flush } = require('./services/cache');
  * @route GET /
  * @returns {Array<Curioset>} 200 - An array of curiosets
  */
-router.get('/', cache(600), curiosetController.allCuriosets);
+router.get('/api', cache(600), curiosetController.allCuriosets);
 
 router.get('/*', (_,res) => {
     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
@@ -37,7 +37,7 @@ router.post('/signup', validateBody(userSchema), userController.newUser);
  * @route POST /login
  * @returns {Object}
  */
-router.post('/login', authController.postLogin );
+router.post('/api/login', authController.postLogin );
 
 // Just to test if a user is connected or not
 router.get('/connected', authenticateToken, authController.connected );

@@ -15,7 +15,7 @@ export default (store) => (next) => (action) => {
       next(action);
       axios({
         method: 'get',
-        url: `${SERVER_URL}/api/`,
+        url: `${SERVER_URL}/api`,
       })
         .then((res) => {
           console.log('je reçois ça du back', res);
