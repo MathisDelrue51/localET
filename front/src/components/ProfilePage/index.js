@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
+import { MapPin } from 'react-feather';
+import { Calendar } from 'react-feather';
+
 const ProfilePage = ({ email, pseudo, profileList }) => (
   <div className="container">
     <div className="componentTitle">
@@ -27,7 +30,7 @@ const ProfilePage = ({ email, pseudo, profileList }) => (
       {
       profileList.map((element) => (
         <div className="curioset" key={element.id}>
-          <div className="row-1">
+          <div className="row1">
             <div className="title">
               {element.title}
             </div>
@@ -35,10 +38,10 @@ const ProfilePage = ({ email, pseudo, profileList }) => (
               {element.type}
             </div>
           </div>
-          <div className="row-2">
+          <div className="row2">
             <div className="curiosetInformation">
-              <div className="place">{element.address}</div>
-              <div className="agenda">{element.agenda}</div>
+              <div className="place"><MapPin size={25} className="iconInfo" />{element.address}</div>
+              <div className="agenda"><Calendar size={25} className="iconInfo" />{element.agenda}</div>
             </div>
             <div className="accessButton">
               <button className="theButton" type="button">Voir</button>

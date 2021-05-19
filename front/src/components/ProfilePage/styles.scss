@@ -30,7 +30,7 @@
   border-bottom: solid 3px #F26558;
 }
 
-.row-1 {
+.row1 {
   display: flex;
   flex-direction: row;
 }
@@ -49,7 +49,7 @@
   font-style: italic;
 }
 
-.row-2 {
+.row2 {
   display: flex;
   flex-direction: row;
   padding-bottom: 0.8em;
@@ -64,6 +64,11 @@
 .agenda {
   text-align: left;
   padding: 0.4em;
+}
+
+.iconInfo {
+color: #F26558;
+margin-right: 0.5em ;
 }
 
 .accessButton {
