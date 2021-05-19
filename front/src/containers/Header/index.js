@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 
+import { toggleOpenMenu, toggleCloseMenu } from 'src/actions/auth';
+
 // Import component
 import Header from 'src/components/Header';
 
@@ -8,12 +10,20 @@ import Header from 'src/components/Header';
 const mapStateToProps = (state) => ({
   // element to get from the state
   isLogged: state.auth.logged,
+  open: state.auth.open,
 });
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
 
+  openMenu: () => {
+    dispatch(toggleOpenMenu());
+  },
+
+  closeMenu: () => {
+    dispatch(toggleCloseMenu());
+  },
 });
 
 // export
