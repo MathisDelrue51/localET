@@ -13,6 +13,7 @@ const LoginForm = ({
   password,
   changeField,
   handleLogin,
+  closeMenu,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -51,6 +52,9 @@ const LoginForm = ({
           className="navLink"
           activeClassName="navLinkActive"
           exact
+          onClick={() => {
+            closeMenu();
+          }}
         >S'inscrire
         </NavLink>
       </div>

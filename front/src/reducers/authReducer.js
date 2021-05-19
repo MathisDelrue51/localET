@@ -1,5 +1,12 @@
 import {
-  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER, FETCH_PROFILE_SUCCESS, SAVE_USER_BROWSER,
+  UPDATE_FIELD,
+  SAVE_USER,
+  LOG_OUT,
+  REGISTER,
+  FETCH_PROFILE_SUCCESS,
+  TOGGLE_OPEN_MENU,
+  TOGGLE_CLOSE_MENU,
+  SAVE_USER_BROWSER,
 } from '../actions/auth';
 
 const initialState = {
@@ -26,6 +33,8 @@ const initialState = {
     pseudo: '',
   },
   id: null,
+
+  open: false,
 };
 
 function authReducer(state = initialState, action) {
@@ -158,6 +167,18 @@ function authReducer(state = initialState, action) {
         password: '',
         token: '',
         pseudo: '',
+      };
+
+    case TOGGLE_OPEN_MENU:
+      return {
+        ...state,
+        open: true,
+      };
+
+    case TOGGLE_CLOSE_MENU:
+      return {
+        ...state,
+        open: false,
       };
 
     default:

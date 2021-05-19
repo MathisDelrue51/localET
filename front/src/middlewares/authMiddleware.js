@@ -91,14 +91,14 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.id,
           );
 
-         localStorage.setItem('token', response.data.token);
-         localStorage.setItem('pseudo', response.data.pseudo);
-         localStorage.setItem('logged', response.data.logged);
-         localStorage.setItem('id', response.data.id);   
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('pseudo', response.data.pseudo);
+          localStorage.setItem('logged', response.data.logged);
+          localStorage.setItem('id', response.data.id);
 
           console.log('Je viens de changer le state et je push la redirection');
 
-          store.dispatch(actionSaveUser);          
+          store.dispatch(actionSaveUser);
         })
 
         .then(() => {
