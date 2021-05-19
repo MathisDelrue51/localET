@@ -63,13 +63,16 @@
 
 .place,
 .agenda {
+  display: flex;
+  flex-direction: row;
   text-align: left;
   padding: 0.4em;
+  align-items: center;
 }
 
 .iconInfo {
-color: #F26558;
-margin-right: 0.5em;
+  color: #F26558;
+  margin-right: 0.5em;
 }
 
 .accessButton {
@@ -92,13 +95,19 @@ margin-right: 0.5em;
   background-color: #26a38c;
 }
 
-@media (max-width: 768px){
-  .container {    
+@media (max-width: 1024px) {
+  .container {
+    font-size: 2.2em;
+  }  
+}
+
+@media (max-width: 768px) {
+  .container {
     font-size: 2em;
   }
 
   .profileInformation {
-    font-size: 0.8em;
+    font-size: 0.6em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -107,9 +116,9 @@ margin-right: 0.5em;
   }
 }
 
-@media (max-width: 480px){ 
+@media (max-width: 480px) {
 
-  .container {    
+  .container {
     font-size: 1.8em;
   }
 
@@ -121,10 +130,24 @@ margin-right: 0.5em;
     margin: 1%;
   }
 
-  .logins, .pseudo {
+  .logins,
+  .pseudo {
     display: flex;
     flex-direction: column;
     margin: 1%;
+  }
+
+  .title {
+    flex: 5;
+    font-weight: bold;
+    font-size: 1.3em;
+    text-align: left;
+  }
+
+  .place,
+  .agenda {
+    font-size: 0.8em;
+    padding: 0.4em;
   }
 
   .theButton {
@@ -136,5 +159,5 @@ margin-right: 0.5em;
     padding: 0.5em 1em;
     border-color: transparent;
   }
-  
+
 }

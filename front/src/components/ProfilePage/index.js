@@ -40,8 +40,14 @@ const ProfilePage = ({ email, pseudo, profileList }) => (
           </div>
           <div className="row2">
             <div className="curiosetInformation">
-              <p className="place"><MapPin size={25} className="iconInfo" />{element.address}</p>
-              <p className="agenda"><Calendar size={25} className="iconInfo" />{element.agenda}</p>
+              <div className="place">
+                <MapPin size={25} className="iconInfo" />
+                <p>{element.address}</p>
+              </div>
+              <div className="agenda">
+                <Calendar size={25} className="iconInfo" />
+                <p>{element.agenda}</p>
+              </div>
             </div>
             <div className="accessButton">
               <button className="theButton" type="button">Voir</button>
