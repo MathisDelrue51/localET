@@ -19,7 +19,7 @@ const { cache, flush } = require('./services/cache');
  * @route GET /
  * @returns {Array<Curioset>} 200 - An array of curiosets
  */
-router.get('/api', cache(600), curiosetController.allCuriosets);
+router.get('/', cache(600), curiosetController.allCuriosets);
 
 router.get('/*', (_,res) => {
     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
