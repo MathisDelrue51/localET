@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Curioset = require('../models/curioset');
-
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const userController = {
@@ -52,11 +52,18 @@ const userController = {
                 const newPseudo = await User.findByPseudo(req.body.pseudo);
                 if (newPseudo === null) {
 
-                    const theNewUser = new User(req.body);
+                    //The password is encrypted 
+                    const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
+
+                    const theNewUser = new User({
+                        email: req.body.email,
+                        password: encryptedPassword,
+                        pseudo: req.body.pseudo
+                    });
                     await theNewUser.save();
                     console.log('Vous êtes inscrits');
 
-                    res.status(201).json(theNewUser);
+                    res.status(201).json(theNewUser.email);
 
                 } else {
 
