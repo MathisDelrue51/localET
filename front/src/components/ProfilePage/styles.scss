@@ -1,6 +1,18 @@
 .container {
   width: 100%;
   font-size: 2.5em;
+
+  @media (max-width: 1024px) {
+    font-size: 2.2em;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8em;
+  }
 }
 
 .componentTitle {
@@ -17,11 +29,24 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 2%;
+
+  @media (max-width: 768px) {
+    font-size: 0.6em;
+    margin: 1%;
+  }
+
+  @media (max-width: 480px) {    
+    flex-direction: column;    
+    margin: 1%;
+  }
 }
 
 .logins {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
+  @media (max-width: 480px) {  
+    margin-top: 2%;
+  }
 }
 
 .curioset {
@@ -40,6 +65,10 @@
   font-weight: bold;
   font-size: 1.5em;
   text-align: left;
+
+  @media (max-width: 480px) {    
+    font-size: 1.3em;    
+  }
 }
 
 .category {
@@ -68,6 +97,10 @@
   text-align: left;
   padding: 0.4em;
   align-items: center;
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;    
+  }
 }
 
 .iconInfo {
@@ -89,75 +122,12 @@
   border-radius: 0.5em;
   padding: 0.5em 2em;
   border-color: transparent;
+
+  @media (max-width: 480px) {
+    padding: 0.5em 1em;    
+  }
 }
 
 .theButton:hover {
   background-color: #26a38c;
-}
-
-@media (max-width: 1024px) {
-  .container {
-    font-size: 2.2em;
-  }  
-}
-
-@media (max-width: 768px) {
-  .container {
-    font-size: 2em;
-  }
-
-  .profileInformation {
-    font-size: 0.6em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 1%;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .container {
-    font-size: 1.8em;
-  }
-
-  .profileInformation {
-    font-size: 0.8em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1%;
-  }
-
-  .logins,
-  .pseudo {
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-  }
-
-  .title {
-    flex: 5;
-    font-weight: bold;
-    font-size: 1.3em;
-    text-align: left;
-  }
-
-  .place,
-  .agenda {
-    font-size: 0.8em;
-    padding: 0.4em;
-  }
-
-  .theButton {
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
-    background-color: #3FBBA5;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    border-color: transparent;
-  }
-
 }
