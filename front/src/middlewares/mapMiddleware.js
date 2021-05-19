@@ -17,7 +17,7 @@ export default (store) => (next) => (action) => {
         method: 'get',
         url: `${SERVER_URL}/api/home`,
       })
-        .then((res) => {
+        .then((res) => { 
           console.log('je reçois ça du back', res);
           const actionToDispatch = fetchCuriosetsSuccess(res.data);
           store.dispatch(actionToDispatch);
@@ -27,6 +27,7 @@ export default (store) => (next) => (action) => {
           const actionToError = fetchCuriosetsError();
           store.dispatch(actionToError);
         });
+      
       break;
     case SUBMIT_SEARCH:
       console.log('Recherche adresses');
