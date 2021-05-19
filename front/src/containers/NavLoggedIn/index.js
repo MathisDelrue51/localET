@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { logOut, fetchProfile } from 'src/actions/auth';
+import { logOut, fetchProfile, toggleCloseMenu } from 'src/actions/auth';
 
 // Import component
 import NavLoggedIn from 'src/components/Header/navLoggedIn';
@@ -18,9 +18,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleLogout: () => {
     dispatch(logOut());
+    dispatch(toggleCloseMenu());
   },
   handleClick: () => {
     dispatch(fetchProfile());
+    dispatch(toggleCloseMenu());
   },
 });
 
