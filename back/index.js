@@ -33,9 +33,8 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use('/api', router);
-
 app.use(express.static(path.join(__dirname,'../front/dist')));
 
+app.use('/api', router);
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
