@@ -16,6 +16,7 @@ import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
+import UpdateEventForm from 'src/containers/UpdateEventForm';
 import EventPage from 'src/containers/EventPage';
 
 // == Component
@@ -23,11 +24,23 @@ const App = ({
   fetchCuriosets,
   id,
   idEvent,
+  token,
+  saveUser,
 }) => {
   console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
+
+  useEffect(() => {
+    if (!token) {
+      const browserToken = localStorage.getItem('token');
+      const browserPseudo = localStorage.getItem('pseudo');
+      const browserId = localStorage.getItem('id');
+      const browserLogged = localStorage.getItem('logged');
+      saveUser(browserToken, browserPseudo, browserId, browserLogged);
+    }
+  }, [token]);
 
   const pathProfile = `/profile/${id}`;
   const pathCurioset = `/curiosET/${idEvent}`;
@@ -47,6 +60,9 @@ const App = ({
         </Route>
         <Route path={pathCurioset}>
           <EventPage />
+        </Route>
+        <Route path="/updateEvent">
+          <UpdateEventForm />
         </Route>
         <Route path="/">
           <Map />

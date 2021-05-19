@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 
 // Import component
-import Header from 'src/components/Header';
+import RadioField from 'src/components/RadioField';
 
 // === mapStateToProps
 // for information to be read
 const mapStateToProps = (state) => ({
   // element to get from the state
-  isLogged: state.auth.logged,
+  category: state.curioset.category,
 });
 
 // === mapDispatchToProps
@@ -15,4 +15,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {};
 
 // export
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(RadioField);

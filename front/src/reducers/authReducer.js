@@ -1,5 +1,5 @@
 import {
-  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER, FETCH_PROFILE_SUCCESS,
+  UPDATE_FIELD, SAVE_USER, LOG_OUT, REGISTER, FETCH_PROFILE_SUCCESS, SAVE_USER_BROWSER,
 } from '../actions/auth';
 
 const initialState = {
@@ -30,6 +30,14 @@ const initialState = {
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    case SAVE_USER_BROWSER:
+      return {
+        ...state,
+        token: action.token,
+        pseudo: action.pseudo,
+        id: action.id,
+        logged: action.logged,
+      };
     case FETCH_PROFILE_SUCCESS:
       return {
         ...state,

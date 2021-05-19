@@ -54,7 +54,6 @@ const Map = ({
     shadowUrl: shadow,
     shadowSize: [40, 40],
   });
-
   return (
 
     <div className="map">
