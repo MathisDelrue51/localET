@@ -7,41 +7,41 @@ import { Calendar } from 'react-feather';
 
 const ProfilePage = ({ email, pseudo, profileList }) => (
   <div className="container">
-    <div className="componentTitle">
+    <h1 className="componentTitle">
       Mon Profil LocalET
-    </div>
+    </h1>
     <div className="profileInformation">
-      <div className="pseudo">
+      <h2 className="pseudo">
         Pseudo: {pseudo}
-      </div>
+      </h2>
       <div className="logins">
-        <div>
+        <h2>
           E-mail: {email}
-        </div>
-        <div>
+        </h2>
+        <h2>
           Mot de Passe: &bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;
-        </div>
+        </h2>
       </div>
     </div>
     <div className="myCuriosets">
-      <div className="componentTitle">
+      <h1 className="componentTitle">
         Mes curiosETs
-      </div>
+      </h1>
       {
       profileList.map((element) => (
         <div className="curioset" key={element.id}>
           <div className="row1">
-            <div className="title">
+            <h2 className="title">
               {element.title}
-            </div>
-            <div className="category">
+            </h2>
+            <p className="category">
               {element.type}
-            </div>
+            </p>
           </div>
           <div className="row2">
             <div className="curiosetInformation">
-              <div className="place"><MapPin size={25} className="iconInfo" />{element.address}</div>
-              <div className="agenda"><Calendar size={25} className="iconInfo" />{element.agenda}</div>
+              <p className="place"><MapPin size={25} className="iconInfo" />{element.address}</p>
+              <p className="agenda"><Calendar size={25} className="iconInfo" />{element.agenda}</p>
             </div>
             <div className="accessButton">
               <button className="theButton" type="button">Voir</button>

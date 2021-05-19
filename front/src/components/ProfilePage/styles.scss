@@ -43,10 +43,11 @@
 }
 
 .category {
-  flex: 1;
+  flex: 2;
   color: #F26558;
   text-align: right;
   font-style: italic;
+  align-self: center;
 }
 
 .row2 {
@@ -68,7 +69,7 @@
 
 .iconInfo {
 color: #F26558;
-margin-right: 0.5em ;
+margin-right: 0.5em;
 }
 
 .accessButton {
@@ -89,4 +90,51 @@ margin-right: 0.5em ;
 
 .theButton:hover {
   background-color: #26a38c;
+}
+
+@media (max-width: 768px){
+  .container {    
+    font-size: 2em;
+  }
+
+  .profileInformation {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1%;
+  }
+}
+
+@media (max-width: 480px){ 
+
+  .container {    
+    font-size: 1.8em;
+  }
+
+  .profileInformation {
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1%;
+  }
+
+  .logins, .pseudo {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+  }
+
+  .theButton {
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #3FBBA5;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    border-color: transparent;
+  }
+  
 }
