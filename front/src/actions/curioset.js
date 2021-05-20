@@ -29,7 +29,7 @@ export const DELETE_EVENT = 'DELETE_EVENT';
 // action to delete event
 export const deleteEvent = () => ({
   type: DELETE_EVENT,
-})
+});
 
 // action to submit address when updating event
 export const submitAddressSearchUpdate = () => ({

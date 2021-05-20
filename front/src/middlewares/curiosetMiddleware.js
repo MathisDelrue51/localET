@@ -27,7 +27,6 @@ const curiosetMiddleware = (store) => (next) => (action) => {
       const {
         curioset, auth,
       } = store.getState();
-      const priceFloat = parseFloat(curioset.price);
       axios({
         method: 'DELETE',
         url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
@@ -40,6 +39,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);
@@ -79,6 +79,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);
@@ -206,6 +207,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);

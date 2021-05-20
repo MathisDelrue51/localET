@@ -149,7 +149,7 @@ CreateEventForm.propTypes = {
    */
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
-  // handleCreateEvent: PropTypes.func.isRequired,
+  handleCreateEvent: PropTypes.func.isRequired,
 };
 
 export default CreateEventForm;

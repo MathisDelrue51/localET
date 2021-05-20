@@ -15,7 +15,6 @@ const UpdateEventForm = ({
   dateTime,
   price,
   description,
-  category,
   changeField,
   changeChecking,
   handleUpdateEvent,
@@ -150,7 +149,7 @@ UpdateEventForm.propTypes = {
    */
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
-  // handleCreateEvent: PropTypes.func.isRequired,
+  handleUpdateEvent: PropTypes.func.isRequired,
 };
 
 export default UpdateEventForm;
