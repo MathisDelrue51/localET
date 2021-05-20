@@ -9,9 +9,7 @@
     "dependencies": {
         
             "node": "^15.2.1"
-          },
-    
-     "homepage": "https://apo-localet.herokuapp.com/"
-
+    },
+    "resolutions": { "fs-capacitor": "3.0.0" }
 
     }
