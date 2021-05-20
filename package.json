@@ -1,16 +1,13 @@
 {
-    "scripts": {  
-
-       "install-front": "cd front && npm install",    
-        "heroku-postbuild": "npm run install-front && npm run build",    
-         "build": "cd front && npm run build",    
-        "start": "cd back && npm install && node index.js"},
-
-    "dependencies": {
-        
-        "cors": "^2.8.5",
+    "scripts": {
+        "install-front": "cd front && npm install",
+        "heroku-postbuild": "npm run install-front && npm run build",  
+        "build": "cd front && npm run build",    
+        "start": "cd back && npm install && node index.js"
+    
+    },
+    "engines": {
         "node": "^15.2.1"
-
     }
 
-}
+  }

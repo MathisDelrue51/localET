@@ -23,10 +23,6 @@ const path = require('path');
  */
 router.get('/', cache(600), curiosetController.allCuriosets);
 
-router.get('/*', (_,res) => {
-    res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
-});
-
 /**
  * Create a new user in the db
  * @route POST /signup
@@ -82,6 +78,10 @@ router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema
  * @returns 204 - processed successfully and not returning any content
  */
 router.delete('/curioset/:id(\\d+)', authenticateToken, flush, curiosetController.deleteCurioset);
+
+router.get('/*', (_,res) => {
+    res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
+});
 
 // We can create a cutomized 404 err page later
 router.use((req, res) => res.status(404).json('endpoint not found')); 
