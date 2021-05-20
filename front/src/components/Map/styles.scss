@@ -1,22 +1,111 @@
+@use 'src/styles/vars';
+
+//
+// -- MAP, BUTTONS & FIELDS -- //
+//
+
 .map {
-  margin: 2em auto;
+  margin: 0 auto;
   position: relative;
   width: 100%;
 
   .searchBar {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
     position: absolute;
-    top: 1%;
-    left: 25%;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 2000;
+
+    .fieldInput {
+      width: 300px;
+    }
+
+    // SMALL SIZE SCREEN
+    @media screen and (max-width: 480px) {
+      top: 5px;
+      left: 70%;
+      transform: translate(-50%, 0);
+
+      .fieldInput {
+        width: 200px;
+      }
+    }
   }
 }
 
-#mapid {
-  height: 800px;
+//
+// -- POP UP -- //
+//
+
+.popup {
+  color: vars.$black;
+
+  .popupTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: 0.3rem;
+  }
+
+  .popupAddress {
+    font-size: 0.8rem;
+    padding-bottom: 0.2rem;
+
+    .addressIcon {
+      fill: vars.$mainColor;
+      margin-right: 0.2rem;
+    }
+  }
+
+  .popupDescription {
+    font-size: 0.8rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .navLinkMap {
+    display: flex;
+    justify-content: center;
+
+
+    .popupButton {
+      text-align: center;
+      margin: 0.2rem auto 0 auto;
+      padding: 0.5rem 1rem;
+      border: 0 solid transparent;
+      border-radius: vars.$borderRadius;
+      background-color: vars.$highlightColor;
+
+      &:hover {
+        color: vars.$white;
+      }
+
+    }
+  }
 
 }
 
-.popup {}
+//
+// -- LEAFLET DEFAULT COMPONENTS - STYLE TWEAKING -- //
+//
+
+.leaflet-container a {
+  color: vars.$highlightColor;
+
+  &:hover {
+    color: vars.$mainColor;
+  }
+}
+
+.leaflet-control-zoom {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background: vars.$white;
+}
+
+#mapid {
+  height: 600px;
+
+}
