@@ -1,99 +1,107 @@
+@use 'src/styles/vars';
+
 .container {
   width: 100%;
-  font-size: 1.2rem;
-
-  // @media (max-width: 1024px) {
-  //   font-size: 2.2em;
-  // }
-
-  // @media (max-width: 768px) {
-  //   font-size: 2em;
-  // }
+  font-size: vars.$text;
 
   @media (max-width: 480px) {
-    font-size: 1.6rem;
+    font-size: vars.$textMobile;
   }
 }
 
 .componentTitle {
   font-size: 1.6rem;
   font-weight: bold;
-  text-decoration: underline dotted;
-  text-decoration-color: #F26558;
-  padding: 0.6em;
+  font-size: vars.$mainTitle;
+  margin: 1.5rem 0;
 
   @media (max-width: 480px) {
-    font-size: 2rem;
+    font-size: vars.$mainTitleMobile;
   }
 }
 
 .profileInformation {
-
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 2%;
+  flex-direction: column;
+  text-align: left;
+  margin: 2% auto;
+  width: 30%;
+
+  @media (max-width: 1024px) {
+    width: 35%;
+  }
 
   @media (max-width: 768px) {
-
-    margin: 1%;
+    margin: 1% auto;
+    width: 45%;
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
-    margin: 1%;
+    margin: 1% auto;
+    width: 50%;
   }
 }
 
-.logins {
-  display: flex;
-  flex-direction: column;
+.profileElementTitle {
 
-  @media (max-width: 480px) {
-    margin-top: 2%;
-  }
+  margin-bottom: 5%;
+}
+
+.elementContent {
+  border-bottom: solid vars.$borderThickness grey;
+  padding-bottom: 1%;
+  margin-bottom: 10%;
 }
 
 .curioset {
-  margin: 1em;
-
-  border-bottom: solid 2px #F26558;
+  margin: 1em auto;
+  padding-bottom: 1rem;
+  border-bottom: solid vars.$borderThickness vars.$mainColor;
 }
 
 .row1 {
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
-.title {
+.curiosetTitle {
   flex: 5;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: vars.$secondaryTitle;
   text-align: left;
 
   @media (max-width: 480px) {
-    font-size: 1.8rem;
+    font-size: vars.$secondaryTitleMobile;
   }
 }
 
 .category {
   flex: 2;
-  color: #F26558;
+  color: vars.$mainColor;
   text-align: right;
   font-style: italic;
-  align-self: center;
+
+  @media (max-width: 480px) {
+    text-align: left;
+    padding: 0.5rem 0;
+  }
 }
 
 .row2 {
   display: flex;
   flex-direction: row;
-  padding-bottom: 0.8em;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .curiosetInformation {
   flex: 5;
-
 }
 
 .place,
@@ -101,15 +109,17 @@
   display: flex;
   flex-direction: row;
   text-align: left;
-  padding: 0.4em;
+  padding: 0.5rem 0;
   align-items: center;
 
-  @media (max-width: 480px) {}
+  @media (max-width: 480px) {
+    padding-bottom: 0.8rem;
+  }
 }
 
 .iconInfo {
-  color: #F26558;
-  margin-right: 0.5em;
+  color: vars.$mainColor;
+  margin-right: 0.5rem;
 }
 
 .accessButton {
@@ -119,19 +129,18 @@
 }
 
 .theButton {
-  color: white;
+  color: vars.$white;
   font-weight: bold;
-
-  background-color: #3FBBA5;
-  border-radius: 0.5em;
-  padding: 0.5em 2em;
+  background-color: vars.$highlightColor;
+  border-radius: vars.$borderRadius;
+  padding: 0.5rem 2rem;
   border-color: transparent;
 
   @media (max-width: 480px) {
-    padding: 0.5em 1em;
+    padding: 0.5rem 3rem;
   }
 }
 
 .theButton:hover {
-  background-color: #26a38c;
+  background-color: vars.$highlightColorDarker;
 }
