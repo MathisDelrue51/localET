@@ -23,9 +23,9 @@ const path = require('path');
  */
 router.get('/', cache(600), curiosetController.allCuriosets);
 
-router.get('/*', (_,res) => {
-    res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
-});
+// router.get('/*', (_,res) => {
+//     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
+// });
 
 /**
  * Create a new user in the db

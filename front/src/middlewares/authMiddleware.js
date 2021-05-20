@@ -12,7 +12,8 @@ import {
 import history from 'src/utils/history';
 
 // here, write the backend's url :
-const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
+//const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
+const SERVER_URL = 'http://localhost:1234/api';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware AUTH: ', action);
@@ -23,7 +24,7 @@ const authMiddleware = (store) => (next) => (action) => {
       const { auth } = store.getState();
       console.log(auth.token);
       axios({
-        method: 'GET',
+        method: 'get',
         url: `${SERVER_URL}/profile/${auth.id}`,
         headers: {
           Authorization: `Bearer ${auth.token}`,
@@ -50,7 +51,7 @@ const authMiddleware = (store) => (next) => (action) => {
       // connect to the backend's register route, providing email, password and alias collected
       // from the state(and so, typed by the user)
       axios({
-        method: 'POST',
+        method: 'post',
         url: `${SERVER_URL}/signup`,
         data: {
           email: auth.email,
