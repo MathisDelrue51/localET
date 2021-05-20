@@ -4,9 +4,5 @@
         "heroku-postbuild": "npm run install-front && npm run build",
         "build": "cd front && npm run build",
         "start": "cd back && npm install && node index.js"
-    },
-    "engines": {
-        "node": "^15.2.1",
-        "npm": "7.0.8"
     }
 }
