@@ -20,8 +20,21 @@ export const TOGGLE_CLOSE_MENU = 'TOGGLE_CLOSE_MENU';
 
 export const SAVE_USER_BROWSER = 'SAVE_USER_BROWSER';
 
-// action to save token in state when refresh happens
+export const HANDLE_ERROR_REGISTER = 'HANDLE_ERROR_REGISTER';
 
+export const REMOVE_ERROR_REGISTER = 'REMOVE_ERROR_REGISTER';
+
+export const removeErrorRegister = () => ({
+  type: REMOVE_ERROR_REGISTER,
+});
+
+export const handleErrorRegister = (path, message) => ({
+  type: HANDLE_ERROR_REGISTER,
+  path,
+  message,
+});
+
+// action to save token in state when refresh happens
 export const saveUserBrowser = (token, pseudo, id, logged) => ({
   type: SAVE_USER_BROWSER,
   token,

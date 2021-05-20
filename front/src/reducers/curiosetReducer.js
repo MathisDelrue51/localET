@@ -5,7 +5,8 @@ import {
   FETCH_EVENT_SUCCESS,
   UPDATE_EVENT_SUCCESS,
   SAVE_ID,
-  HANDLE_ERROR,
+  HANDLE_ERROR_EVENT,
+  REMOVE_ERROR_EVENT,
 } from '../actions/curioset';
 
 const initialState = {
@@ -54,19 +55,27 @@ const initialState = {
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
-    case HANDLE_ERROR:
+    case REMOVE_ERROR_EVENT:
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          name: '',
+          address: '',
+          website: '',
+          dateTime: '',
+          price: '',
+          description: '',
+          category: '',
+        },
+      };
+    case HANDLE_ERROR_EVENT:
       if (action.path === 'title') {
         return {
           ...state,
           errors: {
             ...state.errors,
             name: action.message,
-            address: '',
-            website: '',
-            dateTime: '',
-            price: '',
-            description: '',
-            category: '',
           },
         };
       }
@@ -76,12 +85,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             description: action.message,
-            name: '',
-            address: '',
-            website: '',
-            dateTime: '',
-            price: '',
-            category: '',
           },
         };
       }
@@ -91,12 +94,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             address: action.message,
-            name: '',
-            website: '',
-            dateTime: '',
-            price: '',
-            description: '',
-            category: '',
           },
         };
       }
@@ -106,12 +103,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             website: action.message,
-            name: '',
-            address: '',
-            dateTime: '',
-            price: '',
-            description: '',
-            category: '',
           },
         };
       }
@@ -121,12 +112,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             dateTime: action.message,
-            name: '',
-            address: '',
-            website: '',
-            price: '',
-            description: '',
-            category: '',
           },
         };
       }
@@ -136,12 +121,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             price: action.message,
-            name: '',
-            address: '',
-            website: '',
-            dateTime: '',
-            description: '',
-            category: '',
           },
         };
       }
@@ -151,12 +130,6 @@ function curiosetReducer(state = initialState, action) {
           errors: {
             ...state.errors,
             category: action.message,
-            name: '',
-            address: '',
-            website: '',
-            dateTime: '',
-            price: '',
-            description: '',
           },
         };
       }

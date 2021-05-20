@@ -13,7 +13,8 @@ import {
   updateEventSuccess,
   DELETE_EVENT,
   saveID,
-  handleError,
+  handleErrorEvent,
+  removeErrorEvent,
 } from 'src/actions/curioset';
 
 import history from 'src/utils/history';
@@ -167,7 +168,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
 
         .catch((err) => {
-          const actionToDispatch = handleError(
+          const actionToDispatch = handleErrorEvent(
             'address',
             'L\'adresse doit être valide',
           );
@@ -214,12 +215,18 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           history.push('/');
           window.location.reload();
         })
-        .catch((err) => {          
-          const actionToDispatch = handleError(
-            err.response.data.path[0],
-            err.response.data.message,
-          );
-          store.dispatch(actionToDispatch);
+        .catch((err) => {
+          const removeToDispatch = removeErrorEvent();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          while (n < err.response.data.length) {
+            const errorToDispatch = handleErrorEvent(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
     }

@@ -7,6 +7,8 @@ import {
   LOG_OUT,
   FETCH_PROFILE,
   fetchProfileSuccess,
+  removeErrorRegister,
+  handleErrorRegister,
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -64,6 +66,17 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.log(err.response.data);
+          const removeToDispatch = removeErrorRegister();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          while (n <= err.response.data.length) {
+            const errorToDispatch = handleErrorRegister(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
       break;
