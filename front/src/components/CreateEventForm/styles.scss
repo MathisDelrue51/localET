@@ -1,13 +1,22 @@
+
 .createEventForm {
+  margin: 2em auto;
   display: flex;
   flex-direction: row;
-
-  .field {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 1rem;
-    width: 500px;
-    margin: auto;
+  justify-content: space-evenly;
+  .createBlock {
+    margin-bottom: 1em;
+    .field {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 1rem;
+      width: 500px;
+      margin: auto;
+    }
   }
-
 }
+
+form {
+  margin: 3em auto 3em auto;
+}
+

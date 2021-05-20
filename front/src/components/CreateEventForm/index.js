@@ -31,89 +31,102 @@ const CreateEventForm = ({
       <form onSubmit={handleSubmit}>
         <div className="createEventForm">
           <div className="formColumn">
-            <Field
-              name="name"
-              placeholder=""
-              label="Nom de la curiosET :"
-              manageChange={changeField}
-              value={name}
-            />
+            <div className="createBlock">
+              <Field
+                name="name"
+                placeholder=""
+                label="Nom de la curiosET :"
+                manageChange={changeField}
+                value={name}
+              />
+            </div>
 
-            <Field
-              name="address"
-              placeholder=""
-              label="Adresse :"
-              manageChange={changeField}
-              value={address}
-            />
+            <div className="createBlock">
+              <Field
+                name="address"
+                placeholder=""
+                label="Adresse :"
+                manageChange={changeField}
+                value={address}
+              />
+            </div>
+            <div className="createBlock">
+              <Field
+                name="website"
+                placeholder=""
+                label="Site web :"
+                manageChange={changeField}
+                value={website}
+              />
+            </div>
 
-            <Field
-              name="website"
-              placeholder=""
-              label="Site web :"
-              manageChange={changeField}
-              value={website}
-            />
-
-            <Field
-              name="dateTime"
-              placeholder=""
-              label="Date et heure :"
-              manageChange={changeField}
-              value={dateTime}
-            />
+            <div className="createBlock">
+              <Field
+                name="dateTime"
+                placeholder=""
+                label="Date et heure :"
+                manageChange={changeField}
+                value={dateTime}
+              />
+            </div>
           </div>
 
           <div className="formColumn">
-            <TextAreaField
-              name="description"
-              placeholder="Votre description de l'évènement..."
-              rows="5"
-              label="Description :"
-              manageChange={changeField}
-              value={description}
-            />
-            <h3>Catégories :</h3>
-            <RadioField
-              id="artDeRue"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Art de rue"
-              value={1}
-            />
+            <div className="createBlock">
+              <TextAreaField
+                name="description"
+                placeholder="Votre description de l'évènement..."
+                rows="5"
+                label="Description :"
+                manageChange={changeField}
+                value={description}
+              />
+            </div>
+            <div className="createBlock">
+              <h3>Catégories :</h3>
+              <RadioField
+                id="artDeRue"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Art de rue"
+                value={1}
+              />
+  
+              <RadioField
+                id="musique"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Musique"
+                value={2}
+              />
+  
+              <RadioField
+                id="expo"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Expo"
+                value={3}
+              />
+  
+              <RadioField
+                id="theatre"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Théâtre"
+                value={4}
+              />
+            </div>
 
-            <RadioField
-              id="musique"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Musique"
-              value={2}
-            />
-
-            <RadioField
-              id="expo"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Expo"
-              value={3}
-            />
-
-            <RadioField
-              id="theatre"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Théâtre"
-              value={4}
-            />
-
-            <Field
-              name="price"
-              placeholder=""
-              type="number"
-              label="Prix :"
-              manageChange={changeField}
-              value={price}
-            />
+            <div className="createBlock">
+              <Field
+                name="price"
+                placeholder=""
+                type="number"
+                label="Prix :"
+                manageChange={changeField}
+                value={price}
+              />
+            </div>
 
           </div>
         </div>

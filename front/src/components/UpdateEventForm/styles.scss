@@ -1,13 +1,21 @@
+
 .updateEventForm {
+  margin: 2em auto;
   display: flex;
   flex-direction: row;
-
-  .field {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 1rem;
-    width: 500px;
-    margin: auto;
+  justify-content: space-evenly;
+  .updateBlock {
+    margin-bottom: 3em;
+    .field {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 1rem;
+      width: 500px;
+      margin: auto;
+    }
   }
+}
 
+form {
+  margin: 4em auto 7.5em auto;
 }

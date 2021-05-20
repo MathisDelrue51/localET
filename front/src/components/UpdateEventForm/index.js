@@ -29,91 +29,109 @@ const UpdateEventForm = ({
   return (
     <div className="updateEvent">
       <form onSubmit={handleSubmit}>
-        <div className="udpdateEventForm">
+        <div className="updateEventForm">
           <div className="formColumn">
-            <Field
-              name="name"
-              placeholder=""
-              label="Nom de la curiosET :"
-              manageChange={changeField}
-              value={name}
-            />
+            <block className="updateBlock">
+              <Field
+                name="name"
+                placeholder=""
+                label="Nom de la curiosET :"
+                manageChange={changeField}
+                value={name}
+              />
+              <p></p>
+            </block>
 
-            <Field
-              name="address"
-              placeholder=""
-              label="Adresse :"
-              manageChange={changeField}
-              value={address}
-            />
+            <block className="updateBlock">
+              <Field
+                name="address"
+                placeholder=""
+                label="Adresse :"
+                manageChange={changeField}
+                value={address}
+              />
+              <p></p>
+            </block>
 
-            <Field
-              name="website"
-              placeholder=""
-              label="Site web :"
-              manageChange={changeField}
-              value={website}
-            />
+            <block className="updateBlock">
+              <Field
+                name="website"
+                placeholder=""
+                label="Site web :"
+                manageChange={changeField}
+                value={website}
+              />
+              <p></p>
+            </block>
 
-            <Field
-              name="dateTime"
-              placeholder=""
-              label="Date et heure :"
-              manageChange={changeField}
-              value={dateTime}
-            />
+            <block className="updateBlock">
+              <Field
+                name="dateTime"
+                placeholder=""
+                label="Date et heure :"
+                manageChange={changeField}
+                value={dateTime}
+              />
+               <p></p>
+            </block>
           </div>
 
           <div className="formColumn">
-            <TextAreaField
-              name="description"
-              placeholder="Votre description de l'évènement..."
-              rows="5"
-              label="Description :"
-              manageChange={changeField}
-              value={description}
-            />
-            <h3>Catégories :</h3>
-            <RadioField
-              id="artDeRue"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Art de rue"
-              value={1}
-            />
+            <block className="updateBlock">
+              <TextAreaField
+                name="description"
+                placeholder="Votre description de l'évènement..."
+                rows="5"
+                label="Description :"
+                manageChange={changeField}
+                value={description}
+              />
+              <p></p>
+            </block>
 
-            <RadioField
-              id="musique"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Musique"
-              value={2}
-            />
+            <block className="updateBlock">
+              <h3>Catégories :</h3>
+              <RadioField
+                id="artDeRue"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Art de rue"
+                value={1}
+              />
+              <RadioField
+                id="musique"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Musique"
+                value={2}
+              />
+              <RadioField
+                id="expo"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Expo"
+                value={3}
+              />
+              <RadioField
+                id="theatre"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Théâtre"
+                value={4}
+              />
+               <p></p>
+            </block>
 
-            <RadioField
-              id="expo"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Expo"
-              value={3}
-            />
-
-            <RadioField
-              id="theatre"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Théâtre"
-              value={4}
-            />
-
-            <Field
-              name="price"
-              placeholder=""
-              type="number"
-              label="Prix :"
-              manageChange={changeField}
-              value={price}
-            />
+            <block className="updateBlock">
+              <Field
+                name="price"
+                placeholder=""
+                type="number"
+                label="Prix :"
+                manageChange={changeField}
+                value={price}
+              />
+            </block>
 
           </div>
         </div>
@@ -136,7 +154,7 @@ UpdateEventForm.propTypes = {
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
   /** value for the dateTime */
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,
   /** called when onChange event is received by an input, two parameters :
