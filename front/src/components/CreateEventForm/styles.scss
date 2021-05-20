@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 .createEventForm {
   display: flex;
   flex-direction: row;
@@ -8,6 +10,11 @@
     padding: 1rem;
     width: 500px;
     margin: auto;
+  }
+
+  p {
+    font-style: italic;
+    color: vars.$mainColor;
   }
 
 }

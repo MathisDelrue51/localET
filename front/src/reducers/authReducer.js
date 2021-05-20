@@ -2,7 +2,6 @@ import {
   UPDATE_FIELD,
   SAVE_USER,
   LOG_OUT,
-  REGISTER,
   FETCH_PROFILE_SUCCESS,
   TOGGLE_OPEN_MENU,
   TOGGLE_CLOSE_MENU,
@@ -71,21 +70,21 @@ function authReducer(state = initialState, action) {
           },
         };
       }
-      if (state.password && state.password2 && state.password2 !== state.password) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            password2: 'Vos mots de passe ne correspondent pas',
-          },
-        };
-      }
       if (action.path === 'pseudo') {
         return {
           ...state,
           errors: {
             ...state.errors,
             pseudo: action.message,
+          },
+        };
+      }
+      if (action.path === 'password2') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password2: 'Vos mots de passe ne correspondent pas',
           },
         };
       }

@@ -69,7 +69,14 @@ const authMiddleware = (store) => (next) => (action) => {
           const removeToDispatch = removeErrorRegister();
           store.dispatch(removeToDispatch);
           let n = 0;
-          while (n <= err.response.data.length) {
+          if (auth.password && auth.password2 && auth.password2 !== auth.password) {
+            const errorToDispatch = handleErrorRegister(
+              'password2',
+              'Vos mots de passe ne correspondent pas',
+            );
+            store.dispatch(errorToDispatch);
+          }
+          while (n < err.response.data.length) {
             const errorToDispatch = handleErrorRegister(
               err.response.data[n].path[0],
               err.response.data[n].message,
