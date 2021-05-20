@@ -15,10 +15,17 @@ const path = require('path')
 //Allow us to process the information from POST
 app.use(express.urlencoded({extended: true}));
 
-app.use(cors({ origin: '*' }));
+app.use(cors());
 
 // Server can receive data in JSON format
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname,'../front/dist')));   
+
+app.get('/*', (_,res) => {
+        res.sendFile(path.join(__dirname,'../front/dist/index.html'));
+});
+
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
@@ -28,7 +35,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.static(path.join(__dirname,'../front/dist')));
 
 //We will put connected users in a session
 app.use( session({
