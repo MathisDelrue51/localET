@@ -46,7 +46,7 @@ NavLoggedIn.propTypes = {
   /** function that handles the logout of user */
   handleLogout: PropTypes.func.isRequired,
   /** id for profile path */
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   /** handle click on nav links */
   handleClick: PropTypes.func.isRequired,
 };
