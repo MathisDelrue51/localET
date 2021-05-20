@@ -21,7 +21,7 @@ const path = require('path');
  * @route GET /
  * @returns {Array<Curioset>} 200 - An array of curiosets
  */
-router.get('/', cache(600), curiosetController.allCuriosets);
+router.get('/test', cache(600), curiosetController.allCuriosets);
 
 router.get('/*', (_,res) => {
     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
