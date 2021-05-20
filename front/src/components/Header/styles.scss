@@ -8,12 +8,16 @@
   align-items: center;
   padding: 0 0 1rem 0;
 
+  //
+  // --- LEFT PART OF THE HEADER --- //
+  //
+
   &Logo {
     text-align: left;
     width: 33%;
 
     // MEDIUM SIZE SCREEN
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 780px) {
       width: 50%;
     }
 
@@ -27,7 +31,7 @@
       width: 50%;
 
       // MEDIUM SIZE SCREEN
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 780px) {
         width: 60%;
       }
 
@@ -44,10 +48,14 @@
 
       // SMALL SIZE SCREEN
       @media screen and (max-width: 480px) {
-        font-size: 0.8rem;
+        font-size: 1rem;
       }
     }
   }
+
+  //
+  // --- RIGHT PART OF THE HEADER / NAVIGATION --- //
+  //
 
   .burgerMenu {
     display: none;
@@ -62,6 +70,8 @@
   }
 
   .burgerMenuOff {
+
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       display: none;
     }
@@ -69,6 +79,7 @@
 
   .menuOptions {
 
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       display: none;
 
@@ -77,12 +88,16 @@
   }
 
   .menu {
+
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       position: relative;
     }
   }
 
   .menuOptionsMobile {
+
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       display: flex;
       flex-direction: column;
@@ -117,6 +132,16 @@
     justify-content: flex-end;
     align-items: center;
 
+    // MEDIUM SIZE SCREEN
+    @media screen and (max-width: 780px) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       display: flex;
       flex-direction: column;
@@ -134,21 +159,35 @@
       text-decoration: underline solid vars.$mainColor 2px;
     }
 
+    // MEDIUM SIZE SCREEN
+    @media screen and (max-width: 780px) {
+      padding-left: 0;
+      padding: 0.5rem 0;
+    }
+
+    // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       font-size: 1.8rem;
       padding: 2rem 0;
     }
   }
-
-  .welcomeMessage {
-    @media screen and (max-width: 480px) {
-      font-size: 1.8rem;
-      padding: 2rem 0;
-    }
-  }
-
 
   .navLinkActive {
     text-decoration: underline solid vars.$highlightColor 1px;
   }
+
+  .welcomeMessage {
+
+    // SMALL SIZE SCREEN
+    @media screen and (max-width: 780px) {
+      padding: 0.5rem 0;
+    }
+
+    // MEDIUM SIZE SCREEN
+    @media screen and (max-width: 480px) {
+      font-size: 1.8rem;
+      padding: 2rem 0;
+    }
+  }
+
 }

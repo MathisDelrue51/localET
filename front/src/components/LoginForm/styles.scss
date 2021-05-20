@@ -6,13 +6,29 @@
   align-items: stretch;
   justify-content: flex-end;
 
+  @media screen and (max-width: 780px) {
+    flex-direction: column;
+
+  }
+
   .field {
     padding: 0 1rem 0 0;
+
+    @media screen and (max-width: 780px) {
+      padding: 0.3rem 0;
+    }
   }
 
   .fieldInput::placeholder {
     color: vars.$mediumGrey;
     font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 780px) {
+    .submit__button {
+      margin: 0.3rem auto;
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: 480px) {
@@ -35,6 +51,9 @@
       margin: 1rem auto;
       width: 80%;
       font-size: 1.5rem;
+
+
+
     }
   }
 }
@@ -42,7 +61,7 @@
 .formSwitch {
   color: vars.$black;
   text-align: right;
-  padding-top: 2rem;
+  padding-top: 1rem;
   font-size: 0.9rem;
 
   @media screen and (max-width: 480px) {
@@ -51,6 +70,7 @@
     font-size: 1.5rem;
     line-height: 1.6;
     text-align: center;
+    padding-top: 2rem;
     padding: 1rem;
   }
 }
