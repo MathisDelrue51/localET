@@ -15,7 +15,7 @@ const path = require('path')
 //Allow us to process the information from POST
 app.use(express.urlencoded({extended: true}));
 
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // Server can receive data in JSON format
 app.use(express.json());
