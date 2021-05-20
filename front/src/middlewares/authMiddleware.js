@@ -12,8 +12,12 @@ import {
 import history from 'src/utils/history';
 
 // here, write the backend's url :
-//const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
-const SERVER_URL = 'http://localhost:1234/api';
+
+//For production
+const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
+
+//For development
+//const SERVER_URL = 'http://localhost:1234/api';
 
 const authMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware AUTH: ', action);
