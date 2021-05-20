@@ -31,10 +31,10 @@ const port = process.env.PORT || 1234;
 // Server can receive data in JSON format
 app.use(express.json());
 
-app.use(cors());
-
 app.use(express.static(path.join(__dirname,'../front/dist')));
 
 app.use('/api', router);
 
-app.listen(port, () => console.log(`Server on http://localhost:${port}`));
+app.use(cors());
+
+app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
