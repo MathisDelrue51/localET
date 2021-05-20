@@ -45,7 +45,7 @@ function authReducer(state = initialState, action) {
         token: action.token,
         pseudo: action.pseudo,
         id: action.id,
-        logged: action.logged,
+        logged: Boolean(action.logged),
       };
     case FETCH_PROFILE_SUCCESS:
       return {
@@ -152,7 +152,7 @@ function authReducer(state = initialState, action) {
     case SAVE_USER:
       return {
         ...state,
-        logged: action.isLogged,
+        logged: true,
         email: '',
         password: '',
         token: action.token,

@@ -22,8 +22,6 @@ import EventPage from 'src/containers/EventPage';
 // == Component
 const App = ({
   fetchCuriosets,
-  id,
-  idEvent,
   token,
   saveUser,
 }) => {
@@ -42,8 +40,8 @@ const App = ({
     }
   }, [token]);
 
-  const pathProfile = `/profile/${id}`;
-  const pathCurioset = `/curiosET/${idEvent}`;
+  const pathProfile = '/profile/:id';
+  const pathCurioset = '/curiosET/:idEvent';
 
   return (
     <div className="app">
@@ -74,9 +72,13 @@ const App = ({
 };
 
 App.propTypes = {
+  token: PropTypes.string,
   fetchCuriosets: PropTypes.func.isRequired,
-
+  saveUser: PropTypes.func.isRequired,
 };
 
+App.defaultProps = {
+  token: null,
+};
 // == Export
 export default App;

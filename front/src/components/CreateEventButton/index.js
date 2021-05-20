@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
 import { PlusCircle } from 'react-feather';
- 
+
 const CreateEventButton = () => (
   <NavLink
     to="/createEvent"

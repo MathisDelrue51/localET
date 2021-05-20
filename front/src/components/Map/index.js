@@ -217,6 +217,8 @@ Map.propTypes = {
   latitude: PropTypes.number.isRequired,
   zoom: PropTypes.number.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  saveId: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Map;
