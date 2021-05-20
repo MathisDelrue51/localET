@@ -25,6 +25,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(express.static(path.join(__dirname,'../front/dist')));
+
 //We will put connected users in a session
 app.use( session({
     saveUninitialized: true,
@@ -41,7 +43,7 @@ const port = process.env.PORT || 1234;
 // Server can receive data in JSON format
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname,'../front/dist')));
+
 
 app.use('/api', router);
 
