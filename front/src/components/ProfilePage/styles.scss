@@ -12,7 +12,7 @@
 .componentTitle {
   font-weight: bold;
   font-size: vars.$mainTitle;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0;
 
   @media (max-width: 480px) {
     font-size: vars.$mainTitleMobile;
@@ -53,7 +53,7 @@
 }
 
 .curioset {
-  margin: 1em;
+  margin: 1em auto;
   padding-bottom: 1rem;
   border-bottom: solid vars.$borderThickness #F26558;
 }

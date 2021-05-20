@@ -2,11 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
+import { NavLink } from 'react-router-dom';
+
 import { MapPin } from 'react-feather';
 import { Calendar } from 'react-feather';
 
 const ProfilePage = ({ email, pseudo, profileList }) => (
   <div className="container">
+    <NavLink to="/" className="link">
+      Retourner à l'accueil
+    </NavLink>
     <h1 className="componentTitle">
       Mon Profil LocalET
     </h1>
