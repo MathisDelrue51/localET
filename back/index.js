@@ -15,6 +15,8 @@ const path = require('path')
 //Allow us to process the information from POST
 app.use(express.urlencoded({extended: true}));
 
+app.use(cors());
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
@@ -22,8 +24,6 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
     next();
 });
-
-app.use(cors());
 
 //We will put connected users in a session
 app.use( session({
