@@ -17,6 +17,9 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(cors());
 
+// Server can receive data in JSON format
+app.use(express.json());
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Credentials", true);
@@ -38,11 +41,8 @@ app.use( session({
     }
 }));
 
-const port = process.env.PORT || 1234;
-
-// Server can receive data in JSON format
-app.use(express.json());
-
 app.use('/api', router);
+
+const port = process.env.PORT || 1234;
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
