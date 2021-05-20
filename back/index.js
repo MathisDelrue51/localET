@@ -31,17 +31,10 @@ const port = process.env.PORT || 1234;
 // Server can receive data in JSON format
 app.use(express.json());
 
+//Keep the following lines code in this order!
 app.use(cors());
 
 app.use(express.static(path.join(__dirname,'../front/dist')));   
-
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", '*');
-//     res.header("Access-Control-Allow-Credentials", true);
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-//     next();
-// });
 
 app.use('/api', router);
 
