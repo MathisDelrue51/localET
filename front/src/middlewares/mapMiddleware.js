@@ -3,7 +3,7 @@ import {
   FETCH_CURIOSETS, SUBMIT_SEARCH, fetchCuriosetsSuccess, fetchCuriosetsError, submitSearchSuccess,
 } from 'src/actions/map';
 
-const SERVER_URL = 'https://apo-localet.herokuapp.com';
+const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
 
 export default (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware MAP: ', action);
@@ -15,7 +15,7 @@ export default (store) => (next) => (action) => {
       next(action);
       axios({
         method: 'get',
-        url: `${SERVER_URL}/api/home`,
+        url: `${SERVER_URL}/`,
       })
         .then((res) => { 
           console.log('je reçois ça du back', res);
