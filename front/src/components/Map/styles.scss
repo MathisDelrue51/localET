@@ -19,11 +19,11 @@
     // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
       top: 5px;
-      left: 50%;
+      left: 70%;
       transform: translate(-50%, 0);
 
       .fieldInput {
-        width: 240px;
+        width: 200px;
       }
     }
   }
@@ -34,6 +34,12 @@
 
   &:hover {
     color: vars.$mainColor;
+  }
+}
+
+.leaflet-control-zoom {
+  @media screen and (max-width: 480px) {
+    display: none;
   }
 }
 
