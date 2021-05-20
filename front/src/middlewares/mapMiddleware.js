@@ -20,6 +20,9 @@ export default (store) => (next) => (action) => {
       axios({
         method: 'get',
         url: `${SERVER_URL}/`,
+        headers: {
+          "Content-Type": "application/json"
+        }
       })
         .then((res) => { 
           console.log('je reçois ça du back', res);
