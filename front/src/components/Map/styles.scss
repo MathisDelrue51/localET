@@ -1,21 +1,48 @@
+@use 'src/styles/vars';
+
 .map {
-  margin: 2em auto;
+  margin: 0 auto;
   position: relative;
   width: 100%;
 
   .searchBar {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
     position: absolute;
-    top: 1%;
-    left: 25%;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
     z-index: 2000;
+
+    .fieldInput {
+      width: 300px;
+    }
+
+    // SMALL SIZE SCREEN
+    @media screen and (max-width: 480px) {
+      top: 5px;
+      left: 50%;
+      transform: translate(-50%, 0);
+
+      .fieldInput {
+        width: 240px;
+      }
+    }
   }
 }
 
+.leaflet-container a {
+  color: vars.$highlightColor;
+
+  &:hover {
+    color: vars.$mainColor;
+  }
+}
+
+.leaflet-container .leaflet-control-attribution {
+  background: vars.$white;
+}
+
 #mapid {
-  height: 800px;
+  height: 600px;
 
 }
 

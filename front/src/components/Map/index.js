@@ -60,12 +60,15 @@ const Map = ({
       <div className="searchBar">
         <SearchBar placeholder="Cherchez une ville..." />
       </div>
+
       {isLogged && <CreateEventButton />}
+
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          className="mapCopyright"
         />
         { list.map((elmt) => {
           const path = `/curiosET/${elmt.id}`;
