@@ -15,6 +15,13 @@ const CreateEventForm = ({
   dateTime,
   price,
   description,
+  nameError,
+  addressError,
+  websiteError,
+  dateTimeError,
+  priceError,
+  descriptionError,
+  categoryError,
   changeField,
   changeChecking,
   handleCreateEvent,
@@ -38,7 +45,7 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={name}
             />
-
+            <p>{nameError}</p>
             <Field
               name="address"
               placeholder=""
@@ -46,15 +53,15 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={address}
             />
-
+            <p>{addressError}</p>
             <Field
               name="website"
               placeholder=""
-              label="Site web :"
+              label="(Optionel) Site web :"
               manageChange={changeField}
               value={website}
             />
-
+            <p>{websiteError}</p>
             <Field
               name="dateTime"
               placeholder=""
@@ -62,6 +69,7 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={dateTime}
             />
+            <p>{dateTimeError}</p>
           </div>
 
           <div className="formColumn">
@@ -73,6 +81,7 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={description}
             />
+            <p>{descriptionError}</p>
             <h3>Catégories :</h3>
             <RadioField
               id="artDeRue"
@@ -105,6 +114,7 @@ const CreateEventForm = ({
               label="Théâtre"
               value={4}
             />
+            <p>{categoryError}</p>
 
             <Field
               name="price"
@@ -114,6 +124,7 @@ const CreateEventForm = ({
               manageChange={changeField}
               value={price}
             />
+            <p>{priceError}</p>
 
           </div>
         </div>
@@ -139,6 +150,14 @@ CreateEventForm.propTypes = {
   price: PropTypes.string.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,
+  /** value for the errors */
+  nameError: PropTypes.string,
+  addressError: PropTypes.string,
+  websiteError: PropTypes.string,
+  dateTimeError: PropTypes.string,
+  priceError: PropTypes.string,
+  descriptionError: PropTypes.string,
+  categoryError: PropTypes.string,
   /** called when onChange event is received by an input, two parameters :
    * - new value
    * - name
@@ -150,6 +169,16 @@ CreateEventForm.propTypes = {
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
   handleCreateEvent: PropTypes.func.isRequired,
+};
+
+CreateEventForm.defaultProps = {
+  nameError: '',
+  addressError: '',
+  websiteError: '',
+  dateTimeError: '',
+  priceError: '',
+  descriptionError: '',
+  categoryError: '',
 };
 
 export default CreateEventForm;

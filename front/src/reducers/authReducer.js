@@ -2,11 +2,12 @@ import {
   UPDATE_FIELD,
   SAVE_USER,
   LOG_OUT,
-  REGISTER,
   FETCH_PROFILE_SUCCESS,
   TOGGLE_OPEN_MENU,
   TOGGLE_CLOSE_MENU,
   SAVE_USER_BROWSER,
+  HANDLE_ERROR_REGISTER,
+  REMOVE_ERROR_REGISTER,
 } from '../actions/auth';
 
 const initialState = {
@@ -39,6 +40,55 @@ const initialState = {
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    case REMOVE_ERROR_REGISTER:
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          email: '',
+          password: '',
+          password2: '',
+          pseudo: '',
+        },
+      };
+    case HANDLE_ERROR_REGISTER:
+      if (action.path === 'email') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            email: action.message,
+          },
+        };
+      }
+      if (action.path === 'password') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password: action.message,
+          },
+        };
+      }
+      if (action.path === 'pseudo') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            pseudo: action.message,
+          },
+        };
+      }
+      if (action.path === 'password2') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            password2: 'Vos mots de passe ne correspondent pas',
+          },
+        };
+      }
+      break;
     case SAVE_USER_BROWSER:
       return {
         ...state,
@@ -54,67 +104,17 @@ function authReducer(state = initialState, action) {
         profileList: action.profileList,
       };
     // This is what happens when the action REGISTER is fired :
-    case REGISTER:
-      if (!state.email) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            email: 'Veuillez renseigner un email',
-          },
-        };
-      }
-      if (state.email && !state.password) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            email: '',
-            password: 'Veuillez renseigner un mot de passe',
-          },
-        };
-      }
-      if (state.email && !state.password2) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            password: '',
-            password2: 'Veuillez effectuer la vérification de mot de passe',
-          },
-        };
-      }
-      if (state.password && state.password2 && state.password2 !== state.password) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            password2: 'Vos mots de passe ne correspondent pas',
-          },
-        };
-      }
-      if (state.password && state.password2
-      && state.password2 === state.password
-      && !state.pseudo) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            password2: '',
-            pseudo: 'Veuillez renseigner un pseudo',
-          },
-        };
-      }
-      if (state.pseudo) {
-        return {
-          ...state,
-          errors: {
-            ...state.errors,
-            pseudo: '',
-          },
-        };
-      }
-      break;
+    // case REGISTER:
+    //   if (state.password && state.password2 && state.password2 !== state.password) {
+    //     return {
+    //       ...state,
+    //       errors: {
+    //         ...state.errors,
+    //         password2: 'Vos mots de passe ne correspondent pas',
+    //       },
+    //     };
+    //   }
+    //   break;
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with
