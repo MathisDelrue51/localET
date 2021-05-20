@@ -9,7 +9,6 @@
     "dependencies": {
         
             "node": "^15.2.1"
-    },
-    "resolutions": { "fs-capacitor": "3.0.0" }
-
     }
+
+}
