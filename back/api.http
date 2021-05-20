@@ -120,7 +120,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpc
 
 ### POST curioset, send a POST request to create a new curioset in db - Replace token by the newly created one
 POST http://localhost:1234/curioset
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI1NDc0MiwiZXhwIjoxNjIxMjYxOTQyfQ.l2tao5zJO9vPVPEP1R0wEYABaCHWrojJURXsg85pTDY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTQxNTYwMywiZXhwIjoxNjIxNDIyODAzfQ.6rqSudALHNBMCA5jDTn3x2xOOiCTOEGPq6LM_Pk43OA
 Content-Type: application/json
 
 {
@@ -128,7 +128,8 @@ Content-Type: application/json
     "description": "De bons produits locaux",
     "address": "Rue Talensac, Nantes, France",
     "latitude": "47.22147750854492",
-    "longitude": "-1.557645559310913",   
+    "longitude": "-1.557645559310913",    
+    "website": "", 
     "agenda": "Tous les samedi matin",
     "price": 0,
     "user_id": 1,
@@ -185,7 +186,7 @@ GET http://localhost:1234/curioset/test
 
 ### Update Curioset with corresponding id
 PUT http://localhost:1234/curioset/9
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTI1NDc0MiwiZXhwIjoxNjIxMjYxOTQyfQ.l2tao5zJO9vPVPEP1R0wEYABaCHWrojJURXsg85pTDY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhpcy5sb2NhbEBldC5mciIsImlhdCI6MTYyMTQxNTYwMywiZXhwIjoxNjIxNDIyODAzfQ.6rqSudALHNBMCA5jDTn3x2xOOiCTOEGPq6LM_Pk43OA
 Content-Type: application/json
 
 {

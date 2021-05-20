@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateField, logIn } from 'src/actions/auth';
+import { updateField, logIn, toggleCloseMenu } from 'src/actions/auth';
 
 // Import component
 import LoginForm from 'src/components/LoginForm';
@@ -26,6 +26,11 @@ const mapDispatchToProps = (dispatch) => ({
   // function dispatching the action related to login
   handleLogin: () => {
     dispatch(logIn());
+    dispatch(toggleCloseMenu());
+  },
+
+  closeMenu: () => {
+    dispatch(toggleCloseMenu());
   },
 
 });

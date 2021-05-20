@@ -14,6 +14,22 @@ export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS';
 
 export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
 
+export const TOGGLE_OPEN_MENU = 'TOGGLE_OPEN_MENU';
+
+export const TOGGLE_CLOSE_MENU = 'TOGGLE_CLOSE_MENU';
+
+export const SAVE_USER_BROWSER = 'SAVE_USER_BROWSER';
+
+// action to save token in state when refresh happens
+
+export const saveUserBrowser = (token, pseudo, id, logged) => ({
+  type: SAVE_USER_BROWSER,
+  token,
+  pseudo,
+  id,
+  logged,
+});
+
 // action when data is sent from DB
 
 export const fetchProfileSuccess = (email, profileList) => ({
@@ -56,4 +72,12 @@ export const saveUser = (isLogged, token, pseudo, id) => ({
 // action to be connected to handleLogout prop
 export const logOut = () => ({
   type: LOG_OUT,
+});
+
+export const toggleOpenMenu = () => ({
+  type: TOGGLE_OPEN_MENU,
+});
+
+export const toggleCloseMenu = () => ({
+  type: TOGGLE_CLOSE_MENU,
 });

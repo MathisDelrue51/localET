@@ -9,6 +9,7 @@ import './styles.scss';
 const RadioField = ({
   value,
   name,
+  category,
   manageChecked,
   id,
   label,
@@ -18,6 +19,7 @@ const RadioField = ({
     manageChecked(evt.target.value, name);
     console.log(`Dans handleChecked ${evt}`);
     console.log(evt);
+    console.log('ma catégorie :', category);
   };
 
   return (
@@ -30,6 +32,7 @@ const RadioField = ({
           type="radio"
           className="fieldInput"
           name={name}
+          defaultChecked={category === value}
         />
         {label}
       </label>
@@ -42,6 +45,8 @@ RadioField.propTypes = {
   value: PropTypes.number.isRequired,
   /** text used as name for the input (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /** category_id */
+  category: PropTypes.number.isRequired,
   /** text used as label */
   label: PropTypes.string.isRequired,
   /** text used as common identifier for all radio buttons belongin to the

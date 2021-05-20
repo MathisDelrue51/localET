@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
 import TextAreaField from 'src/components/TextAreaField';
-import RadioField from 'src/components/RadioField';
+import RadioField from 'src/containers/RadioField';
 
 import './styles.scss';
 
-const CreateEventForm = ({
+const UpdateEventForm = ({
   name,
   address,
   website,
@@ -17,19 +17,19 @@ const CreateEventForm = ({
   description,
   changeField,
   changeChecking,
-  handleCreateEvent,
+  handleUpdateEvent,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleCreateEvent();
+    handleUpdateEvent();
   };
 
   const radioGroup = 'category';
 
   return (
-    <div className="createEvent">
+    <div className="updateEvent">
       <form onSubmit={handleSubmit}>
-        <div className="createEventForm">
+        <div className="udpdateEventForm">
           <div className="formColumn">
             <Field
               name="name"
@@ -118,7 +118,7 @@ const CreateEventForm = ({
           </div>
         </div>
         <SubmitButton
-          buttonName="Ajouter"
+          buttonName="Envoyer"
           className="submitbutton"
         />
       </form>
@@ -126,7 +126,7 @@ const CreateEventForm = ({
   );
 };
 
-CreateEventForm.propTypes = {
+UpdateEventForm.propTypes = {
   /** value for the name */
   name: PropTypes.string.isRequired,
   /** value for the address */
@@ -149,7 +149,7 @@ CreateEventForm.propTypes = {
    */
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
-  handleCreateEvent: PropTypes.func.isRequired,
+  handleUpdateEvent: PropTypes.func.isRequired,
 };
 
-export default CreateEventForm;
+export default UpdateEventForm;

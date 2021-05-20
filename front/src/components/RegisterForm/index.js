@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { NavLink } from 'react-router-dom';
+
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
 
@@ -17,6 +19,7 @@ const RegisterForm = ({
   pseudoError,
   changeField,
   handleRegister,
+  openMenu,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -26,7 +29,7 @@ const RegisterForm = ({
   return (
     <div className="register">
       <h1 className="register__title">Inscription</h1>
-      <h2 className="register__subtitle">Binevenue chez localET !</h2>
+      <h2 className="register__subtitle">Bienvenue chez localET !</h2>
       <form className="register__form" onSubmit={handleSubmit}>
         <Field
           name="email"
@@ -70,7 +73,20 @@ const RegisterForm = ({
           buttonName="S'inscrire"
         />
       </form>
-      <p>Déjà inscrit ? <span><a href="/login">Connexion</a></span></p>
+      <p>Déjà inscrit ?
+        <NavLink
+          to="/login"
+          className="navLink"
+          activeClassName="navLinkActive"
+          exact
+          onClick={() => {
+            openMenu();
+          }}
+        >Connexion
+        </NavLink>
+
+      </p>
+
     </div>
   );
 };
@@ -88,7 +104,7 @@ RegisterForm.propTypes = {
    * - new value
    * - name
    */
-  /** value for the error */
+  /** value for the errors */
   emailError: PropTypes.string,
   passwordError: PropTypes.string,
   password2Error: PropTypes.string,

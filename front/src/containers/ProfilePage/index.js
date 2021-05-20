@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 
 import ProfilePage from 'src/components/ProfilePage';
 
+import { saveID, fetchEvent } from 'src/actions/curioset';
+
 // === mapStateToProps
 // for information to be read
 const mapStateToProps = (state) => ({
@@ -13,7 +15,12 @@ const mapStateToProps = (state) => ({
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+
+  displayEvent: (id) => {
+    Promise.resolve(dispatch(saveID(id))).then(() => dispatch(fetchEvent()));
+  },
+});
 
 // export
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

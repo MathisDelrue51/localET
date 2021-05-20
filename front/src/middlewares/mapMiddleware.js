@@ -52,7 +52,7 @@ export default (store) => (next) => (action) => {
         .catch((err) => {
           console.error(err);
         });
-        break;
+      break;
     default:
       next(action);
   }

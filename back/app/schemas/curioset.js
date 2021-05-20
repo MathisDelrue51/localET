@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const schema = Joi.object({
 
-  id: Joi.number().integer().allow(null).positive().messages({
+  id: Joi.number().integer().positive().messages({
     'number.base': `le champ id doit être de type nombre`,
     'number.positive': `le champ id doit être un nombre positif`,
     'number.integer': `le champ id doit être un nombre entier`
@@ -31,7 +31,7 @@ const schema = Joi.object({
     'number.base': `le champ longitude doit être de type nombre`,
     'any.required': `Le champ longitude est requis`
   }),
-  website: Joi.string().min(5).allow(null).messages({
+  website: Joi.string().min(5).allow(null, '').messages({
     'string.base': `le champ siteweb doit être de type texte`,
     'string.min': `Le siteweb doit contenir minimum 5 caractères`
   }),

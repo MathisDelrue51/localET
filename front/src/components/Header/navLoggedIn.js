@@ -14,7 +14,7 @@ const NavLoggedIn = ({
   const path = `/profile/${id}`;
   return (
     <nav className="nav">
-      <p>
+      <p className="welcomeMessage">
         Bonjour {pseudo} !
       </p>
       <NavLink
@@ -36,6 +36,7 @@ const NavLoggedIn = ({
       >
         Déconnexion
       </NavLink>
+
     </nav>
   );
 };
@@ -46,7 +47,7 @@ NavLoggedIn.propTypes = {
   /** function that handles the logout of user */
   handleLogout: PropTypes.func.isRequired,
   /** id for profile path */
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   /** handle click on nav links */
   handleClick: PropTypes.func.isRequired,
 };

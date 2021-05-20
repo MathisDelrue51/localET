@@ -16,21 +16,32 @@ import RegisterForm from 'src/containers/RegisterForm';
 import ProfilePage from 'src/containers/ProfilePage';
 import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
+import UpdateEventForm from 'src/containers/UpdateEventForm';
 import EventPage from 'src/containers/EventPage';
 
 // == Component
 const App = ({
   fetchCuriosets,
-  id,
-  idEvent,
+  token,
+  saveUser,
 }) => {
   console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
 
-  const pathProfile = `/profile/${id}`;
-  const pathCurioset = `/curiosET/${idEvent}`;
+  useEffect(() => {
+    if (!token) {
+      const browserToken = localStorage.getItem('token');
+      const browserPseudo = localStorage.getItem('pseudo');
+      const browserId = localStorage.getItem('id');
+      const browserLogged = localStorage.getItem('logged');
+      saveUser(browserToken, browserPseudo, browserId, browserLogged);
+    }
+  }, [token]);
+
+  const pathProfile = '/profile/:id';
+  const pathCurioset = '/curiosET/:idEvent';
 
   return (
     <div className="app">
@@ -48,6 +59,9 @@ const App = ({
         <Route path={pathCurioset}>
           <EventPage />
         </Route>
+        <Route path="/updateEvent">
+          <UpdateEventForm />
+        </Route>
         <Route path="/">
           <Map />
         </Route>
@@ -58,9 +72,13 @@ const App = ({
 };
 
 App.propTypes = {
+  token: PropTypes.string,
   fetchCuriosets: PropTypes.func.isRequired,
-
+  saveUser: PropTypes.func.isRequired,
 };
 
+App.defaultProps = {
+  token: null,
+};
 // == Export
 export default App;

@@ -3,6 +3,7 @@ import {
   UPDATE_RADIO_OPTION,
   SAVE_ADDRESS_DATA,
   FETCH_EVENT_SUCCESS,
+  UPDATE_EVENT_SUCCESS,
   SAVE_ID,
 } from '../actions/curioset';
 
@@ -25,10 +26,13 @@ const initialState = {
   // description
   description: '',
 
-  // category type
+  // category number
   category: 0,
 
-  // infos fetched from API
+  // category type
+  type: '',
+
+  // infos fetched from address API
   longitude: null,
   latitude: null,
 
@@ -39,6 +43,20 @@ const initialState = {
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
+    case UPDATE_EVENT_SUCCESS:
+      return {
+        ...state,
+        name: action.data.title,
+        address: action.data.address,
+        website: action.data.website,
+        dateTime: action.data.agenda,
+        description: action.data.description,
+        price: action.data.price,
+        category: action.data.category_id,
+        longitude: action.data.longitude,
+        latitude: action.data.latitude,
+        idEvent: action.data.id,
+      };
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
@@ -46,8 +64,10 @@ function curiosetReducer(state = initialState, action) {
         address: action.data.address,
         website: action.data.website,
         dateTime: action.data.agenda,
+        description: action.data.description,
         price: action.data.price,
         category: action.data.category_id,
+        type: action.data.type,
         longitude: action.data.longitude,
         latitude: action.data.latitude,
         idEvent: action.data.id,

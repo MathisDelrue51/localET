@@ -1,12 +1,17 @@
 import axios from 'axios';
 import {
   SUBMIT_ADDRESS_SEARCH,
+  SUBMIT_ADDRESS_SEARCH_UPDATE,
   SUBMIT_CREATE_EVENT,
   submitCreateEvent,
   saveAddressData,
   FETCH_EVENT,
   fetchEventSuccess,
   fetchEvent,
+  UPDATE_EVENT,
+  updateEvent,
+  updateEventSuccess,
+  DELETE_EVENT,
   saveID,
 } from 'src/actions/curioset';
 
@@ -20,14 +25,77 @@ const SERVER_URL = 'https://apo-localet.herokuapp.com/api';
 
 const curiosetMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware CURIOSET: ', action);
-
   switch (action.type) {
+    case DELETE_EVENT: {
+      console.log('authMiddleware is handling DELETE_EVENT action');
+      const {
+        curioset, auth,
+      } = store.getState();
+      axios({
+        method: 'DELETE',
+        url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+      })
+        .then((response) => {
+          console.log('élément supprimé', response.data);
+        })
+        .then(() => {
+          history.push('/');
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+          console.error('ceci est mon erreur', err);
+        });
+    }
+      break;
+    case UPDATE_EVENT: {
+      console.log('authMiddleware is handling UPDATE_EVENT action');
+      const {
+        curioset, auth,
+      } = store.getState();
+      const priceFloat = parseFloat(curioset.price);
+      axios({
+        method: 'PUT',
+        url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
+        headers: {
+          Authorization: `Bearer ${auth.token}`,
+        },
+        data: {
+          id: curioset.idEvent,
+          title: curioset.name,
+          description: curioset.description,
+          address: curioset.address,
+          latitude: curioset.latitude,
+          longitude: curioset.longitude,
+          agenda: curioset.dateTime,
+          website: curioset.website,
+          price: priceFloat,
+          user_id: auth.id,
+          category_id: curioset.category,
+        },
+      })
+        .then((response) => {
+          console.log('élément modifié', response.data);
+          store.dispatch(updateEventSuccess(response.data));
+        })
+        .then(() => {
+          history.push('/');
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.response.data);
+          console.error('ceci est mon erreur', err);
+        });
+    }
+      break;
     case FETCH_EVENT: {
       console.log('authMiddleware is handling FETCH_EVENT action');
       const {
         curioset,
       } = store.getState();
-
       axios({
         method: 'get',
         url: `${SERVER_URL}/curioset/${curioset.idEvent}`,
@@ -43,6 +111,36 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.error(err);
+        });
+    }
+      break;
+    case SUBMIT_ADDRESS_SEARCH_UPDATE: {
+      console.log('Middleware Recherche adresse update');
+      const {
+        curioset,
+      } = store.getState();
+
+      axios({
+        method: 'get',
+        url: `https://api-adresse.data.gouv.fr/search/?q=${curioset.address}&limit=5`,
+      })
+
+        .then((response) => {
+          console.log("RESPONSE de l'api", response);
+
+          const actionToDispatch = saveAddressData(
+            response.data.features[0].geometry.coordinates[0],
+            response.data.features[0].geometry.coordinates[1],
+          );
+          store.dispatch(actionToDispatch);
+        })
+        .then(() => {
+          store.dispatch(updateEvent());
+        })
+
+        .catch((error) => {
+          console.log('It must be an existing adress');
+          console.error(error);
         });
     }
       break;
@@ -83,12 +181,9 @@ const curiosetMiddleware = (store) => (next) => (action) => {
 
       const {
         curioset,
-      } = store.getState();
-      const priceFloat = parseFloat(curioset.price);
-      const {
         auth,
       } = store.getState();
-
+      const priceFloat = parseFloat(curioset.price);
       axios({
         method: 'post',
         url: `${SERVER_URL}/curioset`,
@@ -102,6 +197,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           latitude: curioset.latitude,
           longitude: curioset.longitude,
           agenda: curioset.dateTime,
+          website: curioset.website,
           price: priceFloat,
           user_id: auth.id,
           category_id: curioset.category,
@@ -115,6 +211,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .then(() => {
           history.push('/');
+          window.location.reload();
         })
         .catch((err) => {
           console.log(err.response.data);
