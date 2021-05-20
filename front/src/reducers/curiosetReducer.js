@@ -5,6 +5,7 @@ import {
   FETCH_EVENT_SUCCESS,
   UPDATE_EVENT_SUCCESS,
   SAVE_ID,
+  HANDLE_ERROR,
 } from '../actions/curioset';
 
 const initialState = {
@@ -39,10 +40,127 @@ const initialState = {
   // id received from DB
   idEvent: null,
 
+  errors: {
+    name: '',
+    address: '',
+    website: '',
+    dateTime: '',
+    price: '',
+    description: '',
+    category: '',
+  },
+
 };
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
+    case HANDLE_ERROR:
+      if (action.path === 'title') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            name: action.message,
+            address: '',
+            website: '',
+            dateTime: '',
+            price: '',
+            description: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'description') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            description: action.message,
+            name: '',
+            address: '',
+            website: '',
+            dateTime: '',
+            price: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'address') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            address: action.message,
+            name: '',
+            website: '',
+            dateTime: '',
+            price: '',
+            description: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'website') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            website: action.message,
+            name: '',
+            address: '',
+            dateTime: '',
+            price: '',
+            description: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'agenda') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            dateTime: action.message,
+            name: '',
+            address: '',
+            website: '',
+            price: '',
+            description: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'price') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            price: action.message,
+            name: '',
+            address: '',
+            website: '',
+            dateTime: '',
+            description: '',
+            category: '',
+          },
+        };
+      }
+      if (action.path === 'category_id') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            category: action.message,
+            name: '',
+            address: '',
+            website: '',
+            dateTime: '',
+            price: '',
+            description: '',
+          },
+        };
+      }
+      break;
     case UPDATE_EVENT_SUCCESS:
       return {
         ...state,

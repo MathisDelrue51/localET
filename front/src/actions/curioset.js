@@ -26,6 +26,14 @@ export const SUBMIT_ADDRESS_SEARCH_UPDATE = 'SUBMIT_ADDRESS_SEARCH_UPDATE';
 
 export const DELETE_EVENT = 'DELETE_EVENT';
 
+export const HANDLE_ERROR = 'HANDLE_ERROR';
+
+export const handleError = (path, message) => ({
+  type: HANDLE_ERROR,
+  path,
+  message,
+});
+
 // action to delete event
 export const deleteEvent = () => ({
   type: DELETE_EVENT,

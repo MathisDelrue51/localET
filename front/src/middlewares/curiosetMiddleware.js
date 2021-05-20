@@ -13,6 +13,7 @@ import {
   updateEventSuccess,
   DELETE_EVENT,
   saveID,
+  handleError,
 } from 'src/actions/curioset';
 
 import history from 'src/utils/history';
@@ -165,9 +166,13 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           store.dispatch(submitCreateEvent());
         })
 
-        .catch((error) => {
-          console.log('It must be an existing adress');
-          console.error(error);
+        .catch((err) => {
+          const actionToDispatch = handleError(
+            'address',
+            'L\'adresse doit être valide',
+          );
+          store.dispatch(actionToDispatch);
+          console.error(err);
         });
     }
       break;
@@ -209,8 +214,12 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           history.push('/');
           window.location.reload();
         })
-        .catch((err) => {
-          console.log(err.response.data);
+        .catch((err) => {          
+          const actionToDispatch = handleError(
+            err.response.data.path[0],
+            err.response.data.message,
+          );
+          store.dispatch(actionToDispatch);
           console.error('ceci est mon erreur', err);
         });
     }
