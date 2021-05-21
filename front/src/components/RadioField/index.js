@@ -21,6 +21,8 @@ const RadioField = ({
     console.log(evt);
     console.log('ma catégorie :', category);
   };
+  console.log('Radio field');
+  console.log(value);
 
   return (
     <div className="radioField">

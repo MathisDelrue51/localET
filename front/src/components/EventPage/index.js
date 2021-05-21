@@ -1,11 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
 import { NavLink } from 'react-router-dom';
 import SubmitButton from 'src/components/SubmitButton';
+<<<<<<< HEAD
 
 import { MapPin, Calendar, DollarSign } from 'react-feather';
+=======
+>>>>>>> dbdd15fd4e2253d7cc87906a0885dc7347e0a7c8
 
 const EventPage = ({
   name,
@@ -15,8 +18,8 @@ const EventPage = ({
   address,
   dateTime,
   price,
-  longitude,
-  latitude,
+  idEventAuthor,
+  idUser,
   isLogged,
   handleDelete,
   fetchEvent,
@@ -24,7 +27,7 @@ const EventPage = ({
   useEffect(() => {
     fetchEvent();
   }, []);
-  return(
+  return (
     <div className="event">
       <NavLink to="/" className="link">
         Retourner sur la carte
@@ -72,20 +75,18 @@ const EventPage = ({
         className="navLink"
         activeClassName="navLinkActive"
         exact
-       >
-       { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
-       </NavLink>
-       <NavLink
+      >
+        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="h" />}
+      </NavLink>
+      <NavLink
         to="/"
         className="navLink_delete"
         activeClassName="navLinkActive"
         exact
         onClick={handleDelete}
-       >
-       { isLogged && <SubmitButton buttonName="Supprimer" />}
-       </NavLink>
-
-    </div>
+      >
+        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
+      </NavLink>
     </div>
   );
 };
@@ -94,19 +95,21 @@ EventPage.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   address: PropTypes.string.isRequired,
   dateTime: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number,
   isLogged: PropTypes.bool.isRequired,
   handleDelete: PropTypes.func.isRequired,
+  idEventAuthor: PropTypes.number.isRequired,
+  idUser: PropTypes.number.isRequired,
+  fetchEvent: PropTypes.func.isRequired,
 };
 
 EventPage.defaultProps = {
   longitude: 0,
   latitude: 0,
+  website: '',
 };
 
 export default EventPage;

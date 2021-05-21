@@ -13,6 +13,8 @@ import {
   updateEventSuccess,
   DELETE_EVENT,
   saveID,
+  handleErrorEvent,
+  removeErrorEvent,
 } from 'src/actions/curioset';
 
 import history from 'src/utils/history';
@@ -83,6 +85,18 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.log(err.response.data);
+          const removeToDispatch = removeErrorEvent();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          while (n < err.response.data.length) {
+          console.log(err.response.data[n]);
+            const errorToDispatch = handleErrorEvent(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
     }
@@ -165,9 +179,13 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           store.dispatch(submitCreateEvent());
         })
 
-        .catch((error) => {
-          console.log('It must be an existing adress');
-          console.error(error);
+        .catch((err) => {
+          const actionToDispatch = handleErrorEvent(
+            'address',
+            'L\'adresse doit être valide',
+          );
+          store.dispatch(actionToDispatch);
+          console.error(err);
         });
     }
       break;
@@ -210,7 +228,17 @@ const curiosetMiddleware = (store) => (next) => (action) => {
           window.location.reload();
         })
         .catch((err) => {
-          console.log(err.response.data);
+          const removeToDispatch = removeErrorEvent();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          while (n < err.response.data.length) {
+            const errorToDispatch = handleErrorEvent(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
     }

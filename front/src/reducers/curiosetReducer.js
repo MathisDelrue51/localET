@@ -1,3 +1,4 @@
+import { number } from 'prop-types';
 import {
   UPDATE_EVENT_FIELD,
   UPDATE_RADIO_OPTION,
@@ -5,6 +6,8 @@ import {
   FETCH_EVENT_SUCCESS,
   UPDATE_EVENT_SUCCESS,
   SAVE_ID,
+  HANDLE_ERROR_EVENT,
+  REMOVE_ERROR_EVENT,
 } from '../actions/curioset';
 
 const initialState = {
@@ -21,7 +24,7 @@ const initialState = {
   dateTime: '',
 
   // price of event
-  price: '',
+  price: 0,
 
   // description
   description: '',
@@ -39,10 +42,102 @@ const initialState = {
   // id received from DB
   idEvent: null,
 
+  // id of user who created the event
+  idEventAuthor: null,
+  
+  errors: {
+    name: '',
+    address: '',
+    website: '',
+    dateTime: '',
+    price: '',
+    description: '',
+    category: '',
+  },
+
 };
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
+    case REMOVE_ERROR_EVENT:
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          name: '',
+          address: '',
+          website: '',
+          dateTime: '',
+          price: '',
+          description: '',
+          category: '',
+        },
+      };
+    case HANDLE_ERROR_EVENT:
+      if (action.path === 'title') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            name: action.message,
+          },
+        };
+      }
+      if (action.path === 'description') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            description: action.message,
+          },
+        };
+      }
+      if (action.path === 'address') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            address: action.message,
+          },
+        };
+      }
+      if (action.path === 'website') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            website: action.message,
+          },
+        };
+      }
+      if (action.path === 'agenda') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            dateTime: action.message,
+          },
+        };
+      }
+      if (action.path === 'price') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            price: action.message,
+          },
+        };
+      }
+      if (action.path === 'category_id') {
+        return {
+          ...state,
+          errors: {
+            ...state.errors,
+            category: action.message,
+          },
+        };
+      }
+      break;
     case UPDATE_EVENT_SUCCESS:
       return {
         ...state,
@@ -65,13 +160,15 @@ function curiosetReducer(state = initialState, action) {
         website: action.data.website,
         dateTime: action.data.agenda,
         description: action.data.description,
-        price: action.data.price,
+        price: parseInt(action.data.price, number),
         category: action.data.category_id,
         type: action.data.type,
         longitude: action.data.longitude,
         latitude: action.data.latitude,
         idEvent: action.data.id,
+        idEventAuthor: action.data.user_id,
       };
+
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_EVENT_FIELD:
 
@@ -131,10 +228,10 @@ function curiosetReducer(state = initialState, action) {
       return {
         ...state,
         longitude: action.longitude,
-        latitude: action.latitude,
+          latitude: action.latitude,
       };
 
-    // This is what happens when the action SAVE_ID is fired :
+      // This is what happens when the action SAVE_ID is fired :
     case SAVE_ID:
       return {
         ...state,
