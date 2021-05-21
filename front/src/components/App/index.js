@@ -38,7 +38,7 @@ const App = ({
       const browserLogged = localStorage.getItem('logged');
       saveUser(browserToken, browserPseudo, browserId, browserLogged);
     }
-  }, [token]);
+  }, []);
 
   const pathProfile = '/profile/:id';
   const pathCurioset = '/curiosET/:idEvent';
