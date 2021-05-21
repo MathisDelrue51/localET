@@ -19,6 +19,13 @@ const mapStateToProps = (state) => ({
   description: state.curioset.description,
   category: state.curioset.category,
   idEvent: state.curioset.idEvent,
+  nameError: state.curioset.errors.name,
+  addressError: state.curioset.errors.address,
+  websiteError: state.curioset.errors.website,
+  dateTimeError: state.curioset.errors.dateTime,
+  priceError: state.curioset.errors.price,
+  descriptionError: state.curioset.errors.description,
+  categoryError: state.curioset.errors.category,
 });
 
 // === mapDispatchToProps

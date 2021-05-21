@@ -20,11 +20,23 @@ export const UPDATE_EVENT = 'UPDATE_EVENT';
 
 export const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
 
-export const UPDATE_EVENT_ERROR = 'UPDATE_EVENT_ERROR';
-
 export const SUBMIT_ADDRESS_SEARCH_UPDATE = 'SUBMIT_ADDRESS_SEARCH_UPDATE';
 
 export const DELETE_EVENT = 'DELETE_EVENT';
+
+export const HANDLE_ERROR_EVENT = 'HANDLE_ERROR_EVENT';
+
+export const REMOVE_ERROR_EVENT = 'REMOVE_ERROR_EVENT';
+
+export const removeErrorEvent = () => ({
+  type: REMOVE_ERROR_EVENT,
+});
+
+export const handleErrorEvent = (path, message) => ({
+  type: HANDLE_ERROR_EVENT,
+  path,
+  message,
+});
 
 // action to delete event
 export const deleteEvent = () => ({
