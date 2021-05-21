@@ -28,6 +28,14 @@ export const HANDLE_ERROR_EVENT = 'HANDLE_ERROR_EVENT';
 
 export const REMOVE_ERROR_EVENT = 'REMOVE_ERROR_EVENT';
 
+export const HANDLE_ERROR_UPDATE_EVENT = 'HANDLE_ERROR_UPDATE_EVENT';
+
+export const handleErrorUpdateEvent = (path, message) => ({
+  type: HANDLE_ERROR_UPDATE_EVENT,
+  path,
+  message,
+});
+
 export const removeErrorEvent = () => ({
   type: REMOVE_ERROR_EVENT,
 });

@@ -15,6 +15,13 @@ const UpdateEventForm = ({
   dateTime,
   price,
   description,
+  nameError,
+  addressError,
+  websiteError,
+  dateTimeError,
+  priceError,
+  descriptionError,
+  categoryError,
   changeField,
   changeChecking,
   handleUpdateEvent,
@@ -40,18 +47,18 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={name}
               />
-              <p></p>
+              <p>{nameError}</p>
             </div>
 
             <div className="updateBlock">
               <Field
                 name="address"
-                placeholder=""
+                placeholder="N° , nom de la rue , code postal , ville"
                 label="Adresse :"
                 manageChange={changeField}
                 value={address}
               />
-              <p></p>
+              <p>{addressError}</p>
             </div>
 
             <div className="updateBlock">
@@ -62,7 +69,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={website}
               />
-              <p></p>
+              <p>{websiteError}</p>
             </div>
 
             <div className="updateBlock">
@@ -73,7 +80,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={dateTime}
               />
-              <p></p>
+              <p>{dateTimeError}</p>
             </div>
           </div>
 
@@ -87,7 +94,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={description}
               />
-              <p></p>
+              <p>{descriptionError}</p>
             </div>
 
             <div className="updateBlock">
@@ -120,7 +127,7 @@ const UpdateEventForm = ({
                 label="Théâtre"
                 value={4}
               />
-              <p></p>
+              <p>{categoryError}</p>
             </div>
 
             <div className="updateBlock">
@@ -132,6 +139,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={price}
               />
+              <p>{priceError}</p>
             </div>
 
           </div>
@@ -158,6 +166,13 @@ UpdateEventForm.propTypes = {
   price: PropTypes.number.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,
+  nameError: PropTypes.string,
+  addressError: PropTypes.string,
+  websiteError: PropTypes.string,
+  dateTimeError: PropTypes.string,
+  priceError: PropTypes.string,
+  descriptionError: PropTypes.string,
+  categoryError: PropTypes.string,
   /** called when onChange event is received by an input, two parameters :
    * - new value
    * - name
@@ -173,6 +188,13 @@ UpdateEventForm.propTypes = {
 
 UpdateEventForm.defaultProps = {
   website: '',
+  nameError: '',
+  addressError: '',
+  websiteError: '',
+  dateTimeError: '',
+  priceError: '',
+  descriptionError: '',
+  categoryError: '',
 };
 
 export default UpdateEventForm;
