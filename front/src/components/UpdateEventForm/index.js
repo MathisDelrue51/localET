@@ -135,7 +135,7 @@ UpdateEventForm.propTypes = {
   website: PropTypes.string.isRequired,
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
-  /** value for the dateTime */
+  /** value for the price */
   price: PropTypes.string.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,

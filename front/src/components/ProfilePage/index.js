@@ -65,7 +65,8 @@ const ProfilePage = ({
                 value={element.id}
                 onClick={(evt) => {
                   console.log(evt.target.value);
-                  displayEvent(evt.target.value);
+                  console.log(typeof (evt.target.value));
+                  displayEvent(parseInt(evt.target.value));
                 }}
               >Voir
               </button>
