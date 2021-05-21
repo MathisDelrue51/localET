@@ -1,23 +1,89 @@
-.profile {
-  height: 30vh;
-  margin: 5em auto;
-  font-size: 2rem;
-}
+@use 'src/styles/vars';
 
-.eventPart {
-  padding: 2rem;
+.event {
+  width: 100%;
+  font-size: vars.$text;
+  display: flex;
+  flex-direction: column;
 
+  @media (max-width: 480px) {
+    font-size: vars.$textMobile;
+  }
   h1 {
-    font-size: 2rem;
+    font-size: vars.$mainTitle;
     font-weight: bold;
-  }
 
+    @media (max-width: 480px) {
+      font-size: vars.$mainTitleMobile;
+    }
+  }
   h2 {
-    font-size: 1.2rem;
+    font-size: vars.$secondaryTitle;
     font-weight: bold;
-  }
+    padding-bottom: 1rem;
 
+    @media (max-width: 480px) {
+      font-size: vars.$secondaryTitleMobile;
+    }
+  }
   h3 {
-    font-size: 0.8rem;
+    font-size: vars.$textSmaller;
+    padding-top: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
   }
 }
+
+.link {
+  color: vars.$highlightColor;
+  text-align: left;
+}
+
+.eventTitle {
+  text-align: center;
+  padding: 1.5rem;
+ 
+}
+
+.eventPart, .eventLocation, .eventDate {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.curiosetContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.curiosetDetails {
+  display: flex;
+  flex-direction: row;
+}
+.navLink {
+  padding: 1rem;
+  
+}
+
+.update_delete {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+#website {
+  color: vars.$highlightColor;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/*
+flex-diretion: column*/
+
+
+
+

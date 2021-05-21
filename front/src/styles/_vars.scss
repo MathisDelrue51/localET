@@ -9,16 +9,19 @@ $mediumGrey : #7e9e97;
 $darkGrey : #495b57;
 $black : #122824;
 
+
 // BORDER STYLE
 $borderThickness : 2px;
 $borderRadius : 5px;
 
 // FONT SIZE DESKTOP : 
+$textSmaller: 1rem;
 $text: 1.2rem;
 $mainTitle:1.6rem;
 $secondaryTitle:1.3rem;
 
 // FONT SIZE MOBILE : 
-$textMobile: 1.6rem;
-$mainTitleMobile: 2rem;
-$secondaryTitleMobile:1.8rem;
+$textSmallerMobile: 1.1rem;
+$textMobile: 1.3rem;
+$mainTitleMobile: 1.7rem;
+$secondaryTitleMobile:1.4rem;

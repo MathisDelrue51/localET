@@ -25,51 +25,56 @@ const EventPage = ({
   return(
     <div className="event">
       <NavLink to="/" className="link">
-        Retourner à l'accueil
+        Retourner sur la carte
       </NavLink>
-      <div className="eventPart">
+      <div className="eventTitle">
         <h1>{name}</h1>
         <h3>{type}</h3>
       </div>
 
-      <div className="eventPart">
-        <h2>Quoi ?</h2>
-        <p>{description}</p>
-        <a href={website}>Voir le site web</a>
-      </div>
-      <div className="eventPart eventLocation">
-        <h2>Où ?</h2>
-        <img src="#" alt="#" />
-        <p>{address}</p>
+     <div className="curiosetContainer">
+        <div className="eventPart">
+          <h2>Quoi ?</h2>
+          <p>{description}</p>       
+          <a href={website} id="website">{website}</a>
+        </div>
+        <div className="curiosetDetails">
+          <div className="eventLocation">
+            <h2>Où ?</h2>
+            <p>{address}</p>
+          </div>
+          <div className="eventDate">
+            <h2>Quand ?</h2>
+            <p>{dateTime}</p>
+          </div>
+          <div className="eventDate">
+            <h2>Combien ?</h2>
+            <p>{price} €</p>
+          </div>
       </div>
 
-      <div className="eventPart eventDatePrice">
-        <div className="eventDate">
-          <h2>Quand ?</h2>
-          <p>{dateTime}</p>
-        </div>
-        <div className="eventDate">
-          <h2>Comment ?</h2>
-          <p>{price}</p>
-        </div>
-      </div>
-      <NavLink
+    
+      <div className="update_delete">
+       <NavLink
         to="/updateEvent"
         className="navLink"
         activeClassName="navLinkActive"
         exact
-      >
-        { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
-      </NavLink>
-      <NavLink
+       >
+       { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
+       </NavLink>
+       <NavLink
         to="/"
         className="navLink"
         activeClassName="navLinkActive"
         exact
         onClick={handleDelete}
-      >
-        { isLogged && <SubmitButton buttonName="Supprimer" />}
-      </NavLink>
+       >
+       { isLogged && <SubmitButton buttonName="Supprimer" />}
+       </NavLink>
+
+      </div>
+     </div>
     </div>
   );
 };
