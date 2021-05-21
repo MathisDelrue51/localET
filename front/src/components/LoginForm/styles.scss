@@ -21,7 +21,11 @@
 
   .fieldInput::placeholder {
     color: vars.$mediumGrey;
-    font-size: 0.9rem;
+    font-size: vars.$textSmaller;
+
+    @media screen and (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
   }
 
   @media screen and (max-width: 780px) {
@@ -44,13 +48,13 @@
       margin: auto;
       width: 80%;
       margin: 1rem 0;
-      font-size: 1.5rem;
+      font-size: vars.$textMobile;
     }
 
     .submit__button {
       margin: 1rem auto;
       width: 80%;
-      font-size: 1.5rem;
+      font-size: vars.$textMobile;
 
 
 
@@ -62,12 +66,12 @@
   color: vars.$black;
   text-align: right;
   padding-top: 1rem;
-  font-size: 0.9rem;
+  font-size: vars.$textSmaller;
 
   @media screen and (max-width: 480px) {
     width: 80%;
     margin: auto;
-    font-size: 1.5rem;
+    font-size: vars.$textSmallerMobile;
     line-height: 1.6;
     text-align: center;
     padding-top: 2rem;
