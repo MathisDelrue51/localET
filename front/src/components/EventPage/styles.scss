@@ -27,13 +27,21 @@
     }
   }
   h3 {
-    font-size: vars.$textSmaller;
+    font-size: vars.$text;
     padding-top: 1rem;
+    color: vars.$mainColor;
 
     @media (max-width: 480px) {
       font-size: vars.$textSmallerMobile;
     }
   }
+  p,a {
+    font-size: vars.$text;
+    @media (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
+  }
+  
 }
 
 .link {
@@ -47,21 +55,56 @@
  
 }
 
-.eventPart, .eventLocation, .eventDate {
+.eventPart, .eventLocation, .eventDate, .price {
   padding: 1.5rem;
   text-align: left;
 }
 
 .curiosetContainer {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-direction: row;
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .curiosetDetails {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+   
 }
+
+.eventPart {
+  width: 65%;
+  text-align: justify;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.description {
+  padding-bottom: 2.5rem;
+}
+
+#website {
+  color: vars.$highlightColor;
+  
+}
+
+.place, .date, .dollar {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding: 0.5rem 0;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    padding-bottom: 0.8rem;
+  }
+}
+
 .navLink {
   padding: 1rem;
   
@@ -75,14 +118,27 @@
   
 }
 
-#website {
-  color: vars.$highlightColor;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+.navLink_delete {
+ .submit {
+  &__button {
+    padding: 0.7em;
+    color: vars.$white;
+    border: 1px solid transparent;
+    border-radius: vars.$borderRadius;
+    background-color: vars.$mainColorLighter;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: vars.$mainColor;
+    }
+  }
+ }
+
 }
 
-/*
-flex-diretion: column*/
+
+
+
 
 
 
