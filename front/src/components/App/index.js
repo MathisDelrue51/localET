@@ -18,6 +18,7 @@ import Footer from 'src/components/Footer';
 import CreateEventForm from 'src/containers/CreateEventForm';
 import UpdateEventForm from 'src/containers/UpdateEventForm';
 import EventPage from 'src/containers/EventPage';
+import ContactPage from 'src/components/ContactPage';
 
 // == Component
 const App = ({
@@ -47,6 +48,9 @@ const App = ({
     <div className="app">
       <Header />
       <Switch>
+        <Route path="/contact">
+          <ContactPage />
+        </Route>
         <Route path="/subscribe">
           <RegisterForm />
         </Route>
