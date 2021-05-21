@@ -3,9 +3,12 @@ import './styles.scss';
 
 import { NavLink } from 'react-router-dom';
 
-import { Smile, Linkedin, GitHub } from 'react-feather';
+import { Linkedin, GitHub } from 'react-feather';
 
-import alice from 'src/assets/icons/icons-1-neg.svg';
+import alice from 'src/assets/teamPictures/Alice.jpg';
+import marion from 'src/assets/teamPictures/Marion.jpg';
+import yassine from 'src/assets/teamPictures/Yassine.jpg';
+import mathis from 'src/assets/teamPictures/Mathis.jpg';
 
 const ContactPage = () => (
   <div className="container">
@@ -17,9 +20,7 @@ const ContactPage = () => (
     </h1>
     <div className="team">
       <div className="dev">
-        <div className="picture">
-          <Smile size={75} className="devIcon" />
-        </div>
+        <img src={alice} alt="Alice" className="picture" />
         <div className="devInfo">
           <h2 className="devName">
             Alice
@@ -29,18 +30,16 @@ const ContactPage = () => (
           </p>
           <div>
             <GitHub size={25} className="devIcon" />
-            <a href="https://github.com/AliceMsx">GitHub</a>
+            <a href="https://github.com/AliceMsx" className="externalLink">GitHub</a>
           </div>
           <div>
             <Linkedin size={25} className="devIcon" />
-            <a href="https://www.linkedin.com/in/alice-masseaux-99a644193/">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/alice-masseaux-99a644193/" className="externalLink">LinkedIn</a>
           </div>
         </div>
       </div>
       <div className="dev">
-        <div className="picture">
-          <Smile size={75} className="devIcon" />
-        </div>
+        <img src={yassine} alt="Yassine" className="picture" />
         <div className="devInfo">
           <h2 className="devName">
             Yassine
@@ -50,18 +49,16 @@ const ContactPage = () => (
           </p>
           <div>
             <GitHub size={25} className="devIcon" />
-            <a href="https://github.com/Idrissi-55">GitHub</a>
+            <a href="https://github.com/Idrissi-55" className="externalLink">GitHub</a>
           </div>
           <div>
             <Linkedin size={25} className="devIcon" />
-            <a href="https://www.linkedin.com/in/yassine-idrissi-alami-8056ab161/">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/yassine-idrissi-alami-8056ab161/" className="externalLink">LinkedIn</a>
           </div>
         </div>
       </div>
       <div className="dev">
-        <div className="picture">
-          <Smile size={75} className="devIcon" />
-        </div>
+        <img src={marion} alt="Marion" className="picture" />
         <div className="devInfo">
           <h2 className="devName">
             Marion
@@ -71,18 +68,16 @@ const ContactPage = () => (
           </p>
           <div>
             <GitHub size={25} className="devIcon" />
-            <a href="https://github.com/marion-vgv">GitHub</a>
+            <a href="https://github.com/marion-vgv" className="externalLink">GitHub</a>
           </div>
           <div>
             <Linkedin size={25} className="devIcon" />
-            <a href="https://www.linkedin.com/in/marionvangaeveren/?locale=fr_FR">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/marionvangaeveren/?locale=fr_FR" className="externalLink">LinkedIn</a>
           </div>
         </div>
       </div>
       <div className="dev">
-        <div className="picture">
-          <Smile size={75} className="devIcon" />
-        </div>
+        <img src={mathis} alt="Mathis" className="picture" />
         <div className="devInfo">
           <h2 className="devName">
             Mathis
@@ -92,11 +87,11 @@ const ContactPage = () => (
           </p>
           <div>
             <GitHub size={25} className="devIcon" />
-            <a href="https://github.com/MathisDelrue51">GitHub</a>
+            <a href="https://github.com/MathisDelrue51" className="externalLink">GitHub</a>
           </div>
           <div>
             <Linkedin size={25} className="devIcon" />
-            <a href="https://www.linkedin.com/in/mathis-delrue-858b94172/">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/mathis-delrue-858b94172/" className="externalLink">LinkedIn</a>
           </div>
         </div>
       </div>
