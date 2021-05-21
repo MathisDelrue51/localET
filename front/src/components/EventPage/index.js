@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
 import { NavLink } from 'react-router-dom';
-import SubmitButton from 'src/components/SubmitButton'
+import SubmitButton from 'src/components/SubmitButton';
 
 const EventPage = ({
   name,
@@ -22,8 +22,7 @@ const EventPage = ({
   useEffect(() => {
     fetchEvent();
   }, []);
-
-  return(
+  return (
     <div className="event">
       <NavLink to="/" className="link">
         Retourner à l'accueil
@@ -79,7 +78,7 @@ EventPage.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   address: PropTypes.string.isRequired,
   dateTime: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
@@ -88,6 +87,12 @@ EventPage.propTypes = {
   idEventAuthor: PropTypes.number.isRequired,
   idUser: PropTypes.number.isRequired,
   fetchEvent: PropTypes.func.isRequired,
+};
+
+EventPage.defaultProps = {
+  longitude: 0,
+  latitude: 0,
+  website: '',
 };
 
 export default EventPage;

@@ -35,97 +35,110 @@ const CreateEventForm = ({
 
   return (
     <div className="createEvent">
+      <h1 className="createTitle">Créer une CuriosET</h1>
       <form onSubmit={handleSubmit}>
         <div className="createEventForm">
           <div className="formColumn">
-            <Field
-              name="name"
-              placeholder=""
-              label="Nom de la curiosET :"
-              manageChange={changeField}
-              value={name}
-            />
-            <p>{nameError}</p>
-            <Field
-              name="address"
-              placeholder=""
-              label="Adresse :"
-              manageChange={changeField}
-              value={address}
-            />
-            <p>{addressError}</p>
-            <Field
-              name="website"
-              placeholder=""
-              label="(Optionel) Site web :"
-              manageChange={changeField}
-              value={website}
-            />
-            <p>{websiteError}</p>
-            <Field
-              name="dateTime"
-              placeholder=""
-              label="Date et heure :"
-              manageChange={changeField}
-              value={dateTime}
-            />
-            <p>{dateTimeError}</p>
+            <div className="createBlock">
+              <Field
+                name="name"
+                placeholder=""
+                label="Nom de la curiosET :"
+                manageChange={changeField}
+                value={name}
+              />
+              <p>{nameError}</p>
+            </div>
+
+            <div className="createBlock">
+              <Field
+                name="address"
+                placeholder=""
+                label="Adresse :"
+                manageChange={changeField}
+                value={address}
+              />
+              <p>{addressError}</p>
+            </div>
+            <div className="createBlock">
+              <Field
+                name="website"
+                placeholder=""
+                label="Site web :"
+                manageChange={changeField}
+                value={website}
+              />
+              <p>{websiteError}</p>
+            </div>
+
+            <div className="createBlock">
+              <Field
+                name="dateTime"
+                placeholder=""
+                label="Date et heure :"
+                manageChange={changeField}
+                value={dateTime}
+              />
+              <p>{dateTimeError}</p>
+            </div>
           </div>
 
           <div className="formColumn">
-            <TextAreaField
-              name="description"
-              placeholder="Votre description de l'évènement..."
-              rows="5"
-              label="Description :"
-              manageChange={changeField}
-              value={description}
-            />
-            <p>{descriptionError}</p>
-            <h3>Catégories :</h3>
-            <RadioField
-              id="artDeRue"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Art de rue"
-              value={1}
-            />
+            <div className="createBlock">
+              <TextAreaField
+                name="description"
+                placeholder="Votre description de l'évènement..."
+                rows="5"
+                label="Description :"
+                manageChange={changeField}
+                value={description}
+              />
+              <p>{descriptionError}</p>
+            </div>
+            <div className="createBlock">
+              <h3 className="radioTitle">Catégorie :</h3>
+              <RadioField
+                id="artDeRue"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Art de rue"
+                value={1}
+              />
+              <RadioField
+                id="musique"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Musique"
+                value={2}
+              />
+              <RadioField
+                id="expo"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Expo"
+                value={3}
+              />
+              <RadioField
+                id="theatre"
+                name={radioGroup}
+                manageChecked={changeChecking}
+                label="Théâtre"
+                value={4}
+              />
+              <p>{categoryError}</p>
+            </div>
 
-            <RadioField
-              id="musique"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Musique"
-              value={2}
-            />
-
-            <RadioField
-              id="expo"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Expo"
-              value={3}
-            />
-
-            <RadioField
-              id="theatre"
-              name={radioGroup}
-              manageChecked={changeChecking}
-              label="Théâtre"
-              value={4}
-            />
-            <p>{categoryError}</p>
-
-            <Field
-              name="price"
-              placeholder=""
-              type="number"
-              label="Prix :"
-              manageChange={changeField}
-              value={price}
-            />
-            <p>{priceError}</p>
-
+            <div className="createBlock">
+              <Field
+                name="price"
+                placeholder=""
+                type="number"
+                label="Prix :"
+                manageChange={changeField}
+                value={price}
+              />
+              <p>{priceError}</p>
+            </div>
           </div>
         </div>
         <SubmitButton
@@ -143,7 +156,7 @@ CreateEventForm.propTypes = {
   /** value for the address */
   address: PropTypes.string.isRequired,
   /** value for the website */
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
   /** value for the dateTime */
@@ -172,6 +185,7 @@ CreateEventForm.propTypes = {
 };
 
 CreateEventForm.defaultProps = {
+  website: '',
   nameError: '',
   addressError: '',
   websiteError: '',
