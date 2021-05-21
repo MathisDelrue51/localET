@@ -11,10 +11,14 @@
 
   .fieldInput::placeholder {
     color: vars.$mediumGrey;
-    font-size: 1.5rem;
+    font-size: vars.$textSmaller;
+
+    @media screen and (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
   }
 
   .fieldInput:focus {
-    border: 2px solid vars.$highlightColor;
+    border: vars.$borderThickness solid vars.$highlightColor;
   }
 }

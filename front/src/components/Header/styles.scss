@@ -47,9 +47,7 @@
       line-height: 1.4;
 
       // SMALL SIZE SCREEN
-      @media screen and (max-width: 480px) {
-        font-size: 1rem;
-      }
+      @media screen and (max-width: 480px) {}
     }
   }
 
@@ -154,9 +152,10 @@
   .navLink {
     color: vars.$highlightColor;
     padding-left: 1rem;
+    font-size: vars.$textSmaller;
 
     &:hover {
-      text-decoration: underline solid vars.$mainColor 2px;
+      text-decoration: underline solid vars.$mainColor vars.$borderThickness;
     }
 
     // MEDIUM SIZE SCREEN
@@ -167,13 +166,13 @@
 
     // SMALL SIZE SCREEN
     @media screen and (max-width: 480px) {
-      font-size: 1.8rem;
+      font-size: vars.$textMobile;
       padding: 2rem 0;
     }
   }
 
   .navLinkActive {
-    text-decoration: underline solid vars.$highlightColor 1px;
+    text-decoration: underline solid vars.$mainColor vars.$borderThickness;
   }
 
   .welcomeMessage {
@@ -185,7 +184,7 @@
 
     // MEDIUM SIZE SCREEN
     @media screen and (max-width: 480px) {
-      font-size: 1.8rem;
+      font-size: vars.$textMobile;
       padding: 2rem 0;
     }
   }
