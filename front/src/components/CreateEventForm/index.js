@@ -15,6 +15,13 @@ const CreateEventForm = ({
   dateTime,
   price,
   description,
+  nameError,
+  addressError,
+  websiteError,
+  dateTimeError,
+  priceError,
+  descriptionError,
+  categoryError,
   changeField,
   changeChecking,
   handleCreateEvent,
@@ -40,6 +47,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={name}
               />
+              <p>{nameError}</p>
             </div>
 
             <div className="createBlock">
@@ -50,6 +58,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={address}
               />
+              <p>{addressError}</p>
             </div>
             <div className="createBlock">
               <Field
@@ -59,6 +68,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={website}
               />
+              <p>{websiteError}</p>
             </div>
 
             <div className="createBlock">
@@ -69,6 +79,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={dateTime}
               />
+              <p>{dateTimeError}</p>
             </div>
           </div>
 
@@ -82,6 +93,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={description}
               />
+              <p>{descriptionError}</p>
             </div>
             <div className="createBlock">
               <h3 className="radioTitle">Catégorie :</h3>
@@ -92,7 +104,6 @@ const CreateEventForm = ({
                 label="Art de rue"
                 value={1}
               />
-  
               <RadioField
                 id="musique"
                 name={radioGroup}
@@ -100,7 +111,6 @@ const CreateEventForm = ({
                 label="Musique"
                 value={2}
               />
-  
               <RadioField
                 id="expo"
                 name={radioGroup}
@@ -108,7 +118,6 @@ const CreateEventForm = ({
                 label="Expo"
                 value={3}
               />
-  
               <RadioField
                 id="theatre"
                 name={radioGroup}
@@ -116,6 +125,7 @@ const CreateEventForm = ({
                 label="Théâtre"
                 value={4}
               />
+              <p>{categoryError}</p>
             </div>
 
             <div className="createBlock">
@@ -127,8 +137,8 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={price}
               />
+              <p>{priceError}</p>
             </div>
-
           </div>
         </div>
         <SubmitButton
@@ -153,6 +163,14 @@ CreateEventForm.propTypes = {
   price: PropTypes.string.isRequired,
   /** value for the description */
   description: PropTypes.string.isRequired,
+  /** value for the errors */
+  nameError: PropTypes.string,
+  addressError: PropTypes.string,
+  websiteError: PropTypes.string,
+  dateTimeError: PropTypes.string,
+  priceError: PropTypes.string,
+  descriptionError: PropTypes.string,
+  categoryError: PropTypes.string,
   /** called when onChange event is received by an input, two parameters :
    * - new value
    * - name
@@ -168,6 +186,13 @@ CreateEventForm.propTypes = {
 
 CreateEventForm.defaultProps = {
   website: '',
+  nameError: '',
+  addressError: '',
+  websiteError: '',
+  dateTimeError: '',
+  priceError: '',
+  descriptionError: '',
+  categoryError: '',
 };
 
 export default CreateEventForm;
