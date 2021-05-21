@@ -43,16 +43,6 @@ function authReducer(state = initialState, action) {
     case REMOVE_ERROR_REGISTER:
       return {
         ...state,
-        token: action.token,
-        pseudo: action.pseudo,
-        id: parseInt(action.id),
-        logged: Boolean(action.logged),
-      };
-    case FETCH_PROFILE_SUCCESS:
-      return {
-        ...state,
-        email: action.email,
-        profileList: action.profileList,
         errors: {
           ...state.errors,
           email: '',
@@ -113,18 +103,16 @@ function authReducer(state = initialState, action) {
         email: action.email,
         profileList: action.profileList,
       };
-    // This is what happens when the action REGISTER is fired :
-    // case REGISTER:
-    //   if (state.password && state.password2 && state.password2 !== state.password) {
-    //     return {
-    //       ...state,
-    //       errors: {
-    //         ...state.errors,
-    //         password2: 'Vos mots de passe ne correspondent pas',
-    //       },
-    //     };
-    //   }
-    //   break;
+      // case FETCH_PROFILE_SUCCESS:
+    //   return {
+    //     ...state,
+    //     email: action.email,
+    //     profileList: action.profileList,
+    //     token: action.token,
+    //     pseudo: action.pseudo,
+    //     id: parseInt(action.id),
+    //     logged: Boolean(action.logged),
+    //   };
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with

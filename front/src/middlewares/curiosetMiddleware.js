@@ -85,6 +85,18 @@ const curiosetMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.log(err.response.data);
+          const removeToDispatch = removeErrorEvent();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          while (n < err.response.data.length) {
+          console.log(err.response.data[n]);
+            const errorToDispatch = handleErrorEvent(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
     }
