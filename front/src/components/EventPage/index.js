@@ -5,6 +5,8 @@ import './styles.scss';
 import { NavLink } from 'react-router-dom';
 import SubmitButton from 'src/components/SubmitButton';
 
+import { MapPin, Calendar, DollarSign } from 'react-feather';
+
 const EventPage = ({
   name,
   type,
@@ -25,35 +27,47 @@ const EventPage = ({
   return (
     <div className="event">
       <NavLink to="/" className="link">
-        Retourner à l'accueil
+        Retourner sur la carte
       </NavLink>
-      <div className="eventPart">
+      <div className="eventTitle">
         <h1>{name}</h1>
         <h3>{type}</h3>
       </div>
 
-      <div className="eventPart">
-        <h2>Quoi ?</h2>
-        <p>{description}</p>
-        <a href={website}>Voir le site web</a>
-      </div>
-      <div className="eventPart eventLocation">
-        <h2>Où ?</h2>
-        <img src="#" alt="#" />
-        <p>{address}</p>
+     <div className="curiosetContainer">
+        <div className="eventPart">
+          <h2>Quoi ?</h2>
+          <p className="description">{description}</p>
+          <a href={website} id="website">{website}</a>      
+        </div>
+        <div className="curiosetDetails">
+          <div className="eventLocation">
+            <h2>Où ?</h2>
+            <div className="place">
+              <MapPin size={25} className="iconInfo" />
+              <p>{address}</p>
+            </div>  
+          </div>
+          <div className="eventDate">
+            <h2>Quand ?</h2>
+            <div className="date">
+              <Calendar size={25} className="iconInfo" />
+              <p>{dateTime}</p>
+            </div> 
+          </div>
+          <div className="price">
+            <h2>Combien ?</h2>
+            <div className="dollar">
+              <DollarSign size={25} className="iconInfo" />
+              <p>{price} </p>
+            </div>
+          </div>
+        
       </div>
 
-      <div className="eventPart eventDatePrice">
-        <div className="eventDate">
-          <h2>Quand ?</h2>
-          <p>{dateTime}</p>
-        </div>
-        <div className="eventDate">
-          <h2>Comment ?</h2>
-          <p>{price}</p>
-        </div>
-      </div>
-      <NavLink
+     </div> 
+    <div className="update_delete">
+       <NavLink
         to="/updateEvent"
         className="navLink"
         activeClassName="navLinkActive"
@@ -63,7 +77,7 @@ const EventPage = ({
       </NavLink>
       <NavLink
         to="/"
-        className="navLink"
+        className="navLink_delete"
         activeClassName="navLinkActive"
         exact
         onClick={handleDelete}
@@ -71,6 +85,7 @@ const EventPage = ({
         { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
       </NavLink>
     </div>
+   </div> 
   );
 };
 
