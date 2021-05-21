@@ -13,7 +13,7 @@ import './styles.scss';
 import LoginForm from 'src/containers/LoginForm';
 import NavLoggedIn from 'src/containers/NavLoggedIn';
 import NavLoggedOut from 'src/containers/NavLoggedOut';
-import logo from './localETlogo.png';
+import logo from 'src/assets/localETlogo.png';
 
 // Component
 const Header = ({ isLogged, openMenu, open, closeMenu }) => {

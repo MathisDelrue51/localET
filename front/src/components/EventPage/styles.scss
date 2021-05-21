@@ -1,23 +1,145 @@
-.profile {
-  height: 30vh;
-  margin: 5em auto;
-  font-size: 2rem;
+@use 'src/styles/vars';
+
+.event {
+  width: 100%;
+  font-size: vars.$text;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 480px) {
+    font-size: vars.$textMobile;
+  }
+  h1 {
+    font-size: vars.$mainTitle;
+    font-weight: bold;
+
+    @media (max-width: 480px) {
+      font-size: vars.$mainTitleMobile;
+    }
+  }
+  h2 {
+    font-size: vars.$secondaryTitle;
+    font-weight: bold;
+    padding-bottom: 1rem;
+
+    @media (max-width: 480px) {
+      font-size: vars.$secondaryTitleMobile;
+    }
+  }
+  h3 {
+    font-size: vars.$text;
+    padding-top: 1rem;
+    color: vars.$mainColor;
+
+    @media (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
+  }
+  p,a {
+    font-size: vars.$text;
+    @media (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
+  }
+  
+}
+
+.link {
+  color: vars.$highlightColor;
+  text-align: left;
+}
+
+.eventTitle {
+  text-align: center;
+  padding: 1.5rem;
+ 
+}
+
+.eventPart, .eventLocation, .eventDate, .price {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.curiosetContainer {
+  display: flex;
+  flex-direction: row;
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.curiosetDetails {
+  display: flex;
+  flex-direction: column;
+   
 }
 
 .eventPart {
-  padding: 2rem;
+  width: 65%;
+  text-align: justify;
 
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-
-  h3 {
-    font-size: 0.8rem;
+  @media (max-width: 480px) {
+    width: 100%;
   }
 }
+
+.description {
+  padding-bottom: 2.5rem;
+}
+
+#website {
+  color: vars.$highlightColor;
+  
+}
+
+.place, .date, .dollar {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  padding: 0.5rem 0;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    padding-bottom: 0.8rem;
+  }
+}
+
+.navLink {
+  padding: 1rem;
+  
+}
+
+.update_delete {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.navLink_delete {
+ .submit {
+  &__button {
+    padding: 0.7em;
+    color: vars.$white;
+    border: 1px solid transparent;
+    border-radius: vars.$borderRadius;
+    background-color: vars.$mainColorLighter;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: vars.$mainColor;
+    }
+  }
+ }
+
+}
+
+
+
+
+
+
+
+

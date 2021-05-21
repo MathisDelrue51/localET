@@ -1,5 +1,5 @@
 const User = require("../models/user");
-
+const bcrypt = require('bcrypt');
 const generateAccessToken = require('../middlewares/generateAccessToken');
 
 const authController = {
@@ -12,13 +12,15 @@ const authController = {
             const user = await User.findByEmail(req.body.email);
 
             //If user is null it means the email is not regsitered in the database and it throws an error
-            if (user === null){
+            if (!user){
                 console.log("pas d'email correspondant");
                 throw new Error(`no user with email ${req.body.email}`);
             }
 
+            const isPasswordValid = bcrypt.compareSync(req.body.password, user.password);
+
             //If password doesn't match it throws an error
-            if (user.password !== req.body.password) {
+            if (!isPasswordValid) {
                 console.log('Mauvais mot de passe')
                 throw new Error(`Wrong password`);                
             }
