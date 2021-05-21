@@ -1,3 +1,4 @@
+import { number } from 'prop-types';
 import {
   UPDATE_EVENT_FIELD,
   UPDATE_RADIO_OPTION,
@@ -23,7 +24,7 @@ const initialState = {
   dateTime: '',
 
   // price of event
-  price: '',
+  price: 0,
 
   // description
   description: '',
@@ -41,6 +42,9 @@ const initialState = {
   // id received from DB
   idEvent: null,
 
+  // id of user who created the event
+  idEventAuthor: null,
+  
   errors: {
     name: '',
     address: '',
@@ -156,13 +160,15 @@ function curiosetReducer(state = initialState, action) {
         website: action.data.website,
         dateTime: action.data.agenda,
         description: action.data.description,
-        price: action.data.price,
+        price: parseInt(action.data.price, number),
         category: action.data.category_id,
         type: action.data.type,
         longitude: action.data.longitude,
         latitude: action.data.latitude,
         idEvent: action.data.id,
+        idEventAuthor: action.data.user_id,
       };
+
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_EVENT_FIELD:
 
@@ -222,10 +228,10 @@ function curiosetReducer(state = initialState, action) {
       return {
         ...state,
         longitude: action.longitude,
-        latitude: action.latitude,
+          latitude: action.latitude,
       };
 
-    // This is what happens when the action SAVE_ID is fired :
+      // This is what happens when the action SAVE_ID is fired :
     case SAVE_ID:
       return {
         ...state,

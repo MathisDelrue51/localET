@@ -36,25 +36,25 @@ const Map = ({
     iconUrl: streetArt,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconMu = new Leaflet.Icon({
     iconUrl: music,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconEx = new Leaflet.Icon({
     iconUrl: expo,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconTh = new Leaflet.Icon({
     iconUrl: theater,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   return (
 

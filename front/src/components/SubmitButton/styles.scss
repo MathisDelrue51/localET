@@ -7,7 +7,7 @@
     border: 1px solid transparent;
     border-radius: vars.$borderRadius;
     background-color: vars.$highlightColor;
-    font-size: 0.9rem;
+    font-size: vars.$text;
 
     &:hover {
       background-color: vars.$highlightColorDarker;

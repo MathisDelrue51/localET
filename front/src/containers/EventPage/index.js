@@ -18,6 +18,8 @@ const mapStateToProps = (state) => ({
   latitude: state.curioset.latitude,
   idEvent: state.curioset.id,
   isLogged: state.auth.logged,
+  idEventAuthor: state.curioset.idEventAuthor,
+  idUser: state.auth.id,
 });
 
 // === mapDispatchToProps

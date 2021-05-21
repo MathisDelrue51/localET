@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
 import { NavLink } from 'react-router-dom';
-import SubmitButton from 'src/components/SubmitButton'
+import SubmitButton from 'src/components/SubmitButton';
 
 const EventPage = ({
   name,
@@ -13,8 +13,8 @@ const EventPage = ({
   address,
   dateTime,
   price,
-  longitude,
-  latitude,
+  idEventAuthor,
+  idUser,
   isLogged,
   handleDelete,
   fetchEvent,
@@ -22,7 +22,7 @@ const EventPage = ({
   useEffect(() => {
     fetchEvent();
   }, []);
-  return(
+  return (
     <div className="event">
       <NavLink to="/" className="link">
         Retourner à l'accueil
@@ -59,7 +59,7 @@ const EventPage = ({
         activeClassName="navLinkActive"
         exact
       >
-        { isLogged && <SubmitButton buttonName="Modifier" className="h" />}
+        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="h" />}
       </NavLink>
       <NavLink
         to="/"
@@ -68,7 +68,7 @@ const EventPage = ({
         exact
         onClick={handleDelete}
       >
-        { isLogged && <SubmitButton buttonName="Supprimer" />}
+        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
       </NavLink>
     </div>
   );
@@ -78,19 +78,21 @@ EventPage.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   address: PropTypes.string.isRequired,
   dateTime: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  longitude: PropTypes.number,
-  latitude: PropTypes.number,
   isLogged: PropTypes.bool.isRequired,
   handleDelete: PropTypes.func.isRequired,
+  idEventAuthor: PropTypes.number.isRequired,
+  idUser: PropTypes.number.isRequired,
+  fetchEvent: PropTypes.func.isRequired,
 };
 
 EventPage.defaultProps = {
   longitude: 0,
   latitude: 0,
+  website: '',
 };
 
 export default EventPage;

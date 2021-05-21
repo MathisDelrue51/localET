@@ -43,6 +43,16 @@ function authReducer(state = initialState, action) {
     case REMOVE_ERROR_REGISTER:
       return {
         ...state,
+        token: action.token,
+        pseudo: action.pseudo,
+        id: parseInt(action.id),
+        logged: Boolean(action.logged),
+      };
+    case FETCH_PROFILE_SUCCESS:
+      return {
+        ...state,
+        email: action.email,
+        profileList: action.profileList,
         errors: {
           ...state.errors,
           email: '',
