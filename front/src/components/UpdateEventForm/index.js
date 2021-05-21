@@ -28,10 +28,11 @@ const UpdateEventForm = ({
 
   return (
     <div className="updateEvent">
+      <h1 className="updateTitle">Modifier votre CuriosET</h1>
       <form onSubmit={handleSubmit}>
         <div className="updateEventForm">
           <div className="formColumn">
-            <block className="updateBlock">
+            <div className="updateBlock">
               <Field
                 name="name"
                 placeholder=""
@@ -40,9 +41,9 @@ const UpdateEventForm = ({
                 value={name}
               />
               <p></p>
-            </block>
+            </div>
 
-            <block className="updateBlock">
+            <div className="updateBlock">
               <Field
                 name="address"
                 placeholder=""
@@ -51,9 +52,9 @@ const UpdateEventForm = ({
                 value={address}
               />
               <p></p>
-            </block>
+            </div>
 
-            <block className="updateBlock">
+            <div className="updateBlock">
               <Field
                 name="website"
                 placeholder=""
@@ -62,9 +63,9 @@ const UpdateEventForm = ({
                 value={website}
               />
               <p></p>
-            </block>
+            </div>
 
-            <block className="updateBlock">
+            <div className="updateBlock">
               <Field
                 name="dateTime"
                 placeholder=""
@@ -72,12 +73,12 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={dateTime}
               />
-               <p></p>
-            </block>
+              <p></p>
+            </div>
           </div>
 
           <div className="formColumn">
-            <block className="updateBlock">
+            <div className="updateBlock">
               <TextAreaField
                 name="description"
                 placeholder="Votre description de l'évènement..."
@@ -87,10 +88,10 @@ const UpdateEventForm = ({
                 value={description}
               />
               <p></p>
-            </block>
+            </div>
 
-            <block className="updateBlock">
-              <h3>Catégories :</h3>
+            <div className="updateBlock">
+              <h3 className="radioTitle">Catégorie :</h3>
               <RadioField
                 id="artDeRue"
                 name={radioGroup}
@@ -119,10 +120,10 @@ const UpdateEventForm = ({
                 label="Théâtre"
                 value={4}
               />
-               <p></p>
-            </block>
+              <p></p>
+            </div>
 
-            <block className="updateBlock">
+            <div className="updateBlock">
               <Field
                 name="price"
                 placeholder=""
@@ -131,7 +132,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={price}
               />
-            </block>
+            </div>
 
           </div>
         </div>
@@ -150,7 +151,7 @@ UpdateEventForm.propTypes = {
   /** value for the address */
   address: PropTypes.string.isRequired,
   /** value for the website */
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
   /** value for the dateTime */
@@ -168,6 +169,10 @@ UpdateEventForm.propTypes = {
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
   handleUpdateEvent: PropTypes.func.isRequired,
+};
+
+UpdateEventForm.defaultProps = {
+  website: '',
 };
 
 export default UpdateEventForm;

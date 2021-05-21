@@ -28,6 +28,7 @@ const CreateEventForm = ({
 
   return (
     <div className="createEvent">
+      <h1 className="createTitle">Créer une CuriosET</h1>
       <form onSubmit={handleSubmit}>
         <div className="createEventForm">
           <div className="formColumn">
@@ -83,7 +84,7 @@ const CreateEventForm = ({
               />
             </div>
             <div className="createBlock">
-              <h3>Catégories :</h3>
+              <h3 className="radioTitle">Catégorie :</h3>
               <RadioField
                 id="artDeRue"
                 name={radioGroup}
@@ -145,7 +146,7 @@ CreateEventForm.propTypes = {
   /** value for the address */
   address: PropTypes.string.isRequired,
   /** value for the website */
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   /** value for the dateTime */
   dateTime: PropTypes.string.isRequired,
   /** value for the dateTime */
@@ -163,6 +164,10 @@ CreateEventForm.propTypes = {
   changeChecking: PropTypes.func.isRequired,
   /** called when the form is submitted */
   handleCreateEvent: PropTypes.func.isRequired,
+};
+
+CreateEventForm.defaultProps = {
+  website: '',
 };
 
 export default CreateEventForm;
