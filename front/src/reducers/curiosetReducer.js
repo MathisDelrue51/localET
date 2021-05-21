@@ -41,6 +41,9 @@ const initialState = {
   // id received from DB
   idEvent: null,
 
+  // id of user who created the event
+  idEventAuthor: null,
+  
   errors: {
     name: '',
     address: '',
@@ -162,7 +165,9 @@ function curiosetReducer(state = initialState, action) {
         longitude: action.data.longitude,
         latitude: action.data.latitude,
         idEvent: action.data.id,
+        idEventAuthor: action.data.user_id,
       };
+
     // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_EVENT_FIELD:
 

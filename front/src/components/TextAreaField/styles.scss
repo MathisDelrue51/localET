@@ -13,7 +13,7 @@
 
   .fieldInput::placeholder {
     color: vars.$mediumGrey;
-    font-size: 0.9rem;
+    font-size: vars.$textSmaller;
   }
 
   .fieldInput:focus {
