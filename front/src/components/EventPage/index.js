@@ -4,11 +4,8 @@ import './styles.scss';
 
 import { NavLink } from 'react-router-dom';
 import SubmitButton from 'src/components/SubmitButton';
-<<<<<<< HEAD
 
 import { MapPin, Calendar, DollarSign } from 'react-feather';
-=======
->>>>>>> dbdd15fd4e2253d7cc87906a0885dc7347e0a7c8
 
 const EventPage = ({
   name,
@@ -88,6 +85,7 @@ const EventPage = ({
         { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
       </NavLink>
     </div>
+   </div> 
   );
 };
 
