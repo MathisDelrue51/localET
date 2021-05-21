@@ -14,6 +14,8 @@ import {
   MapContainer, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 
+import { MapPin } from 'react-feather';
+
 import streetArt from 'src/assets/icons/icons-1-neg.svg';
 import music from 'src/assets/icons/icons-2-neg.svg';
 import expo from 'src/assets/icons/icons-3-neg.svg';
@@ -34,25 +36,25 @@ const Map = ({
     iconUrl: streetArt,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconMu = new Leaflet.Icon({
     iconUrl: music,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconEx = new Leaflet.Icon({
     iconUrl: expo,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   const iconTh = new Leaflet.Icon({
     iconUrl: theater,
     iconSize: [32, 32],
     shadowUrl: shadow,
-    shadowSize: [40, 40],
+    shadowSize: [39, 39],
   });
   return (
 
@@ -60,15 +62,22 @@ const Map = ({
       <div className="searchBar">
         <SearchBar placeholder="Cherchez une ville..." />
       </div>
+
       {isLogged && <CreateEventButton />}
+
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          className="mapCopyright"
         />
         { list.map((elmt) => {
           const path = `/curiosET/${elmt.id}`;
+
+          const popupTitle = ((elmt.title).length > 20) ? `${(elmt.title).slice(0, 20)}...` : elmt.title;
+          const popupDescription = ((elmt.description).length > 100) ? `${(elmt.description).slice(0, 100)}...` : elmt.description;
+
           if (elmt.category_id === 1) {
             return (
               <Marker
@@ -83,19 +92,15 @@ const Map = ({
               >
                 <Popup>
                   <div className="popup">
-                    <div className="title">{elmt.title}</div>
-                    <br />
-                    {elmt.address}
-                    <br />
-                    {elmt.description}
-                    <br />
+                    <div className="popupTitle">{popupTitle}</div>
+                    <div className="popupAddress"><MapPin size={12}  className="addressIcon"/>{elmt.address}</div>
+                    <div className="popupDescription">{popupDescription}</div>
                     <NavLink
                       to={path}
                       className="navLinkMap"
-                      activeClassName="navLinkActive"
                       exact
                     >
-                      <button type="button" onClick={handleClick}>Page complète de l'event...</button>
+                      <button type="button" onClick={handleClick} className="popupButton">Voir la curiosET...</button>
                     </NavLink>
                   </div>
                 </Popup>
@@ -116,19 +121,15 @@ const Map = ({
               >
                 <Popup>
                   <div className="popup">
-                    <div className="title">{elmt.title}</div>
-                    <br />
-                    {elmt.address}
-                    <br />
-                    {elmt.description}
-                    <br />
+                    <div className="popupTitle">{popupTitle}</div>
+                    <div className="popupAddress"><MapPin size={12} className="addressIcon" />{elmt.address}</div>
+                    <div className="popupDescription">{popupDescription}</div>
                     <NavLink
                       to={path}
                       className="navLinkMap"
-                      activeClassName="navLinkActive"
                       exact
                     >
-                      <button type="button" onClick={handleClick}>Page complète de l'event...</button>
+                      <button type="button" onClick={handleClick} className="popupButton">Voir la curiosET...</button>
                     </NavLink>
                   </div>
                 </Popup>
@@ -149,19 +150,15 @@ const Map = ({
               >
                 <Popup>
                   <div className="popup">
-                    <div className="title">{elmt.title}</div>
-                    <br />
-                    {elmt.address}
-                    <br />
-                    {elmt.description}
-                    <br />
+                    <div className="popupTitle">{popupTitle}</div>
+                    <div className="popupAddress"><MapPin size={12} className="addressIcon" />{elmt.address}</div>
+                    <div className="popupDescription">{popupDescription}</div>
                     <NavLink
                       to={path}
                       className="navLinkMap"
-                      activeClassName="navLinkActive"
                       exact
                     >
-                      <button type="button" onClick={handleClick}>Page complète de l'event...</button>
+                      <button type="button" onClick={handleClick} className="popupButton">Voir la curiosET...</button>
                     </NavLink>
                   </div>
                 </Popup>
@@ -182,19 +179,15 @@ const Map = ({
               >
                 <Popup>
                   <div className="popup">
-                    <div className="title">{elmt.title}</div>
-                    <br />
-                    {elmt.address}
-                    <br />
-                    {elmt.description}
-                    <br />
+                    <div className="popupTitle">{popupTitle}</div>
+                    <div className="popupAddress"><MapPin size={12} className="addressIcon" />{elmt.address}</div>
+                    <div className="popupDescription">{popupDescription}</div>
                     <NavLink
                       to={path}
                       className="navLinkMap"
-                      activeClassName="navLinkActive"
                       exact
                     >
-                      <button type="button" onClick={handleClick}>Page complète de l'event...</button>
+                      <button type="button" onClick={handleClick} className="popupButton">Voir la curiosET...</button>
                     </NavLink>
                   </div>
                 </Popup>
@@ -214,6 +207,8 @@ Map.propTypes = {
   latitude: PropTypes.number.isRequired,
   zoom: PropTypes.number.isRequired,
   isLogged: PropTypes.bool.isRequired,
+  saveId: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Map;

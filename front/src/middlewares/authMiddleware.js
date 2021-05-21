@@ -7,6 +7,8 @@ import {
   LOG_OUT,
   FETCH_PROFILE,
   fetchProfileSuccess,
+  removeErrorRegister,
+  handleErrorRegister,
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -64,6 +66,24 @@ const authMiddleware = (store) => (next) => (action) => {
         })
         .catch((err) => {
           console.log(err.response.data);
+          const removeToDispatch = removeErrorRegister();
+          store.dispatch(removeToDispatch);
+          let n = 0;
+          if (auth.password && auth.password2 && auth.password2 !== auth.password) {
+            const errorToDispatch = handleErrorRegister(
+              'password2',
+              'Vos mots de passe ne correspondent pas',
+            );
+            store.dispatch(errorToDispatch);
+          }
+          while (n < err.response.data.length) {
+            const errorToDispatch = handleErrorRegister(
+              err.response.data[n].path[0],
+              err.response.data[n].message,
+            );
+            store.dispatch(errorToDispatch);
+            n += 1;
+          }
           console.error('ceci est mon erreur', err);
         });
       break;
@@ -91,10 +111,10 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.id,
           );
 
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('pseudo', response.data.pseudo);
-          localStorage.setItem('logged', response.data.logged);
-          localStorage.setItem('id', response.data.id);
+         localStorage.setItem('token', response.data.token);
+         localStorage.setItem('pseudo', response.data.pseudo);
+         localStorage.setItem('id', response.data.id);
+         localStorage.setItem('logged', response.data.logged);
 
           console.log('Je viens de changer le state et je push la redirection');
 

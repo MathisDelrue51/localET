@@ -36,6 +36,7 @@ const NavLoggedIn = ({
       >
         Déconnexion
       </NavLink>
+
     </nav>
   );
 };

@@ -21,6 +21,8 @@ const RadioField = ({
     console.log(evt);
     console.log('ma catégorie :', category);
   };
+  console.log('Radio field');
+  console.log(value);
 
   return (
     <div className="radioField">
@@ -45,6 +47,8 @@ RadioField.propTypes = {
   value: PropTypes.number.isRequired,
   /** text used as name for the input (and also used as id, with a prefix) */
   name: PropTypes.string.isRequired,
+  /** category_id */
+  category: PropTypes.number.isRequired,
   /** text used as label */
   label: PropTypes.string.isRequired,
   /** text used as common identifier for all radio buttons belongin to the

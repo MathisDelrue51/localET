@@ -1,13 +1,62 @@
+@use 'src/styles/vars';
+
 .createEventForm {
+  margin: 1.4em auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  .createBlock {
+    margin-bottom: 1em;
+    .field {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 1rem;
+      width: 500px;
+      label {
+        align-self: flex-start;
+        margin: 0.2em 0;
+        font-weight: bold;
+      }
+    }
+    .radioTitle {
+      font-weight: bold;
+      margin: 0.2em 0;
+    }
+  }
+}
 
-  .field {
+.createTitle {
+  margin-top: 1em;
+  font-size: vars.$mainTitle;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  
+  .createEventForm {
+    font-size: vars.$textMobile;
     display: flex;
-    flex-direction: column-reverse;
-    padding: 1rem;
-    width: 500px;
-    margin: auto;
+    flex-direction: column;
+    .createBlock {
+      .field {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 400px;
+      }
+    }
+  }
+  .createTitle {
+    font-size: vars.$mainTitleMobile;
+  }
+}
+
+form {
+  margin: 1.5em auto 2em auto;
+  p {
+    font-style: italic;
+    color: vars.$mainColor;
+    font-size: vars.$extraSmallText;
   }
 
 }
+

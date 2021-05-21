@@ -1,13 +1,55 @@
+@use 'src/styles/vars';
+
 .updateEventForm {
+  margin: 1.4em auto;
   display: flex;
   flex-direction: row;
-
-  .field {
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 1rem;
-    width: 500px;
-    margin: auto;
+  justify-content: space-evenly;
+  .updateBlock {
+    margin-bottom: 1em;
+    .field {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 1rem;
+      width: 500px;
+      label {
+        align-self: flex-start;
+        margin: 0.2em 0;
+        font-weight: bold;
+      }
+    }
+    .radioTitle {
+      font-weight: bold;
+      margin-bottom: 0.2em;
+    } 
   }
+}
 
+.updateTitle {
+  margin-top: 1em;
+  font-size: vars.$mainTitle;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  
+  .updateEventForm {
+    font-size: vars.$textMobile;
+    display: flex;
+    flex-direction: column;
+    .updateBlock {
+      .field {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 400px;
+      }
+    }
+  }
+  .updateTitle {
+    font-size: vars.$mainTitleMobile;
+  }
+}
+
+form {
+  margin: 1.5em auto 2em auto;
 }

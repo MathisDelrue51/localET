@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {deleteEvent} from 'src/actions/curioset';
+import { deleteEvent, fetchEvent } from 'src/actions/curioset';
 
 import EventPage from 'src/components/EventPage';
 
@@ -18,6 +18,8 @@ const mapStateToProps = (state) => ({
   latitude: state.curioset.latitude,
   idEvent: state.curioset.id,
   isLogged: state.auth.logged,
+  idEventAuthor: state.curioset.idEventAuthor,
+  idUser: state.auth.id,
 });
 
 // === mapDispatchToProps
@@ -25,6 +27,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   handleDelete: () => {
     dispatch(deleteEvent());
+  },
+  fetchEvent: () => {
+    fetchEvent();
   },
 });
 

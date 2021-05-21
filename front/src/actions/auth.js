@@ -12,13 +12,25 @@ export const FETCH_PROFILE = 'FETCH_PROFILE';
 
 export const FETCH_PROFILE_SUCCESS = 'FETCH_PROFILE_SUCCESS';
 
-export const FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR';
-
 export const TOGGLE_OPEN_MENU = 'TOGGLE_OPEN_MENU';
 
 export const TOGGLE_CLOSE_MENU = 'TOGGLE_CLOSE_MENU';
 
 export const SAVE_USER_BROWSER = 'SAVE_USER_BROWSER';
+
+export const HANDLE_ERROR_REGISTER = 'HANDLE_ERROR_REGISTER';
+
+export const REMOVE_ERROR_REGISTER = 'REMOVE_ERROR_REGISTER';
+
+export const removeErrorRegister = () => ({
+  type: REMOVE_ERROR_REGISTER,
+});
+
+export const handleErrorRegister = (path, message) => ({
+  type: HANDLE_ERROR_REGISTER,
+  path,
+  message,
+});
 
 // action to save token in state when refresh happens
 export const saveUserBrowser = (token, pseudo, id, logged) => ({

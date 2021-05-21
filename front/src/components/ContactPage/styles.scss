@@ -1,0 +1,98 @@
+@use 'src/styles/vars';
+
+.container {
+  width: 100%;
+  font-size: vars.$text;
+
+  @media (max-width: 480px) {
+    font-size: vars.$textMobile;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: vars.$mainTitle;
+  margin: 1.5rem 0;
+
+  @media (max-width: 480px) {
+    font-size: vars.$mainTitleMobile;
+  }
+}
+
+.team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  width: 55%;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+}
+
+.dev {
+  flex: 50%;
+  display: flex;
+  flex-direction: row;
+  margin: 2rem auto;
+
+  @media (max-width: 480px) {
+    flex: 100%;
+  }
+}
+
+.picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+}
+
+.devIcon {
+  color: vars.$mainColor;
+  margin-right: 0.2rem;
+}
+
+.devInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0.5rem;
+}
+
+.devName {
+  font-weight: bold;
+  font-size: vars.$secondaryTitle;
+  margin: 0.3rem 0;
+
+  @media (max-width: 480px) {
+    font-size: vars.$secondaryTitleMobile;
+  }
+}
+
+.devRole {
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.externalLink {
+  color: vars.$highlightColor;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

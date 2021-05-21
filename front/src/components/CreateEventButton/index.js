@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
- 
+
+import { PlusCircle } from 'react-feather';
+
 const CreateEventButton = () => (
   <NavLink
     to="/createEvent"
@@ -9,7 +11,7 @@ const CreateEventButton = () => (
     activeClassName="navLinkActive"
     exact
   >
-    <div className="addCuriosLink__plus">+</div>
+    <PlusCircle size={40} className="addCuriosLink__plus" />
     <div className="addCuriosLink__text">Créer une CuriosET</div>
   </NavLink>
 );
