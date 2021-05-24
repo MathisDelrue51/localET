@@ -9,11 +9,11 @@ const userController = {
     oneUserById: async (req, res) => {
         const authHeader = req.headers['authorization'];
         const token = authHeader && authHeader.split(' ')[1];
-        
+
         const decoded = jwt.decode(token)
 
         try {
-            //Verify if the email found in the token correspond to one in the db. 
+            //Verify if the email found in the token correspond to one in the db.
             //If yes, compare the id to the id in the request
             const user = await User.findByEmail(decoded.email);
             if (user) {
@@ -42,6 +42,7 @@ const userController = {
 
     // POST /signup
     newUser: async (req, res) => {
+        const errorDetails = [];
         try {
             // We call the the function findByEmail as req.body.email to check if this email exists in db
             const newEmail = await User.findByEmail(req.body.email);
@@ -52,7 +53,7 @@ const userController = {
                 const newPseudo = await User.findByPseudo(req.body.pseudo);
                 if (newPseudo === null) {
 
-                    //The password is encrypted 
+                    //The password is encrypted
                     const encryptedPassword = bcrypt.hashSync(req.body.password, 10);
 
                     const theNewUser = new User({
@@ -66,20 +67,25 @@ const userController = {
                     res.status(201).json(theNewUser.email);
 
                 } else {
-
-                    console.log('pseudo déjà existant');
+                    errorDetails.push({
+                        message:`Ce pseudo est déjà utilisé`,
+                        path:["pseudo"]
+                    });
                     throw new Error(`Pseudo already exists`);
 
                 }
 
-            } else {
-
-                console.log('email déjà existant');
+            } else {              
+                errorDetails.push({
+                    message:`Ce mail est déjà utilisé`,
+                    path:["email"]
+                });
                 throw new Error(`Email already exists`);
             }
+            
 
         } catch (err) {
-            res.status(403).json(err.toString());
+            res.status(403).json(errorDetails);
         }
     }
 
