@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen } from 'react-feather';
+import { HelpCircle } from 'react-feather';
 
 import streetArt from 'src/assets/icons/icons-1-neg.svg';
 import music from 'src/assets/icons/icons-2-neg.svg';
@@ -8,13 +8,11 @@ import theater from 'src/assets/icons/icons-4-neg.svg';
 
 import './styles.scss';
 
-const MapLegend = ({ legendOpen }) => {
-  const isOpen = { legendOpen } ? 'legendOpen' : 'legendClosed';
+const MapLegend = ({ openLegend, handleOpen }) => {
+  const isOpen = { openLegend } ? '' : 'legendClosed';
+  const buttonOpen = !{ openLegend } ? 'legendButton' : 'legendButton--closed';
   return (
     <div className="mapLegend">
-      <div className="openLegend">
-        <BookOpen />
-      </div>
       <div className={isOpen}>
         <div className="mapLegend__type">
           <img src={streetArt} alt="Logo street art" className="legendImg" />
@@ -32,6 +30,9 @@ const MapLegend = ({ legendOpen }) => {
           <img src={theater} alt="Logo Théâtre" />
           Théâtre
         </p>
+      </div>
+      <div className={buttonOpen}>
+        <HelpCircle onClick={handleOpen} size={40} color="white" />
       </div>
     </div>
   );

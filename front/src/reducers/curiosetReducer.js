@@ -8,6 +8,7 @@ import {
   SAVE_ID,
   HANDLE_ERROR_EVENT,
   REMOVE_ERROR_EVENT,
+  EMPTY_EVENT_STATE,
 } from '../actions/curioset';
 
 const initialState = {
@@ -44,7 +45,7 @@ const initialState = {
 
   // id of user who created the event
   idEventAuthor: null,
-  
+
   errors: {
     name: '',
     address: '',
@@ -59,6 +60,22 @@ const initialState = {
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
+    case EMPTY_EVENT_STATE:
+      return {
+        ...state,
+        name: '',
+        address: '',
+        website: '',
+        dateTime: '',
+        price: '',
+        description: '',
+        category: '',
+        type: '',
+        longitude: '',
+        latitude: '',
+        idEvent: '',
+        idEventAuthor: '',
+      };
     case REMOVE_ERROR_EVENT:
       return {
         ...state,
@@ -228,7 +245,7 @@ function curiosetReducer(state = initialState, action) {
       return {
         ...state,
         longitude: action.longitude,
-          latitude: action.latitude,
+        latitude: action.latitude,
       };
 
       // This is what happens when the action SAVE_ID is fired :

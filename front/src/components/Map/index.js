@@ -8,7 +8,7 @@ import './styles.scss';
 import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
 import CreateEventButton from 'src/components/CreateEventButton';
-import MapLegend from 'src/components/MapLegend';
+import MapLegend from 'src/containers/MapLegend';
 
 import Leaflet from 'leaflet';
 import {

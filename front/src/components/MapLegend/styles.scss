@@ -17,4 +17,14 @@
     }
     
   }
+  .legendButton {
+    &--closed {
+      height: 45px;
+    }
+  }
+}
+
+
+.legendClosed {
+  display: none;
 }

@@ -1,16 +1,16 @@
 import { connect } from 'react-redux';
 import MapLegend from 'src/components/MapLegend';
+import { openLegendMap } from 'src/actions/map';
 
 const mapStateToProps = (state) => ({
-  list: state.map.list,
-  longitude: state.map.longitude,
-  latitude: state.map.latitude,
-  zoom: state.map.zoom,
-  isLogged: state.auth.logged,
+  openLegend: state.map.openLegend,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  
+  handleOpen: () => {
+    console.log("J'ai cliqué sur le bouton");
+    dispatch(openLegendMap());
+  },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(MapLegend);

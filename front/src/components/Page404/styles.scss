@@ -1,0 +1,131 @@
+@use 'src/styles/vars';
+
+.wrapper404 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+
+  .message404Title {
+    font-size: vars.$mainTitle*2;
+    color: vars.$mainColor;
+    font-weight: bold;
+  }
+
+  .message404Text {
+    font-size: vars.$text;
+    padding-bottom: 1.5rem;
+
+  }
+
+  .face {
+    background-image: url("src/assets/404/localET-404-11.svg");
+    position: relative;
+    height: 200px;
+    width: 158px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 140px;
+      width: 80px;
+      height: 40px;
+      background: vars.$white;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      transition: 0.5s;
+    }
+
+    &:hover::before {
+      top: 140px;
+      width: 40px;
+      height: 40px;
+      background: vars.$white;
+      border-radius: 50%;
+
+    }
+
+    .eyes {
+      position: relative;
+      top: 0;
+      display: flex;
+
+      .eye {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: block;
+        background: vars.$white;
+        margin: 0 15px;
+        border-radius: 50%;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 12px;
+          transform: translate(-50%, -50%);
+          width: 20px;
+          height: 20px;
+          background: vars.$highlightColor;
+          border-radius: 50%;
+          transition: 0.5s;
+        }
+      }
+    }
+
+  }
+
+  .message404:hover~.face {
+    .eyes {
+
+      .eye::before {
+        top: 33%;
+        left: 18px;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background: vars.$highlightColor;
+        border-radius: 50%;
+
+      }
+    }
+  }
+
+  .navLinkHome {
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    .link {
+      color: vars.$highlightColor;
+      font-size: vars.$text;
+
+      &:hover {
+        text-decoration: underline solid vars.$mainColor vars.$borderThickness;
+      }
+    }
+
+    // THIS BIT OF CSS DOESN'T WORK AND I DON'T KNOW WHY :
+    &:hover~.face {
+      .eyes {
+
+        .eye::before {
+          top: 33%;
+          left: 18px;
+          transform: translate(-50%, -50%);
+          width: 20px;
+          height: 20px;
+          background: vars.$highlightColor;
+          border-radius: 50%;
+
+        }
+      }
+    }
+  }
+
+}

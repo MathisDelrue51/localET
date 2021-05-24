@@ -1,5 +1,5 @@
 import {
-  FETCH_CURIOSETS_SUCCESS, UPDATE_ADDRESS_FIELD, SUBMIT_SEARCH_SUCCESS, OPEN_LEGEND,
+  FETCH_CURIOSETS_SUCCESS, UPDATE_ADDRESS_FIELD, SUBMIT_SEARCH_SUCCESS, OPEN_LEGEND_MAP,
 } from 'src/actions/map';
 
 export const initialState = {
@@ -13,9 +13,10 @@ export const initialState = {
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
-    case OPEN_LEGEND:
+    case OPEN_LEGEND_MAP:
       return {
-        ...currentState
+        ...currentState,
+        openLegend: !currentState.openLegend,
       };
     case UPDATE_ADDRESS_FIELD:
       return {

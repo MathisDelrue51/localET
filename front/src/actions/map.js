@@ -5,11 +5,11 @@ export const UPDATE_ADDRESS_FIELD = 'UPDATE_ADDRESS_FIELD';
 export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
 export const SUBMIT_SEARCH_SUCCESS = 'SUBMIT_SEARCH_SUCCESS';
 export const SUBMIT_SEARCH_ERROR = 'SUBMIT_SEARCH_ERROR';
-export const OPEN_LEGEND = 'OPEN_LEGEND';
+export const OPEN_LEGEND_MAP = 'OPEN_LEGEND_MAP';
 
 // action to open map legend
-export const openLegend = () => ({
-  type: OPEN_LEGEND,
+export const openLegendMap = () => ({
+  type: OPEN_LEGEND_MAP,
 });
 
 // action in case search fails
