@@ -92,7 +92,7 @@ function authReducer(state = initialState, action) {
         ...state,
         token: action.token,
         pseudo: action.pseudo,
-        id: action.id,
+        id: parseInt(action.id),
         logged: Boolean(action.logged),
       };
     case FETCH_PROFILE_SUCCESS:
@@ -108,7 +108,7 @@ function authReducer(state = initialState, action) {
       if (action.fieldName === 'email') {
         return {
           ...state,
-          email: action.newValue,
+          email: action.newValue.toLowerCase(),
         };
       }
 
