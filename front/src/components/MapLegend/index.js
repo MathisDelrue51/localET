@@ -8,19 +8,19 @@ import theater from 'src/assets/icons/icons-4-neg.svg';
 const MapLegend = () => (
   <div className="mapLegend">
     <p className="mapLegend__type">
-      <span>{streetArt}</span>
+     <img src={streetArt} alt="Logo street art" />
       Street Art
     </p>
     <p className="mapLegend__type">
-      <span>{music}</span>
+      <img src={music} alt="Logo Musique" />
       Musique
     </p>
     <p className="mapLegend__type">
-      <span>{expo}</span>
+      <img src={expo} alt="Logo Exposition" />
       Exposition
     </p>
     <p className="mapLegend__type">
-      <span>{theater}</span>
+      <img src={theater} alt="Logo Théâtre" />
       Théâtre
     </p>
   </div>
