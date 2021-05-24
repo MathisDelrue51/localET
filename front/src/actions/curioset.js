@@ -32,10 +32,12 @@ export const HANDLE_ERROR_UPDATE_EVENT = 'HANDLE_ERROR_UPDATE_EVENT';
 
 export const EMPTY_EVENT_STATE = 'EMPTY_EVENT_STATE';
 
+// action to get state empty when using new event create form
 export const emptyEventState = () => ({
   type: EMPTY_EVENT_STATE,
 });
 
+// action to remove unrelevant error messages after user correction
 export const handleErrorUpdateEvent = (path, message) => ({
   type: HANDLE_ERROR_UPDATE_EVENT,
   path,
@@ -46,6 +48,7 @@ export const removeErrorEvent = () => ({
   type: REMOVE_ERROR_EVENT,
 });
 
+// action to send back error messages to user in event create form
 export const handleErrorEvent = (path, message) => ({
   type: HANDLE_ERROR_EVENT,
   path,
@@ -116,6 +119,7 @@ export const fetchEvent = (idEvent) => ({
   idEvent,
 });
 
+// action to save ID in state when fetching event
 export const saveID = (idEvent) => ({
   type: SAVE_ID,
   idEvent,

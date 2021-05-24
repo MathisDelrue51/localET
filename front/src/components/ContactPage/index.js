@@ -1,15 +1,16 @@
+// == Import npm
 import React from 'react';
-import './styles.scss';
-
 import { NavLink } from 'react-router-dom';
-
 import { Linkedin, GitHub } from 'react-feather';
 
+// == Import
+import './styles.scss';
 import alice from 'src/assets/teamPictures/Alice.jpg';
 import marion from 'src/assets/teamPictures/Marion.jpg';
 import yassine from 'src/assets/teamPictures/Yassine.jpg';
 import mathis from 'src/assets/teamPictures/Mathis.jpg';
 
+// == Component
 const ContactPage = () => (
   <div className="container">
     <NavLink to="/" className="link">
@@ -99,4 +100,5 @@ const ContactPage = () => (
   </div>
 );
 
+// == Export
 export default ContactPage;

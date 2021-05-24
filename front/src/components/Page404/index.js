@@ -1,9 +1,11 @@
+// == Import npm
 import React from 'react';
-
 import { NavLink } from 'react-router-dom';
 
+// == Import
 import './styles.scss';
 
+// == Component
 const Page404 = () => (
   <div className="wrapper404">
     <h2 className="message404Title message404">Oh oh...</h2>
