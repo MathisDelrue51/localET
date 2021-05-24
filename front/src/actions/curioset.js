@@ -30,6 +30,12 @@ export const REMOVE_ERROR_EVENT = 'REMOVE_ERROR_EVENT';
 
 export const HANDLE_ERROR_UPDATE_EVENT = 'HANDLE_ERROR_UPDATE_EVENT';
 
+export const EMPTY_EVENT_STATE = 'EMPTY_EVENT_STATE';
+
+export const emptyEventState = () => ({
+  type: EMPTY_EVENT_STATE,
+});
+
 export const handleErrorUpdateEvent = (path, message) => ({
   type: HANDLE_ERROR_UPDATE_EVENT,
   path,
