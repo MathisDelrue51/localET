@@ -95,7 +95,7 @@ const CreateEventForm = ({
               />
               <p>{descriptionError}</p>
             </div>
-            <div className="createBlock">
+            <div className="createBlock categoryBlock">
               <h3 className="radioTitle">Catégorie :</h3>
               <RadioField
                 id="artDeRue"

@@ -9,6 +9,7 @@
   @media (max-width: 480px) {
     font-size: vars.$textMobile;
   }
+
   h1 {
     font-size: vars.$mainTitle;
     font-weight: bold;
@@ -17,6 +18,7 @@
       font-size: vars.$mainTitleMobile;
     }
   }
+
   h2 {
     font-size: vars.$secondaryTitle;
     font-weight: bold;
@@ -26,6 +28,7 @@
       font-size: vars.$secondaryTitleMobile;
     }
   }
+
   h3 {
     font-size: vars.$text;
     padding-top: 1rem;
@@ -35,13 +38,16 @@
       font-size: vars.$textSmallerMobile;
     }
   }
-  p,a {
+
+  p,
+  a {
     font-size: vars.$text;
+
     @media (max-width: 480px) {
       font-size: vars.$textSmallerMobile;
     }
   }
-  
+
 }
 
 .link {
@@ -52,10 +58,13 @@
 .eventTitle {
   text-align: center;
   padding: 1.5rem;
- 
+
 }
 
-.eventPart, .eventLocation, .eventDate, .price {
+.eventPart,
+.eventLocation,
+.eventDate,
+.price {
   padding: 1.5rem;
   text-align: left;
 }
@@ -63,6 +72,7 @@
 .curiosetContainer {
   display: flex;
   flex-direction: row;
+
   @media (max-width: 480px) {
     flex-direction: column;
   }
@@ -71,7 +81,7 @@
 .curiosetDetails {
   display: flex;
   flex-direction: column;
-   
+
 }
 
 .eventPart {
@@ -89,10 +99,12 @@
 
 #website {
   color: vars.$highlightColor;
-  
+
 }
 
-.place, .date, .dollar {
+.place,
+.date,
+.dollar {
   display: flex;
   flex-direction: row;
   text-align: left;
@@ -105,41 +117,44 @@
   }
 }
 
-.navLink {
-  padding: 1rem;
-  
-}
-
 .update_delete {
-
   display: flex;
   align-items: center;
   justify-content: center;
-  
-}
 
-.navLink_delete {
- .submit {
-  &__button {
-    padding: 0.7em;
-    color: vars.$white;
-    border: 1px solid transparent;
-    border-radius: vars.$borderRadius;
-    background-color: vars.$mainColorLighter;
-    font-size: 0.9rem;
+  .navButton {
+    box-sizing: border-box;
+  }
 
-    &:hover {
-      background-color: vars.$mainColor;
+  .navLink {
+    padding: 1rem;
+
+    .submit__button {
+      border: vars.$borderThickness solid vars.$highlightColor;
+
+      &:hover {
+        border: vars.$borderThickness solid vars.$highlightColorDarker;
+      }
     }
   }
- }
+
+  .navLink_delete {
+    .submit {
+      &__button {
+        color: vars.$mainColor;
+        border: vars.$borderThickness solid vars.$mainColor;
+        border-radius: vars.$borderRadius;
+        background-color: vars.$white;
+
+        &:hover {
+          background-color: vars.$mainColor;
+          color: vars.$white;
+          border: vars.$borderThickness solid vars.$mainColor;
+        }
+      }
+    }
+
+  }
+
 
 }
-
-
-
-
-
-
-
-

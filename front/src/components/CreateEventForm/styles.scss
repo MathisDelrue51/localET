@@ -5,22 +5,50 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
   .createBlock {
     margin-bottom: 1em;
+
     .field {
       display: flex;
       flex-direction: column-reverse;
       padding: 1rem;
       width: 500px;
+
       label {
         align-self: flex-start;
         margin: 0.2em 0;
         font-weight: bold;
       }
     }
+
     .radioTitle {
       font-weight: bold;
       margin: 0.2em 0;
+    }
+  }
+
+  .categoryBlock {
+    padding: 1rem;
+
+    .radioTitle {
+      text-align: left;
+    }
+
+    .radioField {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      label {
+        padding: 0.5rem;
+
+        .fieldInput {
+          margin-right: 0.5rem;
+          ;
+        }
+      }
     }
   }
 }
@@ -32,11 +60,12 @@
 }
 
 @media (max-width: 480px) {
-  
+
   .createEventForm {
     font-size: vars.$textMobile;
     display: flex;
     flex-direction: column;
+
     .createBlock {
       .field {
         display: flex;
@@ -45,6 +74,7 @@
       }
     }
   }
+
   .createTitle {
     font-size: vars.$mainTitleMobile;
   }
@@ -52,6 +82,7 @@
 
 form {
   margin: 1.5em auto 2em auto;
+
   p {
     font-style: italic;
     color: vars.$mainColor;
@@ -59,4 +90,3 @@ form {
   }
 
 }
-
