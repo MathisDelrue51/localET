@@ -53,8 +53,8 @@ const schema = Joi.object({
     'string.empty': `Le champ user_id est requis`
   }),
   category_id: Joi.number().integer().positive().required().messages({
-    'number.base': `Le champ category_id doit être de type nombre`,
-    'number.positive': `Choisir une catégorie parmis celles proposées`,
+    'number.base': `Choisir une catégorie parmis celles proposées`,
+    'number.positive': `Le champ category_id doit être de type nombre`,
     'number.integer': `category_id doit être un nombre entier`,
     'string.empty': `Le champ category_id est requis`
   })
