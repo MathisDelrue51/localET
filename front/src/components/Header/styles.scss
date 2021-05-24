@@ -69,10 +69,8 @@
 
   .burgerMenuOff {
 
-    // SMALL SIZE SCREEN
-    @media screen and (max-width: 480px) {
-      display: none;
-    }
+    display: none;
+
   }
 
   .menuOptions {
@@ -117,10 +115,14 @@
   }
 
   .closeButtonOn {
-    display: block;
-    color: vars.$highlightColor;
-    margin-left: auto;
-    margin-right: 1rem;
+    display: none;
+
+    @media screen and (max-width: 480px) {
+      display: block;
+      color: vars.$highlightColor;
+      margin-left: auto;
+      margin-right: 1rem;
+    }
   }
 
   .nav {

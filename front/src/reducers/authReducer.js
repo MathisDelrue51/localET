@@ -151,6 +151,7 @@ function authReducer(state = initialState, action) {
         logged: false,
         email: '',
         password: '',
+        password2: '',
         token: '',
         pseudo: '',
       };
