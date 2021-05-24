@@ -70,6 +70,7 @@ const authMiddleware = (store) => (next) => (action) => {
           history.push('/login');
         })
         .catch((err) => {
+          console.log('kikou');
           console.log(err.response.data);
           const removeToDispatch = removeErrorRegister();
           store.dispatch(removeToDispatch);

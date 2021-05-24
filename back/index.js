@@ -21,8 +21,9 @@ app.use( session({
     resave: true,
     secret: process.env.SESSION_SECRET,
     cookie: {
-        secure: false, // false allow us not to be in https
-        maxAge: 7200000 // in milliseconds --> 2h
+        secure: true, // must be in https
+        maxAge: 7200000, // in milliseconds --> 2h
+        httpOnly: true
     }
 }));
 

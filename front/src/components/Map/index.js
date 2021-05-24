@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
-import CreateEventButton from 'src/components/CreateEventButton';
+import CreateEventButton from 'src/containers/CreateEventButton';
 
 import Leaflet from 'leaflet';
 import {

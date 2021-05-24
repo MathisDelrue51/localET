@@ -19,6 +19,7 @@ import CreateEventForm from 'src/containers/CreateEventForm';
 import UpdateEventForm from 'src/containers/UpdateEventForm';
 import EventPage from 'src/containers/EventPage';
 import ContactPage from 'src/components/ContactPage';
+import Page404 from '../Page404';
 
 // == Component
 const App = ({
@@ -66,8 +67,14 @@ const App = ({
         <Route path="/updateEvent">
           <UpdateEventForm />
         </Route>
-        <Route path="/">
+        <Route path="/login">
           <Map />
+        </Route>
+        <Route path="/" exact>
+          <Map />
+        </Route>
+        <Route>
+          <Page404 />
         </Route>
       </Switch>
       <Footer />
