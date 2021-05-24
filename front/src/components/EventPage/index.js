@@ -73,16 +73,16 @@ const EventPage = ({
           activeClassName="navLinkActive"
           exact
         >
-          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="h" />}
+          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="navButton" />}
         </NavLink>
         <NavLink
           to="/"
-          className="navLink_delete"
+          className="navLink_delete navLink"
           activeClassName="navLinkActive"
           exact
           onClick={handleDelete}
         >
-          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
+          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" className="navButton"/>}
         </NavLink>
       </div>
     </div>
