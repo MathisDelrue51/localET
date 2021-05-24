@@ -1,18 +1,48 @@
 @use 'src/styles/vars';
 
+//
+// PAGE TITLE
+//
+.createTitle {
+  margin-top: 1em;
+  font-size: vars.$mainTitle;
+  font-weight: bold;
+
+  // SMALL SIZE DEVICE
+  @media screen and (max-width: 480px) {
+    font-size: vars.$mainTitleMobile;
+  }
+}
+
+//
+// FORM
+//
 .createEventForm {
-  margin: 1.4em auto;
+  margin: 1.4rem auto;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // SMALL SIZE DEVICE
+  @media screen and (max-width: 480px) {
+    font-size: vars.$textMobile;
+  }
+
+  //
+  // FORM BLOCK
+  //
   .createBlock {
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 
     .field {
       display: flex;
       flex-direction: column-reverse;
-      padding: 1rem;
+      padding: 1rem 1rem 0 1rem;
       width: 500px;
 
       label {
@@ -20,18 +50,59 @@
         margin: 0.2em 0;
         font-weight: bold;
       }
+
+      // SMALL SIZE DEVICE
+      @media screen and (max-width: 480px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 460px;
+      }
+
+      // SMALLER SIZE DEVICE
+      @media screen and (max-width: 430px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 410px;
+      }
+
+      // EVEN SMALLER SIZE DEVICE
+      @media screen and (max-width: 380px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 360px;
+      }
+
+      // EVEN EVEN SMALLER SIZE DEVICE
+      @media screen and (max-width: 320px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 300px;
+      }
     }
 
-    .radioTitle {
-      font-weight: bold;
-      margin: 0.2em 0;
+    // ERROR MESSAGES
+    .fieldError {
+      text-align: left;
+      font-size: vars.$textSmaller;
+      font-style: italic;
+      color: vars.$mainColor;
+      padding: 0.3rem 1rem 1rem 1rem;
+
+      @media screen and (max-width: 480px) {
+        font-size: vars.$textSmallerMobile;
+      }
     }
   }
 
+  //
+  // STYLING OF FORM BLOCK CONTAINING RADIO BUTTONS
+  //
   .categoryBlock {
     padding: 1rem;
 
     .radioTitle {
+      font-weight: bold;
+      margin: 0.2em 0;
       text-align: left;
     }
 
@@ -42,7 +113,7 @@
       align-items: flex-start;
 
       label {
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem 0.5rem 0;
 
         .fieldInput {
           margin-right: 0.5rem;
@@ -51,42 +122,23 @@
       }
     }
   }
-}
 
-.createTitle {
-  margin-top: 1em;
-  font-size: vars.$mainTitle;
-  font-weight: bold;
-}
+  // ADDITIONNAL LABEL ABOVE FIELD (WHEN NEEDED)
+  .createBlockWebsite {
+    position: relative;
 
-@media (max-width: 480px) {
+    .additionnalFieldInfo {
+      position: absolute;
+      top: 1.3rem;
+      right: 1rem;
+      font-style: italic;
+      color: vars.$darkGrey;
+      font-size: vars.$extraSmallText;
 
-  .createEventForm {
-    font-size: vars.$textMobile;
-    display: flex;
-    flex-direction: column;
-
-    .createBlock {
-      .field {
-        display: flex;
-        flex-direction: column-reverse;
-        width: 400px;
+      // SMALL SIZE DEVICE
+      @media screen and (max-width: 480px) {
+        font-size: vars.$extraSmallTextMobile;
       }
     }
   }
-
-  .createTitle {
-    font-size: vars.$mainTitleMobile;
-  }
-}
-
-form {
-  margin: 1.5em auto 2em auto;
-
-  p {
-    font-style: italic;
-    color: vars.$mainColor;
-    font-size: vars.$extraSmallText;
-  }
-
 }

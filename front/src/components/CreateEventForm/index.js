@@ -47,7 +47,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={name}
               />
-              <p>{nameError}</p>
+              <p className="fieldError">{nameError}</p>
             </div>
 
             <div className="createBlock">
@@ -58,9 +58,9 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={address}
               />
-              <p>{addressError}</p>
+              <p className="fieldError">{addressError}</p>
             </div>
-            <div className="createBlock">
+            <div className="createBlock createBlockWebsite">
               <Field
                 name="website"
                 placeholder=""
@@ -68,7 +68,8 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={website}
               />
-              <p>{websiteError}</p>
+              <p className="additionnalFieldInfo">Optionnel</p>
+              <p className="fieldError">{websiteError}</p>
             </div>
 
             <div className="createBlock">
@@ -79,7 +80,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={dateTime}
               />
-              <p>{dateTimeError}</p>
+              <p className="fieldError">{dateTimeError}</p>
             </div>
           </div>
 
@@ -93,7 +94,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={description}
               />
-              <p>{descriptionError}</p>
+              <p className="fieldError">{descriptionError}</p>
             </div>
             <div className="createBlock categoryBlock">
               <h3 className="radioTitle">Catégorie :</h3>
@@ -125,7 +126,7 @@ const CreateEventForm = ({
                 label="Théâtre"
                 value={4}
               />
-              <p>{categoryError}</p>
+              <p className="fieldError">{categoryError}</p>
             </div>
 
             <div className="createBlock">
@@ -137,7 +138,7 @@ const CreateEventForm = ({
                 manageChange={changeField}
                 value={price}
               />
-              <p>{priceError}</p>
+              <p className="fieldError">{priceError}</p>
             </div>
           </div>
         </div>
