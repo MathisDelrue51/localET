@@ -12,9 +12,12 @@ import './styles.scss';
 // );
 
 const Footer = () => (
-  <Link to="/contact">
-    Contactez Nous
-  </Link>
+  <div className="footer">
+    <Link to="/contact">
+      Contactez Nous
+    </Link> 
+  </div>
+   
 )
 
 // const Footer = () => {
