@@ -1,6 +1,6 @@
 // == Import : npm
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 import './styles.scss';
@@ -11,16 +11,22 @@ import './styles.scss';
 //   </div>
 // );
 
-const Footer = () => {
-   <NavLink
-   to="/contact"
-   className="footer"
-   activeClassName="navLinkActive"
-   exact
-   >
-   <a>Contactez Nous - 2021</a>
-   </NavLink>
-}
+const Footer = () => (
+  <Link to="/contact">
+    Contactez Nous
+  </Link>
+)
+
+// const Footer = () => {
+//    <NavLink
+//    to="/contact"
+//    className="footer"
+//    activeClassName="navLinkActive"
+//    exact
+//    >
+//    <a>Contactez Nous - 2021</a>
+//    </NavLink>
+// }
 
 export default Footer;
 
