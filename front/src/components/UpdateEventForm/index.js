@@ -1,13 +1,15 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// == Import
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
 import TextAreaField from 'src/components/TextAreaField';
 import RadioField from 'src/containers/RadioField';
-
 import './styles.scss';
 
+// == Component
 const UpdateEventForm = ({
   name,
   address,
@@ -197,4 +199,5 @@ UpdateEventForm.defaultProps = {
   categoryError: '',
 };
 
+// == Export
 export default UpdateEventForm;

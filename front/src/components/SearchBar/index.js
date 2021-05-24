@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import Field from 'src/components/Field';
 
+// == Component
 const SearchBar = ({
   address, changeField, handleSearch, placeholder,
 }) => {
@@ -29,10 +30,18 @@ const SearchBar = ({
 };
 
 SearchBar.propTypes = {
+  /** value for the address */
   address: PropTypes.string.isRequired,
+  /** value for the field placeholder */
   placeholder: PropTypes.string.isRequired,
+  /** called when field content is modified, two parameters:
+   * - newValue
+   * - name
+   */
   changeField: PropTypes.func.isRequired,
+  /** called when search is submitted */
   handleSearch: PropTypes.func.isRequired,
 };
 
+// == Export
 export default SearchBar;
