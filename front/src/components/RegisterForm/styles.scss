@@ -16,7 +16,8 @@
     @media (max-width: 480px) {
       font-size: vars.$mainTitleMobile;
     }
-}
+  }
+
   &__subtitle {
     font-weight: bold;
     font-size: vars.$secondaryTitle;
@@ -29,44 +30,54 @@
 
   &__form {
     margin: 3em auto;
+
     .block {
       margin-bottom: 1.8em;
-      .field{
+
+      .field {
 
         .fieldInput {
-        width: 350px;
+          width: 350px;
         }
       }
+
       p {
         font-style: italic;
         color: vars.$mainColor;
       }
     }
+
     @media (max-width: 480px) {
       margin: 1.2em auto;
-    .block {
-      margin-bottom: 0.5em;
-      .field{
 
-        .fieldInput {
-        width: 350px;
+      .block {
+        margin-bottom: 0.5em;
+
+        .field {
+
+          .fieldInput {
+            width: 350px;
+          }
+        }
+
+        p {
+          font-style: italic;
+          color: vars.$mainColor;
+          font-size: vars.$textMobile;
         }
       }
-      p {
-        font-style: italic;
-        color: vars.$mainColor;
-        font-size: vars.$textMobile;
-      }
-    }
     }
   }
+
   .connexionRedirect {
     margin-bottom: 2.2em;
+
     .loginNavlink {
       margin-left: 1.5em;
       display: inline-block;
-      :hover {
-        border-bottom: solid 2px vars.$mainColor;
+
+      .navLink:hover {
+        text-decoration: underline solid vars.$mainColor vars.$borderThickness;
       }
     }
   }
