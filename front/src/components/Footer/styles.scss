@@ -2,8 +2,23 @@
 
 
 .footer {
-  color: vars.$highlightColor;
+  display: flex;
+  flex-direction: row;
   padding-top: 2rem;
+  
+}
+
+.contact {
+  color: vars.$highlightColor;
   font-size: vars.$secondaryTitle;
   font-weight: lighter;
+  width: 50%;
+}
+
+h2 {
+  font-size: vars.$black;
+  font-weight: lighter;
+  text-align: center;
+  width: 50%;
+  
 }

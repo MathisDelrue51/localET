@@ -8,9 +8,12 @@ import './styles.scss';
 const Footer = () => (
 
   <div className="footer">
-    <Link to="/contact">
-      Contactez Nous - 2021
-    </Link> 
+    <div className="contact">
+      <Link to="/contact">
+      <h1>Contactez localETeam</h1>
+    </Link>
+    </div>
+     <h2>© 2021</h2>
   </div>
    
 )
