@@ -120,7 +120,7 @@ function authReducer(state = initialState, action) {
       if (action.fieldName === 'email') {
         return {
           ...state,
-          email: action.newValue,
+          email: action.newValue.toLowerCase(),
         };
       }
 
