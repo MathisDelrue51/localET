@@ -34,11 +34,11 @@ const EventPage = ({
         <h3>{type}</h3>
       </div>
 
-     <div className="curiosetContainer">
+      <div className="curiosetContainer">
         <div className="eventPart">
           <h2>Quoi ?</h2>
           <p className="description">{description}</p>
-          <a href={website} id="website">{website}</a>      
+          <a href={website} id="website">{website}</a>
         </div>
         <div className="curiosetDetails">
           <div className="eventLocation">
@@ -46,14 +46,14 @@ const EventPage = ({
             <div className="place">
               <MapPin size={25} className="iconInfo" />
               <p>{address}</p>
-            </div>  
+            </div>
           </div>
           <div className="eventDate">
             <h2>Quand ?</h2>
             <div className="date">
               <Calendar size={25} className="iconInfo" />
               <p>{dateTime}</p>
-            </div> 
+            </div>
           </div>
           <div className="price">
             <h2>Combien ?</h2>
@@ -62,30 +62,30 @@ const EventPage = ({
               <p>{price} </p>
             </div>
           </div>
-        
-      </div>
 
-     </div> 
-    <div className="update_delete">
-       <NavLink
-        to="/updateEvent"
-        className="navLink"
-        activeClassName="navLinkActive"
-        exact
-      >
-        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="h" />}
-      </NavLink>
-      <NavLink
-        to="/"
-        className="navLink_delete"
-        activeClassName="navLinkActive"
-        exact
-        onClick={handleDelete}
-      >
-        { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
-      </NavLink>
+        </div>
+
+      </div>
+      <div className="update_delete">
+        <NavLink
+          to="/updateEvent"
+          className="navLink"
+          activeClassName="navLinkActive"
+          exact
+        >
+          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Modifier" className="h" />}
+        </NavLink>
+        <NavLink
+          to="/"
+          className="navLink_delete"
+          activeClassName="navLinkActive"
+          exact
+          onClick={handleDelete}
+        >
+          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" />}
+        </NavLink>
+      </div>
     </div>
-   </div> 
   );
 };
 

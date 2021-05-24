@@ -94,7 +94,7 @@ function authReducer(state = initialState, action) {
         ...state,
         token: action.token,
         pseudo: action.pseudo,
-        id: action.id,
+        id: parseInt(action.id),
         logged: Boolean(action.logged),
       };
     case FETCH_PROFILE_SUCCESS:
