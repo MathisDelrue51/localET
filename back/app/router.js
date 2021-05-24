@@ -79,8 +79,6 @@ router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema
  */
 router.delete('/curioset/:id(\\d+)', authenticateToken, flush, curiosetController.deleteCurioset);
 
-router.get('/contact', (req,res) => {json('ma page contact')})
-
 router.get('/*', (_,res) => {
     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
 });
