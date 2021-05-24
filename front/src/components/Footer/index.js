@@ -14,7 +14,7 @@ import './styles.scss';
 const Footer = () => (
   <div className="footer">
     <Link to="/contact">
-      Contactez Nous
+      Contactez Nous - 2021
     </Link> 
   </div>
    
