@@ -1,0 +1,9 @@
+@use 'src/styles/vars';
+
+
+.footer {
+  color: vars.$highlightColor;
+  padding-top: 2rem;
+  font-size: vars.$secondaryTitle;
+  font-weight: lighter;
+}
