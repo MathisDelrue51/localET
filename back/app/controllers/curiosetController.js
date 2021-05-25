@@ -40,7 +40,6 @@ const curiosetController = {
 
     //POST /curioset
     newCurioset: async (req, res) => {
-        console.log(req.body);
 
         const newCurioset = new Curioset(req.body);
 
@@ -49,7 +48,6 @@ const curiosetController = {
 
             res.status(201).json(newCurioset);
         } catch (err) {
-            console.log(err)
             res.status(500).json(err.message);
         }
     },
@@ -73,15 +71,12 @@ const curiosetController = {
             if (user) {
 
                 const updatedCurioset = new Curioset(req.body);
-                console.log(updatedCurioset);
 
                 //verify if it's the same user who created the curioset
                 if (updatedCurioset.user_id == user.id) {
                     await updatedCurioset.save();
 
                      res.status(200).json(updatedCurioset);
-
-                    console.log("curioset mise à jour")
                 }else {
 
                       throw new Error('L\'id de l\'utilisateur ne correspond pas');               
@@ -89,7 +84,6 @@ const curiosetController = {
             }   
 
         } catch (err) {
-            console.log(err)
             res.status(404).json(err.message);
         }
     },
@@ -105,26 +99,18 @@ const curiosetController = {
         try {
 
             const user = await User.findByEmail(decoded.email); 
-            console.log(user);
         
             if (user) {
 
                 //verify if the curioset exists in db
-
                  const curiosetToDelete = await Curioset.findOne(req.params.id)
-                 console.log(curiosetToDelete);
-                 console.log(curiosetToDelete.user_id);
 
                  //verify if the same user who created the curioset 
-
                  if (curiosetToDelete.user_id == user.id) {                    
                    
                      await curiosetToDelete.delete(req.params.id);
 
-                     res.status(204).json('curioset deleted');
-
-                     console.log("curioset supprimée")                   
-
+                     res.status(204).json('curioset deleted');  
                  } else {
                      
                     throw new Error('L\'id de l\'utilisateur ne correspond pas');   
@@ -133,7 +119,6 @@ const curiosetController = {
             }
 
         } catch (err) {
-            console.log(err)
             res.status(404).json(err.message);  
         }
     }
