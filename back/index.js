@@ -40,6 +40,6 @@ app.use(express.static(path.join(__dirname,'../front/dist')));
 app.use('/api', router);
 
 // We can create a cutomized 404 err page later
-app.use((req, res) => res.status(404).render('404 here')); 
+//app.use((req, res) => res.status(404).json('404 here')); 
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
