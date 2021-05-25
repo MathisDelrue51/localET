@@ -8,10 +8,7 @@ import navLoggedOut from 'src/components/Header/navLoggedOut';
 
 // === mapStateToProps
 // for information to be read
-const mapStateToProps = (state) => ({
-  // element to get from the state
-
-});
+const mapStateToProps = null;
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
