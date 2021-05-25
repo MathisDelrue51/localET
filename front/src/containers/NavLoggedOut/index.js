@@ -7,13 +7,13 @@ import { toggleCloseMenu } from 'src/actions/auth';
 import navLoggedOut from 'src/components/Header/navLoggedOut';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = null;
 
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
-
+  // to close menu on mobile
   closeMenu: () => {
     dispatch(toggleCloseMenu());
   },

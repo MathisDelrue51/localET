@@ -7,7 +7,7 @@ import ProfilePage from 'src/components/ProfilePage';
 import { saveID, fetchEvent } from 'src/actions/curioset';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,

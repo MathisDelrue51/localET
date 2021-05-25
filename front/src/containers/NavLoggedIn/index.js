@@ -7,7 +7,7 @@ import { logOut, fetchProfile, toggleCloseMenu } from 'src/actions/auth';
 import NavLoggedIn from 'src/components/Header/navLoggedIn';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   pseudo: state.auth.pseudo,

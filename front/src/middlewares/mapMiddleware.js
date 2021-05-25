@@ -1,29 +1,32 @@
+// import npm
 import axios from 'axios';
+
+// import
 import {
   FETCH_CURIOSETS, SUBMIT_SEARCH, fetchCuriosetsSuccess, fetchCuriosetsError, submitSearchSuccess,
 } from 'src/actions/map';
 
+// here, write the backend's server url :
 const SERVER_URL = 'http://localhost:1234';
 
 export default (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware MAP: ', action);
   switch (action.type) {
     case FETCH_CURIOSETS:
-
       console.log('Recherche curiosETs');
-      // Fetch request to get curiosETs
       next(action);
+      // Fetch request to get curiosETs
       axios({
         method: 'get',
         url: `${SERVER_URL}/`,
       })
         .then((res) => {
-          console.log('je reçois ça du back', res);
+          // console.log('je reçois ça du back', res);
           const actionToDispatch = fetchCuriosetsSuccess(res.data);
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
-          console.error(err);
+          // console.error(err);
           const actionToError = fetchCuriosetsError();
           store.dispatch(actionToError);
         });
@@ -31,12 +34,13 @@ export default (store) => (next) => (action) => {
     case SUBMIT_SEARCH:
       console.log('Recherche adresses');
       const { address } = store.getState().map;
+      // connect to .gouv API to verify adresses on map searchbar
       axios({
         method: 'get',
         url: `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=5`,
       })
         .then((res) => {
-          console.log("je reçois ça de l'api", res);
+          // console.log("je reçois ça de l'api", res);
           console.log(res.data.features[0].geometry.coordinates[0]);
           const actionToDispatch = submitSearchSuccess(
             res.data.features[0].geometry.coordinates[0],
@@ -45,7 +49,7 @@ export default (store) => (next) => (action) => {
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
-          console.error(err);
+          // console.error(err);
         });
       break;
     default:
