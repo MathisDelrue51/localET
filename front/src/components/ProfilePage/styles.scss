@@ -11,6 +11,10 @@
 
 .link {
   color: vars.$highlightColor;
+
+  &:hover {
+    text-decoration: underline solid vars.$mainColor vars.$borderThickness;
+  }
 }
 
 .componentTitle {
@@ -48,6 +52,7 @@
 .profileElementTitle {
   margin-bottom: 5%;
   color: vars.$mediumGrey;
+  text-align: left;
 }
 
 .elementContent {
