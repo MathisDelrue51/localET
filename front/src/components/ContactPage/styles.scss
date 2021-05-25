@@ -7,120 +7,124 @@
   @media (max-width: 480px) {
     font-size: vars.$textMobile;
   }
-}
 
-.link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  // BACK HOME LINK
+  .link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
-  .backIcon {
-    margin-right: 1rem;
-  }
-
-  &:hover {
     .backIcon {
-      color: vars.$mainColor;
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      .backIcon {
+        color: vars.$mainColor;
+      }
     }
   }
-}
 
-.title {
-  font-weight: bold;
-  font-size: vars.$mainTitle;
-  margin: 1.5rem 0;
+  // PAGE TITLE
+  .title {
+    font-weight: bold;
+    font-size: vars.$mainTitle;
+    margin: 1.5rem 0;
 
-  @media (max-width: 480px) {
-    font-size: vars.$mainTitleMobile;
-  }
-}
-
-.team {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 1rem auto;
-  width: 60%;
-
-  @media (max-width: 1024px) {
-    width: 80%;
+    @media (max-width: 480px) {
+      font-size: vars.$mainTitleMobile;
+    }
   }
 
-  @media (max-width: 768px) {
-    width: 90%;
-    justify-content: center;
-  }
+  // TEAM CONTAINER
+  .team {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+    width: 60%;
 
-  @media (max-width: 480px) {
-    width: 100%;
-  }
-}
+    @media (max-width: 1024px) {
+      width: 80%;
+    }
 
-.dev {
-  flex: 50%;
-  display: flex;
-  flex-direction: row;
-  margin: 2rem auto;
+    @media (max-width: 768px) {
+      width: 90%;
+      justify-content: center;
+    }
 
-  @media (max-width: 480px) {
-    flex: 100%;
-  }
-}
+    @media (max-width: 480px) {
+      width: 100%;
+    }
 
-.picture {
-  width: 120px;
-  height: 120px;
-  border-radius: 60px;
+    // ONE DEVELOPPER PROFILE
+    .dev {
+      flex: 50%;
+      display: flex;
+      flex-direction: row;
+      margin: 2rem auto;
 
-  @media (max-width: 480px) {
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
-  }
-}
+      @media (max-width: 480px) {
+        flex: 100%;
+      }
 
-.devIcon {
-  color: vars.$mainColor;
-  margin-right: 0.2rem;
-}
+      .picture {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
 
-.devInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 0.5rem;
-}
+        @media (max-width: 480px) {
+          width: 150px;
+          height: 150px;
+          border-radius: 75px;
+        }
+      }
 
-.devName {
-  font-weight: bold;
-  font-size: vars.$secondaryTitle;
-  margin: 0.3rem 0;
-  text-align: left;
+      .devIcon {
+        color: vars.$mainColor;
+        margin-right: 0.2rem;
+      }
 
-  @media (max-width: 480px) {
-    font-size: vars.$secondaryTitleMobile;
-  }
-}
+      .devInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0.5rem;
 
-.devRole {
-  margin: 0.3rem 0;
-  text-align: left;
-  font-size: vars.$textSmaller;
-}
+        .devName {
+          font-weight: bold;
+          font-size: vars.$secondaryTitle;
+          margin: 0.3rem 0;
+          text-align: left;
 
-.devLink {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  margin: 0.3rem 0;
-}
+          @media (max-width: 480px) {
+            font-size: vars.$secondaryTitleMobile;
+          }
+        }
 
-.externalLink {
-  margin-left: 0.3rem;
-  color: vars.$highlightColor;
+        .devRole {
+          margin: 0.3rem 0;
+          text-align: left;
+          font-size: vars.$textSmaller;
+        }
 
-  &:hover {
-    text-decoration: underline;
+        .devLink {
+          display: flex;
+          flex-direction: row;
+          align-items: flex-end;
+          margin: 0.3rem 0;
+
+          .externalLink {
+            margin-left: 0.3rem;
+            color: vars.$highlightColor;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
   }
 }

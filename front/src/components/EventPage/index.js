@@ -47,23 +47,20 @@ const EventPage = ({
         <div className="curiosetDetails">
           <div className="eventLocation">
             <h2>Où ?</h2>
-            <div className="place">
-              <MapPin size={25} className="iconInfo" />
-              <p>{address}</p>
+            <div className="infoWithIcon">
+              <p><MapPin size={25} className="iconInfo" />{address}</p>
             </div>
           </div>
           <div className="eventDate">
             <h2>Quand ?</h2>
-            <div className="date">
-              <Calendar size={25} className="iconInfo" />
-              <p>{dateTime}</p>
+            <div className="infoWithIcon">
+              <p><Calendar size={25} className="iconInfo" />{dateTime}</p>
             </div>
           </div>
           <div className="price">
             <h2>Combien ?</h2>
-            <div className="dollar">
-              <DollarSign size={25} className="iconInfo" />
-              <p>{price} </p>
+            <div className="infoWithIcon">
+              <p><DollarSign size={25} className="iconInfo" />{price}</p>
             </div>
           </div>
 
