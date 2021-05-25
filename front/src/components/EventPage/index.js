@@ -2,7 +2,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { MapPin, Calendar, DollarSign } from 'react-feather';
+import {
+  MapPin, Calendar, DollarSign, ArrowLeftCircle,
+} from 'react-feather';
 
 // == Import
 import './styles.scss';
@@ -29,7 +31,7 @@ const EventPage = ({
   return (
     <div className="event">
       <NavLink to="/" className="link linkBack">
-        Retourner sur la carte
+        <ArrowLeftCircle size={25} className="backIcon" />Retourner sur la carte
       </NavLink>
       <div className="eventTitle">
         <h1>{name}</h1>
@@ -84,7 +86,7 @@ const EventPage = ({
           exact
           onClick={handleDelete}
         >
-          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" className="navButton"/>}
+          { (isLogged && (idEventAuthor === idUser)) && <SubmitButton buttonName="Supprimer" className="navButton" />}
         </NavLink>
       </div>
     </div>

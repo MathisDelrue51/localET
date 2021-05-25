@@ -1,6 +1,7 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { ArrowLeftCircle } from 'react-feather';
 
 // == Import
 import './styles.scss';
@@ -16,7 +17,12 @@ const Page404 = () => (
         <div className="eye" />
       </div>
     </div>
-    <div className="navLinkHome"><NavLink className="link" to="/">Retourner sur la carte</NavLink></div>
+    <div className="navLinkHome">
+      <NavLink className="link" to="/">
+        <ArrowLeftCircle size={25} className="backIcon" />
+        Retourner sur la carte
+      </NavLink>
+    </div>
   </div>
 
 );

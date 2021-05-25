@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { MapPin, Calendar } from 'react-feather';
+import { MapPin, Calendar, ArrowLeftCircle } from 'react-feather';
 
 // == Import
 import './styles.scss';
@@ -13,6 +13,7 @@ const ProfilePage = ({
 }) => (
   <div className="container">
     <NavLink to="/" className="link">
+      <ArrowLeftCircle size={25} className="backIcon" />
       Retourner à l'accueil
     </NavLink>
     <h1 className="componentTitle">

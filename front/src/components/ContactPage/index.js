@@ -1,7 +1,7 @@
 // == Import npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Linkedin, GitHub } from 'react-feather';
+import { Linkedin, GitHub, ArrowLeftCircle } from 'react-feather';
 
 // == Import
 import './styles.scss';
@@ -14,7 +14,7 @@ import mathis from 'src/assets/teamPictures/Mathis.jpg';
 const ContactPage = () => (
   <div className="container">
     <NavLink to="/" className="link">
-      Retourner à l'accueil
+      <ArrowLeftCircle size={25} className="backIcon" />Retourner à l'accueil
     </NavLink>
     <h1 className="title">
       LocalETeam

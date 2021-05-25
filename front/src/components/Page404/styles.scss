@@ -96,6 +96,7 @@
     }
   }
 
+
   .navLinkHome {
 
     padding-top: 2rem;
@@ -104,9 +105,21 @@
     .link {
       color: vars.$highlightColor;
       font-size: vars.$text;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .backIcon {
+        margin-right: 1rem;
+      }
 
       &:hover {
         text-decoration: underline solid vars.$mainColor vars.$borderThickness;
+
+        .backIcon {
+          color: vars.$mainColor;
+        }
       }
     }
 
@@ -126,6 +139,7 @@
         }
       }
     }
+
   }
 
 }

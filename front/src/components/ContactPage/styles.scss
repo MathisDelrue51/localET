@@ -9,6 +9,23 @@
   }
 }
 
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .backIcon {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    .backIcon {
+      color: vars.$mainColor;
+    }
+  }
+}
+
 .title {
   font-weight: bold;
   font-size: vars.$mainTitle;
