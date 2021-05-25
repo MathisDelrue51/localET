@@ -84,6 +84,6 @@ router.get('/*', (_,res) => {
 });
 
 // We can create a cutomized 404 err page later
-router.use((req, res) => res.status(404).json('endpoint not found')); 
+router.use((req, res) => res.status(404).render('404 here')); 
 
 module.exports = router;
