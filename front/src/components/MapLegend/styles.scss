@@ -1,30 +1,68 @@
 @use 'src/styles/vars';
 
 .mapLegend {
-  width: 10em;
-  padding: 0.5em;
-  background-color: rgba($color: #495b57, $alpha: 0.5);
+  // POSITION OF LEGEND ON MAP
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2000;
+
+  // STYLE OF LEGEND
+  padding: 0.5rem;
+  background-color: rgba($color: vars.$darkGrey, $alpha: 0.7);
   border-radius: vars.$borderRadius;
   display: flex;
   flex-direction: column;
-  &__type {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.5em;
-    img {
-      width: 2em;
-      margin-right: 1em;
-    }
-    
+
+
+  .legendOpenVisible {
+    display: block;
+    width: 10rem;
   }
+
+  .legendOpenInvisible {
+    display: block;
+    width: 10rem;
+
+
+    @media screen and (max-width: 780px) {
+      display: none;
+    }
+  }
+
+  .legendCloseInvisible {
+    display: none;
+  }
+
+  .legendCloseVisible {
+    display: none;
+
+
+    @media screen and (max-width: 780px) {
+      display: block;
+      width: 3rem;
+    }
+  }
+
+
+  &__type {
+    color: vars.$white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+
+    img {
+      width: 2rem;
+      margin-right: 1rem;
+    }
+
+  }
+
   .legendButton {
     &--closed {
       height: 45px;
     }
   }
-}
-
-
-.legendClosed {
-  display: none;
 }

@@ -9,19 +9,6 @@
   position: relative;
   width: 100%;
 
-  .legend {
-    position: absolute;
-    bottom: 2%;
-    left: 6.5%;
-    transform: translate(-50%, 0);
-    z-index: 2000;
-
-    @media screen and (max-width: 480px) {
-      bottom: 5%;
-      left: 26%;
-      transform: translate(-50%, 0);
-  }
-}
 
   .searchBar {
     position: absolute;

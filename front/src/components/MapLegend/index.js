@@ -1,5 +1,6 @@
 import React from 'react';
 import { HelpCircle } from 'react-feather';
+import classNames from 'classnames';
 
 import streetArt from 'src/assets/icons/icons-1-neg.svg';
 import music from 'src/assets/icons/icons-2-neg.svg';
@@ -9,32 +10,40 @@ import theater from 'src/assets/icons/icons-4-neg.svg';
 import './styles.scss';
 
 const MapLegend = ({ openLegend, handleOpen }) => {
-  const isOpen = { openLegend } ? '' : 'legendClosed';
-  const buttonOpen = !{ openLegend } ? 'legendButton' : 'legendButton--closed';
+  const legendOpenState = classNames({'legendOpenVisible': openLegend}, {'legendOpenInvisible': !openLegend});
+  const legendCloseState = classNames({'legendCloseVisible': !openLegend}, {'legendCloseInvisible': openLegend});
   return (
     <div className="mapLegend">
-      <div className={isOpen}>
+      {/* MAP LEGEND OPEN */}
+      <div className={legendOpenState}>
         <div className="mapLegend__type">
           <img src={streetArt} alt="Logo street art" className="legendImg" />
           Street Art
         </div>
-        <p className="mapLegend__type">
+        <div className="mapLegend__type">
           <img src={music} alt="Logo Musique" />
           Musique
-        </p>
-        <p className="mapLegend__type">
+        </div>
+        <div className="mapLegend__type">
           <img src={expo} alt="Logo Exposition" />
           Exposition
-        </p>
-        <p className="mapLegend__type">
+        </div>
+        <div className="mapLegend__type">
           <img src={theater} alt="Logo Théâtre" />
           Théâtre
-        </p>
+        </div>
+
+        <div>
+          <HelpCircle onClick={handleOpen} size={40} color="white" />
+        </div>
       </div>
-      <div className={buttonOpen}>
+
+      {/* MAP LEGEND CLOSED */}
+      <div className={legendCloseState}>
         <HelpCircle onClick={handleOpen} size={40} color="white" />
       </div>
     </div>
+
   );
 };
 

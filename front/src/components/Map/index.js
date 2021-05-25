@@ -66,9 +66,7 @@ const Map = ({
 
       {isLogged && <CreateEventButton />}
 
-      <div className="legend">
-        <MapLegend />
-      </div>
+      <MapLegend />
 
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
