@@ -1,4 +1,7 @@
+// import npm
 import { number } from 'prop-types';
+
+// import
 import {
   UPDATE_FIELD,
   SAVE_USER,
@@ -23,24 +26,26 @@ const initialState = {
   pseudo: '',
   // is user loggedin ?
   logged: false,
-
+  // token content
   token: null,
-
+  // list of curiosETs user created
   profileList: [],
-
+  // field errors
   errors: {
     email: '',
     password: '',
     password2: '',
     pseudo: '',
   },
+  // user id
   id: null,
-
+  // boolean mobile menu option
   open: false,
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    // This is what happens when the action REMOVE_ERROR_REGISTER is launched :
     case REMOVE_ERROR_REGISTER:
       return {
         ...state,
@@ -52,6 +57,7 @@ function authReducer(state = initialState, action) {
           pseudo: '',
         },
       };
+    // This is what happens when the action HANDLE_ERROR_REGISTER is launched :
     case HANDLE_ERROR_REGISTER:
       if (action.path === 'email') {
         return {
@@ -90,6 +96,7 @@ function authReducer(state = initialState, action) {
         };
       }
       break;
+    // This is what happens when the action SAVE_USER_BROWSER is launched :
     case SAVE_USER_BROWSER:
       return {
         ...state,
@@ -98,6 +105,7 @@ function authReducer(state = initialState, action) {
         id: parseInt(action.id, number),
         logged: Boolean(action.logged),
       };
+    // This is what happens when the action FETCH_PROFILE_SUCCESS is launched :
     case FETCH_PROFILE_SUCCESS:
       return {
         ...state,
@@ -105,6 +113,7 @@ function authReducer(state = initialState, action) {
         profileList: action.profileList,
         id: parseInt(action.id, number),
       };
+    // This is what happens when the action UPDATE_FIELD is launched :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with
       // the new value typed into the field
@@ -137,7 +146,7 @@ function authReducer(state = initialState, action) {
       }
       break;
 
-    // This is what happens when the action SAVE_USER is fired :
+    // This is what happens when the action SAVE_USER is launched :
     case SAVE_USER:
       return {
         ...state,
@@ -148,6 +157,7 @@ function authReducer(state = initialState, action) {
         pseudo: action.pseudo,
         id: parseInt(action.id, number),
       };
+      // This is what happens when the action LOG_OUT is launched :
     case LOG_OUT:
       return {
         ...state,
@@ -158,13 +168,13 @@ function authReducer(state = initialState, action) {
         token: '',
         pseudo: '',
       };
-
+    // This is what happens when the action TOGGLE_OPEN_MENU is launched :
     case TOGGLE_OPEN_MENU:
       return {
         ...state,
         open: true,
       };
-
+    // This is what happens when the action TOGGLE_CLOSE_MENU is launched :
     case TOGGLE_CLOSE_MENU:
       return {
         ...state,
@@ -176,4 +186,5 @@ function authReducer(state = initialState, action) {
   }
 }
 
+// Export
 export default authReducer;

@@ -8,7 +8,7 @@ import { PlusCircle } from 'react-feather';
 import './styles.scss';
 
 // == Component
-const CreateEventButton = ({emptyEventState}) => (
+const CreateEventButton = ({ emptyEventState }) => (
   <NavLink
     to="/createEvent"
     className="addCuriosLink"
