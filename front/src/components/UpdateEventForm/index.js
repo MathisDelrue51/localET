@@ -49,7 +49,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={name}
               />
-              <p>{nameError}</p>
+              <p className="fieldError">{nameError}</p>
             </div>
 
             <div className="updateBlock">
@@ -60,7 +60,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={address}
               />
-              <p>{addressError}</p>
+              <p className="fieldError">{addressError}</p>
             </div>
 
             <div className="updateBlock">
@@ -71,7 +71,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={website}
               />
-              <p>{websiteError}</p>
+              <p className="fieldError">{websiteError}</p>
             </div>
 
             <div className="updateBlock">
@@ -82,7 +82,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={dateTime}
               />
-              <p>{dateTimeError}</p>
+              <p className="fieldError">{dateTimeError}</p>
             </div>
           </div>
 
@@ -96,10 +96,10 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={description}
               />
-              <p>{descriptionError}</p>
+              <p className="fieldError">{descriptionError}</p>
             </div>
 
-            <div className="updateBlock">
+            <div className="updateBlock categoryBlock">
               <h3 className="radioTitle">Catégorie :</h3>
               <RadioField
                 id="artDeRue"
@@ -129,7 +129,7 @@ const UpdateEventForm = ({
                 label="Théâtre"
                 value={4}
               />
-              <p>{categoryError}</p>
+              <p className="fieldError">{categoryError}</p>
             </div>
 
             <div className="updateBlock">
@@ -141,7 +141,7 @@ const UpdateEventForm = ({
                 manageChange={changeField}
                 value={price}
               />
-              <p>{priceError}</p>
+              <p className="fieldError">{priceError}</p>
             </div>
 
           </div>
