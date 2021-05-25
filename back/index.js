@@ -12,8 +12,6 @@ const app = express();
 
 const path = require('path')
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
 
 //Allow us to process the information from POST
 app.use(express.urlencoded({extended: true}));
@@ -41,12 +39,5 @@ app.use(cors());
 app.use(express.static(path.join(__dirname,'../front/dist')));   
 
 app.use('/api', router);
-
-// We can create a cutomized 404 err page later
-//app.use((req, res) => res.status(404).json('404 here')); 
-
-app.get('/hello', (req,res) => {
-    res.render('hello');
-});
 
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
