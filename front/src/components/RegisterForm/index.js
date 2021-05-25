@@ -41,7 +41,7 @@ const RegisterForm = ({
             value={email}
             required
           />
-          <p>{emailError}</p>
+          <p className="fieldError">{emailError}</p>
         </div>
         <div className="block">
           <Field
@@ -53,7 +53,7 @@ const RegisterForm = ({
             value={password}
             required
           />
-          <p>{passwordError}</p>
+          <p className="fieldError">{passwordError}</p>
         </div>
         <div className="block">
           <Field
@@ -65,7 +65,7 @@ const RegisterForm = ({
             value={password2}
             required
           />
-          <p>{password2Error}</p>
+          <p className="fieldError">{password2Error}</p>
         </div>
         <div className="block">
           <Field
@@ -76,7 +76,7 @@ const RegisterForm = ({
             value={pseudo}
             required
           />
-          <p>{pseudoError}</p>
+          <p className="fieldError">{pseudoError}</p>
         </div>
         <SubmitButton
           buttonName="S'inscrire"

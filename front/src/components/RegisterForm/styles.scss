@@ -1,7 +1,10 @@
 @use 'src/styles/vars';
 
 .register {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   font-size: vars.$text;
 
   @media (max-width: 480px) {
@@ -29,51 +32,44 @@
   }
 
   &__form {
-    margin: 3em auto;
+    margin: 1rem auto;
 
     .block {
-      margin-bottom: 1.8em;
+      margin-bottom: 1.8rem;
 
       .field {
 
         .fieldInput {
           width: 350px;
-        }
-      }
 
-      p {
-        font-style: italic;
-        color: vars.$mainColor;
-      }
-    }
-
-    @media (max-width: 480px) {
-      margin: 1.2em auto;
-
-      .block {
-        margin-bottom: 0.5em;
-
-        .field {
-
-          .fieldInput {
-            width: 350px;
+          @media (max-width: 480px) {
+            width: 300px;
           }
         }
+      }
 
-        p {
-          font-style: italic;
-          color: vars.$mainColor;
-          font-size: vars.$textMobile;
+      .fieldError {
+        text-align: left;
+        font-size: vars.$textSmaller;
+        font-style: italic;
+        color: vars.$mainColor;
+        padding: 0.3rem 1rem 1rem 0;
+
+        @media screen and (max-width: 480px) {
+          font-size: vars.$textSmallerMobile;
+          padding: 0.3rem 1rem 1rem 0.2rem;
+          width: 300px;
         }
       }
     }
+
   }
 
   .connexionRedirect {
-    margin-bottom: 2.2em;
+    margin: 2rem auto;
 
     .loginNavlink {
-      margin-left: 1.5em;
+      margin-left: 1.5rem;
       display: inline-block;
       color: vars.$highlightColor;
 
