@@ -60,6 +60,22 @@
 
     }
   }
+
+}
+
+.fieldError {
+  text-align: left;
+  font-size: vars.$extraSmallText;
+  font-style: italic;
+  color: vars.$mainColor;
+  padding: 0.3rem 1rem 1rem 0;
+
+  @media screen and (max-width: 480px) {
+    font-size: vars.$textSmallerMobile;
+    padding: 0.3rem 1rem 1rem 1rem;
+    width: 300px;
+    margin: auto;
+  }
 }
 
 .formSwitch {
@@ -76,5 +92,9 @@
     text-align: center;
     padding-top: 2rem;
     padding: 1rem;
+
+    .navLink {
+      margin-left: 0.5rem;
+    }
   }
 }

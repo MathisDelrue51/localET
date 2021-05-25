@@ -9,6 +9,7 @@ import {
   fetchProfileSuccess,
   removeErrorRegister,
   handleErrorRegister,
+  handleErrorLogin,
 } from 'src/actions/auth';
 
 import history from 'src/utils/history';
@@ -132,6 +133,8 @@ const authMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error.response.data);
           console.log(error);
+
+          store.dispatch(handleErrorLogin());
         });
 
       break;

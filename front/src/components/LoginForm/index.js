@@ -15,6 +15,7 @@ const LoginForm = ({
   changeField,
   handleLogin,
   closeMenu,
+  loginError,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -47,6 +48,7 @@ const LoginForm = ({
         />
 
       </form>
+      <p className="fieldError">{loginError}</p>
       <div className="formSwitch">Pas encore inscrit ?
         <NavLink
           to="/subscribe"
