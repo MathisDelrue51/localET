@@ -75,9 +75,7 @@ const App = ({
           <Map />
         </Route>
         <Route path="/">
-          <Redirect to="/404" />
           <Page404 />
-          
         </Route>
       </Switch>
       <Footer />

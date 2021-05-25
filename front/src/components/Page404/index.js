@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 
 
 import './styles.scss';
@@ -16,10 +16,7 @@ const Page404 = () => (
         <div className="eye" />
       </div>
     </div>
-    {/* <div className="navLinkHome"><NavLink className="link" to="/">Retourner sur la carte</NavLink></div>*/}
-
-    <div className="navLinkHome"><Link className="link" to="/">Retourner sur la carte</Link></div>
-
+      <div className="navLinkHome"><NavLink className="link" to="/">Retourner sur la carte</NavLink></div>
   </div>
 
 );
