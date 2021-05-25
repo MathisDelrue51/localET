@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 
+// import action
 import { toggleCloseMenu } from 'src/actions/auth';
 
 // Import component
