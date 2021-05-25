@@ -1,3 +1,4 @@
+import { number } from 'prop-types';
 import {
   UPDATE_FIELD,
   SAVE_USER,
@@ -102,18 +103,8 @@ function authReducer(state = initialState, action) {
         ...state,
         email: action.email,
         profileList: action.profileList,
+        id: parseInt(action.id, number),
       };
-      // case FETCH_PROFILE_SUCCESS:
-    //   return {
-    //     ...state,
-    //     email: action.email,
-    //     profileList: action.profileList,
-    //     token: action.token,
-    //     pseudo: action.pseudo,
-    //     id: parseInt(action.id),
-    //     logged: Boolean(action.logged),
-    //   };
-    // This is what happens when the action UPDATE_FIELD is fired :
     case UPDATE_FIELD:
       // It means : if fieldName is email, update the email property of the state with
       // the new value typed into the field
