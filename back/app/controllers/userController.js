@@ -62,8 +62,6 @@ const userController = {
                         pseudo: req.body.pseudo
                     });
                     await theNewUser.save();
-                    console.log('Vous êtes inscrits');
-
                     res.status(201).json(theNewUser.email);
 
                 } else {
