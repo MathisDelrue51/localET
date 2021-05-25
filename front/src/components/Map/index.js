@@ -93,7 +93,7 @@ const Map = ({
                 <Popup>
                   <div className="popup">
                     <div className="popupTitle">{popupTitle}</div>
-                    <div className="popupAddress"><MapPin size={12}  className="addressIcon"/>{elmt.address}</div>
+                    <div className="popupAddress"><MapPin size={12} className="addressIcon" />{elmt.address}</div>
                     <div className="popupDescription">{popupDescription}</div>
                     <NavLink
                       to={path}
@@ -202,13 +202,21 @@ const Map = ({
 };
 
 Map.propTypes = {
+  /** array of event infos */
   list: PropTypes.array.isRequired,
+  /** value of the longitude */
   longitude: PropTypes.number.isRequired,
+  /** value of the latitude */
   latitude: PropTypes.number.isRequired,
+  /** zoom level */
   zoom: PropTypes.number.isRequired,
+  /** is user logged ? */
   isLogged: PropTypes.bool.isRequired,
+  /** called to save element id in state */
   saveId: PropTypes.func.isRequired,
+  /** called onClock go to event button */
   handleClick: PropTypes.func.isRequired,
 };
 
+// == Export
 export default Map;

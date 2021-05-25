@@ -1,11 +1,13 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss';
-
 import { NavLink } from 'react-router-dom';
-
 import { MapPin, Calendar } from 'react-feather';
 
+// == Import
+import './styles.scss';
+
+// == Component
 const ProfilePage = ({
   email, pseudo, profileList, displayEvent,
 }) => (
@@ -81,9 +83,13 @@ const ProfilePage = ({
 );
 
 ProfilePage.propTypes = {
+  /** value for the email */
   email: PropTypes.string.isRequired,
+  /** value for the pseudo */
   pseudo: PropTypes.string.isRequired,
+  /** array of event infos filtered by user id */
   profileList: PropTypes.array.isRequired,
 };
 
+// == Export
 export default ProfilePage;

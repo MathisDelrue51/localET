@@ -1,13 +1,14 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { NavLink } from 'react-router-dom';
 
+// == Import
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
-
 import './styles.scss';
 
+// == Component
 const RegisterForm = ({
   email,
   password,
@@ -135,4 +136,5 @@ RegisterForm.defaultProps = {
   pseudoError: '',
 };
 
+// == Export
 export default RegisterForm;

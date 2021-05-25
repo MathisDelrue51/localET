@@ -83,8 +83,11 @@ const App = ({
 };
 
 App.propTypes = {
+  /** value of the token */
   token: PropTypes.string,
+  /** called at page loading to retrieve all events and show them on map */
   fetchCuriosets: PropTypes.func.isRequired,
+  /** called to save user info imported from localStorage in state */
   saveUser: PropTypes.func.isRequired,
 };
 

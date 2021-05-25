@@ -1,12 +1,14 @@
+// == Import npm
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import './styles.scss';
-
 import { NavLink } from 'react-router-dom';
-import SubmitButton from 'src/components/SubmitButton';
-
 import { MapPin, Calendar, DollarSign } from 'react-feather';
 
+// == Import
+import './styles.scss';
+import SubmitButton from 'src/components/SubmitButton';
+
+// == Component
 const EventPage = ({
   name,
   type,
@@ -90,17 +92,31 @@ const EventPage = ({
 };
 
 EventPage.propTypes = {
+  /** value for the name */
   name: PropTypes.string.isRequired,
+  /** value for the type */
   type: PropTypes.string.isRequired,
+  /** value for the description */
   description: PropTypes.string.isRequired,
+  /** value for the website */
   website: PropTypes.string,
+  /** value for the address */
   address: PropTypes.string.isRequired,
+  /** value for the date and time */
   dateTime: PropTypes.string.isRequired,
+  /** value for the price */
   price: PropTypes.number.isRequired,
+  /** Is user logged ? */
   isLogged: PropTypes.bool.isRequired,
+  /** called when delete button is clicked */
   handleDelete: PropTypes.func.isRequired,
+  /** id of the user that created the event */
   idEventAuthor: PropTypes.number.isRequired,
+  /** id of the connected user */
   idUser: PropTypes.number.isRequired,
+  /** called when page is loading to get infos of the event, one parameter :
+   * -idEvent
+   */
   fetchEvent: PropTypes.func.isRequired,
 };
 
@@ -110,4 +126,5 @@ EventPage.defaultProps = {
   website: '',
 };
 
+// == Export
 export default EventPage;
