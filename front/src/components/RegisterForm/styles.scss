@@ -61,6 +61,21 @@
           width: 300px;
         }
       }
+
+      .additionnalFieldInfo {
+        padding-top: 0.3rem;
+        font-style: italic;
+        color: vars.$darkGrey;
+        font-size: vars.$extraSmallText;
+        width: 350px;
+        text-align: left;
+
+        // SMALL SIZE DEVICE
+        @media screen and (max-width: 480px) {
+          font-size: vars.$extraSmallTextMobile;
+          width: 290px;
+        }
+      }
     }
 
   }

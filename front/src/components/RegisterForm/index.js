@@ -53,6 +53,7 @@ const RegisterForm = ({
             value={password}
             required
           />
+          <p className="additionnalFieldInfo">Le mot de passe doit contenir 8 caractères dont au moins une majuscule, une minuscule, un chiffre et un caractère spécial</p>
           <p className="fieldError">{passwordError}</p>
         </div>
         <div className="block">
