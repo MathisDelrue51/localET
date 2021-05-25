@@ -13,7 +13,7 @@ export default (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware MAP: ', action);
   switch (action.type) {
     case FETCH_CURIOSETS:
-      console.log('Recherche curiosETs');
+      // console.log('Recherche curiosETs');
       next(action);
       // Fetch request to get curiosETs
       axios({
@@ -32,7 +32,7 @@ export default (store) => (next) => (action) => {
         });
       break;
     case SUBMIT_SEARCH:
-      console.log('Recherche adresses');
+      // console.log('Recherche adresses');
       const { address } = store.getState().map;
       // connect to .gouv API to verify adresses on map searchbar
       axios({
@@ -41,7 +41,7 @@ export default (store) => (next) => (action) => {
       })
         .then((res) => {
           // console.log("je reçois ça de l'api", res);
-          console.log(res.data.features[0].geometry.coordinates[0]);
+          // console.log(res.data.features[0].geometry.coordinates[0]);
           const actionToDispatch = submitSearchSuccess(
             res.data.features[0].geometry.coordinates[0],
             res.data.features[0].geometry.coordinates[1],

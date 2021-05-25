@@ -40,7 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   // to handle changes in radio options
   changeChecking: (newValue, radioGroupName) => {
-    console.log(`newValue: ${newValue}`);
+    // console.log(`newValue: ${newValue}`);
     dispatch(updateRadioOption(newValue, radioGroupName));
   },
   // to send modifications to the DB

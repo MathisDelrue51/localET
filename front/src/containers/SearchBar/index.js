@@ -23,7 +23,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
   // to send search content to .gouv API
   handleSearch: () => {
-    console.log('submit du formulaire');
     const actionToDispatch = submitSearch();
     dispatch(actionToDispatch);
   },

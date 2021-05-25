@@ -15,7 +15,6 @@ const mapStateToProps = null;
 const mapDispatchToProps = (dispatch) => ({
   // to empty all events info from curiosET state
   emptyEventState: () => {
-    console.log('empty event state');
     const action = emptyEventState();
     dispatch(action);
   },

@@ -22,7 +22,7 @@ const authMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_PROFILE: {
-      console.log('authMiddleware is handling FETCH_PROFILE action');
+      // console.log('authMiddleware is handling FETCH_PROFILE action');
       const { auth } = store.getState();
       // connect to backend profile route to get user infos
       axios({
@@ -48,7 +48,7 @@ const authMiddleware = (store) => (next) => (action) => {
     }
       break;
     case REGISTER: {
-      console.log('authMiddleware is handling REGISTER action');
+      // console.log('authMiddleware is handling REGISTER action');
       const { auth } = store.getState();
       // connect to the backend's register route, providing email, password and alias collected
       // from the state(and so, typed by the user)
@@ -91,7 +91,7 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
     }
     case LOG_IN: {
-      console.log('authMiddleware is handling LOG_IN action');
+      // console.log('authMiddleware is handling LOG_IN action');
 
       // getting the auth part of the state
       const { auth } = store.getState();
@@ -121,7 +121,6 @@ const authMiddleware = (store) => (next) => (action) => {
 
         .then(() => {
           history.push('/');
-          console.log('history');
         })
 
         .catch((error) => {
@@ -131,7 +130,7 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
     }
     case LOG_OUT: {
-      console.log('authMiddleware is handling LOG_OUT action');
+      // console.log('authMiddleware is handling LOG_OUT action');
 
       axios.get(`${SERVER_URL}/logout`)
 

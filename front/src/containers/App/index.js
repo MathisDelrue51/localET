@@ -17,13 +17,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   // to fetch all curiosETs at page loading
   fetchCuriosets: () => {
-    console.log('fetch curiosETs');
     const action = fetchCuriosets();
     dispatch(action);
   },
   // to save user info in localStorage
   saveUser: (token, pseudo, id, logged) => {
-    console.log('save token');
     const action = saveUserBrowser(token, pseudo, id, logged);
     dispatch(action);
   },

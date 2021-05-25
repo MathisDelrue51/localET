@@ -28,7 +28,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware CURIOSET: ', action);
   switch (action.type) {
     case DELETE_EVENT: {
-      console.log('authMiddleware is handling DELETE_EVENT action');
+      // console.log('authMiddleware is handling DELETE_EVENT action');
       const {
         curioset, auth,
       } = store.getState();
@@ -54,7 +54,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
     }
       break;
     case UPDATE_EVENT: {
-      console.log('authMiddleware is handling UPDATE_EVENT action');
+      // console.log('authMiddleware is handling UPDATE_EVENT action');
       const {
         curioset, auth,
       } = store.getState();
@@ -107,7 +107,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
     }
       break;
     case FETCH_EVENT: {
-      console.log('authMiddleware is handling FETCH_EVENT action');
+      // console.log('authMiddleware is handling FETCH_EVENT action');
       const {
         curioset,
       } = store.getState();
@@ -130,7 +130,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
     }
       break;
     case SUBMIT_ADDRESS_SEARCH_UPDATE: {
-      console.log('Middleware Recherche adresse update');
+      // console.log('Middleware Recherche adresse update');
       const {
         curioset,
       } = store.getState();
@@ -160,7 +160,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
       break;
 
     case SUBMIT_ADDRESS_SEARCH: {
-      console.log('Middleware Recherche adresse');
+      // console.log('Middleware Recherche adresse');
       const {
         curioset,
       } = store.getState();
@@ -194,7 +194,7 @@ const curiosetMiddleware = (store) => (next) => (action) => {
       break;
 
     case SUBMIT_CREATE_EVENT: {
-      console.log('Middleware Create Event');
+      // console.log('Middleware Create Event');
       const {
         curioset,
         auth,
