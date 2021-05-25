@@ -7,18 +7,21 @@
   align-items: center;
   min-height: 70vh;
 
+  // PAGE TITLE
   .message404Title {
     font-size: vars.$mainTitle*2;
     color: vars.$mainColor;
     font-weight: bold;
   }
 
+  // PAGE TEXT
   .message404Text {
     font-size: vars.$text;
     padding-bottom: 1.5rem;
 
   }
 
+  // ET FACE
   .face {
     background-image: url("src/assets/404/localET-404-11.svg");
     position: relative;
@@ -82,7 +85,6 @@
 
   .message404:hover~.face {
     .eyes {
-
       .eye::before {
         top: 33%;
         left: 18px;
@@ -91,14 +93,12 @@
         height: 20px;
         background: vars.$highlightColor;
         border-radius: 50%;
-
       }
     }
   }
 
-
+  // BACK HOME LINK
   .navLinkHome {
-
     padding-top: 2rem;
     padding-bottom: 2rem;
 
@@ -139,7 +139,5 @@
         }
       }
     }
-
   }
-
 }

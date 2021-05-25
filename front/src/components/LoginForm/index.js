@@ -79,6 +79,8 @@ LoginForm.propTypes = {
   handleLogin: PropTypes.func.isRequired,
   /** handle click to register - mobile */
   closeMenu: PropTypes.func.isRequired,
+  /** gets error message if something wrong is submitted for login */
+  loginError: PropTypes.string.isRequired,
 };
 
 // Export

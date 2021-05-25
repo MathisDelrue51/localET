@@ -64,6 +64,11 @@ const Header = ({ isLogged, openMenu, open, closeMenu }) => {
 Header.propTypes = {
   /** toggle between "connected" or "not connected" */
   isLogged: PropTypes.bool,
+  /** toggle between open menu and close menu */
+  openMenu: PropTypes.func.isRequired,
+  closeMenu: PropTypes.func.isRequired,
+  /** value in state when the burger menu is open/close */
+  open: PropTypes.bool.isRequired,
 };
 
 Header.defaultProps = {

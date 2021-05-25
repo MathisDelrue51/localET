@@ -1,5 +1,6 @@
 @use 'src/styles/vars';
 
+// LOGIN FORM
 .loginForm {
   display: flex;
   flex-direction: row;
@@ -63,6 +64,7 @@
 
 }
 
+// ERROR OF LOGIN SUBMIT
 .fieldError {
   text-align: left;
   font-size: vars.$extraSmallText;
@@ -78,6 +80,7 @@
   }
 }
 
+// OPTION TO SWITCH TO SUBSCRIBE FORM :
 .formSwitch {
   color: vars.$black;
   text-align: right;
