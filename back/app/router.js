@@ -83,7 +83,5 @@ router.get('/*', (_,res) => {
     res.sendFile(path.join(__dirname,'../../front/dist/index.html'));
 });
 
-// We can create a cutomized 404 err page later
-router.use((req, res) => res.status(404).render('404 here')); 
 
 module.exports = router;
