@@ -82,7 +82,7 @@ const RegisterForm = ({
           buttonName="S'inscrire"
         />
       </form>
-      <p className="connexionRedirect">Déjà inscrit ?
+      <div className="connexionRedirect">Déjà inscrit ?
         <div className="loginNavlink">
           <NavLink
             to="/login"
@@ -97,7 +97,7 @@ const RegisterForm = ({
           </NavLink>
         </div>
 
-      </p>
+      </div>
 
     </div>
   );
