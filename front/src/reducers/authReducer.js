@@ -51,10 +51,6 @@ function authReducer(state = initialState, action) {
           password2: '',
           pseudo: '',
         },
-        email: '',
-        password: '',
-        password2: '',
-        pseudo: '',
       };
     case HANDLE_ERROR_REGISTER:
       if (action.path === 'email') {
