@@ -4,21 +4,25 @@
 .footer {
   display: flex;
   flex-direction: row;
-  padding-top: 2rem;
-  
-}
+  padding-top: 0.5rem;
+  justify-content: center;
 
-.contact {
-  color: vars.$highlightColor;
-  font-size: vars.$secondaryTitle;
-  font-weight: lighter;
-  width: 50%;
-}
+  .navLink {
+    color: vars.$highlightColor;
+    padding-right: 0.5rem;
+    font-size: vars.$textSmaller;
+    text-align: right;
 
-h2 {
-  font-size: vars.$black;
-  font-weight: lighter;
-  text-align: center;
-  width: 50%;
-  
+    &:hover {
+      text-decoration: underline solid vars.$mainColor vars.$borderThickness;
+    }
+  }
+
+  .copyright {
+    color: vars.$black;
+    font-weight: lighter;
+    text-align: left;
+    font-size: vars.$textSmaller;
+    padding-left: 0.5rem;
+  }
 }
