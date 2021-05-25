@@ -1,0 +1,30 @@
+@use 'src/styles/vars';
+
+.mapLegend {
+  width: 10em;
+  padding: 0.5em;
+  background-color: rgba($color: #495b57, $alpha: 0.5);
+  border-radius: vars.$borderRadius;
+  display: flex;
+  flex-direction: column;
+  &__type {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5em;
+    img {
+      width: 2em;
+      margin-right: 1em;
+    }
+    
+  }
+  .legendButton {
+    &--closed {
+      height: 45px;
+    }
+  }
+}
+
+
+.legendClosed {
+  display: none;
+}

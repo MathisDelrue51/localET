@@ -1,5 +1,5 @@
 import {
-  FETCH_CURIOSETS_SUCCESS, UPDATE_ADDRESS_FIELD, SUBMIT_SEARCH_SUCCESS, SUBMIT_SEARCH_ERROR,
+  FETCH_CURIOSETS_SUCCESS, UPDATE_ADDRESS_FIELD, SUBMIT_SEARCH_SUCCESS, OPEN_LEGEND_MAP,
 } from 'src/actions/map';
 
 export const initialState = {
@@ -8,10 +8,16 @@ export const initialState = {
   longitude: 3.159,
   latitude: 46.9896,
   zoom: 6,
+  openLegend: false,
 };
 
 const reducer = (currentState = initialState, action = {}) => {
   switch (action.type) {
+    case OPEN_LEGEND_MAP:
+      return {
+        ...currentState,
+        openLegend: !currentState.openLegend,
+      };
     case UPDATE_ADDRESS_FIELD:
       return {
         ...currentState,
