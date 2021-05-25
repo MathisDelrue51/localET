@@ -70,7 +70,6 @@ const userController = {
                         path:["pseudo"]
                     });
                     throw new Error(`Pseudo already exists`);
-
                 }
 
             } else {              
@@ -79,14 +78,12 @@ const userController = {
                     path:["email"]
                 });
                 throw new Error(`Email already exists`);
-            }
-            
+            }            
 
         } catch (err) {
             res.status(403).json(errorDetails);
         }
     }
-
 }
 
 module.exports = userController;

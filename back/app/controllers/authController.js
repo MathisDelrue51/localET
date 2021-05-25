@@ -44,16 +44,9 @@ const authController = {
 
     },
 
-    //We remove user from session
-    //TODO should we set current token time to 0? And remove token from state
     logout: (req, res, next) => {        
         res.redirect('/');
     },
-
-    //Just to do some test during dev
-    connected: (req, res, next) => {
-        res.json('Un utilisateur est connecté');
-    }
 
 };
 
