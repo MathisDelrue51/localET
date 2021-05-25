@@ -12,6 +12,7 @@ import {
   SAVE_USER_BROWSER,
   HANDLE_ERROR_REGISTER,
   REMOVE_ERROR_REGISTER,
+  HANDLE_ERROR_LOGIN,
 } from '../actions/auth';
 
 const initialState = {
@@ -41,10 +42,18 @@ const initialState = {
   id: null,
   // boolean mobile menu option
   open: false,
+
+  loginError: '',
 };
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
+    // This is what happens when the action HANDLE_ERROR_LOGIN is launched :
+    case HANDLE_ERROR_LOGIN:
+      return {
+        ...state,
+        loginError: 'Veuillez saisir un e-mail et un mot de passe valides',
+      };
     // This is what happens when the action REMOVE_ERROR_REGISTER is launched :
     case REMOVE_ERROR_REGISTER:
       return {
@@ -156,6 +165,7 @@ function authReducer(state = initialState, action) {
         token: action.token,
         pseudo: action.pseudo,
         id: parseInt(action.id, number),
+        loginError: '',
       };
       // This is what happens when the action LOG_OUT is launched :
     case LOG_OUT:

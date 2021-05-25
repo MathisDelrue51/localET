@@ -10,15 +10,56 @@
     font-size: vars.$textMobile;
   }
 
-  h1 {
+  // BACKHOME LINK
+  .link {
+    color: vars.$highlightColor;
+    text-align: left;
+  }
+
+  .linkBack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .backIcon {
+      margin-right: 1rem;
+    }
+
+    &:hover {
+      .backIcon {
+        color: vars.$mainColor;
+      }
+    }
+  }
+
+  // EVENT TITLE
+  .eventTitle {
+    text-align: center;
+    padding: 1.5rem;
     font-size: vars.$mainTitle;
-    font-weight: bold;
 
     @media (max-width: 480px) {
       font-size: vars.$mainTitleMobile;
     }
+
+    h1 {
+      font-weight: bold;
+    }
   }
 
+  // CATEGORY OF EVENT
+  h3 {
+    font-size: vars.$text;
+    padding-top: 1rem;
+    color: vars.$mainColor;
+
+    @media (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
+  }
+
+  // INFORMATION TITLES
   h2 {
     font-size: vars.$secondaryTitle;
     font-weight: bold;
@@ -30,16 +71,7 @@
     }
   }
 
-  h3 {
-    font-size: vars.$text;
-    padding-top: 1rem;
-    color: vars.$mainColor;
-
-    @media (max-width: 480px) {
-      font-size: vars.$textSmallerMobile;
-    }
-  }
-
+  // TEXTS & LINKS
   p,
   a {
     font-size: vars.$text;
@@ -51,29 +83,7 @@
 
 }
 
-.link {
-  color: vars.$highlightColor;
-  text-align: left;
-}
-
-.linkBack {
-  text-align: center;
-}
-
-.eventTitle {
-  text-align: center;
-  padding: 1.5rem;
-
-}
-
-.eventPart,
-.eventLocation,
-.eventDate,
-.price {
-  padding: 1.5rem;
-  text-align: left;
-}
-
+// EVENT DETAILS CONTAINER
 .curiosetContainer {
   display: flex;
   flex-direction: row;
@@ -81,14 +91,23 @@
   @media (max-width: 480px) {
     flex-direction: column;
   }
+
+  .eventPart,
+  .eventLocation,
+  .eventDate,
+  .price {
+    padding: 1.5rem;
+    text-align: left;
+  }
+
+  .curiosetDetails {
+    display: flex;
+    flex-direction: column;
+
+  }
 }
 
-.curiosetDetails {
-  display: flex;
-  flex-direction: column;
-
-}
-
+// EVENT CONTAINER
 .eventPart {
   width: 65%;
   text-align: justify;
@@ -96,32 +115,29 @@
   @media (max-width: 480px) {
     width: 100%;
   }
-}
 
-.description {
-  padding-bottom: 2.5rem;
-}
+  .description {
+    padding-bottom: 2.5rem;
+  }
 
-#website {
-  color: vars.$highlightColor;
+  #website {
+    color: vars.$highlightColor;
 
-}
+  }
 
-.place,
-.date,
-.dollar {
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  padding: 0.5rem 0;
-  justify-content: flex-start;
-  align-items: center;
+  .infoWithIcon {
+    text-align: left;
+    padding: 0.5rem 0;
 
-  @media (max-width: 480px) {
-    padding-bottom: 0.8rem;
+
+    @media (max-width: 480px) {
+      padding-bottom: 0.8rem;
+    }
   }
 }
 
+
+// DELETE / EDIT BUTTONS
 .update_delete {
   display: flex;
   align-items: center;
@@ -160,6 +176,4 @@
     }
 
   }
-
-
 }

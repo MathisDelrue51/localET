@@ -22,6 +22,8 @@ export const HANDLE_ERROR_REGISTER = 'HANDLE_ERROR_REGISTER';
 
 export const REMOVE_ERROR_REGISTER = 'REMOVE_ERROR_REGISTER';
 
+export const HANDLE_ERROR_LOGIN = 'HANDLE_ERROR_LOGIN';
+
 // action to remove unrelevant error messages after user correction
 export const removeErrorRegister = () => ({
   type: REMOVE_ERROR_REGISTER,
@@ -32,6 +34,11 @@ export const handleErrorRegister = (path, message) => ({
   type: HANDLE_ERROR_REGISTER,
   path,
   message,
+});
+
+// action to send back error messages to user in register
+export const handleErrorLogin = () => ({
+  type: HANDLE_ERROR_LOGIN,
 });
 
 // action to save token in state when refresh happens

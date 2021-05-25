@@ -1,5 +1,6 @@
 @use 'src/styles/vars';
 
+
 .container {
   width: 100%;
   font-size: vars.$text;
@@ -11,10 +12,23 @@
 
 .link {
   color: vars.$highlightColor;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .backIcon {
+    margin-right: 1rem;
+  }
 
   &:hover {
     text-decoration: underline solid vars.$mainColor vars.$borderThickness;
+
+    .backIcon {
+      color: vars.$mainColor;
+    }
   }
+
 }
 
 .componentTitle {

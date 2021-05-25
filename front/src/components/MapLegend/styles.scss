@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
 
-
+  // CONDITIONNAL CLASSES TO HANDLE CLOSED AND OPEN STATE OF LEGEND
   .legendOpenVisible {
     display: block;
     width: 10rem;
@@ -41,7 +41,7 @@
     }
   }
 
-
+  // MAP LEGEND ITEM
   &__type {
     color: vars.$white;
     display: flex;
@@ -53,13 +53,6 @@
     img {
       width: 2rem;
       margin-right: 1rem;
-    }
-
-  }
-
-  .legendButton {
-    &--closed {
-      height: 45px;
     }
   }
 }
