@@ -7,7 +7,8 @@ import { NavLink } from 'react-router-dom';
 import './styles.scss';
 import SearchBar from 'src/containers/SearchBar';
 import SetView from 'src/components/SetView';
-import CreateEventButton from 'src/containers/CreateEventButton';
+import CreateEventButton from 'src/components/CreateEventButton';
+import MapLegend from 'src/containers/MapLegend';
 
 import Leaflet from 'leaflet';
 import {
@@ -64,6 +65,8 @@ const Map = ({
       </div>
 
       {isLogged && <CreateEventButton />}
+
+      <MapLegend />
 
       <MapContainer center={[latitude, longitude]} zoom={zoom} scrollWheelZoom={false} id="mapid">
         <SetView center={[latitude, longitude]} zoom={zoom} />
