@@ -21,7 +21,7 @@
   &__subtitle {
     font-weight: bold;
     font-size: vars.$secondaryTitle;
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
 
     @media (max-width: 480px) {
       font-size: vars.$secondaryTitleMobile;
@@ -75,6 +75,7 @@
     .loginNavlink {
       margin-left: 1.5em;
       display: inline-block;
+      color: vars.$highlightColor;
 
       .navLink:hover {
         text-decoration: underline solid vars.$mainColor vars.$borderThickness;

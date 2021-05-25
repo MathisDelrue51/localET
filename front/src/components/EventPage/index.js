@@ -28,7 +28,7 @@ const EventPage = ({
   }, []);
   return (
     <div className="event">
-      <NavLink to="/" className="link">
+      <NavLink to="/" className="link linkBack">
         Retourner sur la carte
       </NavLink>
       <div className="eventTitle">

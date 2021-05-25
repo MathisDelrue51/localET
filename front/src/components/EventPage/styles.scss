@@ -23,6 +23,7 @@
     font-size: vars.$secondaryTitle;
     font-weight: bold;
     padding-bottom: 1rem;
+    text-align: left;
 
     @media (max-width: 480px) {
       font-size: vars.$secondaryTitleMobile;
@@ -53,6 +54,10 @@
 .link {
   color: vars.$highlightColor;
   text-align: left;
+}
+
+.linkBack {
+  text-align: center;
 }
 
 .eventTitle {

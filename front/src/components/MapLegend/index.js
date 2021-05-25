@@ -1,5 +1,5 @@
 import React from 'react';
-import { HelpCircle } from 'react-feather';
+import { HelpCircle, XCircle } from 'react-feather';
 import classNames from 'classnames';
 
 import streetArt from 'src/assets/icons/icons-1-neg.svg';
@@ -34,7 +34,7 @@ const MapLegend = ({ openLegend, handleOpen }) => {
         </div>
 
         <div>
-          <HelpCircle onClick={handleOpen} size={40} color="white" />
+          <XCircle className="closeIcon" onClick={handleOpen} size={40} color="white" />
         </div>
       </div>
 

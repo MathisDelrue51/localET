@@ -70,6 +70,9 @@ const App = ({
         <Route path="/login">
           <Map />
         </Route>
+        <Route path="/logout">
+          <Map />
+        </Route>
         <Route path="/" exact>
           <Map />
         </Route>
