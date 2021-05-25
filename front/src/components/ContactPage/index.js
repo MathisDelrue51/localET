@@ -29,11 +29,11 @@ const ContactPage = () => (
           <p className="devRole">
             Product owner, dev front
           </p>
-          <div>
+          <div className="devLink">
             <GitHub size={25} className="devIcon" />
             <a href="https://github.com/AliceMsx" className="externalLink">GitHub</a>
           </div>
-          <div>
+          <div className="devLink">
             <Linkedin size={25} className="devIcon" />
             <a href="https://www.linkedin.com/in/alice-masseaux-99a644193/" className="externalLink">LinkedIn</a>
           </div>
@@ -48,11 +48,11 @@ const ContactPage = () => (
           <p className="devRole">
             Lead dev back
           </p>
-          <div>
+          <div className="devLink">
             <GitHub size={25} className="devIcon" />
             <a href="https://github.com/Idrissi-55" className="externalLink">GitHub</a>
           </div>
-          <div>
+          <div className="devLink">
             <Linkedin size={25} className="devIcon" />
             <a href="https://www.linkedin.com/in/yassine-idrissi-alami-8056ab161/" className="externalLink">LinkedIn</a>
           </div>
@@ -67,11 +67,11 @@ const ContactPage = () => (
           <p className="devRole">
             Lead dev front
           </p>
-          <div>
+          <div className="devLink">
             <GitHub size={25} className="devIcon" />
             <a href="https://github.com/marion-vgv" className="externalLink">GitHub</a>
           </div>
-          <div>
+          <div className="devLink">
             <Linkedin size={25} className="devIcon" />
             <a href="https://www.linkedin.com/in/marionvangaeveren/?locale=fr_FR" className="externalLink">LinkedIn</a>
           </div>
@@ -86,11 +86,11 @@ const ContactPage = () => (
           <p className="devRole">
             Scrum master, dev back
           </p>
-          <div>
+          <div className="devLink">
             <GitHub size={25} className="devIcon" />
             <a href="https://github.com/MathisDelrue51" className="externalLink">GitHub</a>
           </div>
-          <div>
+          <div className="devLink">
             <Linkedin size={25} className="devIcon" />
             <a href="https://www.linkedin.com/in/mathis-delrue-858b94172/" className="externalLink">LinkedIn</a>
           </div>

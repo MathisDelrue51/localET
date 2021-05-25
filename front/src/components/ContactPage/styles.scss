@@ -24,7 +24,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 1rem auto;
-  width: 55%;
+  width: 60%;
 
   @media (max-width: 1024px) {
     width: 80%;
@@ -32,6 +32,7 @@
 
   @media (max-width: 768px) {
     width: 90%;
+    justify-content: center;
   }
 
   @media (max-width: 480px) {
@@ -78,6 +79,7 @@
   font-weight: bold;
   font-size: vars.$secondaryTitle;
   margin: 0.3rem 0;
+  text-align: left;
 
   @media (max-width: 480px) {
     font-size: vars.$secondaryTitleMobile;
@@ -87,9 +89,18 @@
 .devRole {
   margin: 0.3rem 0;
   text-align: left;
+  font-size: vars.$textSmaller;
+}
+
+.devLink {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 0.3rem 0;
 }
 
 .externalLink {
+  margin-left: 0.3rem;
   color: vars.$highlightColor;
 
   &:hover {
