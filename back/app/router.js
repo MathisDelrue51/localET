@@ -35,9 +35,6 @@ router.post('/signup', validateBody(userSchema), userController.newUser);
  */
 router.post('/login', authController.postLogin );
 
-// Just to test if a user is connected or not
-router.get('/connected', authenticateToken, authController.connected );
-
 /**
  * Access the profile page of the user with the corresponding id (if it exists)
  * @route GET /profile/:id - id must be a number (defined by the regex)
@@ -77,7 +74,7 @@ router.put('/curioset/:id(\\d+)', authenticateToken, validateBody(curiosetSchema
  */
 router.delete('/curioset/:id(\\d+)', authenticateToken, flush, curiosetController.deleteCurioset);
 
-// We can create a cutomized 404 err page later
+// Should display the 404 page
 router.use((req, res) => res.status(404).json('endpoint not found')); 
 
 module.exports = router;

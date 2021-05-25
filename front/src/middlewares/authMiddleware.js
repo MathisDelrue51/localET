@@ -1,5 +1,7 @@
+// import npm
 import axios from 'axios';
 
+// import
 import {
   LOG_IN,
   REGISTER,
@@ -11,10 +13,9 @@ import {
   handleErrorRegister,
   handleErrorLogin,
 } from 'src/actions/auth';
-
 import history from 'src/utils/history';
 
-// here, write the backend's url :
+// here, write the backend's server url :
 const SERVER_URL = 'http://localhost:1234';
 
 const authMiddleware = (store) => (next) => (action) => {
@@ -22,9 +23,9 @@ const authMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case FETCH_PROFILE: {
-      console.log('authMiddleware is handling FETCH_PROFILE action');
+      // console.log('authMiddleware is handling FETCH_PROFILE action');
       const { auth } = store.getState();
-      console.log(auth.token);
+      // connect to backend profile route to get user infos
       axios({
         method: 'GET',
         url: `${SERVER_URL}/profile/${auth.id}`,
@@ -33,7 +34,7 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           const actionToDispatch = fetchProfileSuccess(
             response.data.email,
             response.data.curiosets,
@@ -42,16 +43,14 @@ const authMiddleware = (store) => (next) => (action) => {
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
-          console.log(err.response.data);
+          // console.log(err.response.data);
           console.error(err);
         });
     }
       break;
     case REGISTER: {
-      console.log('authMiddleware is handling REGISTER action');
-      // getting the auth part of the state
+      // console.log('authMiddleware is handling REGISTER action');
       const { auth } = store.getState();
-      console.log(auth.email);
       // connect to the backend's register route, providing email, password and alias collected
       // from the state(and so, typed by the user)
       axios({
@@ -64,12 +63,11 @@ const authMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           history.push('/login');
         })
         .catch((err) => {
-          console.log('kikou');
-          console.log(err.response.data);
+          // console.log(err.response.data);
           const removeToDispatch = removeErrorRegister();
           store.dispatch(removeToDispatch);
           let n = 0;
@@ -80,6 +78,7 @@ const authMiddleware = (store) => (next) => (action) => {
             );
             store.dispatch(errorToDispatch);
           }
+          // as long as there are errors in the register fields, show them all
           while (n < err.response.data.length) {
             const errorToDispatch = handleErrorRegister(
               err.response.data[n].path[0],
@@ -93,7 +92,7 @@ const authMiddleware = (store) => (next) => (action) => {
       break;
     }
     case LOG_IN: {
-      console.log('authMiddleware is handling LOG_IN action');
+      // console.log('authMiddleware is handling LOG_IN action');
 
       // getting the auth part of the state
       const { auth } = store.getState();
@@ -105,9 +104,7 @@ const authMiddleware = (store) => (next) => (action) => {
         password: auth.password,
       })
         .then((response) => {
-          console.log('Je vais changer le state');
-          console.log('save user data', response);
-
+          // console.log('save user data', response);
           const actionSaveUser = saveUser(
             response.data.logged,
             response.data.token,
@@ -115,33 +112,27 @@ const authMiddleware = (store) => (next) => (action) => {
             response.data.id,
           );
 
-         localStorage.setItem('token', response.data.token);
-         localStorage.setItem('pseudo', response.data.pseudo);
-         localStorage.setItem('id', response.data.id);
-         localStorage.setItem('logged', response.data.logged);
-
-          console.log('Je viens de changer le state et je push la redirection');
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('pseudo', response.data.pseudo);
+          localStorage.setItem('id', response.data.id);
+          localStorage.setItem('logged', response.data.logged);
 
           store.dispatch(actionSaveUser);
         })
 
         .then(() => {
           history.push('/');
-          console.log('history');
         })
 
         .catch((error) => {
-          console.log(error.response.data);
-          console.log(error);
-
           store.dispatch(handleErrorLogin());
+          // console.log(error.response.data);
         });
 
       break;
     }
-
     case LOG_OUT: {
-      console.log('authMiddleware is handling LOG_OUT action');
+      // console.log('authMiddleware is handling LOG_OUT action');
 
       axios.get(`${SERVER_URL}/logout`)
 
@@ -154,15 +145,13 @@ const authMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
         });
-
       break;
     }
-
     default:
   }
-
   // on passe l'action au suivant (middleware suivant ou reducer)
   next(action);
 };
 
+// export
 export default authMiddleware;

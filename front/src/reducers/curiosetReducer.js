@@ -1,4 +1,7 @@
+// import npm
 import { number } from 'prop-types';
+
+// import
 import {
   UPDATE_EVENT_FIELD,
   UPDATE_RADIO_OPTION,
@@ -45,7 +48,7 @@ const initialState = {
 
   // id of user who created the event
   idEventAuthor: null,
-
+  // field errors
   errors: {
     name: '',
     address: '',
@@ -60,6 +63,7 @@ const initialState = {
 
 function curiosetReducer(state = initialState, action) {
   switch (action.type) {
+    // This is what happens when the action EMPTY_EVENT_STATE is launched :
     case EMPTY_EVENT_STATE:
       return {
         ...state,
@@ -76,6 +80,7 @@ function curiosetReducer(state = initialState, action) {
         idEvent: null,
         idEventAuthor: null,
       };
+    // This is what happens when the action EMPTY_EVENT_STATE is launched :
     case REMOVE_ERROR_EVENT:
       return {
         ...state,
@@ -90,6 +95,7 @@ function curiosetReducer(state = initialState, action) {
           category: '',
         },
       };
+    // This is what happens when the action HANDLE_ERROR_EVENT is launched :
     case HANDLE_ERROR_EVENT:
       if (action.path === 'title') {
         return {
@@ -155,6 +161,7 @@ function curiosetReducer(state = initialState, action) {
         };
       }
       break;
+    // This is what happens when the action UPDATE_EVENT_SUCCESS is launched :
     case UPDATE_EVENT_SUCCESS:
       return {
         ...state,
@@ -169,6 +176,7 @@ function curiosetReducer(state = initialState, action) {
         latitude: action.data.latitude,
         idEvent: action.data.id,
       };
+    // This is what happens when the action FETCH_EVENT_SUCCESS is launched :
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
@@ -186,7 +194,7 @@ function curiosetReducer(state = initialState, action) {
         idEventAuthor: action.data.user_id,
       };
 
-    // This is what happens when the action UPDATE_FIELD is fired :
+    // This is what happens when the action UPDATE_EVENT_FIELD is launched :
     case UPDATE_EVENT_FIELD:
 
       if (action.fieldName === 'name') {
@@ -231,7 +239,7 @@ function curiosetReducer(state = initialState, action) {
         };
       }
       break;
-
+    // This is what happens when the action UPDATE_RADIO_OPTION is launched :
     case UPDATE_RADIO_OPTION:
       if (action.radioGroupName === 'category') {
         return {
@@ -240,15 +248,14 @@ function curiosetReducer(state = initialState, action) {
         };
       }
       break;
-
+    // This is what happens when the action SAVE_ADDRESS_DATA is launched :
     case SAVE_ADDRESS_DATA:
       return {
         ...state,
         longitude: action.longitude,
         latitude: action.latitude,
       };
-
-      // This is what happens when the action SAVE_ID is fired :
+    // This is what happens when the action SAVE_ID is launched :
     case SAVE_ID:
       return {
         ...state,
@@ -260,4 +267,5 @@ function curiosetReducer(state = initialState, action) {
   }
 }
 
+// export
 export default curiosetReducer;

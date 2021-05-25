@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 
+// Import action
 import { updateField, register, toggleOpenMenu } from 'src/actions/auth';
 
 // Import component
 import RegisterForm from 'src/components/RegisterForm';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   email: state.auth.email,
@@ -22,16 +23,17 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
-  // function dispatching the action
+  // to handle changes in form fields
   changeField: (newValue, name) => {
     const action = updateField(newValue, name);
     dispatch(action);
   },
+  // to handle sending register infos to DB
   handleRegister: () => {
     console.log('submit du formulaire');
     dispatch(register());
   },
-
+  // to open menu on mobile
   openMenu: () => {
     dispatch(toggleOpenMenu());
   },

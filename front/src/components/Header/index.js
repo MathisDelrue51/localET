@@ -17,7 +17,6 @@ const Header = ({ isLogged, openMenu, open, closeMenu }) => {
   const cssClassMenu = classNames({'menuOptions': !open }, { 'menuOptionsMobile': open });
   const cssClassMenuIcon = classNames({'burgerMenu': !open}, { 'burgerMenuOff': open });
   const closeButton = classNames({'closeButtonOff': !open}, {'closeButtonOn': open});
-  // ! console.log(open);
   return (
 
     <div className="header">

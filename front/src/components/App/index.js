@@ -27,7 +27,6 @@ const App = ({
   token,
   saveUser,
 }) => {
-  console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
