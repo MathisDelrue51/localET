@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 
+// import component
 import { logOut, fetchProfile, toggleCloseMenu } from 'src/actions/auth';
 
 // Import component
 import NavLoggedIn from 'src/components/Header/navLoggedIn';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   pseudo: state.auth.pseudo,
@@ -16,10 +17,13 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
+
+  // to log out from account
   handleLogout: () => {
     dispatch(logOut());
     dispatch(toggleCloseMenu());
   },
+  // to fetch connected user profile and close menu on mobile
   handleClick: () => {
     dispatch(fetchProfile());
     dispatch(toggleCloseMenu());

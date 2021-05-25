@@ -1,13 +1,14 @@
+// == Import npm
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { NavLink } from 'react-router-dom';
 
+// == Import
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
-
 import './styles.scss';
 
+// == Component
 const RegisterForm = ({
   email,
   password,
@@ -40,7 +41,7 @@ const RegisterForm = ({
             value={email}
             required
           />
-          <p>{emailError}</p>
+          <p className="fieldError">{emailError}</p>
         </div>
         <div className="block">
           <Field
@@ -52,7 +53,8 @@ const RegisterForm = ({
             value={password}
             required
           />
-          <p>{passwordError}</p>
+          <p className="additionnalFieldInfo">Le mot de passe doit contenir 8 caractères dont au moins une majuscule, une minuscule, un chiffre et un caractère spécial</p>
+          <p className="fieldError">{passwordError}</p>
         </div>
         <div className="block">
           <Field
@@ -64,7 +66,7 @@ const RegisterForm = ({
             value={password2}
             required
           />
-          <p>{password2Error}</p>
+          <p className="fieldError">{password2Error}</p>
         </div>
         <div className="block">
           <Field
@@ -75,13 +77,13 @@ const RegisterForm = ({
             value={pseudo}
             required
           />
-          <p>{pseudoError}</p>
+          <p className="fieldError">{pseudoError}</p>
         </div>
         <SubmitButton
           buttonName="S'inscrire"
         />
       </form>
-      <p className="connexionRedirect">Déjà inscrit ?
+      <div className="connexionRedirect">Déjà inscrit ?
         <div className="loginNavlink">
           <NavLink
             to="/login"
@@ -96,7 +98,7 @@ const RegisterForm = ({
           </NavLink>
         </div>
 
-      </p>
+      </div>
 
     </div>
   );
@@ -135,4 +137,5 @@ RegisterForm.defaultProps = {
   pseudoError: '',
 };
 
+// == Export
 export default RegisterForm;

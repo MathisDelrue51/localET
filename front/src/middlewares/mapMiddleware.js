@@ -1,4 +1,7 @@
+// import npm
 import axios from 'axios';
+
+// import
 import {
   FETCH_CURIOSETS, SUBMIT_SEARCH, fetchCuriosetsSuccess, fetchCuriosetsError, submitSearchSuccess,
 } from 'src/actions/map';
@@ -13,10 +16,9 @@ export default (store) => (next) => (action) => {
   // console.log('on a intercepté une action dans le middleware MAP: ', action);
   switch (action.type) {
     case FETCH_CURIOSETS:
-
-      console.log('Recherche curiosETs');
-      // Fetch request to get curiosETs
+      // console.log('Recherche curiosETs');
       next(action);
+      // Fetch request to get curiosETs
       axios({
         method: 'get',
         url: `${SERVER_URL}/`,
@@ -27,22 +29,23 @@ export default (store) => (next) => (action) => {
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
-          console.error(err);
+          // console.error(err);
           const actionToError = fetchCuriosetsError();
           store.dispatch(actionToError);
         });
       
       break;
     case SUBMIT_SEARCH:
-      console.log('Recherche adresses');
+      // console.log('Recherche adresses');
       const { address } = store.getState().map;
+      // connect to .gouv API to verify adresses on map searchbar
       axios({
         method: 'get',
         url: `https://api-adresse.data.gouv.fr/search/?q=${address}&limit=5`,
       })
         .then((res) => {
-          console.log("je reçois ça de l'api", res);
-          console.log(res.data.features[0].geometry.coordinates[0]);
+          // console.log("je reçois ça de l'api", res);
+          // console.log(res.data.features[0].geometry.coordinates[0]);
           const actionToDispatch = submitSearchSuccess(
             res.data.features[0].geometry.coordinates[0],
             res.data.features[0].geometry.coordinates[1],
@@ -50,7 +53,7 @@ export default (store) => (next) => (action) => {
           store.dispatch(actionToDispatch);
         })
         .catch((err) => {
-          console.error(err);
+          // console.error(err);
         });
       break;
     default:

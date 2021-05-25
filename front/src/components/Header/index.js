@@ -2,13 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import { NavLink, Route, Switch } from 'react-router-dom';
+import { Menu, X } from 'react-feather';
 
-import { Menu } from 'react-feather';
-import { X } from 'react-feather';
-
-// import
+// Import
 import './styles.scss';
 import LoginForm from 'src/containers/LoginForm';
 import NavLoggedIn from 'src/containers/NavLoggedIn';
@@ -19,8 +16,7 @@ import logo from 'src/assets/localETlogo.png';
 const Header = ({ isLogged, openMenu, open, closeMenu }) => {
   const cssClassMenu = classNames({'menuOptions': !open }, { 'menuOptionsMobile': open });
   const cssClassMenuIcon = classNames({'burgerMenu': !open}, { 'burgerMenuOff': open });
-  const closeButton = classNames({'closeButtonOff': !open}, {'closeButtonOn': open})
-  console.log(open);
+  const closeButton = classNames({'closeButtonOff': !open}, {'closeButtonOn': open});
   return (
 
     <div className="header">
@@ -68,6 +64,11 @@ const Header = ({ isLogged, openMenu, open, closeMenu }) => {
 Header.propTypes = {
   /** toggle between "connected" or "not connected" */
   isLogged: PropTypes.bool,
+  /** toggle between open menu and close menu */
+  openMenu: PropTypes.func.isRequired,
+  closeMenu: PropTypes.func.isRequired,
+  /** value in state when the burger menu is open/close */
+  open: PropTypes.bool.isRequired,
 };
 
 Header.defaultProps = {

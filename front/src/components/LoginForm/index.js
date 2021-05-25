@@ -1,19 +1,21 @@
+// NPM import
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { NavLink } from 'react-router-dom';
 
+// Import
 import Field from 'src/components/Field';
 import SubmitButton from 'src/components/SubmitButton';
-
 import './styles.scss';
 
+// Component
 const LoginForm = ({
   email,
   password,
   changeField,
   handleLogin,
   closeMenu,
+  loginError,
 }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -46,6 +48,7 @@ const LoginForm = ({
         />
 
       </form>
+      <p className="fieldError">{loginError}</p>
       <div className="formSwitch">Pas encore inscrit ?
         <NavLink
           to="/subscribe"
@@ -74,6 +77,11 @@ LoginForm.propTypes = {
   changeField: PropTypes.func.isRequired,
   /** called when the form is submitted */
   handleLogin: PropTypes.func.isRequired,
+  /** handle click to register - mobile */
+  closeMenu: PropTypes.func.isRequired,
+  /** gets error message if something wrong is submitted for login */
+  loginError: PropTypes.string.isRequired,
 };
 
+// Export
 export default LoginForm;

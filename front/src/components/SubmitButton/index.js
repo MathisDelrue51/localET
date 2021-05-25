@@ -13,7 +13,9 @@ const SubmitButton = ({ buttonName }) => (
 );
 
 SubmitButton.propTypes = {
+  /** name of this specific button */
   buttonName: PropTypes.string.isRequired,
 };
 
+// == Export
 export default SubmitButton;

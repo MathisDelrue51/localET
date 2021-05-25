@@ -1,13 +1,17 @@
 @use 'src/styles/vars';
 
 .register {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   font-size: vars.$text;
 
   @media (max-width: 480px) {
     font-size: vars.$textMobile;
   }
 
+  // PAGE TITLE
   &__title {
     font-weight: bold;
     font-size: vars.$mainTitle;
@@ -18,10 +22,11 @@
     }
   }
 
+  // FIELD TITLES
   &__subtitle {
     font-weight: bold;
     font-size: vars.$secondaryTitle;
-    margin: 1.5rem 0;
+    margin: 1.5rem auto;
 
     @media (max-width: 480px) {
       font-size: vars.$secondaryTitleMobile;
@@ -29,56 +34,76 @@
   }
 
   &__form {
-    margin: 3em auto;
+    margin: 1rem auto;
 
     .block {
-      margin-bottom: 1.8em;
+      margin-bottom: 1.8rem;
 
       .field {
 
         .fieldInput {
           width: 350px;
-        }
-      }
 
-      p {
-        font-style: italic;
-        color: vars.$mainColor;
+          @media (max-width: 480px) {
+            width: 300px;
+          }
+
+          @media (max-width: 320px) {
+            width: 280px;
+          }
+
+          @media (max-width: 280px) {
+            width: 250px;
+          }
+        }
       }
     }
 
-    @media (max-width: 480px) {
-      margin: 1.2em auto;
+    // STYLE FOR ERRORS WHEN SUBMITTING WRONG INFO
+    .fieldError {
+      text-align: left;
+      font-size: vars.$textSmaller;
+      font-style: italic;
+      color: vars.$mainColor;
+      padding: 0.3rem 1rem 1rem 0;
 
-      .block {
-        margin-bottom: 0.5em;
+      @media screen and (max-width: 480px) {
+        font-size: vars.$textSmallerMobile;
+        padding: 0.3rem 1rem 1rem 0.2rem;
+        width: 300px;
+      }
+    }
 
-        .field {
+    // STYLE FOR ADDITIONNAL INFOS TO BE DISPLAYED BELOW FIELDS
+    .additionnalFieldInfo {
+      padding-top: 0.3rem;
+      font-style: italic;
+      color: vars.$darkGrey;
+      font-size: vars.$extraSmallText;
+      width: 350px;
+      text-align: left;
 
-          .fieldInput {
-            width: 350px;
-          }
-        }
-
-        p {
-          font-style: italic;
-          color: vars.$mainColor;
-          font-size: vars.$textMobile;
-        }
+      // SMALL SIZE DEVICE
+      @media screen and (max-width: 480px) {
+        font-size: vars.$extraSmallTextMobile;
+        width: 290px;
       }
     }
   }
 
-  .connexionRedirect {
-    margin-bottom: 2.2em;
+}
 
-    .loginNavlink {
-      margin-left: 1.5em;
-      display: inline-block;
+// BACK HOME LINK
+.connexionRedirect {
+  margin: 2rem auto;
 
-      .navLink:hover {
-        text-decoration: underline solid vars.$mainColor vars.$borderThickness;
-      }
+  .loginNavlink {
+    margin-left: 1.5rem;
+    display: inline-block;
+    color: vars.$highlightColor;
+
+    .navLink:hover {
+      text-decoration: underline solid vars.$mainColor vars.$borderThickness;
     }
   }
 }

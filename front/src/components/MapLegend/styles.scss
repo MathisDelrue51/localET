@@ -1,0 +1,58 @@
+@use 'src/styles/vars';
+
+.mapLegend {
+  // POSITION OF LEGEND ON MAP
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2000;
+
+  // STYLE OF LEGEND
+  padding: 0.5rem;
+  background-color: rgba($color: vars.$darkGrey, $alpha: 0.7);
+  border-radius: vars.$borderRadius;
+  display: flex;
+  flex-direction: column;
+
+  // CONDITIONNAL CLASSES TO HANDLE CLOSED AND OPEN STATE OF LEGEND
+  .legendOpenVisible {
+    display: block;
+    width: 10rem;
+
+    .closeIcon:hover {
+      cursor: pointer;
+    }
+  }
+
+  .legendOpenInvisible {
+    display: none;
+  }
+
+  .legendCloseInvisible {
+    display: none;
+  }
+
+  .legendCloseVisible {
+    display: block;
+    width: 3rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // MAP LEGEND ITEM
+  &__type {
+    color: vars.$white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+
+    img {
+      width: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}

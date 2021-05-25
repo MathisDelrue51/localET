@@ -1,25 +1,31 @@
 @use 'src/styles/vars';
 
 .addCuriosLink {
-  margin: auto;
-  max-width: 100%;
-  width: 100px;
-  background-color: vars.$highlightColor;
-  color: vars.$white;
-  font-weight: bold;
+  // FLEXBOX
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   align-content: center;
+
+  // SIZE, MARGIN & PADDING
+  margin: auto;
+  max-width: 100%;
+  width: 100px;
   padding: 0.5rem 0.8rem;
+
+  // COLORS, TEXT & BORDERS
+  background-color: vars.$highlightColor;
+  color: vars.$white;
+  font-weight: bold;
   border-radius: vars.$borderRadius;
+
+  // POSITION
   position: absolute;
   top: 80px;
   left: 10px;
   z-index: 2000;
 
-  &__plus:hover {}
 
   &__text {
     align-self: center;

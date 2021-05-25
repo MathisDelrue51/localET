@@ -13,7 +13,6 @@ const authController = {
 
             //If user is null it means the email is not regsitered in the database and it throws an error
             if (!user){
-                console.log("pas d'email correspondant");
                 throw new Error(`no user with email ${req.body.email}`);
             }
 
@@ -21,7 +20,6 @@ const authController = {
 
             //If password doesn't match it throws an error
             if (!isPasswordValid) {
-                console.log('Mauvais mot de passe')
                 throw new Error(`Wrong password`);                
             }
 
@@ -30,8 +28,6 @@ const authController = {
             const token = generateAccessToken({
                 email: req.body.email
             });
-
-            console.log('Vous êtes connecté');
 
             //Everything went right, we send needed information to the front
             res.status(200).json({
@@ -48,16 +44,9 @@ const authController = {
 
     },
 
-    //We remove user from session
-    //TODO should we set current token time to 0? And remove token from state
     logout: (req, res, next) => {        
         res.redirect('/');
     },
-
-    //Just to do some test during dev
-    connected: (req, res, next) => {
-        res.json('Un utilisateur est connecté');
-    }
 
 };
 

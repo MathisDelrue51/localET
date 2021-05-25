@@ -1,55 +1,126 @@
 @use 'src/styles/vars';
 
-.updateEventForm {
-  margin: 1.4em auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  .updateBlock {
-    margin-bottom: 1em;
-    .field {
-      display: flex;
-      flex-direction: column-reverse;
-      padding: 1rem;
-      width: 500px;
-      label {
-        align-self: flex-start;
-        margin: 0.2em 0;
-        font-weight: bold;
-      }
-    }
-    .radioTitle {
-      font-weight: bold;
-      margin-bottom: 0.2em;
-    } 
-  }
-}
-
+//
+// PAGE TITLE
+//
 .updateTitle {
-  margin-top: 1em;
+  margin-top: 1rem;
   font-size: vars.$mainTitle;
   font-weight: bold;
-}
 
-@media (max-width: 480px) {
-  
-  .updateEventForm {
-    font-size: vars.$textMobile;
-    display: flex;
-    flex-direction: column;
-    .updateBlock {
-      .field {
-        display: flex;
-        flex-direction: column-reverse;
-        width: 400px;
-      }
-    }
-  }
-  .updateTitle {
+  // SMALL SIZE DEVICE
+  @media screen and (max-width: 480px) {
     font-size: vars.$mainTitleMobile;
   }
 }
 
-form {
-  margin: 1.5em auto 2em auto;
+//
+// FORM
+//
+.updateEventForm {
+  margin: 1.4rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // SMALL SIZE DEVICE
+  @media screen and (max-width: 480px) {
+    font-size: vars.$textMobile;
+  }
+
+  //
+  // FORM BLOCK
+  //
+  .updateBlock {
+    margin-bottom: 1rem;
+
+    .field {
+      display: flex;
+      flex-direction: column-reverse;
+      padding: 1rem 1rem 0 1rem;
+      width: 500px;
+
+      label {
+        align-self: flex-start;
+        margin: 0.2rem 0;
+        font-weight: bold;
+      }
+
+      // SMALL SIZE DEVICE
+      @media screen and (max-width: 480px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 460px;
+      }
+
+      // SMALLER SIZE DEVICE
+      @media screen and (max-width: 430px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 410px;
+      }
+
+      // EVEN SMALLER SIZE DEVICE
+      @media screen and (max-width: 380px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 360px;
+      }
+
+      // EVEN EVEN SMALLER SIZE DEVICE
+      @media screen and (max-width: 320px) {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 300px;
+      }
+    }
+  }
+
+  // ERROR MESSAGES
+  .fieldError {
+    text-align: left;
+    font-size: vars.$textSmaller;
+    font-style: italic;
+    color: vars.$mainColor;
+    padding: 0.3rem 1rem 1rem 1rem;
+
+    @media screen and (max-width: 480px) {
+      font-size: vars.$textSmallerMobile;
+    }
+  }
+
+  //
+  // STYLING OF FORM BLOCK CONTAINING RADIO BUTTONS
+  //
+  .categoryBlock {
+    padding: 1rem;
+
+    .radioTitle {
+      font-weight: bold;
+      margin: 0.2em 0;
+      text-align: left;
+    }
+
+    .radioField {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: flex-start;
+
+      label {
+        padding: 0.5rem 0.5rem 0.5rem 0;
+
+        .fieldInput {
+          margin-right: 0.5rem;
+          ;
+        }
+      }
+    }
+  }
+
 }

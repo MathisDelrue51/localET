@@ -1,29 +1,31 @@
-import {
-  connect,
-} from 'react-redux';
+import { connect } from 'react-redux';
+
+// Import component
 import App from 'src/components/App';
-import {
-  fetchCuriosets,
-} from 'src/actions/map';
+import { fetchCuriosets } from 'src/actions/map';
 import { saveUserBrowser } from '../../actions/auth';
 
+// === mapStateToProps
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
-  // element to get from the state
   pseudo: state.auth.pseudo,
   token: state.auth.token,
 });
 
+// === mapDispatchToProps
+// for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
+  // to fetch all curiosETs at page loading
   fetchCuriosets: () => {
-    console.log('fetch curiosETs');
     const action = fetchCuriosets();
     dispatch(action);
   },
+  // to save user info in localStorage
   saveUser: (token, pseudo, id, logged) => {
-    console.log('save token');
     const action = saveUserBrowser(token, pseudo, id, logged);
     dispatch(action);
   },
 });
 
+// Export
 export default connect(mapStateToProps, mapDispatchToProps)(App);

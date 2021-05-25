@@ -41,9 +41,10 @@ const schema = Joi.object({
     'string.min': `Le champ Date et Heure doit contenir minimum 3 caractères`,
     'string.empty': `Le champ Date et Heure est requis`
   }),
-  price: Joi.number().min(0).required().messages({
+  price: Joi.number().min(0).max(1000).required().messages({
     'number.base': `Le champ prix est requis, ce doit être un nombre, 0 étant gratuit`,
     'number.min': `Le prix doit être un nombre supérieur ou égal à 0 (gratuit)`,
+    'number.max': `Le prix maximum est de 1000€`,
     'string.empty': `Le champ prix est requis`
   }),
   user_id: Joi.number().integer().positive().required().messages({
@@ -53,8 +54,8 @@ const schema = Joi.object({
     'string.empty': `Le champ user_id est requis`
   }),
   category_id: Joi.number().integer().positive().required().messages({
-    'number.base': `Choisir une catégorie parmis celles proposées`,
-    'number.positive': `Le champ category_id doit être de type nombre`,
+    'number.base': `Choisir une catégorie parmi celles proposées`,
+    'number.positive': `Choisir une catégorie parmi celles proposées`,
     'number.integer': `category_id doit être un nombre entier`,
     'string.empty': `Le champ category_id est requis`
   })

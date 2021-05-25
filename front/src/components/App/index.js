@@ -28,7 +28,6 @@ const App = ({
   token,
   saveUser,
 }) => {
-  console.log(fetchCuriosets);
   useEffect(() => {
     fetchCuriosets();
   }, []);
@@ -71,10 +70,13 @@ const App = ({
         <Route path="/login">
           <Map />
         </Route>
+        <Route path="/logout">
+          <Map />
+        </Route>
         <Route path="/" exact>
           <Map />
         </Route>
-        <Route path="/">
+        <Route path="*">
           <Page404 />
         </Route>
       </Switch>
@@ -84,8 +86,11 @@ const App = ({
 };
 
 App.propTypes = {
+  /** value of the token */
   token: PropTypes.string,
+  /** called at page loading to retrieve all events and show them on map */
   fetchCuriosets: PropTypes.func.isRequired,
+  /** called to save user info imported from localStorage in state */
   saveUser: PropTypes.func.isRequired,
 };
 

@@ -22,14 +22,23 @@ export const HANDLE_ERROR_REGISTER = 'HANDLE_ERROR_REGISTER';
 
 export const REMOVE_ERROR_REGISTER = 'REMOVE_ERROR_REGISTER';
 
+export const HANDLE_ERROR_LOGIN = 'HANDLE_ERROR_LOGIN';
+
+// action to remove unrelevant error messages after user correction
 export const removeErrorRegister = () => ({
   type: REMOVE_ERROR_REGISTER,
 });
 
+// action to send back error messages to user in register
 export const handleErrorRegister = (path, message) => ({
   type: HANDLE_ERROR_REGISTER,
   path,
   message,
+});
+
+// action to send back error messages to user in register
+export const handleErrorLogin = () => ({
+  type: HANDLE_ERROR_LOGIN,
 });
 
 // action to save token in state when refresh happens
@@ -42,11 +51,11 @@ export const saveUserBrowser = (token, pseudo, id, logged) => ({
 });
 
 // action when data is sent from DB
-
-export const fetchProfileSuccess = (email, profileList) => ({
+export const fetchProfileSuccess = (email, profileList, id) => ({
   type: FETCH_PROFILE_SUCCESS,
   email,
   profileList,
+  id,
 });
 
 // action when user goes on their profile page
@@ -85,10 +94,12 @@ export const logOut = () => ({
   type: LOG_OUT,
 });
 
+// action to open menu on mobile
 export const toggleOpenMenu = () => ({
   type: TOGGLE_OPEN_MENU,
 });
 
+// action to close menu on mobile
 export const toggleCloseMenu = () => ({
   type: TOGGLE_CLOSE_MENU,
 });

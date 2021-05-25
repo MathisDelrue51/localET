@@ -40,4 +40,4 @@ app.use(express.static(path.join(__dirname,'../front/dist')));
 
 app.use('/api', router);
 
-app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
+app.listen(port, () => console.log(`Server running`));
