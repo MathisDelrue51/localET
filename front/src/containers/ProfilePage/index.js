@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   email: state.auth.email,
   pseudo: state.auth.pseudo,
   profileList: state.auth.profileList,
+  id: state.auth.id,
 });
 
 // === mapDispatchToProps
