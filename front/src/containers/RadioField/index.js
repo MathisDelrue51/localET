@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import RadioField from 'src/components/RadioField';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   category: state.curioset.category,

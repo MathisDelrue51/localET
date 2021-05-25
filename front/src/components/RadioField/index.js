@@ -17,12 +17,10 @@ const RadioField = ({
   // manageChecked will eventually be connected to actions
   const handleChecked = (evt) => {
     manageChecked(evt.target.value, name);
-    console.log(`Dans handleChecked ${evt}`);
-    console.log(evt);
-    console.log('ma catégorie :', category);
+    // console.log(`Dans handleChecked ${evt}`);
+    // console.log('ma catégorie :', category);
   };
-  console.log('Radio field');
-  console.log(value);
+  // console.log('Radio field', value);
 
   return (
     <div className="radioField">

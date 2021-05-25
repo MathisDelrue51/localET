@@ -1,14 +1,13 @@
 import { connect } from 'react-redux';
 
-import {
-  updateEventField, updateRadioOption, submitAddressSearch,
-} from 'src/actions/curioset';
+// Import action
+import { updateEventField, updateRadioOption, submitAddressSearch } from 'src/actions/curioset';
 
 // Import component
 import CreateEventForm from 'src/components/CreateEventForm';
 
 // === mapStateToProps
-// for information to be read
+// for information to be passed from state to component
 const mapStateToProps = (state) => ({
   // element to get from the state
   name: state.curioset.name,
@@ -31,18 +30,19 @@ const mapStateToProps = (state) => ({
 // === mapDispatchToProps
 // for information to be dispatched to the store (state modification)
 const mapDispatchToProps = (dispatch) => ({
-  // nom de la prop à remplir: fonction qui dispatch l'action
+  // to send info about the form field that was modified
   changeField: (newValue, name) => {
     // console.log(`newValue: ${newValue}, name: ${name}`);
     const action = updateEventField(newValue, name);
     dispatch(action);
   },
-
+  // to send info about the radio button that was checked
   changeChecking: (newValue, radioGroupName) => {
     console.log(`newValue: ${newValue}`);
     dispatch(updateRadioOption(newValue, radioGroupName));
   },
 
+  // verifies address through .gouv API
   handleCreateEvent: () => {
     dispatch(submitAddressSearch());
   },
