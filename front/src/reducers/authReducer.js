@@ -44,6 +44,13 @@ function authReducer(state = initialState, action) {
     case REMOVE_ERROR_REGISTER:
       return {
         ...state,
+        errors: {
+          ...state.errors,
+          email: '',
+          password: '',
+          password2: '',
+          pseudo: '',
+        },
         email: '',
         password: '',
         password2: '',
