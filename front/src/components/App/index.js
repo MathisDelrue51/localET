@@ -73,7 +73,7 @@ const App = ({
         <Route path="/" exact>
           <Map />
         </Route>
-        <Route path="*">
+        <Route path="/">
           <Page404 />
         </Route>
       </Switch>
