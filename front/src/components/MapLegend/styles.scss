@@ -18,16 +18,14 @@
   .legendOpenVisible {
     display: block;
     width: 10rem;
+
+    .closeIcon:hover {
+      cursor: pointer;
+    }
   }
 
   .legendOpenInvisible {
-    display: block;
-    width: 10rem;
-
-
-    @media screen and (max-width: 780px) {
-      display: none;
-    }
+    display: none;
   }
 
   .legendCloseInvisible {
@@ -35,12 +33,11 @@
   }
 
   .legendCloseVisible {
-    display: none;
+    display: block;
+    width: 3rem;
 
-
-    @media screen and (max-width: 780px) {
-      display: block;
-      width: 3rem;
+    &:hover {
+      cursor: pointer;
     }
   }
 
