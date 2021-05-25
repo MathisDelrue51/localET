@@ -34,7 +34,9 @@ const authMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response.data);
           const actionToDispatch = fetchProfileSuccess(
-            response.data.email, response.data.curiosets,
+            response.data.email,
+            response.data.curiosets,
+            auth.id,
           );
           store.dispatch(actionToDispatch);
         })

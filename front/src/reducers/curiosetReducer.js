@@ -69,12 +69,12 @@ function curiosetReducer(state = initialState, action) {
         dateTime: '',
         price: '',
         description: '',
-        category: '',
+        category: 0,
         type: '',
-        longitude: '',
-        latitude: '',
-        idEvent: '',
-        idEventAuthor: '',
+        longitude: null,
+        latitude: null,
+        idEvent: null,
+        idEventAuthor: null,
       };
     case REMOVE_ERROR_EVENT:
       return {
@@ -177,7 +177,7 @@ function curiosetReducer(state = initialState, action) {
         website: action.data.website,
         dateTime: action.data.agenda,
         description: action.data.description,
-        price: parseInt(action.data.price, number),
+        price: parseFloat(action.data.price),
         category: action.data.category_id,
         type: action.data.type,
         longitude: action.data.longitude,
@@ -236,7 +236,7 @@ function curiosetReducer(state = initialState, action) {
       if (action.radioGroupName === 'category') {
         return {
           ...state,
-          category: action.newValue,
+          category: parseInt(action.newValue, number),
         };
       }
       break;
@@ -252,7 +252,7 @@ function curiosetReducer(state = initialState, action) {
     case SAVE_ID:
       return {
         ...state,
-        idEvent: action.idEvent,
+        idEvent: parseInt(action.idEvent, number),
       };
 
     default:

@@ -95,7 +95,7 @@ function authReducer(state = initialState, action) {
         ...state,
         token: action.token,
         pseudo: action.pseudo,
-        id: parseInt(action.id),
+        id: parseInt(action.id, number),
         logged: Boolean(action.logged),
       };
     case FETCH_PROFILE_SUCCESS:
@@ -146,7 +146,7 @@ function authReducer(state = initialState, action) {
         password: '',
         token: action.token,
         pseudo: action.pseudo,
-        id: action.id,
+        id: parseInt(action.id, number),
       };
     case LOG_OUT:
       return {
